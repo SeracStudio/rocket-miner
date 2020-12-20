@@ -30,7 +30,7 @@ public class DirectionFunc
         }
     }
 
-    public static Direction Inverse(Direction direction)
+    public static Direction Reverse(Direction direction)
     {
         switch (direction)
         {
@@ -41,8 +41,43 @@ public class DirectionFunc
             case Direction.EAST:
                 return Direction.WEST;
             case Direction.SOUTH:
-            default:
                 return Direction.NORTH;
+            default:
+                return direction;
+        }
+    }
+
+    public static Direction ClockWiseRotation(Direction direction)
+    {
+        switch (direction)
+        {
+            case Direction.NORTH:
+                return Direction.EAST;
+            case Direction.WEST:
+                return Direction.NORTH;
+            case Direction.EAST:
+                return Direction.SOUTH;
+            case Direction.SOUTH:
+                return Direction.WEST;
+            default:
+                return direction;
+        }
+    }
+
+    public static Direction CounterClockWiseRotation(Direction direction)
+    {
+        switch (direction)
+        {
+            case Direction.NORTH:
+                return Direction.WEST;
+            case Direction.WEST:
+                return Direction.SOUTH;
+            case Direction.EAST:
+                return Direction.NORTH;
+            case Direction.SOUTH:
+                return Direction.EAST;
+            default:
+                return direction;
         }
     }
 

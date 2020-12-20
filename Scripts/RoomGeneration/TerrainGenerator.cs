@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TerrainGenerator : MonoBehaviour
 {
-    private DirectionGenerator directionGenerator;
+    private ForwardPathGenerator forwardPath;
 
     public Room baseRoom;
     public float roomSize;
@@ -15,49 +15,11 @@ public class TerrainGenerator : MonoBehaviour
     private Direction lastDirection;
     private Room lastRoom;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            lastRoom = null;
-            transform.position = Vector3.zero;
-            foreach(var v in generatedRooms.Values)
-            {
-                Destroy(v.gameObject);
-            }
-
-            generatedRooms.Clear();
-
-            directionGenerator = new DirectionGenerator(new Dictionary<Direction, int>()
-        {
-            { Direction.NORTH, 0},
-            { Direction.WEST, 2},
-            { Direction.EAST, 2},
-            { Direction.SOUTH, 1},
-        });
-            currentWidth = currentDepth = 1;
-
-            while (currentDepth < LevelsDepth)
-            {
-                SpawnRoom();
-                MoveSpawnPoint();
-            }
-
-            SpawnRoom();
-        }
-    }
-
     private void Awake()
     {
         generatedRooms = new Dictionary<Vector3, Room>();
 
-        directionGenerator = new DirectionGenerator(new Dictionary<Direction, int>()
-        {
-            { Direction.NORTH, 0},
-            { Direction.WEST, 2},
-            { Direction.EAST, 2},
-            { Direction.SOUTH, 1},
-        });
+        forwardPath = new ForwardPathGenerator(Direction.SOUTH, 1, 3);
         currentWidth = currentDepth = 1;
 
         while (currentDepth < LevelsDepth)
@@ -71,43 +33,24 @@ public class TerrainGenerator : MonoBehaviour
 
     private void MoveSpawnPoint()
     {
-        Direction direction = directionGenerator.Generate();
+        Direction direction = forwardPath.Generate();
 
-        if (direction == Direction.WEST)
+        if(direction != forwardPath.forward)
         {
             currentWidth++;
-            directionGenerator.ReplaceDirectionSet(new Dictionary<Direction, int> {
-                { Direction.WEST, 2 },
-                { Direction.SOUTH, 1 }
-            });
-        }
-
-        if (direction == Direction.EAST)
-        {
-            currentWidth++;
-            directionGenerator.ReplaceDirectionSet(new Dictionary<Direction, int> {
-                { Direction.EAST, 2 },
-                { Direction.SOUTH, 1 }
-            });
-        }
-
-        if (currentWidth > maxLevelWidth)
-        {
-            currentWidth = 1;
-            direction = Direction.SOUTH;
-        }
-
-        if (direction == Direction.SOUTH)
-        {
-            directionGenerator.ReplaceDirectionSet(new Dictionary<Direction, int> {
-                { Direction.WEST, 2 },
-                { Direction.EAST, 2 },
-                { Direction.SOUTH, 1 }
-            });
-            currentDepth++;
-        }
+            if (currentWidth > maxLevelWidth)
+            {
+                currentWidth = 1;
+                direction = forwardPath.forward;
+                forwardPath.Reset();
+            }
+        }   
 
         lastDirection = direction;
+        if (direction == forwardPath.forward)
+        {
+            currentDepth++;
+        }
 
         transform.Translate(DirectionFunc.GetVector(direction) * roomSize);
     }

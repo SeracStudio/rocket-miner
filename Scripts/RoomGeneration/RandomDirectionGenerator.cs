@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DirectionGenerator
+public class RandomDirectionGenerator
 {
     private class WeightedDirection
     {
@@ -16,10 +16,15 @@ public class DirectionGenerator
         }
     }
 
-    private List<WeightedDirection> directions;
+    private readonly List<WeightedDirection> directions;
     private int totalWeight;
 
-    public DirectionGenerator(Dictionary<Direction, int> weightedDirections)
+    public RandomDirectionGenerator()
+    {
+        directions = new List<WeightedDirection>();
+    }
+
+    public RandomDirectionGenerator(Dictionary<Direction, int> weightedDirections)
     {
         directions = new List<WeightedDirection>();
         ReplaceDirectionSet(weightedDirections);
@@ -44,7 +49,7 @@ public class DirectionGenerator
         }
     }
 
-    public Direction Generate()
+    public virtual Direction Generate()
     {
         int position = Random.Range(0, totalWeight);
 
