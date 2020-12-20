@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private Vector2 direction;
     private float dirX;
     private float dirY;
+    private Vector2 lastDirection;
 
     public bool dash=false;
 
@@ -49,10 +50,14 @@ public class Player : MonoBehaviour
         dirX = Input.GetAxisRaw("Vertical");
         dirY = Input.GetAxisRaw("Horizontal");
         direction = new Vector2(dirY, dirX);
+        if(direction.x!=0.0f || direction.y != 0.0f)
+        {
+            lastDirection = direction;
+        }
     }
 
     public Vector2 getLookingDirection()
     {
-        return direction;
+        return lastDirection;
     }
 }
