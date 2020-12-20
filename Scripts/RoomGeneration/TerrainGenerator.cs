@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class TerrainGenerator : MonoBehaviour
 {
-    private ForwardPathGenerator forwardPath;
+    private ForwardPathGenerator path;
 
-    public Room baseRoom;
+    public Room baseRoom, branchRoom;
     public float roomSize;
     private Dictionary<Vector3, Room> generatedRooms;
 
@@ -19,35 +19,51 @@ public class TerrainGenerator : MonoBehaviour
     {
         generatedRooms = new Dictionary<Vector3, Room>();
 
-        forwardPath = new ForwardPathGenerator(Direction.SOUTH, 1, 3);
+        GeneratePath(DirectionFunc.GetRandom(), baseRoom, null);
+
+        Room[] criticalRooms = new Room[generatedRooms.Count];
+        generatedRooms.Values.CopyTo(criticalRooms, 0);
+
+        foreach(Room criticalRoom in criticalRooms)
+        {
+            transform.position = criticalRoom.transform.position;
+            GeneratePath(DirectionFunc.GetRandom(), branchRoom, criticalRoom);
+        }
+    }
+
+    private void GeneratePath(Direction forward, Room roomType, Room starting)
+    {
+        path = new ForwardPathGenerator(forward, 1, 3);
         currentWidth = currentDepth = 1;
+        lastRoom = starting;
+
+        if (lastRoom == null)
+            SpawnRoom(roomType);
 
         while (currentDepth < LevelsDepth)
         {
-            SpawnRoom();
             MoveSpawnPoint();
+            SpawnRoom(roomType);
         }
-
-        SpawnRoom();
     }
 
     private void MoveSpawnPoint()
     {
-        Direction direction = forwardPath.Generate();
+        Direction direction = path.Generate();
 
-        if(direction != forwardPath.forward)
+        if (direction != path.forward)
         {
             currentWidth++;
             if (currentWidth > maxLevelWidth)
             {
                 currentWidth = 1;
-                direction = forwardPath.forward;
-                forwardPath.Reset();
+                direction = path.forward;
+                path.Reset();
             }
-        }   
+        }
 
         lastDirection = direction;
-        if (direction == forwardPath.forward)
+        if (direction == path.forward)
         {
             currentDepth++;
         }
@@ -55,11 +71,21 @@ public class TerrainGenerator : MonoBehaviour
         transform.Translate(DirectionFunc.GetVector(direction) * roomSize);
     }
 
-    private void SpawnRoom()
+    private void SpawnRoom(Room room)
     {
-        Room nextRoom = Instantiate(baseRoom, transform.position, Quaternion.identity);
+        Room nextRoom;
+
+        if (generatedRooms.ContainsKey(transform.position))
+        {
+            nextRoom = generatedRooms[transform.position];
+        }
+        else
+        {
+            nextRoom = Instantiate(room, transform.position, Quaternion.identity);
+            generatedRooms.Add(transform.position, nextRoom);
+        }
+
         nextRoom.Connect(lastDirection, lastRoom);
         lastRoom = nextRoom;
-        generatedRooms.Add(transform.position, nextRoom);
     }
 }

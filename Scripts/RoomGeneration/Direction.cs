@@ -85,4 +85,37 @@ public class DirectionFunc
     {
         return Enum.GetValues(typeof(Direction)).Cast<Direction>().ToList();
     }
+
+    public static List<Direction> GetAll(List<Direction> excluding)
+    {
+        List<Direction> allDirections = GetAll();
+
+        foreach(var dir in excluding)
+        {
+            allDirections.Remove(dir);
+        }
+
+        return allDirections;
+    }
+
+    public static Direction GetRandom()
+    {
+        switch (UnityEngine.Random.Range(0, 4))
+        {
+            case 0:
+                return Direction.NORTH;
+            case 1:
+                return Direction.WEST;
+            case 2:
+                return Direction.EAST;
+            case 3:
+            default:
+                return Direction.SOUTH;
+        }
+    }
+
+    public static Direction GetRandom(IEnumerable<Direction> possible)
+    {
+        return possible.ElementAt(UnityEngine.Random.Range(0, possible.Count()));     
+    }
 }

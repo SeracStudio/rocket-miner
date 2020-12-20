@@ -153,9 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseRoom: {fileID: 537340033608005212, guid: 44b6a9a4c5b63bf4aa10dea477a5e957, type: 3}
+  branchRoom: {fileID: 537340033608005212, guid: 64db88af846eb4a44a4b795cb9e784cb, type: 3}
   roomSize: 20
-  maxLevelWidth: 3
-  LevelsDepth: 4
+  maxLevelWidth: 7
+  LevelsDepth: 7
 --- !u!4 &382963295
 Transform:
   m_ObjectHideFlags: 0
