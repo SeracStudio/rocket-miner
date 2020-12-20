@@ -14,8 +14,6 @@ public class TerrainGenerator : MonoBehaviour
 
     private Direction lastDirection;
     private Room lastRoom;
-    //MODIFICATION
-    public int mod;
 
     private void Update()
     {

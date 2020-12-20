@@ -9,14 +9,6 @@ public class SpawnObject : MonoBehaviour
 
     private void Awake()
     {
-        if (onAwake)
-        {
-            Spawn();
-        }
-    }
-
-    public void Spawn()
-    {
         GameObject spawned = Instantiate(spawnable, transform.position, Quaternion.identity);
         spawned.transform.parent = transform;
     }
