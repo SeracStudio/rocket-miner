@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public virtual void Start()
     {
         rigidBody = this.GetComponent<Rigidbody>();
+        this.rigidBody.detectCollisions = false;
     }
 
     // Update is called once per frame

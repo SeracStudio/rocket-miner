@@ -27,8 +27,6 @@ public class Girl : Player
 
         pbc = this.GetComponent<BulletController>();
         pbc.setBasics(15, shootDamage, 1,true);
-
-        this.rigidBody.detectCollisions = false;
     }
 
     public override void Update()
