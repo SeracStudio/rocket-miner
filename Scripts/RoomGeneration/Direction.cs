@@ -116,6 +116,8 @@ public class DirectionFunc
 
     public static Direction GetRandom(IEnumerable<Direction> possible)
     {
+        if (possible.Count() == 0) return GetRandom();
+
         return possible.ElementAt(UnityEngine.Random.Range(0, possible.Count()));     
     }
 }

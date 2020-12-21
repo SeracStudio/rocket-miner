@@ -1,17 +1,19 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TerrainGenerator : MonoBehaviour
 {
-    private ForwardPathGenerator path;
-
     public Room baseRoom, branchRoom;
     public float roomSize;
-    private Dictionary<Vector3, Room> generatedRooms;
 
-    public int maxLevelWidth, LevelsDepth;
+    public int pathWidth, pathDepth, lateralRatio;
+    [Range(0, 100)]
+    public int branchingRatio;
     private int currentWidth, currentDepth;
 
+    private ForwardPathGenerator path;
+    private Dictionary<Vector3, Room> generatedRooms;
     private Direction lastDirection;
     private Room lastRoom;
 
@@ -26,21 +28,24 @@ public class TerrainGenerator : MonoBehaviour
 
         foreach(Room criticalRoom in criticalRooms)
         {
+            if (Random.Range(0, 100) >= branchingRatio) continue;
+
             transform.position = criticalRoom.transform.position;
-            GeneratePath(DirectionFunc.GetRandom(), branchRoom, criticalRoom);
+            List<Direction> unconnected = DirectionFunc.GetAll(criticalRoom.connections.Keys.ToList());
+            GeneratePath(DirectionFunc.GetRandom(unconnected), branchRoom, criticalRoom);
         }
     }
 
     private void GeneratePath(Direction forward, Room roomType, Room starting)
     {
-        path = new ForwardPathGenerator(forward, 1, 3);
+        path = new ForwardPathGenerator(forward, 1, lateralRatio);
         currentWidth = currentDepth = 1;
         lastRoom = starting;
 
         if (lastRoom == null)
             SpawnRoom(roomType);
 
-        while (currentDepth < LevelsDepth)
+        while (currentDepth < pathDepth)
         {
             MoveSpawnPoint();
             SpawnRoom(roomType);
@@ -54,7 +59,7 @@ public class TerrainGenerator : MonoBehaviour
         if (direction != path.forward)
         {
             currentWidth++;
-            if (currentWidth > maxLevelWidth)
+            if (currentWidth > pathWidth)
             {
                 currentWidth = 1;
                 direction = path.forward;
@@ -87,5 +92,14 @@ public class TerrainGenerator : MonoBehaviour
 
         nextRoom.Connect(lastDirection, lastRoom);
         lastRoom = nextRoom;
+    }
+
+    private void ClearTerrain()
+    {
+        foreach (Room room in generatedRooms.Values)
+            Destroy(room.gameObject);
+
+        transform.position = Vector3.zero;
+        generatedRooms.Clear();
     }
 }
