@@ -15,10 +15,12 @@ public class Room : MonoBehaviour
     {
         if (room == null) return;
 
-        connections.Add(DirectionFunc.Inverse(connection), room);
-        room.connections.Add(connection, this);
+        if (!connections.ContainsKey(DirectionFunc.Reverse(connection)))
+            connections.Add(DirectionFunc.Reverse(connection), room);
+        if (!room.connections.ContainsKey(connection))
+            room.connections.Add(connection, this);
 
-        RemoveWall(GetWallPosition(DirectionFunc.Inverse(connection)));
+        RemoveWall(GetWallPosition(DirectionFunc.Reverse(connection)));
         room.RemoveWall(room.GetWallPosition(connection));
     }
 

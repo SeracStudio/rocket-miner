@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnObject : MonoBehaviour
 {
@@ -8,14 +6,6 @@ public class SpawnObject : MonoBehaviour
     public bool onAwake;
 
     private void Awake()
-    {
-        if (onAwake)
-        {
-            Spawn();
-        }
-    }
-
-    public void Spawn()
     {
         GameObject spawned = Instantiate(spawnable, transform.position, Quaternion.identity);
         spawned.transform.parent = transform;
