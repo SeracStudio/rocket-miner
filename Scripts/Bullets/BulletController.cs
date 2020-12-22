@@ -4,31 +4,19 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    private float size;
-    private float damage;
-    private float shootSpeed;
-    private bool playerShoot;
-
+    private Stats stats;
     public Bullet bullet;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        stats = this.GetComponent<Stats>();
     }
 
     // Update is called once per frame
     void Update()
     {
        
-    }
-
-    public void setBasics(float shootSpeedA, float damageA, float sizeA, bool playerShootA )
-    {
-        shootSpeed = shootSpeedA;
-        damage = damageA;
-        size = sizeA;
-        playerShoot = playerShootA;
     }
 
     public Vector2 dirCalculate(Vector3 pos)
@@ -45,9 +33,9 @@ public class BulletController : MonoBehaviour
         Bullet aux=Instantiate(bullet, pos, Quaternion.identity);
         //aux.dir = dirCalculate(pos);
         aux.dir = dirA;
-        aux.shootSpeed=shootSpeed;
-        aux.damage = damage;
-        aux.playerShoot = playerShoot;
-        aux.transform.localScale = new Vector3(size, size, size);
+        aux.shootSpeed=stats.getBulletSpeed();
+        aux.damage = stats.getShootDamage();
+        aux.playerShoot = stats.getIsPlayer();
+        aux.transform.localScale = new Vector3(stats.getBulletSize(), stats.getBulletSize(), stats.getBulletSize());
     }
 }

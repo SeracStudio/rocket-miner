@@ -7,17 +7,16 @@ public class Robot : Player
     public bool shield=false;
     public float shieldTime = 0;
     private bool canUseShield = true;
-    private float cdShield = 1.01f;
 
     public float punchTime = 0;
     private bool canUsePunch = true;
-    private float cdPunch = 2.01f;
     public bool punch = false;
 
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
+        stats.initRobotStats();
     }
 
     // Update is called once per frame
@@ -72,7 +71,7 @@ public class Robot : Player
         if (punchTime > 0)
         {
             punchTime += Time.deltaTime;
-            if (punchTime > cdPunch)
+            if (punchTime > stats.getCdOf())
             {
                 canUsePunch = true;
                 punchTime = 0;            
@@ -89,7 +88,7 @@ public class Robot : Player
         if (shieldTime > 0)
         {
             shieldTime += Time.deltaTime;
-            if (shieldTime > cdShield)
+            if (shieldTime > stats.getCdDef())
             {
                 canUseShield = true;
                 shieldTime = 0;

@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class Girl : Player
 {
-    public int shootsPerSecond=3;
-    public int shootDamage=2;
-    public int health = 100;
-
-    private int nDash = 2;
-    public int nDashDefault = 2;
-
     private float dashTime = 0;
+    private int nDash = 2;
     private float defTime = 0;
 
     private float ofTime = 0;
@@ -22,11 +16,9 @@ public class Girl : Player
     public override void Start()
     {
         base.Start();
-        cdOf = 1f / shootsPerSecond;
-        cdDef = 0.75f;
 
+        stats.initGirlStats();
         pbc = this.GetComponent<BulletController>();
-        pbc.setBasics(15, shootDamage, 1,true);
     }
 
     public override void Update()
@@ -43,7 +35,7 @@ public class Girl : Player
         if (canShoot)
         {
             ofTime += Time.deltaTime;
-            if (ofTime > cdOf)
+            if (ofTime > stats.getCdOf())
             {
                 ofTime = 0;
                 pbc.Shoot(transform.position, getLookingDirection());
@@ -67,10 +59,10 @@ public class Girl : Player
         if(defTime > 0)
         {
             defTime += Time.deltaTime;
-            if (defTime > cdDef)
+            if (defTime > stats.getCdDef())
             {
                 defTime = 0;
-                nDash =nDashDefault;
+                nDash =stats.getNDashDefault();
             }
         }
     }
@@ -113,17 +105,12 @@ public class Girl : Player
 
     private void changeDashCd()
     {
-        cdDef = 3;
+        stats.setCdDef(3);
     }
 
     private void releaseDashCd()
     {
-        cdDef = 0.75f;
+        stats.setCdDef(0.75f);
     }
 
-    private void changeShootsPerSecond(int increment)
-    {
-        shootsPerSecond += increment;
-        cdOf = 1f / shootsPerSecond;
-    }
 }

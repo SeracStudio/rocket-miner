@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
-    public float movementSpeed = 6f;
-    public float cdOf;
-    public float cdDef;
+    public Stats stats;
+    public Rigidbody rigidBody;
 
     private Vector2 direction;
     private float dirX;
@@ -16,13 +14,13 @@ public class Player : MonoBehaviour
 
     public bool dash=false;
 
-    public Rigidbody rigidBody;
-
     // Start is called before the first frame update
     public virtual void Start()
     {
         rigidBody = this.GetComponent<Rigidbody>();
-        this.rigidBody.detectCollisions = false;
+
+        stats = this.GetComponent<Stats>();
+        stats.initPlayerStats();
     }
 
     // Update is called once per frame
@@ -37,12 +35,11 @@ public class Player : MonoBehaviour
         Move();
     }
 
-
     private void Move()
     {
         if (!dash)
         {
-            rigidBody.velocity = new Vector3(direction.x * movementSpeed, 0, direction.y * movementSpeed);
+            rigidBody.velocity = new Vector3(direction.x * stats.getMovementSpeed(), 0, direction.y * stats.getMovementSpeed());
         }
     }
 

@@ -18,6 +18,15 @@ public class Bullet : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Colision");
+        if (other.tag == "Wall")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7134612511867341545}
   m_Layer: 0
   m_Name: BranchWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7e711926be3adf947bf24b2d122baa5b, type: 2}
+  - {fileID: 2100000, guid: c056058d55b3a574a8b5cdbb5ddac71f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,5 +93,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0624707, y: 1, z: 1.0603455}
+  m_Center: {x: 0.009020686, y: 0, z: 0.0010083318}

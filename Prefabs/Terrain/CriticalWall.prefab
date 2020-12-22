@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7464784517085955757}
   - component: {fileID: 7134612511867341545}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: CriticalWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aee931229c9797a4185c153580a70d7b, type: 2}
+  - {fileID: 2100000, guid: ebfef14521bcb644ba0e446d3a381fbb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
