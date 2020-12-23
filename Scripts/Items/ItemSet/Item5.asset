@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
   m_Name: Item5
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
+  itemName: Reloj de bolsillo
+  itemDescription: "Peque\xF1o reloj que se suele llevar a la mina para no perder
+    la noci\xF3n del tiempo."
   target: 0
-  effects: []
+  modifiers: []

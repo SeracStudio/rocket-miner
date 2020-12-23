@@ -292,13 +292,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.58981246, y: 0.2945506, z: -0.2443083, w: 0.7111081}
-  m_LocalPosition: {x: -7.4, y: 62.9, z: -7.4}
-  m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 12, z: -15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 79.347, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!1001 &1326422201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -350,13 +350,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9100895016810457361, guid: 6d4793b3e103e2f428ab423c0ac757b6, type: 3}
-      propertyPath: baseRoom
-      value: 
-      objectReference: {fileID: 3648781038843117209, guid: 64db88af846eb4a44a4b795cb9e784cb, type: 3}
     - target: {fileID: 9100895016810457362, guid: 6d4793b3e103e2f428ab423c0ac757b6, type: 3}
       propertyPath: m_Name
       value: RoomGenerator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d4793b3e103e2f428ab423c0ac757b6, type: 3}
+--- !u!1 &1753354854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9100895016810457362, guid: 6d4793b3e103e2f428ab423c0ac757b6, type: 3}
+  m_PrefabInstance: {fileID: 1326422201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1753354855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753354854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b30b910dbca51e46a545d2eed8be56e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomText: {fileID: 6247108238333792829, guid: ee3a9e03d4df0584883ed4404f96bcd4, type: 3}
+  room: {fileID: 3648781038843117209, guid: 64db88af846eb4a44a4b795cb9e784cb, type: 3}
+  pathWidth: 2
+  pathDepth: 4
+  lateralRatio: 2
+  branchingRatio: 50

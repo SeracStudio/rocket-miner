@@ -3,7 +3,6 @@
 public class SpawnObject : MonoBehaviour
 {
     public GameObject spawnable;
-    public bool onAwake;
 
     private void Awake()
     {

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
   m_Name: Item19
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
-  target: 0
-  effects: []
+  itemName: Restos radioactivos
+  itemDescription: "Restos de material radioactivo que pueden ayudar a los robots
+    a ser m\xE1s r\xE1pidos."
+  target: 2
+  modifiers: []

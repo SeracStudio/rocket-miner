@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
   m_Name: Item20
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
-  target: 0
-  effects: []
+  itemName: Tuerca W98
+  itemDescription: "Arreglo ancestral que se le hac\xEDa a los robots exploradores."
+  target: 2
+  modifiers: []
