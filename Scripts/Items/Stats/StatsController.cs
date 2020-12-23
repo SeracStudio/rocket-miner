@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +13,8 @@ public class StatsController : MonoBehaviour
 
     public List<StatPair> stats;
     private Dictionary<Stat, float> statsDict;
+
+    public Action<Stat, float> OnStatChanged;
 
     private void Awake()
     {
@@ -34,13 +36,6 @@ public class StatsController : MonoBehaviour
         statsDict[stat] = value;
 
         //Levantar evento (UI, controlador...)
-
-        foreach (StatPair listStat in stats)
-        {
-            if(listStat.stat == stat)
-            {
-                listStat.value = value;
-            }
-        }
+        OnStatChanged.Invoke(stat, value);
     }
 }

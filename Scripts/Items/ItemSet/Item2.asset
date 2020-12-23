@@ -18,4 +18,4 @@ MonoBehaviour:
   effects:
   - stat: 0
     operation: 0
-    amount: 40
+    amount: 10
