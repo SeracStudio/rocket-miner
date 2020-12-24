@@ -80,29 +80,24 @@ public class MapGenerator
     private void AddSpecialRoom(RoomType roomType)
     {
         List<MapRoom> rooms = generatedRooms.Values.ToList();
-        Direction direction = Direction.NORTH;
-        MapRoom sourceRoom = lastRoom;
         bool validRoom = false;
         while (!validRoom)
         {
-            sourceRoom = rooms[Random.Range(0, rooms.Count)];
-            if (sourceRoom.type != RoomType.NORMAL) continue;
-            foreach(Direction sourceDir in DirectionFunc.GetAll(sourceRoom.connections.Keys.ToList()))
+            lastRoom = rooms[Random.Range(0, rooms.Count)];
+            if (lastRoom.type != RoomType.NORMAL) continue;
+
+            foreach(Direction sourceDir in DirectionFunc.GetAll(lastRoom.connections.Keys.ToList()))
             {
-                if (!generatedRooms.ContainsKey(sourceRoom.position + DirectionFunc.GetVector(sourceDir)))
+                if (!generatedRooms.ContainsKey(lastRoom.position + DirectionFunc.GetVector(sourceDir)))
                 {
-                    direction = sourceDir;
-                    validRoom = true;
-                    
+                    lastDirection = sourceDir;
+                    validRoom = true;          
                     break;
                 }
             }
         }
 
-        currentPos = sourceRoom.position + DirectionFunc.GetVector(direction);
-        //Debug.Log(direction + ", " + sourceRoom.position + ", " + currentPos + ", " + sourceRoom.connections.Values.Count);
-        lastRoom = sourceRoom;
-        lastDirection = direction;
+        currentPos = lastRoom.position + DirectionFunc.GetVector(lastDirection);
         SpawnRoom();
         lastRoom.type = roomType;
     }
@@ -127,7 +122,7 @@ public class MapGenerator
 
         foreach (Vector3 criticalPos in criticalPositions)
         {
-            if (Random.Range(0, 100) >= this.branchingRatio) continue;
+            if (Random.Range(0, 100) >= branchingRatio) continue;
 
             MapRoom criticalRoom = generatedRooms[criticalPos];
             currentPos = criticalPos;

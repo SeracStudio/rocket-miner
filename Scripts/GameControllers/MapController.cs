@@ -1,13 +1,20 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
+    public static MapController RUNNING;
+
+    public Action OnRoomLoaded;
+
     public int pathWidth, pathDepth, lateralRatio;
     [Range(0, 100)]
     public int branchingRatio;
 
-    private MapController RUNNING;
+    public MapRoom spawnRoom, treasureRoom, bossRoom;
+    public Dictionary<Vector3, MapRoom> map;
+
     private MapGenerator mapGenerator;
     private MapRenderer mapRenderer;
 
@@ -18,16 +25,41 @@ public class MapController : MonoBehaviour
         mapGenerator = new MapGenerator(pathWidth, pathDepth, lateralRatio, branchingRatio);
         mapRenderer = GetComponent<MapRenderer>();
 
-        mapRenderer.UpdateMap(mapGenerator.NewMap());
-        mapRenderer.LoadMap();
+        NewFloor();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            mapRenderer.UpdateMap(mapGenerator.NewMap());
-            mapRenderer.LoadMap();
+            NewFloor();
         }
+    }
+
+    private void NewFloor()
+    {
+        map = mapGenerator.NewMap();
+        foreach (MapRoom room in map.Values)
+        {
+            switch (room.type)
+            {
+                case RoomType.SPAWN:
+                    spawnRoom = room;
+                    break;
+                case RoomType.BOSS:
+                    treasureRoom = room;
+                    break;
+                case RoomType.TREASURE:
+                    bossRoom = room;
+                    break;
+            }
+        }
+        LoadRoom(spawnRoom);
+    }
+
+    private void LoadRoom(MapRoom room)
+    {
+        mapRenderer.RenderRoom(spawnRoom);
+        OnRoomLoaded?.Invoke();
     }
 }

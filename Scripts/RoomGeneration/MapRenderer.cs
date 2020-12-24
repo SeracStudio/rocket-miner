@@ -8,66 +8,52 @@ public class MapRenderer : MonoBehaviour
     public GameObject markerS, markerB, markerT;
     public int roomSize;
 
-    private Dictionary<Vector3, MapRoom> map;
-    private MapRoom loadedMapRoom;
-    private Room loadedRoom;
+    private readonly List<GameObject> rendered = new List<GameObject>();
 
-    public void UpdateMap(Dictionary<Vector3, MapRoom> map)
+    public void RenderRoom(MapRoom mapRoom)
     {
-        this.map = map;
-    }
-
-    public void LoadRoom(Vector3 roomPos)
-    {
-        if (!map.ContainsKey(roomPos)) return;
-
-        LoadRoom(map[roomPos]);
-    }
-
-    public void LoadRoom(MapRoom mapRoom)
-    {
-        if (loadedRoom != null) UnloadRoom();
+        ClearRender();
 
         transform.position = Vector3.zero;
-        loadedRoom = Instantiate(room, transform.position, Quaternion.identity);
+        Room loadedRoom = Instantiate(room, transform.position, Quaternion.identity);
+        rendered.Add(loadedRoom.gameObject);
 
         foreach (Direction opening in mapRoom.connections.Keys)
         {
             loadedRoom.RemoveWall(opening);
         }
 
-        loadedMapRoom = mapRoom;
+        if (mapRoom.type == RoomType.SPAWN) rendered.Add(Instantiate(markerS, transform.position, Quaternion.identity));
+        if (mapRoom.type == RoomType.TREASURE) rendered.Add(Instantiate(markerT, transform.position, Quaternion.identity));
+        if (mapRoom.type == RoomType.BOSS) rendered.Add(Instantiate(markerB, transform.position, Quaternion.identity));
     }
 
-    public void UnloadRoom()
+    public void RenderMap(Dictionary<Vector3, MapRoom> map)
     {
-        Destroy(loadedRoom.gameObject);
-    }
-
-    public void LoadMap()
-    {
-        foreach(GameObject g in mapped)
-        {
-            Destroy(g.gameObject);
-        }
-        mapped.Clear();
+        ClearRender();
 
         foreach (MapRoom mapRoom in map.Values)
         {
             transform.position = mapRoom.position * roomSize;
             Room loadedMapRoom = Instantiate(room, transform.position, Quaternion.identity);
-            mapped.Add(loadedMapRoom.gameObject);
+            rendered.Add(loadedMapRoom.gameObject);
 
             foreach (Direction opening in mapRoom.connections.Keys)
             {
                 loadedMapRoom.RemoveWall(opening);
             }
 
-            if (mapRoom.type == RoomType.SPAWN) mapped.Add(Instantiate(markerS, transform.position, Quaternion.identity));
-            if (mapRoom.type == RoomType.TREASURE) mapped.Add(Instantiate(markerT, transform.position, Quaternion.identity));
-            if (mapRoom.type == RoomType.BOSS) mapped.Add(Instantiate(markerB, transform.position, Quaternion.identity));
+            if (mapRoom.type == RoomType.SPAWN) rendered.Add(Instantiate(markerS, transform.position, Quaternion.identity));
+            if (mapRoom.type == RoomType.TREASURE) rendered.Add(Instantiate(markerT, transform.position, Quaternion.identity));
+            if (mapRoom.type == RoomType.BOSS) rendered.Add(Instantiate(markerB, transform.position, Quaternion.identity));
         }
     }
 
-    private List<GameObject> mapped = new List<GameObject>();
+    public void ClearRender()
+    {
+        foreach (GameObject render in rendered)
+        {
+            Destroy(render.gameObject);
+        }
+    }
 }
