@@ -362,7 +362,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9100895016810457360, guid: a1db231cb060bfb48950992b6ddb3ecd, type: 3}
+    - target: {fileID: 1753354855, guid: 6d4793b3e103e2f428ab423c0ac757b6, type: 3}
+      propertyPath: pathDepth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753354855, guid: 6d4793b3e103e2f428ab423c0ac757b6, type: 3}
+      propertyPath: pathWidth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753354855, guid: 6d4793b3e103e2f428ab423c0ac757b6, type: 3}
+      propertyPath: branchingRatio
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100895016810457360, guid: 6d4793b3e103e2f428ab423c0ac757b6, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
@@ -411,4 +423,4 @@ PrefabInstance:
       value: RoomGenerator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a1db231cb060bfb48950992b6ddb3ecd, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 6d4793b3e103e2f428ab423c0ac757b6, type: 3}

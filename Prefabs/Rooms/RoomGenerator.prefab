@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9100895016810457360}
-  - component: {fileID: 6234190526031402985}
+  - component: {fileID: 1753354855}
+  - component: {fileID: 5041755190986673257}
   m_Layer: 0
   m_Name: RoomGenerator
   m_TagString: Untagged
@@ -43,8 +44,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a102a55a57a10649977d5f1e1a2f33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  room: {fileID: 7769809274216901871, guid: 02a0af215a3c36d4393ccc372938bf42, type: 3}
   pathWidth: 2
   pathDepth: 4
   lateralRatio: 2
   branchingRatio: 50
+--- !u!114 &5041755190986673257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100895016810457362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a59931498a4ad3478a757b0688b3427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 3648781038843117209, guid: 64db88af846eb4a44a4b795cb9e784cb, type: 3}
+  markerS: {fileID: 2538563855042319390, guid: a5ad3c7e5abf5af47a7364546d0b1492, type: 3}
+  markerB: {fileID: 2538563855042319390, guid: a0d9d45bc97758548bb17d95c22d4568, type: 3}
+  markerT: {fileID: 2538563855042319390, guid: a08f631083ba8f04ba3f7aea6cdfd049, type: 3}
+  roomSize: 20
