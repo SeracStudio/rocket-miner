@@ -14,25 +14,35 @@ public class OperationFunc
 {
     public static int IntSolve(Operation operation, int firstOperand, int secondOperand)
     {
-        return operation switch
+        switch (operation)
         {
-            Operation.ADD => firstOperand + secondOperand,
-            Operation.SUBTRACT => firstOperand - secondOperand,
-            Operation.MULTIPLY => firstOperand * secondOperand,
-            Operation.DIVIDE => firstOperand / secondOperand,
-            _ => firstOperand,
-        };
+            case Operation.ADD:
+                return firstOperand + secondOperand;
+            case Operation.SUBTRACT:
+                return firstOperand - secondOperand;
+            case Operation.MULTIPLY:
+                return firstOperand * secondOperand;
+            case Operation.DIVIDE:
+                return firstOperand / secondOperand;
+
+        }
+        return firstOperand;
     }
 
     public static float FloatSolve(Operation operation, float firstOperand, float secondOperand)
     {
-        return operation switch
+        switch (operation)
         {
-            Operation.ADD => firstOperand + secondOperand,
-            Operation.SUBTRACT => firstOperand - secondOperand,
-            Operation.MULTIPLY => firstOperand * secondOperand,
-            Operation.DIVIDE => firstOperand / secondOperand,
-            _ => firstOperand,
-        };
+            case Operation.ADD:
+                return firstOperand + secondOperand;
+            case Operation.SUBTRACT:
+                return firstOperand - secondOperand;
+            case Operation.MULTIPLY:
+                return firstOperand * secondOperand;
+            case Operation.DIVIDE:
+                return firstOperand / secondOperand;
+
+        }
+        return firstOperand;
     }
 }

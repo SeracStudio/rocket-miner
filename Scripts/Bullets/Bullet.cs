@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     public float shootSpeed;
 
     public float damage;
-    public bool playerShoot;
+    public float playerShoot;
 
     // Start is called before the first frame update
     void Start()

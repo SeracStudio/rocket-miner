@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 501870253277642196}
   - component: {fileID: 7532369047588159446}
   - component: {fileID: 2947862024857234544}
+  - component: {fileID: 6574291279471927058}
   - component: {fileID: 870686434779140072}
-  - component: {fileID: 7494948812241850464}
   - component: {fileID: 4413518195065619306}
   m_Layer: 9
   m_Name: Robot
@@ -98,6 +98,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6574291279471927058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8117200392924118971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865ba774beaaa9e4c8715110de7fb2a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats:
+  - stat: 1
+    value: 6
+  - stat: 9
+    value: 1
+  - stat: 7
+    value: 2
+  - stat: 8
+    value: 1
 --- !u!114 &870686434779140072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,28 +138,6 @@ MonoBehaviour:
   shieldTime: 0
   punchTime: 0
   punch: 0
---- !u!114 &7494948812241850464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8117200392924118971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbe2464008693724380aab04aba6688d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 0}
-  movementSpeed: {fileID: 0}
-  cdOf: {fileID: 0}
-  cdDef: {fileID: 0}
-  shootsPerSecond: {fileID: 0}
-  shootDamage: {fileID: 0}
-  nDashDefault: {fileID: 0}
-  bulletSize: {fileID: 0}
-  bulletSpeed: {fileID: 0}
-  isPlayer: 0
 --- !u!54 &4413518195065619306
 Rigidbody:
   m_ObjectHideFlags: 0

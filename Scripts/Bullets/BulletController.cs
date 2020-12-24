@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    private Stats stats;
+    private StatsController stats;
     public Bullet bullet;
 
     // Start is called before the first frame update
     void Start()
     {
-        stats = this.GetComponent<Stats>();
+        stats = this.GetComponent<StatsController>();
     }
 
     // Update is called once per frame
@@ -33,9 +33,9 @@ public class BulletController : MonoBehaviour
         Bullet aux=Instantiate(bullet, pos, Quaternion.identity);
         //aux.dir = dirCalculate(pos);
         aux.dir = dirA;
-        aux.shootSpeed=stats.getBulletSpeed();
-        aux.damage = stats.getShootDamage();
-        aux.playerShoot = stats.getIsPlayer();
-        aux.transform.localScale = new Vector3(stats.getBulletSize(), stats.getBulletSize(), stats.getBulletSize());
+        aux.shootSpeed=stats.GetStat(Stat.SHOT_SPEED);
+        aux.damage = stats.GetStat(Stat.SHOT_DMG);
+        aux.playerShoot = stats.GetStat(Stat.IS_PLAYER);
+        aux.transform.localScale = new Vector3(stats.GetStat(Stat.SHOT_SIZE), stats.GetStat(Stat.SHOT_SIZE), stats.GetStat(Stat.SHOT_SIZE));
     }
 }

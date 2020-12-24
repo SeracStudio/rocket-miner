@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Stats stats;
+    public StatsController stats;
     public Rigidbody rigidBody;
 
     private Vector2 direction;
@@ -19,8 +19,7 @@ public class Player : MonoBehaviour
     {
         rigidBody = this.GetComponent<Rigidbody>();
 
-        stats = this.GetComponent<Stats>();
-        stats.initPlayerStats();
+        stats = this.GetComponent<StatsController>();       
     }
 
     // Update is called once per frame
@@ -39,7 +38,7 @@ public class Player : MonoBehaviour
     {
         if (!dash)
         {
-            rigidBody.velocity = new Vector3(direction.x * stats.getMovementSpeed(), 0, direction.y * stats.getMovementSpeed());
+            rigidBody.velocity = new Vector3(direction.x * stats.GetStat(Stat.MOV_SPEED), 0, direction.y * stats.GetStat(Stat.MOV_SPEED));
         }
     }
 

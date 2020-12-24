@@ -5,19 +5,19 @@ using UnityEngine;
 public class Girl : Player
 {
     private float dashTime = 0;
-    private int nDash = 2;
+    private float nDash = 2;
     private float defTime = 0;
 
     private float ofTime = 0;
     private bool canShoot=false;
+
+    private float cd=0.75f;
 
     private BulletController pbc;
 
     public override void Start()
     {
         base.Start();
-
-        stats.initGirlStats();
         pbc = this.GetComponent<BulletController>();
     }
 
@@ -35,7 +35,7 @@ public class Girl : Player
         if (canShoot)
         {
             ofTime += Time.deltaTime;
-            if (ofTime > stats.getCdOf())
+            if (ofTime > 1f/stats.GetStat(Stat.SHOTS_P_SECOND))
             {
                 ofTime = 0;
                 pbc.Shoot(transform.position, getLookingDirection());
@@ -59,10 +59,10 @@ public class Girl : Player
         if(defTime > 0)
         {
             defTime += Time.deltaTime;
-            if (defTime > stats.getCdDef())
+            if (defTime > cd)
             {
                 defTime = 0;
-                nDash =stats.getNDashDefault();
+                nDash =stats.GetStat(Stat.N_DASH);
             }
         }
     }
@@ -105,12 +105,12 @@ public class Girl : Player
 
     private void changeDashCd()
     {
-        stats.setCdDef(3);
+        cd = 3;
     }
 
     private void releaseDashCd()
     {
-        stats.setCdDef(0.75f);
+        cd = stats.GetStat(Stat.DEFENSIVE_CD);
     }
 
 }
