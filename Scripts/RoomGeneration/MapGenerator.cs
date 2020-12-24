@@ -77,6 +77,31 @@ public class MapGenerator
         lastRoom = nextRoom;
     }
 
+    private void AddSpecialRoom(RoomType roomType)
+    {
+        List<MapRoom> rooms = generatedRooms.Values.ToList();
+        bool validRoom = false;
+        while (!validRoom)
+        {
+            lastRoom = rooms[Random.Range(0, rooms.Count)];
+            if (lastRoom.type != RoomType.NORMAL) continue;
+
+            foreach(Direction sourceDir in DirectionFunc.GetAll(lastRoom.connections.Keys.ToList()))
+            {
+                if (!generatedRooms.ContainsKey(lastRoom.position + DirectionFunc.GetVector(sourceDir)))
+                {
+                    lastDirection = sourceDir;
+                    validRoom = true;          
+                    break;
+                }
+            }
+        }
+
+        currentPos = lastRoom.position + DirectionFunc.GetVector(lastDirection);
+        SpawnRoom();
+        lastRoom.type = roomType;
+    }
+
     public void UpdateConfiguration(int pathWidth, int pathDepth, int lateralRatio, int branchingRatio)
     {
         this.pathWidth = pathWidth;
@@ -97,13 +122,17 @@ public class MapGenerator
 
         foreach (Vector3 criticalPos in criticalPositions)
         {
-            if (Random.Range(0, 100) >= this.branchingRatio) continue;
+            if (Random.Range(0, 100) >= branchingRatio) continue;
 
             MapRoom criticalRoom = generatedRooms[criticalPos];
             currentPos = criticalPos;
             List<Direction> unconnected = DirectionFunc.GetAll(criticalRoom.connections.Keys.ToList());
             GeneratePath(DirectionFunc.GetRandom(unconnected), criticalRoom);
         }
+
+        AddSpecialRoom(RoomType.SPAWN);
+        AddSpecialRoom(RoomType.BOSS);
+        AddSpecialRoom(RoomType.TREASURE);
 
         return generatedRooms;
     }
