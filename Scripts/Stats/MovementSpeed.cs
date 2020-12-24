@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementSpeed : MonoBehaviour
+public class MovementSpeed
 {
     private float value;
     void Start()
