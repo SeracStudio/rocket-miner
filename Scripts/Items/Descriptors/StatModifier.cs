@@ -23,8 +23,12 @@ public enum Stat
     MOV_SPEED,
     SHOT_SPEED,
     SHOT_DMG,
-    ABILITIES_CD,
-    STUN_DURATION
+    SHOT_SIZE,
+    SHOTS_P_SECOND,
+    N_DASH,
+    OFFENSIVE_CD,
+    DEFENSIVE_CD,
+    IS_PLAYER
 }
 
 [System.Serializable]

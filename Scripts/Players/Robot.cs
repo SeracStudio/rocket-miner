@@ -15,8 +15,7 @@ public class Robot : Player
     // Start is called before the first frame update
     public override void Start()
     {
-        base.Start();
-        stats.initRobotStats();
+        base.Start();       
     }
 
     // Update is called once per frame
@@ -71,7 +70,7 @@ public class Robot : Player
         if (punchTime > 0)
         {
             punchTime += Time.deltaTime;
-            if (punchTime > stats.getCdOf())
+            if (punchTime > stats.GetStat(Stat.OFFENSIVE_CD))
             {
                 canUsePunch = true;
                 punchTime = 0;            
@@ -88,7 +87,7 @@ public class Robot : Player
         if (shieldTime > 0)
         {
             shieldTime += Time.deltaTime;
-            if (shieldTime > stats.getCdDef())
+            if (shieldTime > stats.GetStat(Stat.DEFENSIVE_CD))
             {
                 canUseShield = true;
                 shieldTime = 0;
