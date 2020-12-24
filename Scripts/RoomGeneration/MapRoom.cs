@@ -1,26 +1,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum RoomType
+{
+    NORMAL,
+    SPAWN,
+    TREASURE,
+    BOSS
+}
 public class MapRoom
 {
+    public RoomType type;
     public Vector3 position;
     public Dictionary<Direction, MapRoom> connections;
 
     public MapRoom(Vector3 position)
     {
+        this.type = RoomType.NORMAL;
         this.position = position;
         connections = new Dictionary<Direction, MapRoom>();
     }
 
-    public void Connect(Direction connection, MapRoom room)
+    public void Connect(Direction direction, MapRoom room)
     {
         if (room == null) return;
 
-        if (!connections.ContainsKey(DirectionFunc.Reverse(connection)))
-            connections.Add(DirectionFunc.Reverse(connection), room);
+        if (!connections.ContainsKey(DirectionFunc.Reverse(direction)))
+            connections.Add(DirectionFunc.Reverse(direction), room);
 
-        if (!room.connections.ContainsKey(connection))
-            room.connections.Add(connection, this);
+        if (!room.connections.ContainsKey(direction))
+            room.connections.Add(direction, this);
+    }
+
+    public void Disconnect(Direction direction)
+    {
+        if (!connections.ContainsKey(direction)) return;
+
+        connections[direction].connections.Remove(DirectionFunc.Reverse(direction));
+        connections.Remove(direction);
     }
 
     public bool IsConnected(Direction direction)
