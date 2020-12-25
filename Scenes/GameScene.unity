@@ -359,17 +359,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
---- !u!114 &1118319250 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1132309929462656171, guid: e906111a96bebcb4bb07f020e94cadb4, type: 3}
-  m_PrefabInstance: {fileID: 608853250}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3b44641c343c44f9ea971ca63a979e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1642676609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -440,8 +429,8 @@ GameObject:
   - component: {fileID: 2127682115}
   - component: {fileID: 2127682114}
   - component: {fileID: 2127682113}
-  - component: {fileID: 2127682112}
   - component: {fileID: 2127682111}
+  - component: {fileID: 2127682112}
   m_Layer: 0
   m_Name: enemytest
   m_TagString: Untagged
@@ -458,12 +447,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2127682110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6934d4ec72fbac449798db2fe1c610e, type: 3}
+  m_Script: {fileID: 11500000, guid: 25282dc437332974ead2b97bd70fb8e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   rigidbody: {fileID: 0}
-  girl: {fileID: 1118319250}
+  girl: {fileID: 0}
   stunned: 0
   directionCd: 0.2
 --- !u!114 &2127682112

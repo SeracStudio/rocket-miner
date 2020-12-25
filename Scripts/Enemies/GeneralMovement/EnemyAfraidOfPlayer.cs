@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMoveToPlayer : Enemy
+public class EnemyAfraidOfPlayer : Enemy
 {
     private Vector3 playerDirection;
-    private float directionTime=0;
-    public float directionCd=0.2f;
+    private float directionTime = 0;
+    public float directionCd = 0.2f;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -19,7 +19,7 @@ public class EnemyMoveToPlayer : Enemy
         base.Update();
         if (!stunned)
         {
-            playerDirection = getPlayerDirection();
+            playerDirection = -getPlayerDirection();
             directionTime += Time.deltaTime;
             if (directionTime > directionCd)
             {
@@ -29,8 +29,8 @@ public class EnemyMoveToPlayer : Enemy
         }
         else
         {
-            rigidbody.velocity = new Vector3(0,0,0);
+            rigidbody.velocity = new Vector3(0, 0, 0);
         }
-        
+
     }
 }
