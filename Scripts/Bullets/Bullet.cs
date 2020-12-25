@@ -20,9 +20,18 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Colision");
         if (other.tag == "Wall")
         {
+            Destroy(this.gameObject);
+        }
+
+        if(other.tag =="Enemy" && playerShoot==0 && other.gameObject.GetComponent<StatsController>().GetStat(Stat.ENEMY_SHIELD)==0)
+        {
+            //Reducir vida enemigo 
+            if (other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH) <= 0)
+            {
+                Destroy(other.gameObject);
+            }
             Destroy(this.gameObject);
         }
     }

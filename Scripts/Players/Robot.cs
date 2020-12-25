@@ -63,6 +63,21 @@ public class Robot : Player
         punchTime = 0.01f;
         canUsePunch = false;
         punch = true;
+        PunchOnEnemy();       
+    }
+
+    private void PunchOnEnemy()
+    {
+        Enemy[] enemies;
+        enemies = FindObjectsOfType<Enemy>();
+        for(int i = 0; i < enemies.Length; i++)
+        {
+            if (Vector3.Distance(enemies[i].transform.position, this.transform.position) < 2)
+            {
+                enemies[i].Stunned();
+                break;
+            }
+        }
     }
 
     private void checkPunch()
