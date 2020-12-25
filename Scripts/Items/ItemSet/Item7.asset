@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
   m_Name: Item7
   m_EditorClassIdentifier: 
-  itemName: Cantimplora abandonada
-  itemDescription: "Cantimplora que contiene una bebida que ayuda a estar m\xE1s
-    activo."
+  itemName: "Guantele autom\xE1tico"
+  itemDescription: "Guantes mec\xE1nicos que funcionan por vapor."
   target: 1
-  modifiers: []
+  modifiers:
+  - stat: 5
+    operation: 2
+    amount: 1.5

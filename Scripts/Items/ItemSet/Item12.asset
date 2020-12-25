@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
-  m_Name: Item19
+  m_Script: {fileID: 11500000, guid: 8d00ed7196009744d879d9eecf41cc35, type: 3}
+  m_Name: Item12
   m_EditorClassIdentifier: 
-  itemName: Restos radioactivos
-  itemDescription: "Restos de material radioactivo que pueden ayudar a los robots
-    a ser m\xE1s r\xE1pidos."
+  itemName: Espejo reflector
+  itemDescription: Espejo blindado con la capacidad de hacer rebotar cualquier proyectil
+    que impacte en su superficie.
   target: 2
-  modifiers: []
+  component: 2

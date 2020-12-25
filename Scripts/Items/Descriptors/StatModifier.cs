@@ -28,6 +28,7 @@ public enum Stat
     N_DASH,
     OFFENSIVE_CD,
     DEFENSIVE_CD,
+    STUN_DURATION,
     IS_PLAYER
 }
 

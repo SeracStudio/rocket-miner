@@ -13,6 +13,7 @@ public class MapController : MonoBehaviour
     public int branchingRatio;
 
     public MapRoom spawnRoom, treasureRoom, bossRoom;
+    public MapRoom currentRoom, lastRoom;
     public Dictionary<Vector3, MapRoom> map;
 
     private MapGenerator mapGenerator;
@@ -36,7 +37,7 @@ public class MapController : MonoBehaviour
         }
     }
 
-    private void NewFloor()
+    public void NewFloor()
     {
         map = mapGenerator.NewMap();
         foreach (MapRoom room in map.Values)
@@ -57,9 +58,11 @@ public class MapController : MonoBehaviour
         LoadRoom(spawnRoom);
     }
 
-    private void LoadRoom(MapRoom room)
+    public void LoadRoom(MapRoom room)
     {
-        mapRenderer.RenderRoom(spawnRoom);
+        lastRoom = currentRoom;
+        mapRenderer.RenderRoom(room);
+        currentRoom = room;
         OnRoomLoaded?.Invoke();
     }
 }

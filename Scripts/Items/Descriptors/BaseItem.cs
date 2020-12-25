@@ -23,7 +23,7 @@ public abstract class BaseItem : ScriptableObject
 
     public void Use(GameObject target)
     {
-        if (!IsTargetValid(target))
+        if (IsTargetValid(target))
         {
             Activate(target);
         }
