@@ -25,17 +25,21 @@ public class Player : MonoBehaviour
     public virtual void Update()
     {
         Inputs();
-        Vector3 mouse=Vector3.RotateTowards(transform.forward,getMouse(),Time.deltaTime*10,0.0f);
-        mouse.y = 0;
-        transform.rotation = Quaternion.LookRotation(mouse);
-
-        
+        Rotation();       
     }
 
 
     public virtual void FixedUpdate()
     {
         Move();
+    }
+
+    private void Rotation()
+    {
+        Vector3 mouse = Vector3.RotateTowards(transform.forward, getMouse(), Time.deltaTime * 10, 0.0f);
+        mouse.y = 0;
+        transform.rotation = Quaternion.LookRotation(mouse);
+
     }
 
     private Vector3 getMouse()
