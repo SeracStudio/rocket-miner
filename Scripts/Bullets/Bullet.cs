@@ -20,7 +20,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Colision");
         if (other.tag == "Wall")
         {
             Destroy(this.gameObject);
