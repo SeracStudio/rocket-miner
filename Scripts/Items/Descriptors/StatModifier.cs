@@ -28,9 +28,7 @@ public enum Stat
     N_DASH,
     OFFENSIVE_CD,
     DEFENSIVE_CD,
-    IS_PLAYER,
-    DANGEROUSNESS,
-    ENEMY_SHIELD
+    IS_PLAYER
 }
 
 [System.Serializable]
