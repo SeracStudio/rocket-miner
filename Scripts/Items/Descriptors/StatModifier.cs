@@ -29,7 +29,9 @@ public enum Stat
     OFFENSIVE_CD,
     DEFENSIVE_CD,
     STUN_DURATION,
-    IS_PLAYER
+    IS_PLAYER,
+    DANGEROUSNESS,
+    ENEMY_SHIELD
 }
 
 [System.Serializable]

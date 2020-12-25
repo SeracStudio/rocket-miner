@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Vertical");
         dirY = Input.GetAxisRaw("Horizontal");
+        //Debug.Log(dirX + " " + dirY);
         direction = new Vector2(dirY, dirX);
         if(direction.x!=0.0f || direction.y != 0.0f)
         {

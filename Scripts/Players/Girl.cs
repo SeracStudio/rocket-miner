@@ -13,12 +13,16 @@ public class Girl : Player
 
     private float cd=0.75f;
 
+    private bool canBeAttacked = true;
+    private float attackedTime = 0;
+    private float attackedCd = 1f;
+
     private BulletController pbc;
 
     public override void Start()
     {
         base.Start();
-        pbc = this.GetComponent<BulletController>();
+        pbc = this.GetComponent<BulletController>();       
     }
 
     public override void Update()
@@ -28,6 +32,31 @@ public class Girl : Player
         InputsG();
         checkDash();
         checkShoot();
+        checkAttacked();
+    }
+
+    public void Attacked(float damageAmount)
+    {
+        if (canBeAttacked)
+        {
+            //Reducir vida 
+            //Invencibilidad visible de algun modo
+            attackedTime += 0.01f;
+            canBeAttacked = false;
+        }
+    }
+
+    private void checkAttacked()
+    {
+        if (attackedTime > 0)
+        {
+            attackedTime += Time.deltaTime;
+            if (attackedTime > attackedCd)
+            {
+                attackedTime = 0;
+                canBeAttacked = true;
+            }
+        }
     }
 
     private void checkShoot()
