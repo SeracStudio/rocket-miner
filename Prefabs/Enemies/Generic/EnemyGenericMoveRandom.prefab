@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4929581951905901161}
   - component: {fileID: 4929581951905901162}
   - component: {fileID: 4929581951905901163}
-  - component: {fileID: 4929581951905901164}
+  - component: {fileID: 5887929997974574922}
   - component: {fileID: 4929581951905901165}
   - component: {fileID: 4929581951905901166}
   m_Layer: 11
@@ -102,7 +102,7 @@ MonoBehaviour:
   girl: {fileID: 0}
   stunned: 0
   directionCd: 1
---- !u!114 &4929581951905901164
+--- !u!114 &5887929997974574922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,21 +111,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 4929581951905901167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 865ba774beaaa9e4c8715110de7fb2a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 821b91b2ea922e74a905e05b3928099e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
   - stat: 0
-    value: 4
+    value: 2
   - stat: 1
     value: 4
   - stat: 3
-    value: 2
-  - stat: 9
-    value: 1
+    value: 3
   - stat: 10
-    value: 0
+    value: 1
   - stat: 11
+    value: 0
+  - stat: 12
     value: 0
 --- !u!65 &4929581951905901165
 BoxCollider:

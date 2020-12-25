@@ -19,7 +19,7 @@ public class EnemyMoveToPlayer : Enemy
         base.Update();
         if (!stunned)
         {
-            playerDirection = getPlayerDirection();
+            playerDirection = getPlayerDirection().normalized;
             directionTime += Time.deltaTime;
             if (directionTime > directionCd)
             {

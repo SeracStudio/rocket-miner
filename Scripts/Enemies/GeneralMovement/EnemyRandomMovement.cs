@@ -23,7 +23,9 @@ public class EnemyRandomMovement : Enemy
             {
                 float directionX = Random.Range(-1, 2);
                 float directionZ = Random.Range(-1, 2);
-                rigidbody.velocity = new Vector3( directionX* stats.GetStat(Stat.MOV_SPEED), 0, directionZ * stats.GetStat(Stat.MOV_SPEED));
+                Vector3 direction = new Vector3(directionX, 0, directionZ);
+                direction = direction.normalized;
+                rigidbody.velocity = new Vector3(direction.x * stats.GetStat(Stat.MOV_SPEED), 0, direction.z * stats.GetStat(Stat.MOV_SPEED));
                 directionTime = 0;
             }
         }

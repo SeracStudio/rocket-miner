@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     private float stunnedCd=1f;
     private float stunnedTime;
 
+    public bool wall = false;
+
     public virtual void Update()
     {
         if (stunned)
@@ -39,7 +41,7 @@ public class Enemy : MonoBehaviour
 
     public Vector3 getPlayerDirection()
     {
-        return (girl.transform.position - this.transform.position).normalized;
+        return (girl.transform.position - this.transform.position);
     }
 
     public void Stunned()
@@ -66,7 +68,12 @@ public class Enemy : MonoBehaviour
         {
             rigidbody.isKinematic = true;
             girl.Attacked(stats.GetStat(Stat.SHOT_DMG));            
-        }       
+        }
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            wall=true;
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -74,6 +81,11 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject == girl.gameObject)
         {
             rigidbody.isKinematic = false;          
+        }
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            wall = false;
         }
     }
 

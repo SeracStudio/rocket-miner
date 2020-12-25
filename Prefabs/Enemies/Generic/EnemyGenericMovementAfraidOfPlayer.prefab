@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3272854110786956969}
   - component: {fileID: 3272854110786956970}
   - component: {fileID: 3272854110786956971}
-  - component: {fileID: 3272854110786956983}
   - component: {fileID: 3272854110786956972}
+  - component: {fileID: 6593318234197512561}
   - component: {fileID: 3272854110786956973}
   m_Layer: 11
   m_Name: EnemyGenericMovementAfraidOfPlayer
@@ -98,31 +98,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3272854110786956983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3272854110786956974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 865ba774beaaa9e4c8715110de7fb2a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats:
-  - stat: 0
-    value: 4
-  - stat: 1
-    value: 6
-  - stat: 3
-    value: 2
-  - stat: 9
-    value: 1
-  - stat: 10
-    value: 0
-  - stat: 11
-    value: 0
 --- !u!114 &3272854110786956972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +115,31 @@ MonoBehaviour:
   girl: {fileID: 0}
   stunned: 0
   directionCd: 0.2
+--- !u!114 &6593318234197512561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3272854110786956974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 821b91b2ea922e74a905e05b3928099e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats:
+  - stat: 0
+    value: 2
+  - stat: 1
+    value: 4
+  - stat: 3
+    value: 3
+  - stat: 10
+    value: 1
+  - stat: 11
+    value: 0
+  - stat: 12
+    value: 0
 --- !u!54 &3272854110786956973
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7974496854056834586}
   - component: {fileID: 7974496854056834587}
   - component: {fileID: 7974496854056834662}
-  - component: {fileID: 7974496854056834585}
+  - component: {fileID: 7448011525407947772}
   - component: {fileID: 7974496854056834584}
   m_Layer: 11
   m_Name: EnemyGenericMoveToPlayer
@@ -115,7 +115,7 @@ MonoBehaviour:
   girl: {fileID: 0}
   stunned: 0
   directionCd: 0.2
---- !u!114 &7974496854056834585
+--- !u!114 &7448011525407947772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7974496854056834663}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 865ba774beaaa9e4c8715110de7fb2a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 821b91b2ea922e74a905e05b3928099e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
@@ -133,12 +133,12 @@ MonoBehaviour:
   - stat: 1
     value: 4
   - stat: 3
-    value: 2
-  - stat: 9
-    value: 1
+    value: 3
   - stat: 10
-    value: 0
+    value: 1
   - stat: 11
+    value: 0
+  - stat: 12
     value: 0
 --- !u!54 &7974496854056834584
 Rigidbody:

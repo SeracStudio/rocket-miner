@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9100895016810457360}
-  - component: {fileID: 6366864925403479515}
-  - component: {fileID: 5041755190986673257}
+  - component: {fileID: 9172796854843599912}
+  - component: {fileID: 2522914188842098920}
   m_Layer: 0
   m_Name: RoomGenerator
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6366864925403479515
+--- !u!114 &9172796854843599912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,14 +41,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 9100895016810457362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b30b910dbca51e46a545d2eed8be56e, type: 3}
+  m_Script: {fileID: 11500000, guid: ab18e750aeb62ec4a9eb0880890f5a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathWidth: 3
-  pathDepth: 3
+  pathWidth: 2
+  pathDepth: 4
   lateralRatio: 2
-  branchingRatio: 25
---- !u!114 &5041755190986673257
+  branchingRatio: 50
+--- !u!114 &2522914188842098920
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,11 +57,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9100895016810457362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a59931498a4ad3478a757b0688b3427, type: 3}
+  m_Script: {fileID: 11500000, guid: 094cfbde7a472164182d409a6cf2d423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  room: {fileID: 6347533799633857850, guid: 64db88af846eb4a44a4b795cb9e784cb, type: 3}
-  markerS: {fileID: 2538563855042319390, guid: a08f631083ba8f04ba3f7aea6cdfd049, type: 3}
-  markerB: {fileID: 2538563855042319390, guid: a5ad3c7e5abf5af47a7364546d0b1492, type: 3}
-  markerT: {fileID: 2538563855042319390, guid: a0d9d45bc97758548bb17d95c22d4568, type: 3}
+  room: {fileID: 6458585379653304530, guid: 02a0af215a3c36d4393ccc372938bf42, type: 3}
+  markerS: {fileID: 0}
+  markerB: {fileID: 0}
+  markerT: {fileID: 0}
   roomSize: 20
