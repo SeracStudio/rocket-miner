@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
   m_Name: Item6
   m_EditorClassIdentifier: 
-  itemName: "Refrigeraci\xF3n externa"
-  itemDescription: "Mecanismo anticuado que se usaba para enfriar m\xE1quinas mineras."
-  target: 2
-  modifiers: []
+  itemName: Gema de torbenita
+  itemDescription: Gema verdosa con la que se potenciaba las Everguns.
+  target: 1
+  modifiers:
+  - stat: 3
+    operation: 2
+    amount: 1.5

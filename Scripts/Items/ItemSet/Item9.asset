@@ -10,9 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
-  m_Name: Item35
+  m_Name: Item9
   m_EditorClassIdentifier: 
-  itemName: Revientarrocas
-  itemDescription: "Artefacto antiguo que dispara aire para destruir rocas a presi\xF3n."
-  target: 0
-  modifiers: []
+  itemName: Cantimplora abandonada
+  itemDescription: "Cantimplora que contiene una bebida que ayuda a estar m\xE1s
+    activo."
+  target: 1
+  modifiers:
+  - stat: 1
+    operation: 2
+    amount: 1.2
+  - stat: 5
+    operation: 2
+    amount: 1.2

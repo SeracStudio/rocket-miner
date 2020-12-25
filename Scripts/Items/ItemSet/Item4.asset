@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
   m_Name: Item4
   m_EditorClassIdentifier: 
-  itemName: "Guantele autom\xE1tico"
-  itemDescription: "Guantes mec\xE1nicos que funcionan por vapor."
+  itemName: "Brazalete de uni\xF3n"
+  itemDescription: "Decorativo emblem\xE1tico de cualquier minero que representa
+    la hermandad entre ambos."
   target: 1
-  modifiers: []
+  modifiers:
+  - stat: 3
+    operation: 2
+    amount: 1.5
+  - stat: 5
+    operation: 2
+    amount: 2

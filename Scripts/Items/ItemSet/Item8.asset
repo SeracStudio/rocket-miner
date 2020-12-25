@@ -10,9 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
-  m_Name: Item20
+  m_Name: Item8
   m_EditorClassIdentifier: 
-  itemName: Tuerca W98
-  itemDescription: "Arreglo ancestral que se le hac\xEDa a los robots exploradores."
-  target: 2
-  modifiers: []
+  itemName: Reloj de bolsillo
+  itemDescription: "Peque\xF1o reloj que se suele llevar a la mina para no perder
+    la noci\xF3n del tiempo."
+  target: 0
+  modifiers:
+  - stat: 7
+    operation: 2
+    amount: 0.75
+  - stat: 8
+    operation: 2
+    amount: 0.75

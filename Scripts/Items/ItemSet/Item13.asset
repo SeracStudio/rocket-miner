@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d00ed7196009744d879d9eecf41cc35, type: 3}
-  m_Name: Item34
+  m_Name: Item13
   m_EditorClassIdentifier: 
-  itemName: "Mochila param\xE9dica"
-  itemDescription: Mochila que se utiliza para los primeros auxilios.
-  target: 1
-  component: 0
+  itemName: Gran Taladradora de Gwein
+  itemDescription: Arma del maestro minero Gwein usaba para cegar a sus enemigos
+    haciendo grandes agujeros por los que entraba la luz.
+  target: 2
+  component: 3

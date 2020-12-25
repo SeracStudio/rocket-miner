@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
-  m_Name: Item5
+  m_Script: {fileID: 11500000, guid: 8d00ed7196009744d879d9eecf41cc35, type: 3}
+  m_Name: Item11
   m_EditorClassIdentifier: 
-  itemName: "Mazorca de ma\xEDz"
-  itemDescription: "Alimento que ayuda a recuperar energ\xEDa a los mineros."
+  itemName: Amuleto de la suerte
+  itemDescription: "Cuentan las leyendas que este peque\xF1o colgante es capaz de
+    revivir a aquellas personas que han muerto con \xE9l puesto."
   target: 1
-  modifiers:
-  - stat: 0
-    operation: 0
-    amount: 10
+  component: 1

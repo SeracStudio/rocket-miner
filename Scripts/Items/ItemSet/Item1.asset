@@ -15,4 +15,7 @@ MonoBehaviour:
   itemName: Botas de explorador
   itemDescription: "Botas de cuero marr\xF3n que resultan c\xF3modas."
   target: 0
-  modifiers: []
+  modifiers:
+  - stat: 1
+    operation: 2
+    amount: 1.5
