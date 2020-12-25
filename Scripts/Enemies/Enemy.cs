@@ -62,18 +62,31 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject==girl.gameObject)
-        {
-            girl.Attacked(stats.GetStat(Stat.SHOT_DMG));
-        }
-
         if (other.tag=="Bullet" && stats.GetStat(Stat.ENEMY_SHIELD)==0 && other.gameObject.GetComponent<Bullet>().playerShoot==0)
         {
+            Destroy(other.gameObject);
             //Reducir vida
             if (stats.GetStat(Stat.HEALTH) <= 0)
             {
                 Destroy(this.gameObject);
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {       
+        if (collision.gameObject == girl.gameObject)
+        {
+            rigidbody.isKinematic = true;
+            girl.Attacked(stats.GetStat(Stat.SHOT_DMG));            
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject == girl.gameObject)
+        {
+            rigidbody.isKinematic = false;          
         }
     }
 
