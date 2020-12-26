@@ -29,7 +29,7 @@ public class Girl : Player
     public override void Start()
     {
         base.Start();
-        pbc = this.GetComponent<BulletController>();       
+        pbc = this.GetComponent<BulletController>();
     }
 
     public override void Update()
@@ -49,10 +49,15 @@ public class Girl : Player
         {
             base.Attacked(damageAmount);
             Debug.Log("Attacked");
-            //Reducir vida 
+            stats.SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT, stats.GetStat(Stat.HEALTH), damageAmount));
             //Invencibilidad visible de algun modo
             attackedTime += 0.01f;
             canBeAttacked = false;
+            if (stats.GetStat(Stat.HEALTH) <= 0)
+            {
+                //Acabar el juego
+                Destroy(this.gameObject);
+            }
         }
     }
 
@@ -156,7 +161,6 @@ public class Girl : Player
         if (Input.GetKey(KeyCode.Space))
         {
             canShoot = true;
-            //pbc.Shoot(transform.position, getLookingDirection()) ;
         }
 
         if (Input.GetKeyUp(KeyCode.Space))

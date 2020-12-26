@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
 
     private void shieldOff()
     {
-        //Stat Shield a 0
+        stats.SetStat(Stat.ENEMY_SHIELD, 0);
         //Quitar escudo visualmente
     }
 
@@ -104,7 +104,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject == girl.gameObject)
         {
             rigidbody.isKinematic = true;
-            girl.Attacked(stats.GetStat(Stat.SHOT_DMG));            
+            girl.Attacked(stats.GetStat(Stat.SHOT_DMG)/2);            
         }
 
         if (collision.gameObject.tag == "Wall")

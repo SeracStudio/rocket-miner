@@ -146,6 +146,14 @@ MonoBehaviour:
     value: 0
   - stat: 12
     value: 0
+  - stat: 2
+    value: 10
+  - stat: 4
+    value: 1
+  - stat: 7
+    value: 4
+  - stat: 13
+    value: 1
 --- !u!65 &4929581951905901165
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -15,12 +15,23 @@ public class Bullet : MonoBehaviour
     public List<BulletEffect> effects;
 
     private Girl girl;
+    private bool tele=false;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        girl = FindObjectOfType<Girl>();
+        foreach (BulletEffect item in effects)
+        {
+            if (item.effect == BEffects.TELE)
+            {
+                tele = true;
+                break;
+            }
+        }
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,7 +42,7 @@ public class Bullet : MonoBehaviour
 
         if(other.tag =="Enemy" && playerShoot==0 && other.gameObject.GetComponent<StatsController>().GetStat(Stat.ENEMY_SHIELD)==0)
         {
-            //Reducir vida enemigo 
+            other.gameObject.GetComponent<StatsController>().SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT,other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH), damage));
             if (other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH) <= 0)
             {
                 Destroy(other.gameObject);
@@ -63,6 +74,15 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rigidBody.velocity = new Vector3(dir.x * shootSpeed, 0, dir.z * shootSpeed);
+        if (!tele)
+        {
+            rigidBody.velocity = new Vector3(dir.x * shootSpeed, 0, dir.z * shootSpeed);
+        }
+        else
+        {
+            Vector3 dirT = (girl.transform.position - this.transform.position).normalized;
+            rigidBody.velocity = new Vector3(dirT.x * shootSpeed, 0, dirT.z * shootSpeed);
+        }
+
     }
 }

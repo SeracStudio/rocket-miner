@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private float slownessTime = 0;
     private float slownessCd;
     private bool slowness = false;
+    private float slownessF = 1;
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -41,7 +42,7 @@ public class Player : MonoBehaviour
             if (slownessTime > slownessCd)
             {
                 slowness = false;
-                //Velocidad de vuelta a normal
+                slownessF = 1;
             }
         }
     }
@@ -63,7 +64,7 @@ public class Player : MonoBehaviour
 
     public virtual void Slowness(float amount, float duration)
     {
-        //Velocidad /2 o lo que sea 
+        slownessF = 2;
         slownessCd = duration;
         slowness = true;
     }
@@ -95,7 +96,7 @@ public class Player : MonoBehaviour
     {
         if (!dash)
         {
-            rigidBody.velocity = new Vector3(direction.x * stats.GetStat(Stat.MOV_SPEED), 0, direction.y * stats.GetStat(Stat.MOV_SPEED));
+            rigidBody.velocity = new Vector3(direction.x * (stats.GetStat(Stat.MOV_SPEED)/slownessF), 0, direction.y * (stats.GetStat(Stat.MOV_SPEED)/slownessF));
         }
     }
 

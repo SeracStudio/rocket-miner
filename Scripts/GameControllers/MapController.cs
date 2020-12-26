@@ -33,7 +33,8 @@ public class MapController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            NewFloor();
+            map = mapGenerator.NewMap();
+            mapRenderer.RenderMap(map);
         }
     }
 

@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 6458585379653304530, guid: 02a0af215a3c36d4393ccc372938bf42, type: 3}
-  markerS: {fileID: 0}
-  markerB: {fileID: 0}
-  markerT: {fileID: 0}
+  markerS: {fileID: 2538563855042319390, guid: 283c3f3f33b498946a110b31df6fa531, type: 3}
+  markerB: {fileID: 2538563855042319390, guid: 6d5e2ed5007544140991be757e815d56, type: 3}
+  markerT: {fileID: 2538563855042319390, guid: 964d6b8d0c67ea74090a1ab9f427c434, type: 3}
   roomSize: 20

@@ -36,6 +36,6 @@ public class StatsController : MonoBehaviour
         statsDict[stat] = value;
 
         //Levantar evento (UI, controlador...)
-        OnStatChanged.Invoke(stat, value);
+        OnStatChanged?.Invoke(stat, value);
     }
 }

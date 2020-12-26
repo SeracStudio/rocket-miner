@@ -6,7 +6,8 @@ public enum BEffects
 {
     NORMAL,
     SLOWNESS,
-    POISON
+    POISON,
+    TELE
 }
 
 [System.Serializable]
@@ -44,7 +45,7 @@ public class BulletController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Default")))
         {
-            if (hit.collider.tag.Equals("Floor"))
+            if (hit.collider.tag.Equals("Floor") || hit.collider.tag.Equals("Enemy") || hit.collider.tag.Equals("Wall"));
             {
                 target = hit.point - transform.position;
                 return target.normalized;
@@ -69,11 +70,14 @@ public class BulletController : MonoBehaviour
             {
                 aux.dir = dir;
             }
+            else
+            {
+                aux.dir = new Vector3(1, 0, 0);
+            }
         }
         else
         {
             aux.dir = dirA;
-            Debug.Log(dirA);
         }
     }
 }
