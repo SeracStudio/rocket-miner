@@ -7,6 +7,7 @@ public enum BEffects
     NORMAL,
     SLOWNESS,
     POISON,
+    EXPLOSION,
     TELE,
     SPECIAL
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1464047214228983149}
   - component: {fileID: 1464047214228983148}
   - component: {fileID: 1464047214228983155}
+  - component: {fileID: 4004358556206586907}
   - component: {fileID: 1464047214228983154}
   - component: {fileID: 1464047214228983153}
   - component: {fileID: 3575577717795628969}
@@ -85,6 +86,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4004358556206586907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464047214228983158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1916c602fb2849d44894b7a6fd8e0b3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &1464047214228983154
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -112,10 +125,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   rigidbody: {fileID: 0}
-  girl: {fileID: 0}
   pbc: {fileID: 0}
   stunned: 0
   wall: 0
+  target:
+    target: 0
+  tgt: {fileID: 0}
 --- !u!114 &3575577717795628969
 MonoBehaviour:
   m_ObjectHideFlags: 0

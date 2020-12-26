@@ -61,7 +61,7 @@ public class Bullet : MonoBehaviour
                         other.gameObject.GetComponent<Player>().Attacked(damage);
                         break;
                     case (BEffects.POISON):
-                        other.gameObject.GetComponent<Player>().Poisoned(damage, effect.durationTime);
+                        other.gameObject.GetComponent<Player>().Poisoned(damage);
                         break;
                     case (BEffects.SLOWNESS):
                         other.gameObject.GetComponent<Player>().Slowness(damage, effect.durationTime);

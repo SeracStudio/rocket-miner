@@ -54,10 +54,10 @@ public class Player : MonoBehaviour
     }
 
     public virtual void Attacked(float amount) { 
-            
+        
     }
 
-    public virtual void Poisoned(float amount, float duration)
+    public virtual void Poisoned(float amount)
     {
 
     }

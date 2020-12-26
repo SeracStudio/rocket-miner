@@ -90,7 +90,7 @@ public class MeleeAttack : MonoBehaviour
                         tgt.Attacked(stats.GetStat(Stat.SHOT_DMG));
                         break;
                     case (BEffects.POISON):
-                        tgt.Poisoned(stats.GetStat(Stat.SHOT_DMG), effect.durationTime);
+                        tgt.Poisoned(stats.GetStat(Stat.SHOT_DMG));
                         break;
                     case (BEffects.SLOWNESS):
                         tgt.Slowness(stats.GetStat(Stat.SHOT_DMG), effect.durationTime);

@@ -61,13 +61,14 @@ public class Girl : Player
         }
     }
 
-    public override void Poisoned(float amount, float duration)
+    public override void Poisoned(float amount)
     {     
         if (canBeAttacked)
         {
-            base.Poisoned(amount, duration);
-            poisonCd = duration;
+            base.Poisoned(amount);
+            poisonCd = 1f;
             poison = true;
+            poisonDamage = 1 / 15;
             Attacked(amount);          
         }
     }
