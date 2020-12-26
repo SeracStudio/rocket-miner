@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
 
     public bool dash=false;
 
+    private float slownessTime = 0;
+    private float slownessCd;
+    private bool slowness = false;
+
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -25,7 +29,21 @@ public class Player : MonoBehaviour
     public virtual void Update()
     {
         Inputs();
-        Rotation();       
+        Rotation();
+        checkSlowness();
+    }
+
+    private void checkSlowness()
+    {
+        if (slowness)
+        {
+            slownessTime += Time.deltaTime;
+            if (slownessTime > slownessCd)
+            {
+                slowness = false;
+                //Velocidad de vuelta a normal
+            }
+        }
     }
 
 
@@ -36,6 +54,18 @@ public class Player : MonoBehaviour
 
     public virtual void Attacked(float amount) { 
             
+    }
+
+    public virtual void Poisoned(float amount, float duration)
+    {
+
+    }
+
+    public virtual void Slowness(float amount, float duration)
+    {
+        //Velocidad /2 o lo que sea 
+        slownessCd = duration;
+        slowness = true;
     }
 
     private void Rotation()

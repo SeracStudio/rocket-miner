@@ -7,16 +7,21 @@ public class Enemy : MonoBehaviour
     public StatsController stats;
     public Rigidbody rigidbody;
     public Girl girl;
+    public BulletController pbc;
 
     public bool stunned;
     private float stunnedCd=1f;
     private float stunnedTime;
+
+    private float shootTime = 0;
+
 
     public bool wall = false;
 
     public virtual void Update()
     {
         checkStun();
+        checkShoot();
         Rotation();
     }
 
@@ -29,6 +34,11 @@ public class Enemy : MonoBehaviour
         if (stats.GetStat(Stat.ENEMY_SHIELD) == 1)
         {
             //Poner Escudo visualmente
+        }
+
+        if (stats.GetStat(Stat.ENEMY_CANSHOOT) == 1)
+        {
+            pbc = GetComponent<BulletController>();
         }
     }
 
@@ -48,6 +58,20 @@ public class Enemy : MonoBehaviour
             {
                 stunned = false;
                 stunnedTime = 0;
+            }
+        }
+    }
+
+    private void checkShoot()
+    {
+        if (stats.GetStat(Stat.ENEMY_CANSHOOT) == 1)
+        {
+            shootTime += Time.deltaTime;
+            if (shootTime > stats.GetStat(Stat.OFFENSIVE_CD))
+            {
+                pbc.Shoot(transform.position, getPlayerDirection().normalized);
+                stunned = true;
+                shootTime = 0;
             }
         }
     }

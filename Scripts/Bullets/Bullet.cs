@@ -12,6 +12,10 @@ public class Bullet : MonoBehaviour
     public float damage;
     public float playerShoot;
 
+    public List<BulletEffect> effects;
+
+    private Girl girl;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +35,26 @@ public class Bullet : MonoBehaviour
             if (other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH) <= 0)
             {
                 Destroy(other.gameObject);
+            }
+            Destroy(this.gameObject);
+        }
+
+        if((other.tag=="Attack" || other.tag=="ROBOT") && playerShoot == 1)
+        {
+            foreach (BulletEffect effect in effects)
+            {
+                switch (effect.effect)
+                {
+                    case (BEffects.NORMAL):
+                        other.gameObject.GetComponent<Player>().Attacked(damage);
+                        break;
+                    case (BEffects.POISON):
+                        other.gameObject.GetComponent<Player>().Poisoned(damage, effect.durationTime);
+                        break;
+                    case (BEffects.SLOWNESS):
+                        other.gameObject.GetComponent<Player>().Slowness(damage, effect.durationTime);
+                        break;
+                }
             }
             Destroy(this.gameObject);
         }

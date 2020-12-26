@@ -31,7 +31,8 @@ public enum Stat
     STUN_DURATION,
     IS_PLAYER,
     DANGEROUSNESS,
-    ENEMY_SHIELD
+    ENEMY_SHIELD,
+    ENEMY_CANSHOOT
 }
 
 [System.Serializable]

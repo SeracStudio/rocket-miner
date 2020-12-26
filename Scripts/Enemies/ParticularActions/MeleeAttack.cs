@@ -13,6 +13,8 @@ public class MeleeAttack : MonoBehaviour
     private float canAttackTime=0;
     private bool canAttack = true;
 
+    public List<BulletEffect> attackType;
+
     private StatsController stats;
 
     [System.Serializable]
@@ -84,7 +86,21 @@ public class MeleeAttack : MonoBehaviour
         attack = false;
         if(distance < 2)
         {
-            tgt.Attacked(stats.GetStat(Stat.SHOT_DMG));
+            foreach (BulletEffect effect in attackType)
+            {
+                switch (effect.effect)
+                {
+                    case (BEffects.NORMAL):
+                        tgt.Attacked(stats.GetStat(Stat.SHOT_DMG));
+                        break;
+                    case (BEffects.POISON):
+                        tgt.Poisoned(stats.GetStat(Stat.SHOT_DMG), effect.durationTime);
+                        break;
+                    case (BEffects.SLOWNESS):
+                        tgt.Slowness(stats.GetStat(Stat.SHOT_DMG), effect.durationTime);
+                        break;
+                }
+            }
         }       
     }
 }
