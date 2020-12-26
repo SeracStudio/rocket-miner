@@ -8,7 +8,11 @@ public enum ItemList
     LUCKY_TRINKET,
     REFLECTING_MIRROR,
     GWEIN_DRILLER,
-    TELENERGY
+    EVERGUN_3,
+    EVERGUN_LEFT,
+    MAGNETGUN,
+    TELENERGY,
+    DAMAGED_OILER
 }
 
 public static class ItemFunc
@@ -29,7 +33,19 @@ public static class ItemFunc
             case ItemList.GWEIN_DRILLER:
                 target.AddComponent<GweinDriller>();
                 break;
+            case ItemList.EVERGUN_3:
+                //target.AddComponent<Disparador>();
+                break;
+            case ItemList.EVERGUN_LEFT:
+                //target.AddComponent<Disparador>();
+                break;
+            case ItemList.MAGNETGUN:
+                //target.AddComponent<Disparador>();
+                break;
             case ItemList.TELENERGY:
+                target.AddComponent<Telenergy>();
+                break;
+            case ItemList.DAMAGED_OILER:
                 target.AddComponent<Telenergy>();
                 break;
         }
