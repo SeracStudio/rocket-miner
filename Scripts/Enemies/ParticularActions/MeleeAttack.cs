@@ -17,18 +17,14 @@ public class MeleeAttack : MonoBehaviour
 
     private StatsController stats;
 
-    [System.Serializable]
-    public class targetAttack
-    {
-        public Target target;
-    }
-    public targetAttack target;
+    private targetAttack target;
     private Player tgt;
 
     public float distance;
 
     void Start()
     {
+        target = GetComponent<Enemy>().target;
         stats = GetComponent<StatsController>();
         if (target.target == Target.GIRL)
         {

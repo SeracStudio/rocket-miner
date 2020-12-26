@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
 
     private Girl girl;
     private bool tele=false;
+    private bool dontDestroy = false;
 
     // Start is called before the first frame update
     void Start()
@@ -65,9 +66,25 @@ public class Bullet : MonoBehaviour
                     case (BEffects.SLOWNESS):
                         other.gameObject.GetComponent<Player>().Slowness(damage, effect.durationTime);
                         break;
+                    case (BEffects.SPECIAL):
+                        if (other.tag == "ROBOT")
+                        {
+                            if (!other.GetComponent<Robot>().shield)
+                            {
+                                dontDestroy = true;
+                            }
+                        }
+                        else
+                        {
+                            other.gameObject.GetComponent<Player>().Attacked(damage);
+                        }
+                        break;
                 }
             }
-            Destroy(this.gameObject);
+            if (!dontDestroy)
+            {
+                Destroy(this.gameObject);
+            }         
         }
     }
 

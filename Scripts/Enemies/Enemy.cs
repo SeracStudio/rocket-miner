@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class targetAttack
+{
+    public Target target;
+}
+
 public class Enemy : MonoBehaviour
 {
     public StatsController stats;
     public Rigidbody rigidbody;
-    public Girl girl;
     public BulletController pbc;
 
     public bool stunned;
@@ -17,6 +22,11 @@ public class Enemy : MonoBehaviour
 
 
     public bool wall = false;
+
+
+    
+    public targetAttack target;
+    public Player tgt;
 
     public virtual void Update()
     {
@@ -29,7 +39,15 @@ public class Enemy : MonoBehaviour
     {
         stats = GetComponent<StatsController>();
         rigidbody = GetComponent<Rigidbody>();
-        girl = FindObjectOfType<Girl>();
+
+        if (target.target == Target.GIRL)
+        {
+            tgt = FindObjectOfType<Girl>();
+        }
+        else
+        {
+            tgt = FindObjectOfType<Robot>();
+        }
 
         if (stats.GetStat(Stat.ENEMY_SHIELD) == 1)
         {
@@ -78,7 +96,7 @@ public class Enemy : MonoBehaviour
 
     public Vector3 getPlayerDirection()
     {
-        return (girl.transform.position - this.transform.position);
+        return (tgt.transform.position - this.transform.position);
     }
 
     public void Stunned()
@@ -101,10 +119,10 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {       
-        if (collision.gameObject == girl.gameObject)
+        if (collision.gameObject == tgt.gameObject && target.target==Target.GIRL)
         {
             rigidbody.isKinematic = true;
-            girl.Attacked(stats.GetStat(Stat.SHOT_DMG)/2);            
+            tgt.Attacked(stats.GetStat(Stat.SHOT_DMG)/2);            
         }
 
         if (collision.gameObject.tag == "Wall")
@@ -115,7 +133,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject == girl.gameObject)
+        if (collision.gameObject == tgt.gameObject && target.target == Target.GIRL)
         {
             rigidbody.isKinematic = false;          
         }

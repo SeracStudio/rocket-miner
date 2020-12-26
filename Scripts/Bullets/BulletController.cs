@@ -7,7 +7,8 @@ public enum BEffects
     NORMAL,
     SLOWNESS,
     POISON,
-    TELE
+    TELE,
+    SPECIAL
 }
 
 [System.Serializable]
