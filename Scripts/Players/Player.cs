@@ -34,12 +34,15 @@ public class Player : MonoBehaviour
         Move();
     }
 
+    public virtual void Attacked(float amount) { 
+            
+    }
+
     private void Rotation()
     {
         Vector3 mouse = Vector3.RotateTowards(transform.forward, getMouse(), Time.deltaTime * 10, 0.0f);
         mouse.y = 0;
         transform.rotation = Quaternion.LookRotation(mouse);
-
     }
 
     private Vector3 getMouse()

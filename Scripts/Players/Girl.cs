@@ -35,10 +35,12 @@ public class Girl : Player
         checkAttacked();
     }
 
-    public void Attacked(float damageAmount)
+    public override void Attacked(float damageAmount)
     {
+        base.Attacked(damageAmount);        
         if (canBeAttacked)
         {
+            Debug.Log("Attacked");
             //Reducir vida 
             //Invencibilidad visible de algun modo
             attackedTime += 0.01f;
