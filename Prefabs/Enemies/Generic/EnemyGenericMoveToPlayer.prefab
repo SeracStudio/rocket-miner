@@ -113,10 +113,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   rigidbody: {fileID: 0}
-  girl: {fileID: 0}
   pbc: {fileID: 0}
   stunned: 0
   wall: 0
+  target:
+    target: 0
+  tgt: {fileID: 0}
   directionCd: 0.2
 --- !u!114 &7448011525407947772
 MonoBehaviour:
@@ -160,9 +162,7 @@ MonoBehaviour:
   attackType:
   - effect: 0
     durationTime: 0
-  target:
-    target: 1
-  distance: 0
+  distance: 3
 --- !u!54 &7974496854056834584
 Rigidbody:
   m_ObjectHideFlags: 0

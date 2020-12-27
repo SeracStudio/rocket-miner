@@ -112,10 +112,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   rigidbody: {fileID: 0}
-  girl: {fileID: 0}
   pbc: {fileID: 0}
   stunned: 0
   wall: 0
+  target:
+    target: 1
+  tgt: {fileID: 0}
   directionCd: 0.2
   directionRandomCd: 1
   run: 0

@@ -21,7 +21,7 @@ public class Girl : Player
     private float poisonEffectTime = 0;
     private bool poison = false;
     private float poisonCd = 0;
-    private float poisonEffectCd = 0.7f;
+    private float poisonEffectCd = 0.2f;
     private float poisonDamage = 5;
 
     private BulletController pbc;
@@ -45,7 +45,7 @@ public class Girl : Player
 
     public override void Attacked(float damageAmount)
     {    
-        if (canBeAttacked)
+        if (canBeAttacked || poison)
         {
             base.Attacked(damageAmount);
             Debug.Log("Attacked");

@@ -8,6 +8,9 @@ public class Slime : MonoBehaviour
 
     public int level=1;
 
+    private float nextCd = 2;
+    private float nextTime = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +20,15 @@ public class Slime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        nextTime += Time.deltaTime;
+        if (nextTime < nextCd)
+        {
+            GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x, 0f, GetComponent<Rigidbody>().velocity.z);
+            transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
+        }
     }
 
-    private void OnDestroy()
+    public void NextSlime()
     {
         if (level <= 2)
         {

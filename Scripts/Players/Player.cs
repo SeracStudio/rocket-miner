@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
             {
                 slowness = false;
                 slownessF = 1;
+                slownessTime = 0;
             }
         }
     }
