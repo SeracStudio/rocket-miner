@@ -21,7 +21,7 @@ public class EnemyAfraidOfPlayer : Enemy
     {
         base.Update();
 
-        if (Vector3.Distance(this.transform.position, girl.transform.position) < 6)
+        if (Vector3.Distance(this.transform.position, tgt.transform.position) < 6)
         {
             run = true;
         }

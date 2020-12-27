@@ -2,21 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class targetAttack
+{
+    public Target target;
+}
+
 public class Enemy : MonoBehaviour
 {
     public StatsController stats;
     public Rigidbody rigidbody;
-    public Girl girl;
+    public BulletController pbc;
 
     public bool stunned;
     private float stunnedCd=1f;
     private float stunnedTime;
 
+    private float shootTime = 0;
+
+
     public bool wall = false;
+
+
+    
+    public targetAttack target;
+    public Player tgt;
 
     public virtual void Update()
     {
         checkStun();
+        checkShoot();
         Rotation();
     }
 
@@ -24,11 +39,24 @@ public class Enemy : MonoBehaviour
     {
         stats = GetComponent<StatsController>();
         rigidbody = GetComponent<Rigidbody>();
-        girl = FindObjectOfType<Girl>();
+
+        if (target.target == Target.GIRL)
+        {
+            tgt = FindObjectOfType<Girl>();
+        }
+        else
+        {
+            tgt = FindObjectOfType<Robot>();
+        }
 
         if (stats.GetStat(Stat.ENEMY_SHIELD) == 1)
         {
             //Poner Escudo visualmente
+        }
+
+        if (stats.GetStat(Stat.ENEMY_CANSHOOT) == 1)
+        {
+            pbc = GetComponent<BulletController>();
         }
     }
 
@@ -52,9 +80,23 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void checkShoot()
+    {
+        if (stats.GetStat(Stat.ENEMY_CANSHOOT) == 1)
+        {
+            shootTime += Time.deltaTime;
+            if (shootTime > stats.GetStat(Stat.OFFENSIVE_CD))
+            {
+                pbc.Shoot(transform.position, getPlayerDirection().normalized);
+                stunned = true;
+                shootTime = 0;
+            }
+        }
+    }
+
     public Vector3 getPlayerDirection()
     {
-        return (girl.transform.position - this.transform.position);
+        return (tgt.transform.position - this.transform.position);
     }
 
     public void Stunned()
@@ -71,16 +113,16 @@ public class Enemy : MonoBehaviour
 
     private void shieldOff()
     {
-        //Stat Shield a 0
+        stats.SetStat(Stat.ENEMY_SHIELD, 0);
         //Quitar escudo visualmente
     }
 
     private void OnCollisionEnter(Collision collision)
     {       
-        if (collision.gameObject == girl.gameObject)
+        if (collision.gameObject == tgt.gameObject && target.target==Target.GIRL)
         {
             rigidbody.isKinematic = true;
-            girl.Attacked(stats.GetStat(Stat.SHOT_DMG));            
+            tgt.Attacked(stats.GetStat(Stat.SHOT_DMG)/2);            
         }
 
         if (collision.gameObject.tag == "Wall")
@@ -91,7 +133,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject == girl.gameObject)
+        if (collision.gameObject == tgt.gameObject && target.target == Target.GIRL)
         {
             rigidbody.isKinematic = false;          
         }

@@ -39,9 +39,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6057591365430093067}
-  - component: {fileID: 2522709163561290891}
   - component: {fileID: 3966093644912985445}
-  - component: {fileID: 2343908814762831319}
+  - component: {fileID: 2152302210429827596}
   m_Layer: 0
   m_Name: WEST
   m_TagString: Untagged
@@ -64,22 +63,6 @@ Transform:
   m_Father: {fileID: 5543872079222232255}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2522709163561290891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 464200777748937556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a012f98ee991ce64ea77dd036f8609c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnables:
-  - {fileID: 6960565442284096926, guid: 90ed1881401664d41a6fb35d28c7d2f2, type: 3}
-  randomize: 0
-  rotation: {x: 0, y: 90, z: 0}
 --- !u!65 &3966093644912985445
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -93,7 +76,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 2, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2343908814762831319
+--- !u!114 &2152302210429827596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,11 +85,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 464200777748937556}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 317c739477188ae42b063707a2f22d0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c2373d640444904bb5887185126d63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 1
-  crossSpawn: {fileID: 4438545034343804581}
+  spawnables:
+  - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
+  randomize: 0
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &2295178302021576813
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,9 +161,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6411936756345952932}
-  - component: {fileID: 6881857494408724322}
   - component: {fileID: 7454353702009553532}
-  - component: {fileID: 4301163190098368217}
+  - component: {fileID: 2172400939373885114}
   m_Layer: 0
   m_Name: EAST
   m_TagString: Untagged
@@ -201,22 +185,6 @@ Transform:
   m_Father: {fileID: 5543872079222232255}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6881857494408724322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5129501855517901459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a012f98ee991ce64ea77dd036f8609c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnables:
-  - {fileID: 6960565442284096926, guid: 90ed1881401664d41a6fb35d28c7d2f2, type: 3}
-  randomize: 0
-  rotation: {x: 0, y: 90, z: 0}
 --- !u!65 &7454353702009553532
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -230,7 +198,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 2, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4301163190098368217
+--- !u!114 &2172400939373885114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,11 +207,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5129501855517901459}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 317c739477188ae42b063707a2f22d0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c2373d640444904bb5887185126d63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 2
-  crossSpawn: {fileID: 2930096598532210837}
+  spawnables:
+  - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
+  randomize: 0
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &5543872079222232254
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5543872079222232255}
-  - component: {fileID: 5715151396554203787}
+  - component: {fileID: 3783006746084171752}
   m_Layer: 0
   m_Name: BaseRoom
   m_TagString: Untagged
@@ -284,7 +254,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5715151396554203787
+--- !u!114 &3783006746084171752
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,13 +263,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5543872079222232254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b83a211afefaec44fb0a9e0beca8df8e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f55f80b7a39bf94b99fb02580b461b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  north: {fileID: 1940918574860041770}
-  west: {fileID: 2522709163561290891}
-  east: {fileID: 6881857494408724322}
-  south: {fileID: 2340548257860508013}
+  north: {fileID: 5492300675431600710}
+  west: {fileID: 2152302210429827596}
+  east: {fileID: 2172400939373885114}
+  south: {fileID: 1085922515993265778}
 --- !u!1 &5543872079330262574
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5543872079330262575}
-  - component: {fileID: 3982623517687125540}
+  - component: {fileID: 7138702555169417267}
   m_Layer: 0
   m_Name: SOUTH_EAST
   m_TagString: Untagged
@@ -331,7 +301,7 @@ Transform:
   m_Father: {fileID: 5543872079222232255}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3982623517687125540
+--- !u!114 &7138702555169417267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -340,14 +310,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5543872079330262574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a012f98ee991ce64ea77dd036f8609c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c2373d640444904bb5887185126d63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnables:
-  - {fileID: 8076563693200783891, guid: b45a882dcf9bbe64e9888bbad6a6eae9, type: 3}
-  - {fileID: 3872571842024192081, guid: de85f9ac08114644699ab9cfe1d20970, type: 3}
-  - {fileID: 8189710535019421479, guid: 097a5c094f94e3f4f81f4042c3df01b2, type: 3}
-  - {fileID: 2261848686627597160, guid: c87cfa7363df74a4680cc722d4c277d0, type: 3}
+  - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
   randomize: 0
   rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &5543872079432443456
@@ -359,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5543872079432443457}
-  - component: {fileID: 2660046303102615200}
+  - component: {fileID: 2366987830150566408}
   m_Layer: 0
   m_Name: NORTH_WEST
   m_TagString: Untagged
@@ -381,7 +348,7 @@ Transform:
   m_Father: {fileID: 5543872079222232255}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2660046303102615200
+--- !u!114 &2366987830150566408
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -390,16 +357,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5543872079432443456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a012f98ee991ce64ea77dd036f8609c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c2373d640444904bb5887185126d63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnables:
-  - {fileID: 8076563693200783891, guid: b45a882dcf9bbe64e9888bbad6a6eae9, type: 3}
-  - {fileID: 3872571842024192081, guid: de85f9ac08114644699ab9cfe1d20970, type: 3}
-  - {fileID: 8189710535019421479, guid: 097a5c094f94e3f4f81f4042c3df01b2, type: 3}
-  - {fileID: 2261848686627597160, guid: c87cfa7363df74a4680cc722d4c277d0, type: 3}
+  - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
   randomize: 0
-  rotation: {x: 0, y: 180, z: 0}
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &5543872080357326084
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5543872080357326085}
-  - component: {fileID: 3743438480857306444}
+  - component: {fileID: 8918181591447073517}
   m_Layer: 0
   m_Name: SOUTH_WEST
   m_TagString: Untagged
@@ -431,7 +395,7 @@ Transform:
   m_Father: {fileID: 5543872079222232255}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3743438480857306444
+--- !u!114 &8918181591447073517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -440,16 +404,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5543872080357326084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a012f98ee991ce64ea77dd036f8609c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c2373d640444904bb5887185126d63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnables:
-  - {fileID: 8076563693200783891, guid: b45a882dcf9bbe64e9888bbad6a6eae9, type: 3}
-  - {fileID: 3872571842024192081, guid: de85f9ac08114644699ab9cfe1d20970, type: 3}
-  - {fileID: 8189710535019421479, guid: 097a5c094f94e3f4f81f4042c3df01b2, type: 3}
-  - {fileID: 2261848686627597160, guid: c87cfa7363df74a4680cc722d4c277d0, type: 3}
+  - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
   randomize: 0
-  rotation: {x: 0, y: 90, z: 0}
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &5543872081112997955
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5543872081112997952}
-  - component: {fileID: 8766510093451867612}
+  - component: {fileID: 7931356416353431842}
   m_Layer: 0
   m_Name: NORTH_EAST
   m_TagString: Untagged
@@ -481,7 +442,7 @@ Transform:
   m_Father: {fileID: 5543872079222232255}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8766510093451867612
+--- !u!114 &7931356416353431842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -490,16 +451,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5543872081112997955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a012f98ee991ce64ea77dd036f8609c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c2373d640444904bb5887185126d63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnables:
-  - {fileID: 8076563693200783891, guid: b45a882dcf9bbe64e9888bbad6a6eae9, type: 3}
-  - {fileID: 3872571842024192081, guid: de85f9ac08114644699ab9cfe1d20970, type: 3}
-  - {fileID: 8189710535019421479, guid: 097a5c094f94e3f4f81f4042c3df01b2, type: 3}
-  - {fileID: 2261848686627597160, guid: c87cfa7363df74a4680cc722d4c277d0, type: 3}
+  - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
   randomize: 0
-  rotation: {x: 0, y: -90, z: 0}
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &5632941733729584458
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,9 +467,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6121410858585256131}
-  - component: {fileID: 2340548257860508013}
   - component: {fileID: 6981966875284217525}
-  - component: {fileID: 4853525789262431380}
+  - component: {fileID: 1085922515993265778}
   m_Layer: 0
   m_Name: SOUTH
   m_TagString: Untagged
@@ -534,22 +491,6 @@ Transform:
   m_Father: {fileID: 5543872079222232255}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2340548257860508013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5632941733729584458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a012f98ee991ce64ea77dd036f8609c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnables:
-  - {fileID: 6960565442284096926, guid: 90ed1881401664d41a6fb35d28c7d2f2, type: 3}
-  randomize: 0
-  rotation: {x: 0, y: 0, z: 0}
 --- !u!65 &6981966875284217525
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -563,7 +504,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 2, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4853525789262431380
+--- !u!114 &1085922515993265778
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -572,11 +513,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5632941733729584458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 317c739477188ae42b063707a2f22d0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c2373d640444904bb5887185126d63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 3
-  crossSpawn: {fileID: 1142425829400438096}
+  spawnables:
+  - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
+  randomize: 0
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &7031973915487343708
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +529,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3500549387630275559}
-  - component: {fileID: 260364057140004811}
+  - component: {fileID: 5999460154580617781}
   m_Layer: 0
   m_Name: FLOOR
   m_TagString: Untagged
@@ -608,7 +551,7 @@ Transform:
   m_Father: {fileID: 5543872079222232255}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &260364057140004811
+--- !u!114 &5999460154580617781
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -617,11 +560,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7031973915487343708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a012f98ee991ce64ea77dd036f8609c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c2373d640444904bb5887185126d63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnables:
-  - {fileID: 7456250438547569759, guid: 17693f986134fb145b4e815a853d48c6, type: 3}
+  - {fileID: 7456250438547569759, guid: 577c9915dcb9e8c40a48bc6e99ba8dc7, type: 3}
   randomize: 0
   rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &7170569359142037624
@@ -663,9 +606,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1925088314201883470}
-  - component: {fileID: 1940918574860041770}
   - component: {fileID: 6633156526475574120}
-  - component: {fileID: 4376488471890516483}
+  - component: {fileID: 5492300675431600710}
   m_Layer: 0
   m_Name: NORTH
   m_TagString: Untagged
@@ -688,22 +630,6 @@ Transform:
   m_Father: {fileID: 5543872079222232255}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1940918574860041770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7737751015023702288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a012f98ee991ce64ea77dd036f8609c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnables:
-  - {fileID: 6960565442284096926, guid: 90ed1881401664d41a6fb35d28c7d2f2, type: 3}
-  randomize: 0
-  rotation: {x: 0, y: 0, z: 0}
 --- !u!65 &6633156526475574120
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -717,7 +643,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 2, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4376488471890516483
+--- !u!114 &5492300675431600710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -726,8 +652,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7737751015023702288}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 317c739477188ae42b063707a2f22d0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c2373d640444904bb5887185126d63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0
-  crossSpawn: {fileID: 81728372752197730}
+  spawnables:
+  - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
+  randomize: 0
+  rotation: {x: 0, y: 0, z: 0}

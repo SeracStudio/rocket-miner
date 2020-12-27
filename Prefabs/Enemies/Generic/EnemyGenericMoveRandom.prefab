@@ -99,8 +99,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   rigidbody: {fileID: 0}
-  girl: {fileID: 0}
+  pbc: {fileID: 0}
   stunned: 0
+  wall: 0
+  target:
+    target: 1
+  tgt: {fileID: 0}
   directionCd: 1
 --- !u!114 &5887929997974574922
 MonoBehaviour:
@@ -127,6 +131,14 @@ MonoBehaviour:
     value: 0
   - stat: 12
     value: 0
+  - stat: 2
+    value: 10
+  - stat: 4
+    value: 1
+  - stat: 7
+    value: 4
+  - stat: 13
+    value: 1
 --- !u!65 &4929581951905901165
 BoxCollider:
   m_ObjectHideFlags: 0
