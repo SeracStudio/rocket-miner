@@ -9,6 +9,8 @@ public class RoomLoader : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag(Target.GIRL.ToString())) return;
+
         MapController.RUNNING.player.transform.position = crossSpawn.position;
         MapController.RUNNING.LoadRoom(direction);
     }

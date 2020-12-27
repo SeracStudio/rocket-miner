@@ -204,6 +204,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1715281008, guid: 6d4793b3e103e2f428ab423c0ac757b6, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 912712747}
+    - target: {fileID: 1715281008, guid: 6d4793b3e103e2f428ab423c0ac757b6, type: 3}
       propertyPath: pathDepth
       value: 2
       objectReference: {fileID: 0}
@@ -281,7 +285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &345856996
 Light:
   m_ObjectHideFlags: 0
@@ -374,7 +378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &705507994
 Light:
   m_ObjectHideFlags: 0
@@ -646,7 +650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &912712748
 Transform:
   m_ObjectHideFlags: 0
