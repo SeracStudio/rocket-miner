@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4929581951905901160}
   - component: {fileID: 4929581951905901161}
   - component: {fileID: 4929581951905901162}
-  - component: {fileID: 2773274105740448403}
+  - component: {fileID: 3916178697004659829}
   - component: {fileID: 4929581951905901163}
   - component: {fileID: 5887929997974574922}
   - component: {fileID: 4929581951905901165}
@@ -86,7 +86,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2773274105740448403
+--- !u!114 &3916178697004659829
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,13 +95,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4929581951905901167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5169e322158804b9bfc38fc44cf222, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f57b25ef3b7f6f40bace57a6416da66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7539634881528489104, guid: 27d6bd6affdc0c94983daaa43703ba38, type: 3}
-  bulletEffects:
-  - effect: 0
-    durationTime: 0
+  slime: {fileID: 4929581951905901163}
+  level: 1
 --- !u!114 &4929581951905901163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,10 +114,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   rigidbody: {fileID: 0}
-  girl: {fileID: 0}
   pbc: {fileID: 0}
   stunned: 0
   wall: 0
+  target:
+    target: 1
+  tgt: {fileID: 0}
   directionCd: 1
 --- !u!114 &5887929997974574922
 MonoBehaviour:

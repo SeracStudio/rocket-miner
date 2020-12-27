@@ -71,16 +71,26 @@ public class BulletController : MonoBehaviour
             if (dir.x != 0 && dir.y != 0 && dir.z != 0)
             {
                 aux.dir = dir;
+                aux.rain = false;
             }
             else
             {
                 aux.dir = new Vector3(1, 0, 0);
+                aux.rain = false;
             }
         }
         else
         {
             aux.dir = dirA;
-            aux.rain = true;
+            if(this.TryGetComponent(out RockRain r))
+            {
+                aux.rain = true;
+            }
+            else
+            {
+                aux.rain = false;
+            }
+            
         }
     }
 }

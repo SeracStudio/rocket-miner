@@ -37,12 +37,17 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Wall" || other.tag=="Floor")
+        if (other.tag == "Wall")
         {
             Destroy(this.gameObject);
         }
 
-        if(other.tag =="Enemy" && playerShoot==0 && other.gameObject.GetComponent<StatsController>().GetStat(Stat.ENEMY_SHIELD)==0)
+        if (rain && other.tag == "Floor")
+        {
+            Destroy(this.gameObject);
+        }
+
+        if (other.tag =="Enemy" && playerShoot==0 && other.gameObject.GetComponent<StatsController>().GetStat(Stat.ENEMY_SHIELD)==0)
         {
             other.gameObject.GetComponent<StatsController>().SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT,other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH), damage));
             if (other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH) <= 0)
