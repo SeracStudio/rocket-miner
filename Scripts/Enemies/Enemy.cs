@@ -16,15 +16,8 @@ public class Enemy : MonoBehaviour
 
     public virtual void Update()
     {
-        if (stunned)
-        {
-            stunnedTime += Time.deltaTime;
-            if (stunnedTime > stunnedCd)
-            {
-                stunned = false;
-                stunnedTime = 0;
-            }
-        }
+        checkStun();
+        Rotation();
     }
 
     public virtual void Start()
@@ -36,6 +29,26 @@ public class Enemy : MonoBehaviour
         if (stats.GetStat(Stat.ENEMY_SHIELD) == 1)
         {
             //Poner Escudo visualmente
+        }
+    }
+
+    private void Rotation()
+    {
+        Vector3 dir = Vector3.RotateTowards(transform.forward, rigidbody.velocity, Time.deltaTime * 10, 0.0f);
+        dir.y = 0;
+        transform.rotation = Quaternion.LookRotation(dir);
+    }
+
+    private void checkStun()
+    {
+        if (stunned)
+        {
+            stunnedTime += Time.deltaTime;
+            if (stunnedTime > stunnedCd)
+            {
+                stunned = false;
+                stunnedTime = 0;
+            }
         }
     }
 

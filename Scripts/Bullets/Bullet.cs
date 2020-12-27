@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    public Vector2 dir;
+    public Vector3 dir;
     private Rigidbody rigidBody;
     public float shootSpeed;
 
@@ -39,6 +39,6 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rigidBody.velocity = new Vector3(dir.x * shootSpeed, 0, dir.y * shootSpeed);
+        rigidBody.velocity = new Vector3(dir.x * shootSpeed, 0, dir.z * shootSpeed);
     }
 }

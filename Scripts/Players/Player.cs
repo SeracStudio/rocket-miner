@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
     public virtual void Start()
     {
         rigidBody = this.GetComponent<Rigidbody>();
-
         stats = this.GetComponent<StatsController>();       
     }
 
@@ -26,12 +25,37 @@ public class Player : MonoBehaviour
     public virtual void Update()
     {
         Inputs();
+        Rotation();       
     }
 
 
     public virtual void FixedUpdate()
     {
         Move();
+    }
+
+    private void Rotation()
+    {
+        Vector3 mouse = Vector3.RotateTowards(transform.forward, getMouse(), Time.deltaTime * 10, 0.0f);
+        mouse.y = 0;
+        transform.rotation = Quaternion.LookRotation(mouse);
+
+    }
+
+    private Vector3 getMouse()
+    {
+        Vector3 target = new Vector3(0, 0, 0);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Default")))
+        {
+            if (hit.collider.tag.Equals("Floor"))
+            {
+                target = hit.point - transform.position;
+                return target.normalized;
+            }
+        }
+        return new Vector3(0, 0, 0);
     }
 
     private void Move()
@@ -46,7 +70,6 @@ public class Player : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Vertical");
         dirY = Input.GetAxisRaw("Horizontal");
-        //Debug.Log(dirX + " " + dirY);
         direction = new Vector2(dirY, dirX);
         if(direction.x!=0.0f || direction.y != 0.0f)
         {
