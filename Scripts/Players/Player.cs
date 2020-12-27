@@ -14,6 +14,11 @@ public class Player : MonoBehaviour
 
     public bool dash=false;
 
+    private float slownessTime = 0;
+    private float slownessCd;
+    private bool slowness = false;
+    private float slownessF = 1;
+
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -25,7 +30,21 @@ public class Player : MonoBehaviour
     public virtual void Update()
     {
         Inputs();
-        Rotation();       
+        Rotation();
+        checkSlowness();
+    }
+
+    private void checkSlowness()
+    {
+        if (slowness)
+        {
+            slownessTime += Time.deltaTime;
+            if (slownessTime > slownessCd)
+            {
+                slowness = false;
+                slownessF = 1;
+            }
+        }
     }
 
 
@@ -34,12 +53,27 @@ public class Player : MonoBehaviour
         Move();
     }
 
+    public virtual void Attacked(float amount) { 
+        
+    }
+
+    public virtual void Poisoned(float amount)
+    {
+
+    }
+
+    public virtual void Slowness(float amount, float duration)
+    {
+        slownessF = 2;
+        slownessCd = duration;
+        slowness = true;
+    }
+
     private void Rotation()
     {
         Vector3 mouse = Vector3.RotateTowards(transform.forward, getMouse(), Time.deltaTime * 10, 0.0f);
         mouse.y = 0;
         transform.rotation = Quaternion.LookRotation(mouse);
-
     }
 
     private Vector3 getMouse()
@@ -62,7 +96,7 @@ public class Player : MonoBehaviour
     {
         if (!dash)
         {
-            rigidBody.velocity = new Vector3(direction.x * stats.GetStat(Stat.MOV_SPEED), 0, direction.y * stats.GetStat(Stat.MOV_SPEED));
+            rigidBody.velocity = new Vector3(direction.x * (stats.GetStat(Stat.MOV_SPEED)/slownessF), 0, direction.y * (stats.GetStat(Stat.MOV_SPEED)/slownessF));
         }
     }
 

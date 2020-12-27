@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7974496854056834587}
   - component: {fileID: 7974496854056834662}
   - component: {fileID: 7448011525407947772}
+  - component: {fileID: 8904419523567998120}
   - component: {fileID: 7974496854056834584}
   m_Layer: 11
   m_Name: EnemyGenericMoveToPlayer
@@ -113,7 +114,9 @@ MonoBehaviour:
   stats: {fileID: 0}
   rigidbody: {fileID: 0}
   girl: {fileID: 0}
+  pbc: {fileID: 0}
   stunned: 0
+  wall: 0
   directionCd: 0.2
 --- !u!114 &7448011525407947772
 MonoBehaviour:
@@ -140,6 +143,26 @@ MonoBehaviour:
     value: 0
   - stat: 12
     value: 0
+  - stat: 13
+    value: 0
+--- !u!114 &8904419523567998120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7974496854056834663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 101bbcf057adbf143a2cabdef726b98e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackType:
+  - effect: 0
+    durationTime: 0
+  target:
+    target: 1
+  distance: 0
 --- !u!54 &7974496854056834584
 Rigidbody:
   m_ObjectHideFlags: 0

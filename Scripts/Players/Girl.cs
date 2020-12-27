@@ -17,12 +17,19 @@ public class Girl : Player
     private float attackedTime = 0;
     private float attackedCd = 1f;
 
+    private float poisonTime = 0;
+    private float poisonEffectTime = 0;
+    private bool poison = false;
+    private float poisonCd = 0;
+    private float poisonEffectCd = 0.7f;
+    private float poisonDamage = 5;
+
     private BulletController pbc;
 
     public override void Start()
     {
         base.Start();
-        pbc = this.GetComponent<BulletController>();       
+        pbc = this.GetComponent<BulletController>();
     }
 
     public override void Update()
@@ -33,16 +40,64 @@ public class Girl : Player
         checkDash();
         checkShoot();
         checkAttacked();
+        checkPoison();
     }
 
-    public void Attacked(float damageAmount)
-    {
+    public override void Attacked(float damageAmount)
+    {    
         if (canBeAttacked)
         {
-            //Reducir vida 
+            base.Attacked(damageAmount);
+            Debug.Log("Attacked");
+            stats.SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT, stats.GetStat(Stat.HEALTH), damageAmount));
             //Invencibilidad visible de algun modo
             attackedTime += 0.01f;
             canBeAttacked = false;
+            if (stats.GetStat(Stat.HEALTH) <= 0)
+            {
+                //Acabar el juego
+                Destroy(this.gameObject);
+            }
+        }
+    }
+
+    public override void Poisoned(float amount)
+    {     
+        if (canBeAttacked)
+        {
+            base.Poisoned(amount);
+            poisonCd = 1f;
+            poison = true;
+            poisonDamage = 1 / 15;
+            Attacked(amount);          
+        }
+    }
+
+    public override void Slowness(float amount, float duration)
+    {
+        if (canBeAttacked)
+        {
+            Attacked(amount);
+            base.Slowness(amount, duration);
+        }
+    }
+
+    private void checkPoison()
+    {
+        if (poison)
+        {
+            poisonTime += Time.deltaTime;
+            poisonEffectTime += Time.deltaTime;
+            if (poisonEffectTime > poisonEffectCd)
+            {
+                poisonEffectTime = 0;
+                Attacked(poisonDamage);
+            }
+            if (poisonTime > poisonCd)
+            {
+                poison = false;
+                poisonTime = 0;
+            }
         }
     }
 
@@ -107,7 +162,6 @@ public class Girl : Player
         if (Input.GetKey(KeyCode.Space))
         {
             canShoot = true;
-            //pbc.Shoot(transform.position, getLookingDirection()) ;
         }
 
         if (Input.GetKeyUp(KeyCode.Space))

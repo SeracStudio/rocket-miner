@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4929581951905901160}
   - component: {fileID: 4929581951905901161}
   - component: {fileID: 4929581951905901162}
+  - component: {fileID: 3916178697004659829}
   - component: {fileID: 4929581951905901163}
   - component: {fileID: 5887929997974574922}
   - component: {fileID: 4929581951905901165}
@@ -85,6 +86,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3916178697004659829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4929581951905901167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f57b25ef3b7f6f40bace57a6416da66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slime: {fileID: 4929581951905901163}
+  level: 1
 --- !u!114 &4929581951905901163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,8 +114,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   rigidbody: {fileID: 0}
-  girl: {fileID: 0}
+  pbc: {fileID: 0}
   stunned: 0
+  wall: 0
+  target:
+    target: 1
+  tgt: {fileID: 0}
   directionCd: 1
 --- !u!114 &5887929997974574922
 MonoBehaviour:
@@ -127,6 +146,14 @@ MonoBehaviour:
     value: 0
   - stat: 12
     value: 0
+  - stat: 2
+    value: 10
+  - stat: 4
+    value: 1
+  - stat: 7
+    value: 4
+  - stat: 13
+    value: 1
 --- !u!65 &4929581951905901165
 BoxCollider:
   m_ObjectHideFlags: 0

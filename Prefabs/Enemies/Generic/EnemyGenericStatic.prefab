@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1464047214228983148}
   - component: {fileID: 1464047214228983155}
   - component: {fileID: 1464047214228983154}
+  - component: {fileID: 661236167101657101}
+  - component: {fileID: 5554310073678368660}
   - component: {fileID: 1464047214228983153}
   - component: {fileID: 3575577717795628969}
   - component: {fileID: 1464047214228983159}
@@ -98,6 +100,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &661236167101657101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464047214228983158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c1878aca50e4747a745ac18155a53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rainCd: 5
+  nRocks: 4
+  rainDuration: 2
+--- !u!114 &5554310073678368660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464047214228983158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c5169e322158804b9bfc38fc44cf222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 0}
+  bulletEffects:
+  - effect: 0
+    durationTime: 0
 --- !u!114 &1464047214228983153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,8 +145,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   rigidbody: {fileID: 0}
-  girl: {fileID: 0}
+  pbc: {fileID: 0}
   stunned: 0
+  wall: 0
+  target:
+    target: 0
+  tgt: {fileID: 0}
 --- !u!114 &3575577717795628969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +175,8 @@ MonoBehaviour:
   - stat: 11
     value: 0
   - stat: 12
+    value: 0
+  - stat: 13
     value: 0
 --- !u!54 &1464047214228983159
 Rigidbody:

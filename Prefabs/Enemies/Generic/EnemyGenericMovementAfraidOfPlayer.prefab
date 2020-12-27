@@ -113,8 +113,12 @@ MonoBehaviour:
   stats: {fileID: 0}
   rigidbody: {fileID: 0}
   girl: {fileID: 0}
+  pbc: {fileID: 0}
   stunned: 0
+  wall: 0
   directionCd: 0.2
+  directionRandomCd: 1
+  run: 0
 --- !u!114 &6593318234197512561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +143,8 @@ MonoBehaviour:
   - stat: 11
     value: 0
   - stat: 12
+    value: 0
+  - stat: 13
     value: 0
 --- !u!54 &3272854110786956973
 Rigidbody:

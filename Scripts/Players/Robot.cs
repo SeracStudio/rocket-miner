@@ -58,6 +58,21 @@ public class Robot : Player
         }
     }
 
+    public override void Attacked(float amount)
+    {
+        base.Attacked(amount);
+    }
+
+    public override void Poisoned(float amount)
+    {
+        base.Poisoned(amount);
+    }
+
+    public override void Slowness(float amount, float duration)
+    {
+        base.Slowness(amount, duration);
+    }
+
     private void Punch()
     {
         punchTime = 0.01f;
