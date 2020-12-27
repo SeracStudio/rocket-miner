@@ -2,8 +2,8 @@
 
 public class Room : MonoBehaviour
 {
-    public GameObject north, west, east, south;
-    private GameObject GetWallPosition(Direction direction)
+    public SpawnObject north, west, east, south;
+    private SpawnObject GetWallPosition(Direction direction)
     {
         switch (direction)
         {
@@ -21,9 +21,6 @@ public class Room : MonoBehaviour
 
     public void RemoveWall(Direction direction)
     {
-        foreach (Transform wallPos in GetWallPosition(direction).transform)
-        {
-            Destroy(wallPos.gameObject);
-        }
+        GetWallPosition(direction).Hide();
     }
 }
