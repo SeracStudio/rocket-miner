@@ -26,15 +26,18 @@ public class MapController : MonoBehaviour
         mapGenerator = new MapGenerator(pathWidth, pathDepth, lateralRatio, branchingRatio);
         mapRenderer = GetComponent<MapRenderer>();
 
-        NewFloor();
+        //NewFloor();
+        map = mapGenerator.NewMap();
+        mapRenderer.Render(map);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            map = mapGenerator.NewMap();
-            mapRenderer.RenderMap(map);
+            NewFloor();
+            //map = mapGenerator.NewMap();
+            //mapRenderer.Render(map);
         }
     }
 
@@ -61,8 +64,20 @@ public class MapController : MonoBehaviour
 
     public void LoadRoom(MapRoom room)
     {
+        player.transform.position = new Vector3(5, 0.5f, 0);
         lastRoom = currentRoom;
-        mapRenderer.RenderRoom(room);
+        mapRenderer.Render(room);
+        currentRoom = room;
+        OnRoomLoaded?.Invoke();
+    }
+
+    public GameObject player;
+
+    public void LoadRoom(Direction direction)
+    {
+        lastRoom = currentRoom;
+        MapRoom room = currentRoom.connections[direction];
+        mapRenderer.Render(room);
         currentRoom = room;
         OnRoomLoaded?.Invoke();
     }

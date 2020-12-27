@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d00ed7196009744d879d9eecf41cc35, type: 3}
-  m_Name: Item17
+  m_Name: Item23
   m_EditorClassIdentifier: 
-  itemName: Telenergia
-  itemDescription: "Mecanismo que permite a un robot centrar parte de su energ\xEDa
-    en una zona en concreto. Este necesita de un tiempo de enfriamiento."
-  target: 1
-  component: 7
+  itemName: Tornillo suelto
+  itemDescription: "Un tornillo com\xFAn. \xBFQuiz\xE1 se le ha ca\xEDdo a alguien? "
+  target: 2
+  component: 9
