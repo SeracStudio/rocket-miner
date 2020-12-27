@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 3783006746084171752, guid: 02a0af215a3c36d4393ccc372938bf42, type: 3}
-  markerS: {fileID: 0}
-  markerB: {fileID: 0}
-  markerT: {fileID: 0}
+  markerS: {fileID: 2538563855042319390, guid: 283c3f3f33b498946a110b31df6fa531, type: 3}
+  markerB: {fileID: 2538563855042319390, guid: 6d5e2ed5007544140991be757e815d56, type: 3}
+  markerT: {fileID: 2538563855042319390, guid: 964d6b8d0c67ea74090a1ab9f427c434, type: 3}
   roomSize: 20
 --- !u!114 &3949973184102377501
 MonoBehaviour:
@@ -61,8 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab18e750aeb62ec4a9eb0880890f5a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathWidth: 2
-  pathDepth: 4
+  pathWidth: 3
+  pathDepth: 2
   lateralRatio: 2
-  branchingRatio: 50
+  branchingRatio: 100
   player: {fileID: 0}

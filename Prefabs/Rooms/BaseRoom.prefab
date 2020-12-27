@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 6057591365430093067}
   - component: {fileID: 3966093644912985445}
   - component: {fileID: 2152302210429827596}
+  - component: {fileID: 8414415375552644332}
   m_Layer: 0
   m_Name: WEST
   m_TagString: Untagged
@@ -91,7 +92,21 @@ MonoBehaviour:
   spawnables:
   - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
   randomize: 0
-  rotation: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 90, z: 0}
+--- !u!114 &8414415375552644332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464200777748937556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfcb7321f7faed849b030fe0f9011318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 1
+  crossSpawn: {fileID: 4438545034343804581}
 --- !u!1 &2295178302021576813
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +178,7 @@ GameObject:
   - component: {fileID: 6411936756345952932}
   - component: {fileID: 7454353702009553532}
   - component: {fileID: 2172400939373885114}
+  - component: {fileID: 1267295280233539466}
   m_Layer: 0
   m_Name: EAST
   m_TagString: Untagged
@@ -213,7 +229,21 @@ MonoBehaviour:
   spawnables:
   - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
   randomize: 0
-  rotation: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 90, z: 0}
+--- !u!114 &1267295280233539466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129501855517901459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfcb7321f7faed849b030fe0f9011318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 2
+  crossSpawn: {fileID: 2930096598532210837}
 --- !u!1 &5543872079222232254
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +344,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnables:
-  - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
+  - {fileID: 4926136732188705483, guid: 19fe906082adcce458a95240a819f3ed, type: 3}
+  - {fileID: 3872571842024192081, guid: d9bdc81eabf59b6429d4dc7166ea7ee6, type: 3}
+  - {fileID: 8189710535019421479, guid: 2a958cd445783d346a7b9519bf043888, type: 3}
+  - {fileID: 2261848686627597160, guid: f93d0ba9a90eb6a46a656c90dc6c94ac, type: 3}
   randomize: 0
   rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &5543872079432443456
@@ -361,9 +394,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnables:
-  - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
+  - {fileID: 4926136732188705483, guid: 19fe906082adcce458a95240a819f3ed, type: 3}
+  - {fileID: 3872571842024192081, guid: d9bdc81eabf59b6429d4dc7166ea7ee6, type: 3}
+  - {fileID: 8189710535019421479, guid: 2a958cd445783d346a7b9519bf043888, type: 3}
+  - {fileID: 2261848686627597160, guid: f93d0ba9a90eb6a46a656c90dc6c94ac, type: 3}
   randomize: 0
-  rotation: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 180, z: 0}
 --- !u!1 &5543872080357326084
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,9 +444,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnables:
-  - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
+  - {fileID: 4926136732188705483, guid: 19fe906082adcce458a95240a819f3ed, type: 3}
+  - {fileID: 3872571842024192081, guid: d9bdc81eabf59b6429d4dc7166ea7ee6, type: 3}
+  - {fileID: 8189710535019421479, guid: 2a958cd445783d346a7b9519bf043888, type: 3}
+  - {fileID: 2261848686627597160, guid: f93d0ba9a90eb6a46a656c90dc6c94ac, type: 3}
   randomize: 0
-  rotation: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 90, z: 0}
 --- !u!1 &5543872081112997955
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,9 +494,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnables:
-  - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
+  - {fileID: 4926136732188705483, guid: 19fe906082adcce458a95240a819f3ed, type: 3}
+  - {fileID: 3872571842024192081, guid: d9bdc81eabf59b6429d4dc7166ea7ee6, type: 3}
+  - {fileID: 8189710535019421479, guid: 2a958cd445783d346a7b9519bf043888, type: 3}
+  - {fileID: 2261848686627597160, guid: f93d0ba9a90eb6a46a656c90dc6c94ac, type: 3}
   randomize: 0
-  rotation: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: -90, z: 0}
 --- !u!1 &5632941733729584458
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +511,7 @@ GameObject:
   - component: {fileID: 6121410858585256131}
   - component: {fileID: 6981966875284217525}
   - component: {fileID: 1085922515993265778}
+  - component: {fileID: 4294123772262115499}
   m_Layer: 0
   m_Name: SOUTH
   m_TagString: Untagged
@@ -520,6 +563,20 @@ MonoBehaviour:
   - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
   randomize: 0
   rotation: {x: 0, y: 0, z: 0}
+--- !u!114 &4294123772262115499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5632941733729584458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfcb7321f7faed849b030fe0f9011318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 3
+  crossSpawn: {fileID: 1142425829400438096}
 --- !u!1 &7031973915487343708
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,6 +665,7 @@ GameObject:
   - component: {fileID: 1925088314201883470}
   - component: {fileID: 6633156526475574120}
   - component: {fileID: 5492300675431600710}
+  - component: {fileID: 9178711910340925576}
   m_Layer: 0
   m_Name: NORTH
   m_TagString: Untagged
@@ -659,3 +717,17 @@ MonoBehaviour:
   - {fileID: 6960565442284096926, guid: 4c1a6d0514a3ad441be21b49dc014738, type: 3}
   randomize: 0
   rotation: {x: 0, y: 0, z: 0}
+--- !u!114 &9178711910340925576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7737751015023702288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfcb7321f7faed849b030fe0f9011318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 0
+  crossSpawn: {fileID: 81728372752197730}
