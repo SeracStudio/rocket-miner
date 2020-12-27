@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d00ed7196009744d879d9eecf41cc35, type: 3}
-  m_Name: Item17
+  m_Name: Item16
   m_EditorClassIdentifier: 
-  itemName: Telenergia
-  itemDescription: "Mecanismo que permite a un robot centrar parte de su energ\xEDa
-    en una zona en concreto. Este necesita de un tiempo de enfriamiento."
+  itemName: Magnetgun
+  itemDescription: "Arma usada por los mineros de oriente. Aprovecha un proyectil
+    imantado, para hacer que la munici\xF3n vuelva tras ser disparada."
   target: 1
-  component: 7
+  component: 6

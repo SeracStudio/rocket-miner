@@ -5,7 +5,8 @@ public enum Target
 {
     BOTH,
     GIRL,
-    ROBOT
+    ROBOT,
+    Enemy
 }
 
 public abstract class BaseItem : ScriptableObject
