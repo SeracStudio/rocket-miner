@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class LooseScrew : MonoBehaviour
 {
-    private void Awake()
+    Player player;
+
+    private void Start()
     {
+        player = GetComponent<Player>();
         MapController.RUNNING.OnRoomLoaded += Effect;
     }
 
     private void Effect()
     {
-        //RESTAURAR
+        player.inversed = false;
         if (Random.Range(0, 6) != 0) return;
-        //INVERTIR
+        player.inversed = true;
     }
 }

@@ -4,35 +4,20 @@ using UnityEngine;
 
 public class GweinDriller : MonoBehaviour
 {
-    SphereCollider stunArea;
-    List<GameObject> nearbyEnemies;
-
     private void Awake()
     {
-        stunArea = gameObject.AddComponent<SphereCollider>();
-        stunArea.isTrigger = true;
-        stunArea.radius = 3f;
+        GetComponent<Robot>().OnShield += Stun;
     }
 
     private void Stun()
     {
-        foreach(GameObject enemy in nearbyEnemies)
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 3f);
+
+        foreach (Collider enemy in colliders)
         {
-            /*
-             * Movement move = enemy.GetComponent<Movement>();
-             * move.canMove = false;
-             * move.stunDuration = GetComponent<StatsController>().GetStat(Stat.STUN_DURATION);
-             * */
+            if (!enemy.CompareTag("Enemy")) continue;
+
+            enemy.GetComponent<Enemy>().Stunned();
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        nearbyEnemies.Add(other.gameObject);
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        nearbyEnemies.Remove(other.gameObject);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,9 @@ public class Robot : Player
     public float punchTime = 0;
     private bool canUsePunch = true;
     public bool punch = false;
+
+    public Action OnShield;
+    public Action<GameObject> OnEnemyPunched;
 
     // Start is called before the first frame update
     public override void Start()
@@ -87,9 +91,10 @@ public class Robot : Player
         enemies = FindObjectsOfType<Enemy>();
         for(int i = 0; i < enemies.Length; i++)
         {
-            if (Vector3.Distance(enemies[i].transform.position, this.transform.position) < 2)
+            if (Vector3.Distance(enemies[i].transform.position, this.transform.position) < 5)
             {
                 enemies[i].Stunned();
+                OnEnemyPunched?.Invoke(enemies[i].gameObject);
                 break;
             }
         }
@@ -128,6 +133,7 @@ public class Robot : Player
     private void Shield()
     {
         shield = true;
+        OnShield?.Invoke();
     }
 
     private void releaseShield()
@@ -135,5 +141,19 @@ public class Robot : Player
         shield = false;
         canUseShield = false;
         shieldTime = 0.01f;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Bullet")) return;
+
+        if (TryGetComponent(out ReflectingMirror reflector))
+        {
+            reflector.Effect(other.gameObject);
+        }
+        else
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

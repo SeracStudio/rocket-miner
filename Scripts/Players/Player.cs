@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     private bool slowness = false;
     private float slownessF = 1;
 
+    public bool inversed;
+
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -105,6 +107,13 @@ public class Player : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Vertical");
         dirY = Input.GetAxisRaw("Horizontal");
+
+        if (inversed)
+        {
+            dirX = -dirX;
+            dirY = -dirY;
+        }
+
         direction = new Vector2(dirY, dirX);
         if(direction.x!=0.0f || direction.y != 0.0f)
         {

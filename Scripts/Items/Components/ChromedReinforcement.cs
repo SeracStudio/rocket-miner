@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class ChromedReinforcement : MonoBehaviour
 {
-    private readonly float force = 5;
+    private readonly float force = 1000;
 
     private void Awake()
     {
-        //GetComponent<Robot>().OnEnemyPunched += Effect;
+        GetComponent<Robot>().OnEnemyPunched += Effect;
     }
 
     private void Effect(GameObject target)
     {
-        Vector3 pushDirection = target.transform.position - transform.position;
-
         Rigidbody rb = target.GetComponent<Rigidbody>();
-        rb.AddForce(pushDirection * force);
+        Vector3 pushDirection = -rb.velocity;
+        rb.velocity = Vector3.zero;
+        rb.AddForce(pushDirection.normalized * force);
     }
 }

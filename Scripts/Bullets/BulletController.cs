@@ -23,7 +23,7 @@ public class BulletController : MonoBehaviour
 {
     private StatsController stats;
     public Bullet bullet;
-
+    public bool evergun;
     
 
     public List<BulletEffect> bulletEffects;
@@ -72,6 +72,11 @@ public class BulletController : MonoBehaviour
             {
                 aux.dir = dir;
                 aux.rain = false;
+                if (evergun)
+                {
+                    Bullet aux2 = Instantiate(aux, pos, Quaternion.identity);
+                    aux2.dir = -dir;
+                }
             }
             else
             {
