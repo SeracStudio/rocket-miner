@@ -98,7 +98,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4719676126864840804
 Transform:
   m_ObjectHideFlags: 0
@@ -188,8 +188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 1572460373437560273}
-  minIntensity: 0.75
-  maxIntensity: 1.5
+  minIntensity: 1
+  maxIntensity: 3
   smoothing: 5
 --- !u!1 &667513447090036491
 GameObject:
@@ -372,7 +372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4048577931331021617
 Transform:
   m_ObjectHideFlags: 0
@@ -462,8 +462,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 3337120267848226761}
-  minIntensity: 0.75
-  maxIntensity: 1.5
+  minIntensity: 1
+  maxIntensity: 3
   smoothing: 5
 --- !u!1 &6900322742436585896
 GameObject:

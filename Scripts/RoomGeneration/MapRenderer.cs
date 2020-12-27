@@ -10,7 +10,7 @@ public class MapRenderer : MonoBehaviour
 
     private readonly List<GameObject> rendered = new List<GameObject>();
 
-    public void RenderRoom(MapRoom mapRoom)
+    public void Render(MapRoom mapRoom)
     {
         ClearRender();
 
@@ -28,7 +28,7 @@ public class MapRenderer : MonoBehaviour
         if (mapRoom.type == RoomType.BOSS) rendered.Add(Instantiate(markerB, transform.position, Quaternion.identity));
     }
 
-    public void RenderMap(Dictionary<Vector3, MapRoom> map)
+    public void Render(Dictionary<Vector3, MapRoom> map)
     {
         ClearRender();
 

@@ -17,7 +17,7 @@ public class DamagedOiler : MonoBehaviour
     {
         if(timeSinceLastSplash <= 0)
         {
-            Instantiate(oilSplash, transform.position, Quaternion.identity);
+            Instantiate(oilSplash, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
             timeSinceLastSplash = timePerSplash;
         }
         else

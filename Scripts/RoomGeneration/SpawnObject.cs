@@ -11,6 +11,11 @@ public class SpawnObject : MonoBehaviour
 
     private void Awake()
     {
+        Spawn();
+    }
+
+    public void Spawn()
+    {
         if (spawnables.Count == 0) return;
 
         if (randomize)
@@ -21,7 +26,22 @@ public class SpawnObject : MonoBehaviour
         {
             spawned = Instantiate(spawnables[0], transform.position, Quaternion.Euler(rotation));
         }
-       
+
         spawned.transform.parent = transform;
+    }
+
+    public void Destroy()
+    {
+        Destroy(spawned);
+    }
+
+    public void Hide()
+    {
+        spawned.SetActive(false);
+    }
+
+    public void Show()
+    {
+        spawned.SetActive(true);
     }
 }
