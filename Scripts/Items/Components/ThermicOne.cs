@@ -8,7 +8,7 @@ public class ThermicOne : MonoBehaviour
 
     private void Awake()
     {
-        //GetComponent<Robot>().OnEnemyPunched += Effect;
+        GetComponent<Robot>().OnEnemyPunched += Effect;
         MapController.RUNNING.OnRoomLoaded += ResetPunch;
     }
 
