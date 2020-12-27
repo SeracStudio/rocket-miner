@@ -80,6 +80,7 @@ public class BulletController : MonoBehaviour
         else
         {
             aux.dir = dirA;
+            aux.rain = true;
         }
     }
 }

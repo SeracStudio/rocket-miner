@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
 
     public float damage;
     public float playerShoot;
+    public bool rain = false;
 
     public List<BulletEffect> effects;
 
@@ -36,7 +37,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Wall")
+        if (other.tag == "Wall" || other.tag=="Floor")
         {
             Destroy(this.gameObject);
         }
@@ -93,7 +94,14 @@ public class Bullet : MonoBehaviour
     {
         if (!tele)
         {
-            rigidBody.velocity = new Vector3(dir.x * shootSpeed, 0, dir.z * shootSpeed);
+            if (rain)
+            {
+                rigidBody.velocity = new Vector3(dir.x * shootSpeed, -1*shootSpeed, dir.z * shootSpeed);
+            }
+            else
+            {
+                rigidBody.velocity = new Vector3(dir.x * shootSpeed, 0, dir.z * shootSpeed);
+            }        
         }
         else
         {
