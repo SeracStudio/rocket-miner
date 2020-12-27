@@ -109,6 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets: 03000000
-  damagePerCycle: 1
-  cycleTime: 0.1
-  lifeTime: 2
+  damagePerCycle: 2
+  cycleTime: 0.5
+  lifeTime: 3

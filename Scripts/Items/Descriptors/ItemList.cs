@@ -12,7 +12,12 @@ public enum ItemList
     EVERGUN_LEFT,
     MAGNETGUN,
     TELENERGY,
-    DAMAGED_OILER
+    DAMAGED_OILER,
+    LOOSE_SCREW,
+    BATTERY_235,
+    CHROMED_REINFORCEMENT,
+    THERMIC_ONE,
+    ONIS_COIN
 }
 
 public static class ItemFunc
@@ -46,7 +51,22 @@ public static class ItemFunc
                 target.AddComponent<Telenergy>();
                 break;
             case ItemList.DAMAGED_OILER:
-                target.AddComponent<Telenergy>();
+                target.AddComponent<DamagedOiler>();
+                break;
+            case ItemList.LOOSE_SCREW:
+                target.AddComponent<LooseScrew>();
+                break;
+            case ItemList.BATTERY_235:
+                target.AddComponent<Battery235>();
+                break;
+            case ItemList.CHROMED_REINFORCEMENT:
+                target.AddComponent<ChromedReinforcement>();
+                break;
+            case ItemList.THERMIC_ONE:
+                target.AddComponent<ThermicOne>();
+                break;
+            case ItemList.ONIS_COIN:
+                target.AddComponent<OnisCoin>();
                 break;
         }
     }

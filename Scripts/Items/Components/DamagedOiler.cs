@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamagedOiler : MonoBehaviour
 {
-    private readonly float timePerSplash = 0.1f;
+    private readonly float timePerSplash = 1f;
     private float timeSinceLastSplash;
     private GameObject oilSplash;
 

@@ -164,7 +164,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -190,7 +190,7 @@ MonoBehaviour:
   light: {fileID: 1572460373437560273}
   minIntensity: 0.75
   maxIntensity: 1.5
-  smoothing: 10
+  smoothing: 5
 --- !u!1 &667513447090036491
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +438,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -464,7 +464,7 @@ MonoBehaviour:
   light: {fileID: 3337120267848226761}
   minIntensity: 0.75
   maxIntensity: 1.5
-  smoothing: 10
+  smoothing: 5
 --- !u!1 &6900322742436585896
 GameObject:
   m_ObjectHideFlags: 0

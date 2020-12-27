@@ -44,4 +44,9 @@ public class StatsController : MonoBehaviour
                 listStat.value = value;
         }
     }
+
+    public Dictionary<Stat, float> GetAll()
+    {
+        return statsDict;
+    }
 }
