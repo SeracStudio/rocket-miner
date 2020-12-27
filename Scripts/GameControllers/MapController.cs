@@ -26,14 +26,18 @@ public class MapController : MonoBehaviour
         mapGenerator = new MapGenerator(pathWidth, pathDepth, lateralRatio, branchingRatio);
         mapRenderer = GetComponent<MapRenderer>();
 
-        NewFloor();
+        //NewFloor();
+        map = mapGenerator.NewMap();
+        mapRenderer.RenderMap(map);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            NewFloor();
+            //NewFloor();
+            map = mapGenerator.NewMap();
+            mapRenderer.RenderMap(map);
         }
     }
 
