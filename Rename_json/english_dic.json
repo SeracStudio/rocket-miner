@@ -1,0 +1,45 @@
+{
+  "Idioma":[
+  {
+    "id": "play_button",
+    "content": "Play"
+  },
+  
+  {
+    "id": "credits_button",
+    "content": "Credits"
+  },
+  
+  {
+    "id": "options_button",
+    "content": "Options"
+  },
+   
+  {
+    "id": "controls_button",
+    "content": "Controls"
+  }, 
+  
+  {
+    "id": "donate_button",
+    "content": "Donate"
+  },
+  
+  {
+    "id": "exit_button",
+    "content": "Exit"
+  },
+  
+  {
+    "id": "volume_text",
+    "content": "Volume"
+  },
+   {
+    "id": "sfx_text",
+    "content": "Sound Effects"
+  },
+  {
+    "id": "language_text",
+    "content": "Language"
+  }]
+}
