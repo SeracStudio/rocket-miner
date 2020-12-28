@@ -2,54 +2,54 @@
   "Idioma":[
   {
     "id": "play_button",
-    "content": "Play"
+    "content": "Jugar"
   },
   
   {
     "id": "credits_button",
-    "content": "Credits"
+    "content": "Créditos"
   },
   
   {
     "id": "options_button",
-    "content": "Options"
+    "content": "Opciones"
   },
    
   {
     "id": "controls_button",
-    "content": "Controls"
+    "content": "Controles"
   }, 
   
   {
     "id": "donate_button",
-    "content": "Donate"
+    "content": "Donar"
   },
   
   {
     "id": "exit_button",
-    "content": "Exit"
+    "content": "Salir"
   },
   
   {
     "id": "volume_text",
-    "content": "Volume"
+    "content": "Volumen"
   },
    {
     "id": "sfx_text",
-    "content": "Sound Effects"
+    "content": "Efectos de sonido"
   },
   {
     "id": "language_text",
-    "content": "Language"
+    "content": "Idioma"
   }
   ,
    {
     "id": "spanish_text",
-    "content": "Spanish"
+    "content": "Español"
   },
   {
     "id": "english_text",
-    "content": "English"
+    "content": "Inglés"
   }
   ]
 }
