@@ -26,6 +26,17 @@ public class MapRenderer : MonoBehaviour
         if (mapRoom.type == RoomType.SPAWN) rendered.Add(Instantiate(markerS, transform.position, Quaternion.identity));
         if (mapRoom.type == RoomType.TREASURE) rendered.Add(Instantiate(markerT, transform.position, Quaternion.identity));
         if (mapRoom.type == RoomType.BOSS) rendered.Add(Instantiate(markerB, transform.position, Quaternion.identity));
+
+        if (!mapRoom.cleared)
+        {
+            foreach (EnemySpawnStats enemy in mapRoom.enemies)
+            {
+                float randomX = Random.Range(-7, 7);
+                float randomY = Random.Range(-7, 7);
+
+                rendered.Add(Instantiate(enemy.gameObject, new Vector3(randomX, 0, randomY), Quaternion.identity));
+            }
+        }
     }
 
     public void Render(Dictionary<Vector3, MapRoom> map)
