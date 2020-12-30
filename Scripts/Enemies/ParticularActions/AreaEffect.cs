@@ -73,14 +73,14 @@ public class AreaEffect : MonoBehaviour
             Collider[] colliders = Physics.OverlapSphere(transform.position, areaRadius);
             foreach (Collider collider in colliders)
             {
-                if (collider.tag == "Attack")
+                if (collider.tag == "GIRL")
                 {
                     attackInRange = true;
                 }
             }
             foreach (Collider collider in colliders)
             {
-                if(collider.gameObject.tag=="Attack"|| collider.gameObject.tag == "ROBOT")
+                if(collider.gameObject.tag=="GIRL"|| collider.gameObject.tag == "ROBOT")
                 {
                     switch (effect.effect)
                     {

@@ -16,14 +16,20 @@ public class Bullet : MonoBehaviour
     public List<BulletEffect> effects;
 
     private Girl girl;
+    private Robot robot;
     private bool tele=false;
     private bool dontDestroy = false;
+
+    private bool magnetGun = false;
+    private float magnetGunTime = 0;
+    private float magnetGunCd = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         girl = FindObjectOfType<Girl>();
+        robot = FindObjectOfType<Robot>();
         foreach (BulletEffect item in effects)
         {
             if (item.effect == BEffects.TELE)
@@ -32,6 +38,7 @@ public class Bullet : MonoBehaviour
                 break;
             }
         }
+        magnetGun = girl.magnetGun;
     }
 
 
@@ -63,7 +70,7 @@ public class Bullet : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        if((other.tag=="Attack" || other.tag=="ROBOT") && playerShoot == 1)
+        if((other.tag=="GIRL" || other.tag=="ROBOT") && playerShoot == 1)
         {
             foreach (BulletEffect effect in effects)
             {
@@ -93,7 +100,7 @@ public class Bullet : MonoBehaviour
                         break;
                 }
             }
-            if (!dontDestroy)
+            if (!dontDestroy && !robot.TryGetComponent<ReflectingMirror>(out ReflectingMirror reflectingMirror))
             {
                 Destroy(this.gameObject);
             }         
@@ -119,6 +126,20 @@ public class Bullet : MonoBehaviour
             Vector3 dirT = (girl.transform.position - this.transform.position).normalized;
             rigidBody.velocity = new Vector3(dirT.x * shootSpeed, 0, dirT.z * shootSpeed);
         }
+        checkMagnetGun();
+    }
 
+    private void checkMagnetGun()
+    {
+        if (magnetGun)
+        {
+            magnetGunTime += Time.deltaTime;
+            if (magnetGunTime > magnetGunCd)
+            {
+                dir.x = -dir.x;
+                dir.z = -dir.z;
+                magnetGun = false;
+            }
+        }
     }
 }

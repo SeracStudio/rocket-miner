@@ -39,7 +39,7 @@ public class Laser360 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Attack")
+        if (other.gameObject.tag == "GIRL")
         {
             girlInLaser = true;
         }
@@ -52,7 +52,7 @@ public class Laser360 : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Attack")
+        if (other.gameObject.tag == "GIRL")
         {
             girlInLaser = false;
         }
