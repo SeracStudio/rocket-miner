@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     public BulletController pbc;
 
     public bool stunned;
-    private float stunnedCd=1f;
+    private float stunnedCd;
     private float stunnedTime;
 
     private float shootTime = 0;
@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     public bool wall = false;
     public targetAttack target;
     public Player tgt;
+    private Robot robot;
 
     public virtual void Update()
     {
@@ -37,6 +38,8 @@ public class Enemy : MonoBehaviour
     {
         stats = GetComponent<StatsController>();
         rigidbody = GetComponent<Rigidbody>();
+        robot = FindObjectOfType<Robot>();
+        stunnedCd = robot.stats.GetStat(Stat.STUN_DURATION);
 
         if (target.target == Target.GIRL)
         {
