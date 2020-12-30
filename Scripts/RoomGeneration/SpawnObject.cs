@@ -7,7 +7,7 @@ public class SpawnObject : MonoBehaviour
     public bool randomize;
     public Vector3 rotation;
 
-    private GameObject spawned;
+    public GameObject spawned;
 
     private void Awake()
     {

@@ -56,6 +56,8 @@ public class Bullet : MonoBehaviour
                 {
                     other.GetComponent<Slime>().NextSlime();
                 }
+                //other.GetComponent<EnemySpawnStats>().OnDeath?.Invoke();
+                MapController.RUNNING.EnemyEliminated();
                 Destroy(other.gameObject);
             }
             Destroy(this.gameObject);

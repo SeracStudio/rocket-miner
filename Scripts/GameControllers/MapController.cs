@@ -18,6 +18,7 @@ public class MapController : MonoBehaviour
     public int currentFloor;
     public Dictionary<Vector3, MapRoom> currentMap;
     private Dictionary<Vector3, MapRoom>[] fullMap;
+    private int enemiesLeft;
 
     private MapGenerator mapGenerator;
     private MapEnemyFiller mapEnemyFiller;
@@ -75,11 +76,30 @@ public class MapController : MonoBehaviour
         mapRenderer.Render(room);
         room.cleared = true;
         currentRoom = room;
+        enemiesLeft = room.enemies.Count;
+        foreach(EnemySpawnStats enemy in mapRenderer.loadedRoom.spawnedEnemies)
+        {
+            if (enemy.isSlime) enemiesLeft += 6;
+            enemy.GetComponent<EnemySpawnStats>().OnDeath += EnemyEliminated;
+        }
         OnRoomLoaded?.Invoke();
     }
 
     public void LoadRoom(Direction direction)
     {
         LoadRoom(currentRoom.connections[direction]);
+    }
+
+    public void EnemyEliminated()
+    {
+        Debug.Log("ASDASD");
+        enemiesLeft--;
+        if(enemiesLeft == 0)
+        {
+            foreach(Direction opening in currentRoom.connections.Keys)
+            {
+                mapRenderer.loadedRoom.OpenDoor(opening);
+            }
+        }
     }
 }
