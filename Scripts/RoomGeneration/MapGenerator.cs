@@ -134,6 +134,6 @@ public class MapGenerator
         AddSpecialRoom(RoomType.BOSS);
         AddSpecialRoom(RoomType.TREASURE);
 
-        return generatedRooms;
+        return new Dictionary<Vector3, MapRoom>(generatedRooms);
     }
 }

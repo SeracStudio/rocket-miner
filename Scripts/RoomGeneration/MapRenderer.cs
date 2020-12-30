@@ -5,6 +5,7 @@ using UnityEngine;
 public class MapRenderer : MonoBehaviour
 {
     public Room room;
+    public Room loadedRoom;
     public GameObject markerS, markerB, markerT;
     public int roomSize;
 
@@ -15,17 +16,38 @@ public class MapRenderer : MonoBehaviour
         ClearRender();
 
         transform.position = Vector3.zero;
-        Room loadedRoom = Instantiate(room, transform.position, Quaternion.identity);
+        loadedRoom = Instantiate(room, transform.position, Quaternion.identity);
         rendered.Add(loadedRoom.gameObject);
 
         foreach (Direction opening in mapRoom.connections.Keys)
         {
-            loadedRoom.RemoveWall(opening);
+            if (mapRoom.type == RoomType.NORMAL && !mapRoom.cleared)
+            {
+                loadedRoom.CloseDoor(opening);
+            }
+            else
+            {
+                loadedRoom.OpenDoor(opening);
+            }
         }
 
         if (mapRoom.type == RoomType.SPAWN) rendered.Add(Instantiate(markerS, transform.position, Quaternion.identity));
         if (mapRoom.type == RoomType.TREASURE) rendered.Add(Instantiate(markerT, transform.position, Quaternion.identity));
         if (mapRoom.type == RoomType.BOSS) rendered.Add(Instantiate(markerB, transform.position, Quaternion.identity));
+
+        if (!mapRoom.cleared)
+        {
+            foreach (EnemySpawnStats enemy in mapRoom.enemies)
+            {
+                
+                float randomX = Random.Range(-7, 7);
+                float randomY = Random.Range(-7, 7);
+
+                EnemySpawnStats enemySpawned = Instantiate(enemy, new Vector3(randomX, 0, randomY), Quaternion.identity);
+                loadedRoom.spawnedEnemies.Add(enemySpawned);
+                rendered.Add(enemySpawned.gameObject);
+            }
+        }
     }
 
     public void Render(Dictionary<Vector3, MapRoom> map)

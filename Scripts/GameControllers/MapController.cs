@@ -5,6 +5,7 @@ using UnityEngine;
 public class MapController : MonoBehaviour
 {
     public static MapController RUNNING;
+    public Player player;
 
     public Action OnRoomLoaded;
 
@@ -14,36 +15,43 @@ public class MapController : MonoBehaviour
 
     public MapRoom spawnRoom, treasureRoom, bossRoom;
     public MapRoom currentRoom, lastRoom;
-    public Dictionary<Vector3, MapRoom> map;
+    public int currentFloor;
+    public Dictionary<Vector3, MapRoom> currentMap;
+    private Dictionary<Vector3, MapRoom>[] fullMap;
+    private int enemiesLeft;
 
     private MapGenerator mapGenerator;
+    private MapEnemyFiller mapEnemyFiller;
     private MapRenderer mapRenderer;
 
     private void Awake()
     {
         RUNNING = this;
+        fullMap = new Dictionary<Vector3, MapRoom>[5];
 
         mapGenerator = new MapGenerator(pathWidth, pathDepth, lateralRatio, branchingRatio);
+        mapEnemyFiller = GetComponent<MapEnemyFiller>();
         mapRenderer = GetComponent<MapRenderer>();
 
-        //NewFloor();
-        map = mapGenerator.NewMap();
-        mapRenderer.Render(map);
+        for (int i = 0; i < 5; i++)
+        {
+            fullMap[i] = mapGenerator.NewMap();
+            mapEnemyFiller.FillMapWithEnemies(fullMap[i], i);        
+        }
+        LoadMap(fullMap[currentFloor]);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            NewFloor();
-            //map = mapGenerator.NewMap();
-            //mapRenderer.Render(map);
+            currentFloor++;
+            LoadMap(fullMap[currentFloor]);
         }
     }
 
-    public void NewFloor()
+    public void LoadMap(Dictionary<Vector3, MapRoom> map)
     {
-        map = mapGenerator.NewMap();
         foreach (MapRoom room in map.Values)
         {
             switch (room.type)
@@ -64,21 +72,34 @@ public class MapController : MonoBehaviour
 
     public void LoadRoom(MapRoom room)
     {
-        player.transform.position = new Vector3(5, 0.5f, 0);
         lastRoom = currentRoom;
         mapRenderer.Render(room);
+        room.cleared = true;
         currentRoom = room;
+        enemiesLeft = room.enemies.Count;
+        foreach(EnemySpawnStats enemy in mapRenderer.loadedRoom.spawnedEnemies)
+        {
+            if (enemy.isSlime) enemiesLeft += 6;
+            enemy.GetComponent<EnemySpawnStats>().OnDeath += EnemyEliminated;
+        }
         OnRoomLoaded?.Invoke();
     }
 
-    public GameObject player;
-
     public void LoadRoom(Direction direction)
     {
-        lastRoom = currentRoom;
-        MapRoom room = currentRoom.connections[direction];
-        mapRenderer.Render(room);
-        currentRoom = room;
-        OnRoomLoaded?.Invoke();
+        LoadRoom(currentRoom.connections[direction]);
+    }
+
+    public void EnemyEliminated()
+    {
+        Debug.Log("ASDASD");
+        enemiesLeft--;
+        if(enemiesLeft == 0)
+        {
+            foreach(Direction opening in currentRoom.connections.Keys)
+            {
+                mapRenderer.loadedRoom.OpenDoor(opening);
+            }
+        }
     }
 }
