@@ -98,6 +98,18 @@ public class DirectionFunc
         return allDirections;
     }
 
+    public static List<Direction> GetAll(IEnumerable<Direction> excluding)
+    {
+        List<Direction> allDirections = GetAll();
+
+        foreach (var dir in excluding)
+        {
+            allDirections.Remove(dir);
+        }
+
+        return allDirections;
+    }
+
     public static Direction GetRandom()
     {
         switch (UnityEngine.Random.Range(0, 4))

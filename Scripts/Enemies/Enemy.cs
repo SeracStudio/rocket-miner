@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,9 +23,6 @@ public class Enemy : MonoBehaviour
 
 
     public bool wall = false;
-
-
-    
     public targetAttack target;
     public Player tgt;
 

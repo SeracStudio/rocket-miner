@@ -14,11 +14,15 @@ public class MapRoom
     public Vector3 position;
     public Dictionary<Direction, MapRoom> connections;
 
+    public List<EnemySpawnStats> enemies;
+    public bool cleared;
+
     public MapRoom(Vector3 position)
     {
         this.type = RoomType.NORMAL;
         this.position = position;
         connections = new Dictionary<Direction, MapRoom>();
+        enemies = new List<EnemySpawnStats>();
     }
 
     public void Connect(Direction direction, MapRoom room)

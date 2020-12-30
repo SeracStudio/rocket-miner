@@ -111,6 +111,7 @@ public class AreaEffect : MonoBehaviour
             }
             if (effect.effect == BEffects.EXPLOSION)
             {
+                GetComponent<EnemySpawnStats>().OnDeath?.Invoke();
                 Destroy(this.gameObject);
                 if(!robotProtected && attackInRange)
                 {
