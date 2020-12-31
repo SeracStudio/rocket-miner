@@ -48,7 +48,7 @@ public class Girl : Player
         if (canBeAttacked || poison)
         {
             base.Attacked(damageAmount);
-            Debug.Log("Attacked");
+            Debug.Log("Attacked " + damageAmount);
             stats.SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT, stats.GetStat(Stat.HEALTH), damageAmount));
             //Invencibilidad visible de algun modo
             attackedTime += 0.01f;
@@ -68,8 +68,9 @@ public class Girl : Player
             base.Poisoned(amount);
             poisonCd = 1f;
             poison = true;
-            poisonDamage = 1 / 15;
-            Attacked(amount);          
+            poisonDamage = 1f;
+            poisonEffectCd = 1f / 15f;
+            poisonEffectTime = poisonEffectCd;
         }
     }
 
@@ -88,12 +89,12 @@ public class Girl : Player
         {
             poisonTime += Time.deltaTime;
             poisonEffectTime += Time.deltaTime;
-            if (poisonEffectTime > poisonEffectCd)
+            if (poisonEffectTime >= poisonEffectCd)
             {
                 poisonEffectTime = 0;
                 Attacked(poisonDamage);
             }
-            if (poisonTime > poisonCd)
+            if (poisonTime >= poisonCd)
             {
                 poison = false;
                 poisonTime = 0;

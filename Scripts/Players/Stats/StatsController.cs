@@ -33,7 +33,14 @@ public class StatsController : MonoBehaviour
 
     public void SetStat(Stat stat, float value)
     {
-        statsDict[stat] = value;
+        if (stat == Stat.HEALTH && statsDict[stat] + value > 100)
+        {
+            statsDict[stat] = 100;
+        }
+        else
+        {
+            statsDict[stat] = value;
+        }
 
         //Levantar evento (UI, controlador...)
         OnStatChanged?.Invoke(stat, value);
@@ -42,6 +49,11 @@ public class StatsController : MonoBehaviour
             if (listStat.stat == stat)
                 listStat.value = value;
         }
+    }
+
+    public void ChangeStat(Stat stat, float amount)
+    {
+        SetStat(stat, GetStat(stat) + amount);
     }
 
     public Dictionary<Stat, float> GetAll()
