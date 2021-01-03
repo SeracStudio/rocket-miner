@@ -13,6 +13,8 @@ public class Girl : Player
 
     private float cd=0.75f;
 
+    public bool magnetGun = false;
+
     private bool canBeAttacked = true;
     private float attackedTime = 0;
     private float attackedCd = 1f;
@@ -53,10 +55,14 @@ public class Girl : Player
             //Invencibilidad visible de algun modo
             attackedTime += 0.01f;
             canBeAttacked = false;
-            if (stats.GetStat(Stat.HEALTH) <= 0)
+            if (stats.GetStat(Stat.HEALTH) <= 0 && !TryGetComponent(out LuckyTrinket trincket))
             {
                 //Acabar el juego
                 Destroy(this.gameObject);
+            }
+            else
+            {
+                stats.SetStat(Stat.HEALTH, 100);
             }
         }
     }
@@ -98,6 +104,7 @@ public class Girl : Player
             {
                 poison = false;
                 poisonTime = 0;
+                poisonEffectTime = 0;
             }
         }
     }
