@@ -16,8 +16,6 @@ public class Robot : Player
     public Action OnShield;
     public Action<GameObject> OnEnemyPunched;
 
-    public Enemy test;
-
     // Start is called before the first frame update
     public override void Start()
     {
