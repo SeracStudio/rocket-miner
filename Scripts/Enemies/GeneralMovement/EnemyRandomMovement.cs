@@ -16,7 +16,7 @@ public class EnemyRandomMovement : Enemy
     public override void Update()
     {
         base.Update();
-        if (!stunned)
+        if (!stunned && canMove)
         {
             directionTime += Time.deltaTime;
             if (directionTime > directionCd)

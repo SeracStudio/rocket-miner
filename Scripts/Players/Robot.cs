@@ -16,10 +16,13 @@ public class Robot : Player
     public Action OnShield;
     public Action<GameObject> OnEnemyPunched;
 
+    public Enemy test;
+
     // Start is called before the first frame update
     public override void Start()
     {
-        base.Start();       
+        base.Start();
+        Instantiate(test, Vector3.zero, Quaternion.identity);
     }
 
     // Update is called once per frame

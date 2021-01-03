@@ -67,6 +67,12 @@ public class Girl : Player
         }
     }
 
+    public override void Stunned(float amount, float duration)
+    {
+        Attacked(amount);
+        base.Stunned(amount, duration);
+    }
+
     public override void Poisoned(float amount)
     {     
         if (canBeAttacked)

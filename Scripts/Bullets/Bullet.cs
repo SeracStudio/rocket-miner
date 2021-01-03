@@ -54,9 +54,13 @@ public class Bullet : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        if (other.tag =="Enemy" && playerShoot==0 && other.gameObject.GetComponent<StatsController>().GetStat(Stat.ENEMY_SHIELD)==0)
+        if (other.tag =="Enemy" && playerShoot==0)
         {
-            other.gameObject.GetComponent<StatsController>().SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT,other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH), damage));
+            if(other.gameObject.GetComponent<StatsController>().GetStat(Stat.ENEMY_SHIELD) == 0)
+            {
+                other.gameObject.GetComponent<StatsController>().SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT, other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH), damage));
+            }
+            
             if (other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH) <= 0)
             {
                 if(other.TryGetComponent(out Slime slime))

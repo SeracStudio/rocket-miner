@@ -36,7 +36,7 @@ public class MapController : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             fullMap[i] = mapGenerator.NewMap();
-            mapEnemyFiller.FillMapWithEnemies(fullMap[i], i);        
+            //mapEnemyFiller.FillMapWithEnemies(fullMap[i], i);        
         }
         LoadMap(fullMap[currentFloor]);
     }

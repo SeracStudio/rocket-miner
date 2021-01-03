@@ -19,6 +19,9 @@ public class Enemy : MonoBehaviour
     private float stunnedCd;
     private float stunnedTime;
 
+    private float canMoveTime = 0;
+    private float canMoveCd = 0.2f;
+
     private float shootTime = 0;
 
 
@@ -27,10 +30,18 @@ public class Enemy : MonoBehaviour
     public Player tgt;
     private Robot robot;
 
+    public bool boss = false;
+
+    public bool canMove=true;
+
+    public bool colmena = false;
+    public bool NoColmena = true;
+
     public virtual void Update()
     {
         checkStun();
         checkShoot();
+        checkCanMove();
         Rotation();
     }
 
@@ -81,6 +92,19 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void checkCanMove()
+    {
+        if (!canMove)
+        {
+            canMoveTime += Time.deltaTime;
+            if (canMoveTime >= canMoveCd)
+            {
+                canMoveTime = 0;
+                canMove = true;
+            }
+        }
+    }
+
     private void checkShoot()
     {
         if (stats.GetStat(Stat.ENEMY_CANSHOOT) == 1)
@@ -89,7 +113,7 @@ public class Enemy : MonoBehaviour
             if (shootTime > stats.GetStat(Stat.OFFENSIVE_CD))
             {
                 pbc.Shoot(transform.position, getPlayerDirection().normalized);
-                stunned = true;
+                canMove = false;
                 shootTime = 0;
             }
         }
@@ -103,8 +127,11 @@ public class Enemy : MonoBehaviour
     public void Stunned()
     {
         if (stats.GetStat(Stat.ENEMY_SHIELD) == 1)
-        {          
-            shieldOff();
+        {
+            if (NoColmena)
+            {
+                shieldOff();
+            }  
         }
         else
         {
@@ -119,12 +146,16 @@ public class Enemy : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision)
-    {       
-        if (collision.gameObject == tgt.gameObject && target.target==Target.GIRL)
+    {      
+        if(collision.gameObject.tag=="GIRL" && !boss)
         {
             rigidbody.isKinematic = true;
-            tgt.Attacked(stats.GetStat(Stat.SHOT_DMG)/2);            
+            collision.gameObject.GetComponent<Player>().Attacked(stats.GetStat(Stat.SHOT_DMG));
         }
+        /*if (collision.gameObject == tgt.gameObject && target.target==Target.GIRL)
+        {
+            tgt.Attacked(stats.GetStat(Stat.SHOT_DMG)/2);            
+        }*/
 
         if (collision.gameObject.tag == "Wall")
         {
@@ -134,10 +165,15 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject == tgt.gameObject && target.target == Target.GIRL)
+        /*if (collision.gameObject == tgt.gameObject && target.target == Target.GIRL)
         {
             rigidbody.isKinematic = false;          
+        }*/
+        if (collision.gameObject.tag == "GIRL" && !boss)
+        {
+            rigidbody.isKinematic = true;         
         }
+
 
         if (collision.gameObject.tag == "Wall")
         {
