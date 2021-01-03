@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,9 +26,10 @@ public class BulletController : MonoBehaviour
     private StatsController stats;
     public Bullet bullet;
     public bool evergun;
-    
+
 
     public List<BulletEffect> bulletEffects;
+    public Action<Bullet, Vector3, Vector3> OnBulletShot;
 
     // Start is called before the first frame update
     void Start()
@@ -37,17 +40,17 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     public Vector3 dirCalculate(Vector3 pos)
     {
-        Vector3 target=new Vector3(0,0,0);
+        Vector3 target = new Vector3(0, 0, 0);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Default")))
         {
-            if (hit.collider.tag.Equals("Floor") || hit.collider.tag.Equals("Enemy") || hit.collider.tag.Equals("Wall"));
+            if (hit.collider.tag.Equals("Floor") || hit.collider.tag.Equals("Enemy") || hit.collider.tag.Equals("Wall")) ;
             {
                 target = hit.point - transform.position;
                 return target.normalized;
@@ -59,11 +62,12 @@ public class BulletController : MonoBehaviour
 
     public void Shoot(Vector3 pos, Vector3 dirA)
     {
-        Bullet aux = Instantiate(bullet, pos, Quaternion.identity);
+        //Bullet aux = Instantiate(bullet, pos, transform.rotation);      
+        Bullet aux = PhotonNetwork.Instantiate("Bullets/" + bullet.name, pos, transform.rotation).GetComponent<Bullet>();
         aux.shootSpeed = stats.GetStat(Stat.SHOT_SPEED);
         aux.damage = stats.GetStat(Stat.SHOT_DMG);
         aux.playerShoot = stats.GetStat(Stat.IS_PLAYER);
-        aux.transform.localScale = new Vector3(stats.GetStat(Stat.SHOT_SIZE), stats.GetStat(Stat.SHOT_SIZE), stats.GetStat(Stat.SHOT_SIZE));
+        //aux.transform.localScale = new Vector3(stats.GetStat(Stat.SHOT_SIZE), stats.GetStat(Stat.SHOT_SIZE), stats.GetStat(Stat.SHOT_SIZE));
         aux.effects = bulletEffects;
         if (stats.GetStat(Stat.IS_PLAYER) == 0)
         {
@@ -74,8 +78,9 @@ public class BulletController : MonoBehaviour
                 aux.rain = false;
                 if (evergun)
                 {
-                    Bullet aux2 = Instantiate(aux, pos, Quaternion.identity);
+                    Bullet aux2 = Instantiate(aux, pos, transform.rotation);
                     aux2.dir = -dir;
+                    OnBulletShot?.Invoke(aux2, pos, -dir);
                 }
             }
             else
@@ -83,11 +88,14 @@ public class BulletController : MonoBehaviour
                 aux.dir = new Vector3(1, 0, 0);
                 aux.rain = false;
             }
+
+
+            OnBulletShot?.Invoke(aux, pos, dir);
         }
         else
         {
             aux.dir = dirA;
-            if(this.TryGetComponent(out RockRain r))
+            if (this.TryGetComponent(out RockRain r))
             {
                 aux.rain = true;
             }
@@ -95,7 +103,7 @@ public class BulletController : MonoBehaviour
             {
                 aux.rain = false;
             }
-            
+
         }
     }
 }
