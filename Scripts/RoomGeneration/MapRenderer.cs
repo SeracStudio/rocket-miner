@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,6 @@ public class MapRenderer : MonoBehaviour
 {
     public Room room;
     public Room loadedRoom;
-    public GameObject markerS, markerB, markerT;
     public int roomSize;
 
     private readonly List<GameObject> rendered = new List<GameObject>();
@@ -16,34 +16,31 @@ public class MapRenderer : MonoBehaviour
         ClearRender();
 
         transform.position = Vector3.zero;
-        loadedRoom = Instantiate(room, transform.position, Quaternion.identity);
+        loadedRoom = PhotonNetwork.Instantiate("Rooms/" + room.name, transform.position, Quaternion.identity).GetComponent<Room>();
         rendered.Add(loadedRoom.gameObject);
 
+        PhotonView roomView = loadedRoom.GetComponent<PhotonView>();
         foreach (Direction opening in mapRoom.connections.Keys)
         {
             if (mapRoom.type == RoomType.NORMAL && !mapRoom.cleared)
             {
-                loadedRoom.CloseDoor(opening);
+                roomView.RPC("CloseDoor", RpcTarget.AllBuffered, opening);
             }
             else
             {
-                loadedRoom.OpenDoor(opening);
+                roomView.RPC("OpenDoor", RpcTarget.AllBuffered, opening);
             }
         }
-
-        //if (mapRoom.type == RoomType.SPAWN) rendered.Add(Instantiate(markerS, transform.position, Quaternion.identity));
-        //if (mapRoom.type == RoomType.TREASURE) rendered.Add(Instantiate(markerT, transform.position, Quaternion.identity));
-        //if (mapRoom.type == RoomType.BOSS) rendered.Add(Instantiate(markerB, transform.position, Quaternion.identity));
 
         if (!mapRoom.cleared)
         {
             foreach (EnemySpawnStats enemy in mapRoom.enemies)
             {
-                
-                float randomX = Random.Range(-7, 7);
-                float randomY = Random.Range(-7, 7);
+                float randomX = Random.Range(-9, 9);
+                float randomY = Random.Range(-9, 9);
 
-                EnemySpawnStats enemySpawned = Instantiate(enemy, new Vector3(randomX, 0, randomY), Quaternion.identity);
+                EnemySpawnStats enemySpawned = PhotonNetwork.Instantiate("Enemies/EnemySet/" + enemy.name,
+                    new Vector3(randomX, 0, randomY), Quaternion.identity).GetComponent<EnemySpawnStats>();
                 loadedRoom.spawnedEnemies.Add(enemySpawned);
                 rendered.Add(enemySpawned.gameObject);
             }
@@ -64,10 +61,6 @@ public class MapRenderer : MonoBehaviour
             {
                 loadedMapRoom.RemoveWall(opening);
             }
-
-            if (mapRoom.type == RoomType.SPAWN) rendered.Add(Instantiate(markerS, transform.position, Quaternion.identity));
-            if (mapRoom.type == RoomType.TREASURE) rendered.Add(Instantiate(markerT, transform.position, Quaternion.identity));
-            if (mapRoom.type == RoomType.BOSS) rendered.Add(Instantiate(markerB, transform.position, Quaternion.identity));
         }
     }
 
@@ -75,7 +68,8 @@ public class MapRenderer : MonoBehaviour
     {
         foreach (GameObject render in rendered)
         {
-            Destroy(render.gameObject);
+            PhotonNetwork.Destroy(render.gameObject);
         }
+        rendered.Clear();
     }
 }

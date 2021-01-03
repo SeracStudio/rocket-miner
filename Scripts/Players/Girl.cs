@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,6 +37,8 @@ public class Girl : Player
 
     public override void Update()
     {
+        if (!GetComponent<PhotonView>().IsMine) return;
+
         base.Update();
 
         InputsG();

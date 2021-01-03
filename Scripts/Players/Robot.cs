@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,8 @@ public class Robot : Player
     // Update is called once per frame
     public override void Update()
     {
+        if (!GetComponent<PhotonView>().IsMine) return;
+
         base.Update();
 
         InputsR();

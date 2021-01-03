@@ -78,8 +78,13 @@ public class BulletController : MonoBehaviour
                 aux.rain = false;
                 if (evergun)
                 {
-                    Bullet aux2 = Instantiate(aux, pos, transform.rotation);
+                    //Bullet aux2 = Instantiate(aux, pos, transform.rotation);
+                    Bullet aux2 = PhotonNetwork.Instantiate("Bullets/" + bullet.name, pos, transform.rotation).GetComponent<Bullet>();
                     aux2.dir = -dir;
+                    aux2.shootSpeed = stats.GetStat(Stat.SHOT_SPEED);
+                    aux2.damage = stats.GetStat(Stat.SHOT_DMG);
+                    aux2.playerShoot = stats.GetStat(Stat.IS_PLAYER);
+                    aux2.effects = bulletEffects;
                     OnBulletShot?.Invoke(aux2, pos, -dir);
                 }
             }

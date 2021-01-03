@@ -1,17 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class RoomLoader : MonoBehaviour
 {
     public Direction direction;
-    public Transform crossSpawn;
+    public Transform girlSpawn, robotSpawn;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("GIRL") && !other.CompareTag(Target.ROBOT.ToString())) return;
+        if (!other.CompareTag("GIRL") && !other.CompareTag("ROBOT")) return;
 
-        MapController.RUNNING.player.transform.position = crossSpawn.position;
+        PlayerInstantiater instantiater = FindObjectOfType<PlayerInstantiater>();
+
+        instantiater.PlaceLocalPlayerAt(other.CompareTag("GIRL") ? girlSpawn.position : robotSpawn.position);
+        instantiater.PlacePlayerAt(other.CompareTag("ROBOT") ? girlSpawn.position : robotSpawn.position);
+
+        GetComponent<PhotonView>().RPC("LoadRoomOnMaster", RpcTarget.MasterClient);
+    }
+
+    [PunRPC]
+    public void LoadRoomOnMaster()
+    {
         MapController.RUNNING.LoadRoom(direction);
     }
 }
