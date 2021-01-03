@@ -20,7 +20,6 @@ public class Robot : Player
     public override void Start()
     {
         base.Start();
-        Instantiate(test, Vector3.zero, Quaternion.identity);
     }
 
     // Update is called once per frame
