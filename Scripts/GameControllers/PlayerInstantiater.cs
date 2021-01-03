@@ -9,6 +9,7 @@ public class PlayerInstantiater : MonoBehaviour
 
     private void Start()
     {
-        PhotonNetwork.Instantiate("Players/" + player.name, new Vector3(0, 0.5f, 0), Quaternion.identity);
+        GameObject localPlayer = PhotonNetwork.Instantiate("Players/" + player.name, new Vector3(0, 0.5f, 0), Quaternion.identity);
+        MapController.RUNNING.player = localPlayer.GetComponent<Player>();
     }
 }
