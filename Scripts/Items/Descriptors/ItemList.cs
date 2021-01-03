@@ -17,7 +17,8 @@ public enum ItemList
     BATTERY_235,
     CHROMED_REINFORCEMENT,
     THERMIC_ONE,
-    ONIS_COIN
+    ONIS_COIN,
+    EMPOWERING_FLINT
 }
 
 public static class ItemFunc
@@ -42,7 +43,7 @@ public static class ItemFunc
                 //target.AddComponent<Disparador>();
                 break;
             case ItemList.EVERGUN_LEFT:
-                //target.AddComponent<Disparador>();
+                target.AddComponent<EvergunLeft>();
                 break;
             case ItemList.MAGNETGUN:
                 //target.AddComponent<Disparador>();
@@ -67,6 +68,9 @@ public static class ItemFunc
                 break;
             case ItemList.ONIS_COIN:
                 target.AddComponent<OnisCoin>();
+                break;
+            case ItemList.EMPOWERING_FLINT:
+                target.AddComponent<EmpoweringFlint>();
                 break;
         }
     }

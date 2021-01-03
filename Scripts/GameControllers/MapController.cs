@@ -92,7 +92,6 @@ public class MapController : MonoBehaviour
 
     public void EnemyEliminated()
     {
-        Debug.Log("ASDASD");
         enemiesLeft--;
         if(enemiesLeft == 0)
         {

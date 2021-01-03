@@ -6,7 +6,6 @@ public class OnExitDestroy : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
         Destroy(other.gameObject);
     }
 }
