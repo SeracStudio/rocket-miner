@@ -104,7 +104,8 @@ public class MapController : MonoBehaviour
         {
             foreach (Direction opening in currentRoom.connections.Keys)
             {
-                mapRenderer.loadedRoom.OpenDoor(opening);
+                //mapRenderer.loadedRoom.OpenDoor(opening);
+                mapRenderer.loadedRoom.GetComponent<PhotonView>().RPC("OpenDoor", RpcTarget.AllBuffered, opening);
             }
         }
     }

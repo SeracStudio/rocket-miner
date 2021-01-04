@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class RoomLoader : MonoBehaviour
+public class RoomLoader : NetworkBehaviour
 {
     public Direction direction;
     public Transform girlSpawn, robotSpawn;
@@ -17,7 +17,7 @@ public class RoomLoader : MonoBehaviour
         instantiater.PlaceLocalPlayerAt(other.CompareTag("GIRL") ? girlSpawn.position : robotSpawn.position);
         instantiater.PlacePlayerAt(other.CompareTag("ROBOT") ? girlSpawn.position : robotSpawn.position);
 
-        GetComponent<PhotonView>().RPC("LoadRoomOnMaster", RpcTarget.MasterClient);
+        TriggerRPC("LoadRoomOnMaster", RpcTarget.MasterClient);
     }
 
     [PunRPC]

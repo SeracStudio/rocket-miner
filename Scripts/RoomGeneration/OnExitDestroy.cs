@@ -7,6 +7,6 @@ public class OnExitDestroy : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        PhotonNetwork.Destroy(other.gameObject);
+        other.GetComponent<NetworkBehaviour>().TriggerRPC("Destroy");
     }
 }

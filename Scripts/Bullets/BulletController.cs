@@ -27,20 +27,12 @@ public class BulletController : MonoBehaviour
     public Bullet bullet;
     public bool evergun;
 
-
     public List<BulletEffect> bulletEffects;
     public Action<Bullet, Vector3, Vector3> OnBulletShot;
 
-    // Start is called before the first frame update
     void Start()
     {
         stats = this.GetComponent<StatsController>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public Vector3 dirCalculate(Vector3 pos)

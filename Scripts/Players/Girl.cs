@@ -37,7 +37,7 @@ public class Girl : Player
 
     public override void Update()
     {
-        if (!GetComponent<PhotonView>().IsMine) return;
+        if (!isMine) return;
 
         base.Update();
 

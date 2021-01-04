@@ -26,7 +26,7 @@ public class Robot : Player
     // Update is called once per frame
     public override void Update()
     {
-        if (!GetComponent<PhotonView>().IsMine) return;
+        if (!isMine) return;
 
         base.Update();
 
@@ -96,7 +96,8 @@ public class Robot : Player
         {
             if (Vector3.Distance(enemies[i].transform.position, this.transform.position) < 5)
             {
-                enemies[i].Stunned();
+                //enemies[i].Stunned();
+                enemies[i].TriggerRPC("Stunned");
                 OnEnemyPunched?.Invoke(enemies[i].gameObject);
                 break;
             }
@@ -148,6 +149,7 @@ public class Robot : Player
 
     private void OnTriggerEnter(Collider other)
     {
+        if (PlayerInstantiater.RUNNING.IsGirl()) return;
         if (!other.CompareTag("Bullet")) return;
 
         if (TryGetComponent(out ReflectingMirror reflector))
@@ -156,7 +158,7 @@ public class Robot : Player
         }
         else
         {
-            Destroy(other.gameObject);
+            other.GetComponent<Bullet>().TriggerRPC("Destroy");
         }
     }
 }

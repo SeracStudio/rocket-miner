@@ -15,6 +15,8 @@ public class EnemyRandomMovement : Enemy
     // Update is called once per frame
     public override void Update()
     {
+        if (!isMine) return;
+
         base.Update();
         if (!stunned)
         {

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : NetworkBehaviour
 {
 
     public Vector3 dir;
@@ -45,9 +45,11 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!PlayerInstantiater.RUNNING.IsGirl()) return;
+
         if (other.tag == "Wall")
         {
-            PhotonNetwork.Destroy(this.gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
 
         if (rain && other.tag == "Floor")
@@ -64,11 +66,10 @@ public class Bullet : MonoBehaviour
                 {
                     other.GetComponent<Slime>().NextSlime();
                 }
-                //other.GetComponent<EnemySpawnStats>().OnDeath?.Invoke();
                 MapController.RUNNING.EnemyEliminated();
-                Destroy(other.gameObject);
+                PhotonNetwork.Destroy(other.gameObject);
             }
-            Destroy(this.gameObject);
+            PhotonNetwork.Destroy(this.gameObject);
         }
 
         if((other.tag=="GIRL" || other.tag=="ROBOT") && playerShoot == 1)
@@ -103,7 +104,7 @@ public class Bullet : MonoBehaviour
             }
             if (!dontDestroy && !robot.TryGetComponent<ReflectingMirror>(out ReflectingMirror reflectingMirror))
             {
-                Destroy(this.gameObject);
+                PhotonNetwork.Destroy(this.gameObject);
             }         
         }
     }
