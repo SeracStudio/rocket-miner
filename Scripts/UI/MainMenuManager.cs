@@ -9,7 +9,9 @@ public class MainMenuManager : MonoBehaviour
     public GameObject MenuToActivate;
     public Camera camera;
     public Vector3 target;
-    private float speed;
+
+
+    public float speed = 1.0f;
 
     private float startTime;
     private Vector3 initialPos;
@@ -21,7 +23,7 @@ public class MainMenuManager : MonoBehaviour
         startTime = Time.time;
         initialPos = camera.transform.position;
         distance = Vector3.Distance(target, initialPos);
-        speed = 1.0f;
+        
     }
 
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class MainMenuManager : MonoBehaviour
     {
         MainMenu.SetActive(!MainMenu.activeSelf);
         CameraMover.RUNNING.MoveCameraTo(target);
-        CameraMover.RUNNING.SetMenu(MenuToActivate, true, 1.0f);
+        CameraMover.RUNNING.SetMenu(MenuToActivate, true, speed);
         //MenuToActivate.SetActive(!MenuToActivate.activeSelf);
     }
 
