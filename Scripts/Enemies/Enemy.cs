@@ -30,6 +30,8 @@ public class Enemy : NetworkBehaviour
 
     public virtual void Update()
     {
+        if (!isOnMaster) return;
+
         checkStun();
         checkShoot();
         Rotation();
@@ -103,7 +105,6 @@ public class Enemy : NetworkBehaviour
         return (tgt.transform.position - this.transform.position);
     }
 
-    [PunRPC]
     public void Stunned()
     {
         if (stats.GetStat(Stat.ENEMY_SHIELD) == 1)

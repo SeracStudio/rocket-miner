@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Robot : Player
 {
-    public bool shield=false;
+    public bool shield = false;
     public float shieldTime = 0;
     private bool canUseShield = true;
 
@@ -20,7 +20,7 @@ public class Robot : Player
     // Start is called before the first frame update
     public override void Start()
     {
-        base.Start();       
+        base.Start();
     }
 
     // Update is called once per frame
@@ -49,19 +49,24 @@ public class Robot : Player
 
     private void InputsR()
     {
-        if (Input.GetKey(KeyCode.LeftShift)&& canUseShield)
+        if (Input.GetKey(KeyCode.LeftShift) && canUseShield)
         {
-            Shield();
+            //Shield()
+            shield = true;
+            TriggerRPC("Shield", RpcTarget.MasterClient);
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            releaseShield();
+            //ReleaseShield();
+            shield = false;
+            TriggerRPC("ReleaseShield", RpcTarget.MasterClient);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)&&canUsePunch)
+        if (Input.GetKeyDown(KeyCode.Space) && canUsePunch)
         {
-            Punch();      
+            //Punch();
+            TriggerRPC("Punch", RpcTarget.MasterClient);
         }
     }
 
@@ -80,24 +85,39 @@ public class Robot : Player
         base.Slowness(amount, duration);
     }
 
-    private void Punch()
+    [PunRPC]
+    public void Shield()
+    {
+        shield = true;
+        OnShield?.Invoke();
+    }
+
+    [PunRPC]
+    public void ReleaseShield()
+    {
+        shield = false;
+        canUseShield = false;
+        shieldTime = 0.01f;
+    }
+
+    [PunRPC]
+    public void Punch()
     {
         punchTime = 0.01f;
         canUsePunch = false;
         punch = true;
-        PunchOnEnemy();       
+        PunchOnEnemy();
     }
 
     private void PunchOnEnemy()
     {
         Enemy[] enemies;
         enemies = FindObjectsOfType<Enemy>();
-        for(int i = 0; i < enemies.Length; i++)
+        for (int i = 0; i < enemies.Length; i++)
         {
             if (Vector3.Distance(enemies[i].transform.position, this.transform.position) < 5)
             {
-                //enemies[i].Stunned();
-                enemies[i].TriggerRPC("Stunned");
+                enemies[i].Stunned();
                 OnEnemyPunched?.Invoke(enemies[i].gameObject);
                 break;
             }
@@ -112,7 +132,7 @@ public class Robot : Player
             if (punchTime > stats.GetStat(Stat.OFFENSIVE_CD))
             {
                 canUsePunch = true;
-                punchTime = 0;            
+                punchTime = 0;
             }
             if (punchTime > 0.3)
             {
@@ -134,31 +154,29 @@ public class Robot : Player
         }
     }
 
-    private void Shield()
-    {
-        shield = true;
-        OnShield?.Invoke();
-    }
-
-    private void releaseShield()
-    {
-        shield = false;
-        canUseShield = false;
-        shieldTime = 0.01f;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (PlayerInstantiater.RUNNING.IsGirl()) return;
-        if (!other.CompareTag("Bullet")) return;
+        //if (!PlayerInstantiater.RUNNING.IsGirl()) return;
+        if (!isOnMaster) return;
 
-        if (TryGetComponent(out ReflectingMirror reflector))
+        if (!other.TryGetComponent(out Bullet bullet)) return;
+        if (bullet.playerShoot == 0) return;
+
+        if (!bullet.effects.Contains(new BulletEffect { effect = BEffects.SPECIAL }))
         {
-            reflector.Effect(other.gameObject);
+            if (TryGetComponent(out ReflectingMirror reflector))
+            {
+                reflector.Effect(other.gameObject);
+            }
+            else
+            {
+                bullet.TriggerRPC("Destroy");
+            }
         }
         else
         {
-            other.GetComponent<Bullet>().TriggerRPC("Destroy");
+            if(shield)
+                bullet.TriggerRPC("Destroy");
         }
     }
 }

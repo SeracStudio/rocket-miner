@@ -45,7 +45,7 @@ public class Bullet : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!PlayerInstantiater.RUNNING.IsGirl()) return;
+        if (!isOnMaster) return;
 
         if (other.tag == "Wall")
         {
@@ -72,7 +72,7 @@ public class Bullet : NetworkBehaviour
             PhotonNetwork.Destroy(this.gameObject);
         }
 
-        if((other.tag=="GIRL" || other.tag=="ROBOT") && playerShoot == 1)
+        if((other.tag=="GIRL") && playerShoot == 1)
         {
             foreach (BulletEffect effect in effects)
             {
@@ -102,10 +102,7 @@ public class Bullet : NetworkBehaviour
                         break;
                 }
             }
-            if (!dontDestroy && !robot.TryGetComponent<ReflectingMirror>(out ReflectingMirror reflectingMirror))
-            {
-                PhotonNetwork.Destroy(this.gameObject);
-            }         
+            TriggerRPC("Destroy");
         }
     }
 

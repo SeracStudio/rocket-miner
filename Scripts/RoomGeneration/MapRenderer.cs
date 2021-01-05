@@ -68,7 +68,8 @@ public class MapRenderer : MonoBehaviour
     {
         foreach (GameObject render in rendered)
         {
-            PhotonNetwork.Destroy(render.gameObject);
+            if (render != null)
+                PhotonNetwork.Destroy(render.gameObject);
         }
         rendered.Clear();
     }

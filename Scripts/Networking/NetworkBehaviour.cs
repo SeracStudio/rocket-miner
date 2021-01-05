@@ -4,6 +4,7 @@ using UnityEngine;
 public class NetworkBehaviour : MonoBehaviour
 {
     public bool isMine;
+    public bool isOnMaster;
 
     private PhotonView objectNetworkView;
 
@@ -12,6 +13,7 @@ public class NetworkBehaviour : MonoBehaviour
         objectNetworkView = GetComponent<PhotonView>();
 
         isMine = objectNetworkView.IsMine;
+        isOnMaster = PhotonNetwork.IsMasterClient;
     }
 
     public void TriggerRPC(string RPC)
@@ -32,7 +34,9 @@ public class NetworkBehaviour : MonoBehaviour
     [PunRPC]
     public void Destroy()
     {
-        if (isMine)
-            PhotonNetwork.Destroy(gameObject);
+        if (this == null) return;
+        if (!isMine) return;
+
+        PhotonNetwork.Destroy(gameObject);
     }
 }

@@ -19,6 +19,12 @@ public class BulletEffect
 {
     public BEffects effect;
     public float durationTime;
+
+    public override bool Equals(object obj)
+    {
+        BulletEffect otherEffect = (BulletEffect)obj;
+        return effect == otherEffect.effect;
+    }
 }
 
 public class BulletController : MonoBehaviour
@@ -53,13 +59,11 @@ public class BulletController : MonoBehaviour
     }
 
     public void Shoot(Vector3 pos, Vector3 dirA)
-    {
-        //Bullet aux = Instantiate(bullet, pos, transform.rotation);      
+    {     
         Bullet aux = PhotonNetwork.Instantiate("Bullets/" + bullet.name, pos, transform.rotation).GetComponent<Bullet>();
         aux.shootSpeed = stats.GetStat(Stat.SHOT_SPEED);
         aux.damage = stats.GetStat(Stat.SHOT_DMG);
         aux.playerShoot = stats.GetStat(Stat.IS_PLAYER);
-        //aux.transform.localScale = new Vector3(stats.GetStat(Stat.SHOT_SIZE), stats.GetStat(Stat.SHOT_SIZE), stats.GetStat(Stat.SHOT_SIZE));
         aux.effects = bulletEffects;
         if (stats.GetStat(Stat.IS_PLAYER) == 0)
         {
@@ -70,7 +74,6 @@ public class BulletController : MonoBehaviour
                 aux.rain = false;
                 if (evergun)
                 {
-                    //Bullet aux2 = Instantiate(aux, pos, transform.rotation);
                     Bullet aux2 = PhotonNetwork.Instantiate("Bullets/" + bullet.name, pos, transform.rotation).GetComponent<Bullet>();
                     aux2.dir = -dir;
                     aux2.shootSpeed = stats.GetStat(Stat.SHOT_SPEED);
@@ -91,6 +94,7 @@ public class BulletController : MonoBehaviour
         }
         else
         {
+            aux.transform.rotation = Quaternion.LookRotation(dirA);
             aux.dir = dirA;
             if (this.TryGetComponent(out RockRain r))
             {

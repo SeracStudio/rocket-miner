@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ public class Slime : MonoBehaviour
 {
     public Enemy slime;
 
-    public int level=1;
+    public int level = 1;
 
     private float nextCd = 2;
     private float nextTime = 0;
@@ -14,7 +15,7 @@ public class Slime : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -32,10 +33,10 @@ public class Slime : MonoBehaviour
     {
         if (level <= 2)
         {
-            Enemy aux=Instantiate(slime, transform.position, Quaternion.identity);
+            Enemy aux = PhotonNetwork.Instantiate("Enemies/EnemySet/" + slime.name, transform.position, Quaternion.identity).GetComponent<Enemy>();
             aux.transform.position = new Vector3(aux.transform.position.x, 0, aux.transform.position.z);
             //Ver como spawnean
-            Enemy aux2=Instantiate(slime, transform.position, Quaternion.identity);
+            Enemy aux2 = PhotonNetwork.Instantiate("Enemies/EnemySet/" + slime.name, transform.position, Quaternion.identity).GetComponent<Enemy>();
             aux2.transform.position = new Vector3(aux2.transform.position.x, 0, aux2.transform.position.z);
         }
     }
