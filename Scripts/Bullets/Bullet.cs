@@ -54,11 +54,17 @@ public class Bullet : NetworkBehaviour
 
         if (rain && other.tag == "Floor")
         {
-            Destroy(this.gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
 
-        if (other.tag =="Enemy" && playerShoot==0 && other.gameObject.GetComponent<StatsController>().GetStat(Stat.ENEMY_SHIELD)==0)
+        if (other.tag =="Enemy" && playerShoot==0)
         {
+            if(other.gameObject.GetComponent<StatsController>().GetStat(Stat.ENEMY_SHIELD) == 1)
+            {
+                PhotonNetwork.Destroy(gameObject);
+                return;
+            }
+
             other.gameObject.GetComponent<StatsController>().SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT,other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH), damage));
             if (other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH) <= 0)
             {
@@ -87,6 +93,7 @@ public class Bullet : NetworkBehaviour
                     case (BEffects.SLOWNESS):
                         other.gameObject.GetComponent<Player>().Slowness(damage, effect.durationTime);
                         break;
+                        /*
                     case (BEffects.SPECIAL):
                         if (other.tag == "ROBOT")
                         {
@@ -100,6 +107,7 @@ public class Bullet : NetworkBehaviour
                             other.gameObject.GetComponent<Player>().Attacked(damage);
                         }
                         break;
+                        */
                 }
             }
             TriggerRPC("Destroy");

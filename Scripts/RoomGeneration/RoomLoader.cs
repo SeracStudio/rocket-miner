@@ -10,6 +10,7 @@ public class RoomLoader : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!PhotonNetwork.IsMasterClient) return;
         if (!other.CompareTag("GIRL") && !other.CompareTag("ROBOT")) return;
 
         PlayerInstantiater instantiater = FindObjectOfType<PlayerInstantiater>();

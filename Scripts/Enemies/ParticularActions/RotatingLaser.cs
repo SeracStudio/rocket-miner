@@ -32,6 +32,7 @@ public class RotatingLaser : MonoBehaviour
     {
         currentAngle = Time.deltaTime * laserSpeed;
         direction = Quaternion.AngleAxis(currentAngle, Vector3.up) * direction;
+        transform.parent.transform.forward = direction;
         lineRenderer.SetPosition(1, RaycastLaser());
     }
 

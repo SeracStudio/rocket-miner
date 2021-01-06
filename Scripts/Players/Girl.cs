@@ -54,7 +54,8 @@ public class Girl : Player
         {
             base.Attacked(damageAmount);
             Debug.Log("Attacked " + damageAmount);
-            stats.SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT, stats.GetStat(Stat.HEALTH), damageAmount));
+            //stats.SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT, stats.GetStat(Stat.HEALTH), damageAmount));
+            stats.ChangeStat(Stat.HEALTH, -damageAmount);
             //Invencibilidad visible de algun modo
             attackedTime += 0.01f;
             canBeAttacked = false;
@@ -63,10 +64,12 @@ public class Girl : Player
                 //Acabar el juego
                 Destroy(this.gameObject);
             }
+            /*
             else
             {
                 stats.SetStat(Stat.HEALTH, 100);
             }
+            */
         }
     }
 
