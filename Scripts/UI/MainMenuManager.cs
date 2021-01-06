@@ -20,6 +20,7 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        camera = Camera.main;
         startTime = Time.time;
         initialPos = camera.transform.position;
         distance = Vector3.Distance(target, initialPos);
@@ -39,6 +40,29 @@ public class MainMenuManager : MonoBehaviour
         CameraMover.RUNNING.SetMenu(MenuToActivate, true, speed);
         //MenuToActivate.SetActive(!MenuToActivate.activeSelf);
     }
+    public void RemoveMainMenuPrefab()
+    {
+        MainMenu = GameObject.Find("Play_Empty");
+        MenuToActivate = FindInActiveObjectByName("Waiting_Room_Empty");
 
-  
+        MainMenu.SetActive(!MainMenu.activeSelf);
+        MenuToActivate.SetActive(!MenuToActivate.activeSelf);
+    }
+
+    private GameObject FindInActiveObjectByName(string name)
+    {
+        Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
+        for (int i = 0; i < objs.Length; i++)
+        {
+            if (objs[i].hideFlags == HideFlags.None)
+            {
+                if (objs[i].name == name)
+                {
+                    return objs[i].gameObject;
+                }
+            }
+        }
+        return null;
+    }
+
 }

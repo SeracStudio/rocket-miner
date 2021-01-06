@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
 
     public bool inversed;
 
+
+   
+
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -125,4 +128,6 @@ public class Player : MonoBehaviour
     {
         return lastDirection;
     }
+
+   
 }

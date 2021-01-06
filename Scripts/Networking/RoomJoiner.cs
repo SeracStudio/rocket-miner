@@ -13,12 +13,12 @@ public class RoomJoiner : MonoBehaviourPunCallbacks
     //[SerializeField]
     public Text roomName;
 
+
     private void Awake()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
         
     }
-
     public void CreateRoom()
     {
         if (!PhotonNetwork.IsConnected)
@@ -36,7 +36,7 @@ public class RoomJoiner : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.CreateRoom(roomName.text, new Photon.Realtime.RoomOptions() { MaxPlayers = neededPlayers });
         }
-        //Debug.Log(PhotonNetwork.InRoom);
+        //Debug.Log("Room Created.");
     }
     public bool ConsistsOfWhiteSpace(string s)
     {
@@ -52,18 +52,35 @@ public class RoomJoiner : MonoBehaviourPunCallbacks
         Debug.Log("Room created.");
     }
 
-
-
-    public void JoinRoom()
-    {
-        PhotonNetwork.JoinRandomRoom();
-    }
-
-   
-
     public override void OnJoinedRoom()
     {
+        if (!PhotonNetwork.IsMasterClient){
+            //base.photonView.RPC("loadImages", RpcTarget.All);
+        }
         Debug.Log("Room joined.");
+    }
+
+    [PunRPC]
+    public void loadImages()
+    {
+        Image otherPlayer = FindInActiveObjectByName("Other_Player_Character_Image").GetComponent<Image>();
+        otherPlayer.color = new Color(otherPlayer.color.r, otherPlayer.color.g, otherPlayer.color.b, 1.0f);
+    }
+
+    private GameObject FindInActiveObjectByName(string name)
+    {
+        Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
+        for (int i = 0; i < objs.Length; i++)
+        {
+            if (objs[i].hideFlags == HideFlags.None)
+            {
+                if (objs[i].name == name)
+                {
+                    return objs[i].gameObject;
+                }
+            }
+        }
+        return null;
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -72,14 +89,23 @@ public class RoomJoiner : MonoBehaviourPunCallbacks
         CreateRoom();
     }
 
+
+
+    public void StartNewGame()
+    {
+        if (PhotonNetwork.CurrentRoom.PlayerCount == neededPlayers && PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.LoadLevel(gameSceneName);
+            Debug.Log("La partida empieza");
+        }
+        else
+        {
+            Debug.Log("Faltan jugadores");
+        }
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            if (PhotonNetwork.CurrentRoom.PlayerCount == neededPlayers && PhotonNetwork.IsMasterClient)
-            {
-                PhotonNetwork.LoadLevel(gameSceneName);
-            }
-        }
+
     }
 }

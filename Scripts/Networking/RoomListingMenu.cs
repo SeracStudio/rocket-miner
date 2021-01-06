@@ -10,39 +10,47 @@ public class RoomListingMenu : MonoBehaviourPunCallbacks
     public RoomListing roomListing;
     public Transform content;
 
-    private List<RoomListing> roomListings = new List<RoomListing>();
+    private List<RoomListing> listings = new List<RoomListing>();
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        //En el OnConnectedToMaster hay que poner PhotonManager.JoinLobby para que salgan las salas
+
         foreach (RoomInfo info in roomList)
         {
             //Removes from rooms list
             if (info.RemovedFromList) {
-
-                int index = roomListings.FindIndex(x => x.RoomInfo.Name == info.Name);
+                int index = listings.FindIndex(x => x.RoomInfo.Name == info.Name);
                 if (index != -1) { 
-                    Destroy(roomListings[index].gameObject);
-                    roomListings.RemoveAt(index);
+                    Destroy(listings[index].gameObject);
+                    listings.RemoveAt(index);
                     Debug.Log("Room removed from the list.");
                 }
             }
-
+            
             //Adds from rooms list
             else
             {
+                int index = listings.FindIndex(x => x.RoomInfo.Name == info.Name);
                 RoomListing listing = Instantiate(roomListing, content);
-                if (listing != null)
+                if (index == -1)
                 {
-                    listing.SetRoomInfo(info);
-                    roomListings.Add(listing);
-                    Debug.Log("Room added to the list.");
-                }
-            }
+                    if (listing != null)
+                    {
+                        listing.SetRoomInfo(info);
+                        listings.Add(listing);
+                        Debug.Log("Room added to the list.");
 
+                    }
+                }
+                
+                
+            }
         }
     }
 
+    public override void OnJoinedRoom()
+    {
+        listings.Clear();
+    }
 
-   
 }

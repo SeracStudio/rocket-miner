@@ -11,5 +11,10 @@ public class RoomLeaver : MonoBehaviourPunCallbacks
         Debug.Log("Room left");
     }
 
+    public override void OnMasterClientSwitched(Photon.Realtime.Player newMasterClient)
+    {
+        //PhotonNetwork.SetMasterClient(PhotonNetwork.CurrentRoom.GetPlayer(0));
+        Debug.Log("El master es "+ PhotonNetwork.MasterClient);
+    }
 
 }
