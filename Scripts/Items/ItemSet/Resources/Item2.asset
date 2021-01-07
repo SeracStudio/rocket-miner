@@ -10,21 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
-  m_Name: Item3
+  m_Name: Item2
   m_EditorClassIdentifier: 
-  itemName: Tuerca W98
-  itemDescription: "Arreglo ancestral que se le hac\xEDa a los robots exploradores."
-  target: 2
+  sprite: {fileID: 21300000, guid: 17648a5bc8c9b8e4aa7de4f71cbddfd8, type: 3}
+  itemName: Revientarrocas
+  itemDescription: "Artefacto antiguo que dispara aire para destruir rocas a presi\xF3n."
+  target: 1
   modifiers:
-  - stat: 1
+  - stat: 5
     operation: 2
     amount: 0.75
-  - stat: 7
+  - stat: 3
     operation: 2
-    amount: 0.75
-  - stat: 8
-    operation: 0
-    amount: 0.75
-  - stat: 9
-    operation: 2
-    amount: 1.5
+    amount: 3

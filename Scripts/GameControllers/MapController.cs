@@ -22,6 +22,7 @@ public class MapController : MonoBehaviour
 
     private MapGenerator mapGenerator;
     private MapEnemyFiller mapEnemyFiller;
+    private MapItemFiller mapItemFiller;
     private MapRenderer mapRenderer;
 
     private void Awake()
@@ -37,13 +38,16 @@ public class MapController : MonoBehaviour
 
         mapGenerator = new MapGenerator(pathWidth, pathDepth, lateralRatio, branchingRatio);
         mapEnemyFiller = GetComponent<MapEnemyFiller>();
+        mapItemFiller = GetComponent<MapItemFiller>();
         mapRenderer = GetComponent<MapRenderer>();
 
         for (int i = 0; i < 5; i++)
         {
             fullMap[i] = mapGenerator.NewMap();
             mapEnemyFiller.FillMapWithEnemies(fullMap[i], i);
+            mapItemFiller.FillMapWithItems(fullMap[i]);
         }
+
         LoadMap(fullMap[currentFloor]);
     }
 

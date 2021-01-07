@@ -10,12 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
-  m_Name: Item1
+  m_Name: Item3
   m_EditorClassIdentifier: 
-  itemName: Botas de explorador
-  itemDescription: "Botas de cuero marr\xF3n que resultan c\xF3modas."
-  target: 0
+  sprite: {fileID: 21300000, guid: 1952219b9dc0242438d4539683e9a88d, type: 3}
+  itemName: Tuerca W98
+  itemDescription: "Arreglo ancestral que se le hac\xEDa a los robots exploradores."
+  target: 2
   modifiers:
   - stat: 1
+    operation: 2
+    amount: 0.75
+  - stat: 7
+    operation: 2
+    amount: 0.75
+  - stat: 8
+    operation: 0
+    amount: 0.75
+  - stat: 9
     operation: 2
     amount: 1.5
