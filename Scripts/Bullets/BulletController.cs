@@ -11,7 +11,8 @@ public enum BEffects
     POISON,
     EXPLOSION,
     TELE,
-    SPECIAL
+    SPECIAL,
+    STUN
 }
 
 [System.Serializable]

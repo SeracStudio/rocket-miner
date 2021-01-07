@@ -17,7 +17,7 @@ public class EnemyMoveToPlayer : Enemy
     public override void Update()
     {
         base.Update();
-        if (!stunned)
+        if (!stunned && canMove)
         {
             playerDirection = getPlayerDirection().normalized;
             directionTime += Time.deltaTime;

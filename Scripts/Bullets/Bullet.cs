@@ -59,6 +59,7 @@ public class Bullet : NetworkBehaviour
 
         if (other.tag =="Enemy" && playerShoot==0)
         {
+
             if(other.gameObject.GetComponent<StatsController>().GetStat(Stat.ENEMY_SHIELD) == 1)
             {
                 PhotonNetwork.Destroy(gameObject);
@@ -66,6 +67,7 @@ public class Bullet : NetworkBehaviour
             }
 
             other.gameObject.GetComponent<StatsController>().SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT,other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH), damage));
+
             if (other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH) <= 0)
             {
                 if(other.TryGetComponent(out Slime slime))

@@ -31,7 +31,7 @@ public class EnemyAfraidOfPlayer : Enemy
         }
 
 
-        if (!stunned)
+        if (!stunned && canMove)
         {
             if (run)
             {

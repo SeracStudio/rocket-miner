@@ -7,6 +7,7 @@ public class RockRain : MonoBehaviour
     // Start is called before the first frame update
 
     private BulletController pbc;
+    private Enemy enemy;
 
     public float rainCd;
     private float rainTime;
@@ -24,6 +25,7 @@ public class RockRain : MonoBehaviour
     {
         rainDurationCd = rainDuration / nRocks;
         pbc=this.GetComponent<BulletController>();
+        enemy = GetComponent<Enemy>();
     }
 
     // Update is called once per frame

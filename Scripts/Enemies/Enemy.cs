@@ -20,6 +20,9 @@ public class Enemy : NetworkBehaviour
     private float stunnedCd;
     private float stunnedTime;
 
+    private float canMoveTime = 0;
+    private float canMoveCd = 0.2f;
+
     private float shootTime = 0;
 
 
@@ -28,12 +31,20 @@ public class Enemy : NetworkBehaviour
     public Player tgt;
     private Robot robot;
 
+    public bool boss = false;
+
+    public bool canMove=true;
+
+    public bool colmena = false;
+    public bool NoColmena = true;
+
     public virtual void Update()
     {
         if (!isOnMaster) return;
 
         checkStun();
         checkShoot();
+        checkCanMove();
         Rotation();
     }
 
@@ -84,6 +95,19 @@ public class Enemy : NetworkBehaviour
         }
     }
 
+    private void checkCanMove()
+    {
+        if (!canMove)
+        {
+            canMoveTime += Time.deltaTime;
+            if (canMoveTime >= canMoveCd)
+            {
+                canMoveTime = 0;
+                canMove = true;
+            }
+        }
+    }
+
     private void checkShoot()
     {
         if (!isMine) return;
@@ -95,6 +119,7 @@ public class Enemy : NetworkBehaviour
             {
                 pbc.Shoot(transform.position, getPlayerDirection().normalized);
                 //stunned = true;
+                canMove = false;
                 shootTime = 0;
             }
         }
@@ -109,7 +134,11 @@ public class Enemy : NetworkBehaviour
     {
         if (stats.GetStat(Stat.ENEMY_SHIELD) == 1)
         {
-            shieldOff();
+            //shieldOff();
+            if (NoColmena)
+            {
+                shieldOff();
+            }  
         }
         else
         {
@@ -125,11 +154,22 @@ public class Enemy : NetworkBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+    /*
         if (collision.gameObject == tgt.gameObject && target.target == Target.GIRL)
         {
             rigidbody.isKinematic = true;
             tgt.Attacked(stats.GetStat(Stat.SHOT_DMG) / 2);
+            */
+    {      
+        if(collision.gameObject.tag=="GIRL" && !boss)
+        {
+            rigidbody.isKinematic = true;
+            collision.gameObject.GetComponent<Player>().Attacked(stats.GetStat(Stat.SHOT_DMG));
         }
+        /*if (collision.gameObject == tgt.gameObject && target.target==Target.GIRL)
+        {
+            tgt.Attacked(stats.GetStat(Stat.SHOT_DMG)/2);            
+        }*/
 
         if (collision.gameObject.tag == "Wall")
         {
@@ -139,10 +179,16 @@ public class Enemy : NetworkBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject == tgt.gameObject && target.target == Target.GIRL)
+        /*if (collision.gameObject == tgt.gameObject && target.target == Target.GIRL)
         {
             rigidbody.isKinematic = false;
+            rigidbody.isKinematic = false;          
+        }*/
+        if (collision.gameObject.tag == "GIRL" && !boss)
+        {
+            rigidbody.isKinematic = true;         
         }
+
 
         if (collision.gameObject.tag == "Wall")
         {
