@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,6 @@ using UnityEngine;
 public class MapController : MonoBehaviour
 {
     public static MapController RUNNING;
-    public Player player;
 
     public Action OnRoomLoaded;
 
@@ -26,6 +26,12 @@ public class MapController : MonoBehaviour
 
     private void Awake()
     {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            Destroy(this);
+            return;
+        }
+
         RUNNING = this;
         fullMap = new Dictionary<Vector3, MapRoom>[5];
 
@@ -36,7 +42,7 @@ public class MapController : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             fullMap[i] = mapGenerator.NewMap();
-            mapEnemyFiller.FillMapWithEnemies(fullMap[i], i);        
+            mapEnemyFiller.FillMapWithEnemies(fullMap[i], i);
         }
         LoadMap(fullMap[currentFloor]);
     }
@@ -73,11 +79,12 @@ public class MapController : MonoBehaviour
     public void LoadRoom(MapRoom room)
     {
         lastRoom = currentRoom;
+        //room.cleared = true;
         mapRenderer.Render(room);
         room.cleared = true;
         currentRoom = room;
         enemiesLeft = room.enemies.Count;
-        foreach(EnemySpawnStats enemy in mapRenderer.loadedRoom.spawnedEnemies)
+        foreach (EnemySpawnStats enemy in mapRenderer.loadedRoom.spawnedEnemies)
         {
             if (enemy.isSlime) enemiesLeft += 6;
             enemy.GetComponent<EnemySpawnStats>().OnDeath += EnemyEliminated;
@@ -93,11 +100,12 @@ public class MapController : MonoBehaviour
     public void EnemyEliminated()
     {
         enemiesLeft--;
-        if(enemiesLeft == 0)
+        if (enemiesLeft == 0)
         {
-            foreach(Direction opening in currentRoom.connections.Keys)
+            foreach (Direction opening in currentRoom.connections.Keys)
             {
-                mapRenderer.loadedRoom.OpenDoor(opening);
+                //mapRenderer.loadedRoom.OpenDoor(opening);
+                mapRenderer.loadedRoom.GetComponent<PhotonView>().RPC("OpenDoor", RpcTarget.AllBuffered, opening);
             }
         }
     }

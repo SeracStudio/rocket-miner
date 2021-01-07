@@ -3,13 +3,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInstantiater : MonoBehaviour
+public class PlayerInstantiater : NetworkBehaviour
 {
-    public GameObject player;
+    public static PlayerInstantiater RUNNING;
 
+    public GameObject localPlayer;
     private void Start()
     {
-        GameObject localPlayer = PhotonNetwork.Instantiate("Players/" + player.name, new Vector3(0, 0.5f, 0), Quaternion.identity);
-        MapController.RUNNING.player = localPlayer.GetComponent<Player>();
+        RUNNING = this;
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            localPlayer = PhotonNetwork.Instantiate("Players/Girl", new Vector3(3, 0.5f, 0), Quaternion.identity);
+        }
+        else
+        {
+            localPlayer = PhotonNetwork.Instantiate("Players/Robot", new Vector3(-3, 0.5f, 0), Quaternion.identity);
+        }
+    }
+
+    public bool IsGirl()
+    {
+        return localPlayer.CompareTag("GIRL");
+    }
+
+    public void PlacePlayerAt(Vector3 position)
+    {
+        TriggerRPC("PlaceLocalPlayerAt", RpcTarget.Others, position);
+    }
+
+    [PunRPC]
+    public void PlaceLocalPlayerAt(Vector3 position)
+    {
+        localPlayer.transform.position = position;
     }
 }

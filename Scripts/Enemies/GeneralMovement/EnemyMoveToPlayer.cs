@@ -29,7 +29,7 @@ public class EnemyMoveToPlayer : Enemy
         }
         else
         {
-            //rigidbody.velocity = new Vector3(0,0,0);
+            rigidbody.velocity = new Vector3(0,0,0);
         }
         
     }

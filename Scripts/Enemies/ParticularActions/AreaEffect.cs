@@ -1,11 +1,11 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AreaEffect : MonoBehaviour
+public class AreaEffect : NetworkBehaviour
 {
     // Start is called before the first frame update
-
     public float areaRadius=3;
     public float cd=0;
     public float duration=99999;
@@ -112,11 +112,12 @@ public class AreaEffect : MonoBehaviour
             if (effect.effect == BEffects.EXPLOSION)
             {
                 GetComponent<EnemySpawnStats>().OnDeath?.Invoke();
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
                 if(!robotProtected && attackInRange)
                 {
                     girl.Attacked(stats.GetStat(Stat.SHOT_DMG));
-                }  
+                }
+                PhotonNetwork.Destroy(gameObject);
             }
         }
     }

@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Room : MonoBehaviour
 {
     public SpawnObject north, west, east, south;
     public List<EnemySpawnStats> spawnedEnemies;
+
     private void Awake()
     {
         spawnedEnemies = new List<EnemySpawnStats>();
@@ -32,11 +34,13 @@ public class Room : MonoBehaviour
         GetWallPosition(direction).Destroy();
     }
 
+    [PunRPC]
     public void CloseDoor(Direction direction)
     {
         GetWallPosition(direction).Show();
     }
 
+    [PunRPC]
     public void OpenDoor(Direction direction)
     {
         GetWallPosition(direction).Hide();

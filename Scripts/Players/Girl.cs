@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,6 +37,8 @@ public class Girl : Player
 
     public override void Update()
     {
+        if (!isMine) return;
+
         base.Update();
 
         InputsG();
@@ -51,7 +54,8 @@ public class Girl : Player
         {
             base.Attacked(damageAmount);
             Debug.Log("Attacked " + damageAmount);
-            stats.SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT, stats.GetStat(Stat.HEALTH), damageAmount));
+            //stats.SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT, stats.GetStat(Stat.HEALTH), damageAmount));
+            stats.ChangeStat(Stat.HEALTH, -damageAmount);
             //Invencibilidad visible de algun modo
             attackedTime += 0.01f;
             canBeAttacked = false;
@@ -60,10 +64,12 @@ public class Girl : Player
                 //Acabar el juego
                 Destroy(this.gameObject);
             }
+            /*
             else
             {
                 stats.SetStat(Stat.HEALTH, 100);
             }
+            */
         }
     }
 

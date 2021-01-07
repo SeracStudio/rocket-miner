@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : NetworkBehaviour
 {
 
     public Vector3 dir;
@@ -45,37 +45,42 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!isOnMaster) return;
+
         if (other.tag == "Wall")
         {
-            PhotonNetwork.Destroy(this.gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
 
         if (rain && other.tag == "Floor")
         {
-            Destroy(this.gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
 
         if (other.tag =="Enemy" && playerShoot==0)
         {
-            if(other.gameObject.GetComponent<StatsController>().GetStat(Stat.ENEMY_SHIELD) == 0)
+
+            if(other.gameObject.GetComponent<StatsController>().GetStat(Stat.ENEMY_SHIELD) == 1)
             {
-                other.gameObject.GetComponent<StatsController>().SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT, other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH), damage));
+                PhotonNetwork.Destroy(gameObject);
+                return;
             }
-            
+
+            other.gameObject.GetComponent<StatsController>().SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT,other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH), damage));
+
             if (other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH) <= 0)
             {
                 if(other.TryGetComponent(out Slime slime))
                 {
                     other.GetComponent<Slime>().NextSlime();
                 }
-                //other.GetComponent<EnemySpawnStats>().OnDeath?.Invoke();
                 MapController.RUNNING.EnemyEliminated();
-                Destroy(other.gameObject);
+                PhotonNetwork.Destroy(other.gameObject);
             }
-            Destroy(this.gameObject);
+            PhotonNetwork.Destroy(this.gameObject);
         }
 
-        if((other.tag=="GIRL" || other.tag=="ROBOT") && playerShoot == 1)
+        if((other.tag=="GIRL") && playerShoot == 1)
         {
             foreach (BulletEffect effect in effects)
             {
@@ -90,6 +95,7 @@ public class Bullet : MonoBehaviour
                     case (BEffects.SLOWNESS):
                         other.gameObject.GetComponent<Player>().Slowness(damage, effect.durationTime);
                         break;
+                        /*
                     case (BEffects.SPECIAL):
                         if (other.tag == "ROBOT")
                         {
@@ -103,12 +109,10 @@ public class Bullet : MonoBehaviour
                             other.gameObject.GetComponent<Player>().Attacked(damage);
                         }
                         break;
+                        */
                 }
             }
-            if (!dontDestroy && !robot.TryGetComponent<ReflectingMirror>(out ReflectingMirror reflectingMirror))
-            {
-                Destroy(this.gameObject);
-            }         
+            TriggerRPC("Destroy");
         }
     }
 

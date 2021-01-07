@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class SpawnObject : MonoBehaviour
 {
@@ -9,8 +10,11 @@ public class SpawnObject : MonoBehaviour
 
     public GameObject spawned;
 
+    public PhotonView photonView;
+
     private void Awake()
     {
+        photonView = GetComponent<PhotonView>();
         Spawn();
     }
 
@@ -32,7 +36,7 @@ public class SpawnObject : MonoBehaviour
 
     public void Destroy()
     {
-        Destroy(spawned);
+        PhotonNetwork.Destroy(spawned);
     }
 
     public void Hide()

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 [System.Serializable]
 public class targetAttack
@@ -9,7 +10,7 @@ public class targetAttack
     public Target target;
 }
 
-public class Enemy : MonoBehaviour
+public class Enemy : NetworkBehaviour
 {
     public StatsController stats;
     public Rigidbody rigidbody;
@@ -39,6 +40,8 @@ public class Enemy : MonoBehaviour
 
     public virtual void Update()
     {
+        if (!isOnMaster) return;
+
         checkStun();
         checkShoot();
         checkCanMove();
@@ -107,12 +110,15 @@ public class Enemy : MonoBehaviour
 
     private void checkShoot()
     {
+        if (!isMine) return;
+
         if (stats.GetStat(Stat.ENEMY_CANSHOOT) == 1)
         {
             shootTime += Time.deltaTime;
             if (shootTime > stats.GetStat(Stat.OFFENSIVE_CD))
             {
                 pbc.Shoot(transform.position, getPlayerDirection().normalized);
+                //stunned = true;
                 canMove = false;
                 shootTime = 0;
             }
@@ -128,6 +134,7 @@ public class Enemy : MonoBehaviour
     {
         if (stats.GetStat(Stat.ENEMY_SHIELD) == 1)
         {
+            //shieldOff();
             if (NoColmena)
             {
                 shieldOff();
@@ -146,6 +153,13 @@ public class Enemy : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision)
+    {
+    /*
+        if (collision.gameObject == tgt.gameObject && target.target == Target.GIRL)
+        {
+            rigidbody.isKinematic = true;
+            tgt.Attacked(stats.GetStat(Stat.SHOT_DMG) / 2);
+            */
     {      
         if(collision.gameObject.tag=="GIRL" && !boss)
         {
@@ -159,7 +173,7 @@ public class Enemy : MonoBehaviour
 
         if (collision.gameObject.tag == "Wall")
         {
-            wall=true;
+            wall = true;
         }
     }
 
@@ -167,6 +181,7 @@ public class Enemy : MonoBehaviour
     {
         /*if (collision.gameObject == tgt.gameObject && target.target == Target.GIRL)
         {
+            rigidbody.isKinematic = false;
             rigidbody.isKinematic = false;          
         }*/
         if (collision.gameObject.tag == "GIRL" && !boss)
