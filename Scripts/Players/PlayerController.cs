@@ -7,42 +7,21 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviourPunCallbacks
 {
 
-    public Image imageWaitingRoom;
-    public Image imageOtherPlayerWaitingRoom;
-    public Image imageGirl;
-    public Image imageRobot;
-    private string avatarChosen;
-
+    private string avatarChosen = "avatar";
+    private ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable();
   
 
     public void setRobotAsPlayer()
     {
-        avatarChosen = "sora";
+        customProperties[avatarChosen] = "sora";
+        PhotonNetwork.LocalPlayer.CustomProperties = customProperties;
     }
 
     public void setGirlAsPlayer()
     {
-        avatarChosen = "arcelia";
+        customProperties[avatarChosen] = "arcelia";
+        PhotonNetwork.LocalPlayer.CustomProperties = customProperties;
     }
 
-    public void loadImageWaitingRoom()
-    {
-        if(avatarChosen == "sora")
-        {
-            imageWaitingRoom.sprite = imageRobot.sprite;
-
-            imageOtherPlayerWaitingRoom.sprite = imageGirl.sprite;
-            imageOtherPlayerWaitingRoom.SetNativeSize();
-            imageOtherPlayerWaitingRoom.transform.localScale = new Vector3(0.4f, 0.4f, 0.0f);
-        }
-        else if(avatarChosen == "arcelia")
-        {
-            imageWaitingRoom.sprite = imageGirl.sprite;
-            imageWaitingRoom.SetNativeSize();
-            imageWaitingRoom.transform.localScale = new Vector3(0.4f, 0.4f, 0.0f);
-
-            imageOtherPlayerWaitingRoom.sprite = imageRobot.sprite;
-
-        }
-    }
+  
 }

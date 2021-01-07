@@ -43,7 +43,9 @@ public class NetworkController : MonoBehaviourPunCallbacks
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        Debug.Log("Disconnected from server for " + cause.ToString());
+        PhotonNetwork.Reconnect();
+        Debug.Log("Disconnected from server for " + cause.ToString());       
+
     }
 
 

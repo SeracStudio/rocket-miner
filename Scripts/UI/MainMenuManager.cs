@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenuManager : MonoBehaviour
+public class MainMenuManager : MonoBehaviourPunCallbacks
 {
 
     public GameObject MainMenu;
@@ -40,6 +41,7 @@ public class MainMenuManager : MonoBehaviour
         CameraMover.RUNNING.SetMenu(MenuToActivate, true, speed);
         //MenuToActivate.SetActive(!MenuToActivate.activeSelf);
     }
+
     public void RemoveMainMenuPrefab()
     {
         MainMenu = GameObject.Find("Play_Empty");
@@ -65,4 +67,6 @@ public class MainMenuManager : MonoBehaviour
         return null;
     }
 
+
+   
 }
