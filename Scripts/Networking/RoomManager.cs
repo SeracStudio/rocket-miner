@@ -10,6 +10,7 @@ public class RoomManager : MonoBehaviour
 
     public void LeavingRoom()
     {
+        PhotonNetwork.CurrentRoom.RemovedFromList = true;
         Debug.Log(PhotonNetwork.CurrentRoom.Name);
         PhotonNetwork.LeaveRoom();
         Debug.Log("Room left");

@@ -11,7 +11,7 @@ public class RoomListingMenu : MonoBehaviourPunCallbacks
     public Transform content;
 
     //private List<RoomListing> listings = new List<RoomListing>();
-    private List<RoomInfo> fullRoomList = new List<RoomInfo>();
+    private Dictionary<string, RoomInfo> fullRoomList = new Dictionary<string, RoomInfo>();
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
@@ -66,38 +66,49 @@ public class RoomListingMenu : MonoBehaviourPunCallbacks
                         Instantiate(roomListing, content).GetComponent<RoomListing>().SetRoomInfo(room);
                 }
         */
-
-        bool roomFound;
-        foreach (RoomInfo room in roomList)
-        {
-            roomFound = false;
-            foreach (RoomInfo fullRoom in fullRoomList)
-            {
-                if (room.Name == fullRoom.Name)
-                    roomFound = true;
-            }
-
-            if (!roomFound)
-                fullRoomList.Add(room);
-            if (room.RemovedFromList || room.PlayerCount == 0)
-            {
-                fullRoomList.Remove(room);
-            }
-        }
-
         foreach (Transform child in content)
         {
             Destroy(child.gameObject);
         }
 
-        foreach (RoomInfo room in fullRoomList)
+        foreach (RoomInfo info in roomList)
         {
-            Debug.Log("yoagoaof " + room.Name+ " , "+room.PlayerCount);
-            if (room != null && room.PlayerCount > 0) { 
+            // Remove room from cached room list if it got closed, became invisible or was marked as removed
+            if (!info.IsOpen || !info.IsVisible || info.RemovedFromList)
+            {
+                if (fullRoomList.ContainsKey(info.Name))
+                {
+                    fullRoomList.Remove(info.Name);
+                }
 
-                Instantiate(roomListing, content).GetComponent<RoomListing>().SetRoomInfo(room);
+                continue;
+            }
+
+            // Update cached room info
+            if (fullRoomList.ContainsKey(info.Name))
+            {
+                fullRoomList[info.Name] = info;
+            }
+            // Add new room info to cache
+            else
+            {
+                fullRoomList.Add(info.Name, info);
             }
         }
+
+        foreach (RoomInfo room in fullRoomList.Values)
+        {
+            Debug.Log("yoagoaof " + room.Name+ " , "+room.PlayerCount);
+            
+            Instantiate(roomListing, content).GetComponent<RoomListing>().SetRoomInfo(room);
+           
+        }
     }
+
+    public override void OnJoinedRoom()
+    {
+        fullRoomList.Clear();
+    }
+
 
 }
