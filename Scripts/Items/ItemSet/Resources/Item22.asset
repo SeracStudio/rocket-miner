@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
   m_Name: Item22
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 95a17226c54cd7843b503a5209a7563b, type: 3}
   itemName: Restos radioactivos
   itemDescription: "Restos de material radioactivo que puede ayudar a los robots
     a ser m\xE1s r\xE1pidos."

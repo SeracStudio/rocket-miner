@@ -38,6 +38,8 @@ public class Enemy : NetworkBehaviour
     public bool colmena = false;
     public bool NoColmena = true;
 
+    public bool isPushed;
+
     public virtual void Update()
     {
         if (!isOnMaster) return;

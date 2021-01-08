@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d00ed7196009744d879d9eecf41cc35, type: 3}
   m_Name: Item24
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: f5201380109faa446bee2a75937efb7f, type: 3}
   itemName: "Bater\xEDa 235"
   itemDescription: "Peque\xF1o cilindro fluorescente con gran capacidad energ\xE9tica."
   target: 1

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d00ed7196009744d879d9eecf41cc35, type: 3}
   m_Name: Item15
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 0a525496c6d90374593e391385266907, type: 3}
   itemName: Evergun zurda
   itemDescription: "Versi\xF3n poco conocida de la Evergun com\xFAn que se adaptaba
     para la mano izquierda. "

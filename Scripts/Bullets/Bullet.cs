@@ -23,7 +23,7 @@ public class Bullet : NetworkBehaviour
 
     private bool magnetGun = false;
     private float magnetGunTime = 0;
-    private float magnetGunCd = 1f;
+    private float magnetGunCd = 0.75f;
 
     // Start is called before the first frame update
     void Start()
@@ -145,8 +145,12 @@ public class Bullet : NetworkBehaviour
             magnetGunTime += Time.deltaTime;
             if (magnetGunTime > magnetGunCd)
             {
-                dir.x = -dir.x;
-                dir.z = -dir.z;
+                Vector3 dirToGirl = girl.transform.position - transform.position;
+                dirToGirl.Normalize();
+
+                transform.forward = dirToGirl;
+                dir.x = dirToGirl.x;
+                dir.z = dirToGirl.z;
                 magnetGun = false;
             }
         }

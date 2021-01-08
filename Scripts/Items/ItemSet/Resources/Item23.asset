@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d00ed7196009744d879d9eecf41cc35, type: 3}
   m_Name: Item23
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 4c0359967848ea74c8e0373ad3a3dbe3, type: 3}
   itemName: Tornillo suelto
   itemDescription: "Un tornillo com\xFAn. \xBFQuiz\xE1 se le ha ca\xEDdo a alguien? "
   target: 2

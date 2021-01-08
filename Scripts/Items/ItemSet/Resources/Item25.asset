@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d00ed7196009744d879d9eecf41cc35, type: 3}
   m_Name: Item25
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: d124de68bba949e4da0336a283a68b47, type: 3}
   itemName: Refuerzo cromado
   itemDescription: "Cubierta met\xE1lica que se incorpora en maquinaria pesada para
     aumentar su potencia."

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
   m_Name: Item6
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 68704db5bf0499f43ace6161e51dca40, type: 3}
   itemName: Gema de torbenita
   itemDescription: Gema verdosa con la que se potenciaba las Everguns.
   target: 1

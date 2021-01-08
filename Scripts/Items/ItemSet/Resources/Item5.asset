@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
   m_Name: Item5
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 75c4896270675064a92dbabdea588eff, type: 3}
   itemName: "Mazorca de ma\xEDz"
   itemDescription: "Alimento que ayuda a recuperar energ\xEDa a los mineros."
   target: 1

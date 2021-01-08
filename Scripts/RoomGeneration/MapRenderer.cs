@@ -46,10 +46,11 @@ public class MapRenderer : MonoBehaviour
             }
         }
 
-        if(mapRoom.type == RoomType.SPAWN)
+        if(mapRoom.type == RoomType.SPAWN && !mapRoom.cleared)
         {
             GameObject item = PhotonNetwork.Instantiate("Item", new Vector3(0, 1, 0), Quaternion.identity);
             item.GetComponent<PhotonView>().RPC("LoadItem", RpcTarget.AllBuffered, mapRoom.item.name);
+            mapRoom.cleared = true;
         }
     }
 

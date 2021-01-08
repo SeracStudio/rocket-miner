@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
   m_Name: Item21
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: aa54898584a6fb74da9152f37330252e, type: 3}
   itemName: "Almacenador energ\xE9tico"
   itemDescription: "Dispositivo capaz de almacenar energ\xEDa de los m\xFAsculos
     y luego soltarla en un solo golpe."

@@ -59,17 +59,18 @@ public class Girl : Player
             //Invencibilidad visible de algun modo
             attackedTime += 0.01f;
             canBeAttacked = false;
-            if (stats.GetStat(Stat.HEALTH) <= 0 && !TryGetComponent(out LuckyTrinket trincket))
+            if (stats.GetStat(Stat.HEALTH) <= 0)
             {
+                if(TryGetComponent(out LuckyTrinket trinket))
+                {
+                    trinket.Effect();
+                }
+                else
+                {
+                    PhotonNetwork.Destroy(gameObject);
+                }
                 //Acabar el juego
-                Destroy(this.gameObject);
             }
-            /*
-            else
-            {
-                stats.SetStat(Stat.HEALTH, 100);
-            }
-            */
         }
     }
 

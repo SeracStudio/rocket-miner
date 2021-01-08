@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,21 +11,25 @@ public class Telenergy : MonoBehaviour
     private void Awake()
     {
         shield = gameObject.AddComponent<SphereCollider>();
-        shield.radius = 1f;
+        shield.radius = 2f;
+        shield.isTrigger = true;
         MapController.RUNNING.OnRoomLoaded += ResetShield;
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("Bullet")) return;
+
         if (isShieldActive)
         {
             isShieldActive = false;
-            Destroy(other);
+            PhotonNetwork.Destroy(other.gameObject);
         }
     }
 
     private void ResetShield()
     {
         isShieldActive = true;
+        Debug.Log(isShieldActive);
     }
 }

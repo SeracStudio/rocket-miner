@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d00ed7196009744d879d9eecf41cc35, type: 3}
   m_Name: Item28
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 6a9e674e5f433bd4ab174e510fd85a64, type: 3}
   itemName: Thermic One
-  itemDescription: "Tubo relleno de lava, cuya energ\xEDa interna se aumenta la fuerza
+  itemDescription: "Tubo relleno de lava, cuya energ\xEDa interna aumenta la fuerza
     de los robots."
   target: 2
   component: 12

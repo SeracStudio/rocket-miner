@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
   m_Name: Item7
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: cea46ed2d9d65e14e918da66779850b4, type: 3}
   itemName: "Guantele autom\xE1tico"
   itemDescription: "Guantes mec\xE1nicos que funcionan por vapor."
   target: 1

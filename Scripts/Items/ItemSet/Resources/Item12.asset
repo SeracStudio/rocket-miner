@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d00ed7196009744d879d9eecf41cc35, type: 3}
   m_Name: Item12
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 3c9e1e7f523131f458dde52eb7676eec, type: 3}
   itemName: Espejo reflector
   itemDescription: Espejo blindado con la capacidad de hacer rebotar cualquier proyectil
     que impacte en su superficie.

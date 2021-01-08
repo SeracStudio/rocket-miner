@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d00ed7196009744d879d9eecf41cc35, type: 3}
   m_Name: Item13
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 38c650bbfa6123f42b4572737dce356b, type: 3}
   itemName: Gran Taladradora de Gwein
   itemDescription: Arma del maestro minero Gwein usaba para cegar a sus enemigos
     haciendo grandes agujeros por los que entraba la luz.

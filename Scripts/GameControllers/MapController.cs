@@ -85,7 +85,7 @@ public class MapController : MonoBehaviour
         lastRoom = currentRoom;
         //room.cleared = true;
         mapRenderer.Render(room);
-        room.cleared = true;
+        //room.cleared = true;
         currentRoom = room;
         enemiesLeft = room.enemies.Count;
         foreach (EnemySpawnStats enemy in mapRenderer.loadedRoom.spawnedEnemies)
@@ -110,6 +110,7 @@ public class MapController : MonoBehaviour
             {
                 //mapRenderer.loadedRoom.OpenDoor(opening);
                 mapRenderer.loadedRoom.GetComponent<PhotonView>().RPC("OpenDoor", RpcTarget.AllBuffered, opening);
+                currentRoom.cleared = true;
             }
         }
     }

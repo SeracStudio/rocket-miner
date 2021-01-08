@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644773af9b797b14cb4c258d409d0956, type: 3}
   m_Name: Item8
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 4ea5fb8ccbb4aaf46ab96ebe8e82b1ed, type: 3}
   itemName: Reloj de bolsillo
   itemDescription: "Peque\xF1o reloj que se suele llevar a la mina para no perder
     la noci\xF3n del tiempo."

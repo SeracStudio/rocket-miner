@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d00ed7196009744d879d9eecf41cc35, type: 3}
   m_Name: Item27
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 08d23e7c4261bbc4a9b017dc804e6c2e, type: 3}
   itemName: Pedernal potenciador
   itemDescription: "Peque\xF1o mineral oscuro que permite aumentar el tama\xF1o de
     la zona donde se produce el disparo del arma."
