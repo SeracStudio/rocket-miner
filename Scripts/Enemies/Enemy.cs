@@ -188,7 +188,7 @@ public class Enemy : NetworkBehaviour
         }*/
         if (collision.gameObject.tag == "GIRL" && !boss)
         {
-            rigidbody.isKinematic = true;         
+            rigidbody.isKinematic = false;         
         }
 
 
