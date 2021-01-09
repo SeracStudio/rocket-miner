@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -59,7 +60,7 @@ public class AreaDamage : MonoBehaviour
         transform.localScale = Vector3.Lerp(initialScale, Vector3.zero, scaleTimer / lifeTime);
         if(transform.localScale == Vector3.zero)
         {
-            Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
     }
 }

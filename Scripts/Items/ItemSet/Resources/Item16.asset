@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d00ed7196009744d879d9eecf41cc35, type: 3}
+  m_Name: Item16
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 8772b11c85cf27a4c8b53ec47754697f, type: 3}
+  itemName: Magnetgun
+  itemDescription: "Arma usada por los mineros de oriente. Aprovecha un proyectil
+    imantado, para hacer que la munici\xF3n vuelva tras ser disparada."
+  target: 1
+  component: 6

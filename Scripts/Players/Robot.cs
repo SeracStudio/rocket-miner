@@ -164,7 +164,7 @@ public class Robot : Player
 
         if (!bullet.effects.Contains(new BulletEffect { effect = BEffects.SPECIAL }))
         {
-            if (TryGetComponent(out ReflectingMirror reflector))
+            if (TryGetComponent(out ReflectingMirror reflector) && shield)
             {
                 reflector.Effect(other.gameObject);
             }

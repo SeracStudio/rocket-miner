@@ -35,7 +35,7 @@ public class BulletController : MonoBehaviour
     public bool evergun;
 
     public List<BulletEffect> bulletEffects;
-    public Action<Bullet, Vector3, Vector3> OnBulletShot;
+    public Action<Bullet, Vector3, Vector3, List<BulletEffect>> OnBulletShot;
 
     void Start()
     {
@@ -66,6 +66,13 @@ public class BulletController : MonoBehaviour
         aux.damage = stats.GetStat(Stat.SHOT_DMG);
         aux.playerShoot = stats.GetStat(Stat.IS_PLAYER);
         aux.effects = bulletEffects;
+        aux.transform.localScale *= stats.GetStat(Stat.SHOT_SIZE);
+
+        if(aux.playerShoot == 1)
+        {
+            aux.magnetGun = false;
+        }
+
         if (stats.GetStat(Stat.IS_PLAYER) == 0)
         {
             Vector3 dir = dirCalculate(pos);
@@ -81,7 +88,8 @@ public class BulletController : MonoBehaviour
                     aux2.damage = stats.GetStat(Stat.SHOT_DMG);
                     aux2.playerShoot = stats.GetStat(Stat.IS_PLAYER);
                     aux2.effects = bulletEffects;
-                    OnBulletShot?.Invoke(aux2, pos, -dir);
+                    aux2.transform.localScale *= stats.GetStat(Stat.SHOT_SIZE);
+                    OnBulletShot?.Invoke(aux2, pos, -dir, bulletEffects);
                 }
             }
             else
@@ -91,7 +99,7 @@ public class BulletController : MonoBehaviour
             }
 
 
-            OnBulletShot?.Invoke(aux, pos, dir);
+            OnBulletShot?.Invoke(aux, pos, dir, bulletEffects);
         }
         else
         {

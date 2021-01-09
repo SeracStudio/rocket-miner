@@ -11,6 +11,7 @@ public enum Target
 
 public abstract class BaseItem : ScriptableObject
 {
+    public Sprite sprite;
     [TextArea]
     public string itemName;
     [TextArea]

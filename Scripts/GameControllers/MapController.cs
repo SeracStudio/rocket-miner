@@ -22,6 +22,7 @@ public class MapController : MonoBehaviour
 
     private MapGenerator mapGenerator;
     private MapEnemyFiller mapEnemyFiller;
+    private MapItemFiller mapItemFiller;
     private MapRenderer mapRenderer;
 
     private void Awake()
@@ -37,13 +38,16 @@ public class MapController : MonoBehaviour
 
         mapGenerator = new MapGenerator(pathWidth, pathDepth, lateralRatio, branchingRatio);
         mapEnemyFiller = GetComponent<MapEnemyFiller>();
+        mapItemFiller = GetComponent<MapItemFiller>();
         mapRenderer = GetComponent<MapRenderer>();
 
         for (int i = 0; i < 5; i++)
         {
             fullMap[i] = mapGenerator.NewMap();
             mapEnemyFiller.FillMapWithEnemies(fullMap[i], i);
+            mapItemFiller.FillMapWithItems(fullMap[i]);
         }
+
         LoadMap(fullMap[currentFloor]);
     }
 
@@ -81,7 +85,7 @@ public class MapController : MonoBehaviour
         lastRoom = currentRoom;
         //room.cleared = true;
         mapRenderer.Render(room);
-        room.cleared = true;
+        //room.cleared = true;
         currentRoom = room;
         enemiesLeft = room.enemies.Count;
         foreach (EnemySpawnStats enemy in mapRenderer.loadedRoom.spawnedEnemies)
@@ -106,6 +110,7 @@ public class MapController : MonoBehaviour
             {
                 //mapRenderer.loadedRoom.OpenDoor(opening);
                 mapRenderer.loadedRoom.GetComponent<PhotonView>().RPC("OpenDoor", RpcTarget.AllBuffered, opening);
+                currentRoom.cleared = true;
             }
         }
     }

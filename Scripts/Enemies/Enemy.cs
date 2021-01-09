@@ -38,6 +38,8 @@ public class Enemy : NetworkBehaviour
     public bool colmena = false;
     public bool NoColmena = true;
 
+    public bool isPushed;
+
     public virtual void Update()
     {
         if (!isOnMaster) return;
@@ -154,14 +156,14 @@ public class Enemy : NetworkBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-    /*
-        if (collision.gameObject == tgt.gameObject && target.target == Target.GIRL)
-        {
-            rigidbody.isKinematic = true;
-            tgt.Attacked(stats.GetStat(Stat.SHOT_DMG) / 2);
-            */
-    {      
-        if(collision.gameObject.tag=="GIRL" && !boss)
+        /*
+            if (collision.gameObject == tgt.gameObject && target.target == Target.GIRL)
+            {
+                rigidbody.isKinematic = true;
+                tgt.Attacked(stats.GetStat(Stat.SHOT_DMG) / 2);
+
+        {      */
+        if (collision.gameObject.tag=="GIRL" && !boss)
         {
             rigidbody.isKinematic = true;
             collision.gameObject.GetComponent<Player>().Attacked(stats.GetStat(Stat.SHOT_DMG));

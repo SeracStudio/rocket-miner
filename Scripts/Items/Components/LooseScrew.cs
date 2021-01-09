@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,8 +15,11 @@ public class LooseScrew : MonoBehaviour
 
     private void Effect()
     {
-        player.inversed = false;
+        //player.inversed = false;
+        player.TriggerRPC("SetInversedMovement", RpcTarget.All, false);
         if (Random.Range(0, 6) != 0) return;
-        player.inversed = true;
+        //player.inversed = true;
+        Debug.Log("INVERSED");
+        player.TriggerRPC("SetInversedMovement", RpcTarget.All, true);
     }
 }

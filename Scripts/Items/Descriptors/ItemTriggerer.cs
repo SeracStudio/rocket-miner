@@ -1,19 +1,35 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemTriggerer : MonoBehaviour
 {
-    public GameObject player;
     public BaseItem item;
 
-    private void Awake()
+    private void OnTriggerEnter(Collider other)
     {
-        item.Use(player.gameObject);
+        if (IsTargetValid(other.gameObject))
+        {
+            MapController.RUNNING.currentRoom.cleared = true;
+            item.Use(other.gameObject);
+            PhotonNetwork.Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("No puedes usar ese objeto");
+        }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private bool IsTargetValid(GameObject target)
     {
-        item.Use(collision.gameObject);
+        return item.target == Target.BOTH || target.CompareTag(item.target.ToString());
+    }
+
+    [PunRPC]
+    public void LoadItem(string itemName)
+    {
+        item = Resources.Load(itemName) as BaseItem;
+        GetComponentInChildren<SpriteRenderer>().sprite = item.sprite;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -173,5 +174,11 @@ public class Player : NetworkBehaviour
     public Vector2 getLookingDirection()
     {
         return lastDirection;
+    }
+
+    [PunRPC]
+    public void SetInversedMovement(bool state)
+    {
+        inversed = state;
     }
 }

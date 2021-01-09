@@ -59,8 +59,8 @@ public class EnemyAfraidOfPlayer : Enemy
         }
         else
         {
-            rigidbody.velocity = new Vector3(0, 0, 0);
+            if (!isPushed)
+                rigidbody.velocity = new Vector3(0, 0, 0);
         }
-
     }
 }

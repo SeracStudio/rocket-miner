@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,8 @@ public class ThermicOne : MonoBehaviour
         if (used) return;
 
         used = true;
-        target.GetComponent<StatsController>().SetStat(Stat.HEALTH, 0);
+        MapController.RUNNING.EnemyEliminated();
+        PhotonNetwork.Destroy(target.gameObject);
     }
 
     private void ResetPunch()

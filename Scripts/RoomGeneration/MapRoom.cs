@@ -15,6 +15,7 @@ public class MapRoom
     public Dictionary<Direction, MapRoom> connections;
 
     public List<EnemySpawnStats> enemies;
+    public BaseItem item;
     public bool cleared;
 
     public MapRoom(Vector3 position)
