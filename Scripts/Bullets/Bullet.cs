@@ -21,7 +21,7 @@ public class Bullet : NetworkBehaviour
     private bool tele=false;
     private bool dontDestroy = false;
 
-    private bool magnetGun = false;
+    public bool magnetGun = false;
     private float magnetGunTime = 0;
     private float magnetGunCd = 0.75f;
 
@@ -140,6 +140,8 @@ public class Bullet : NetworkBehaviour
 
     private void checkMagnetGun()
     {
+        if (playerShoot == 1) return;
+
         if (magnetGun)
         {
             magnetGunTime += Time.deltaTime;

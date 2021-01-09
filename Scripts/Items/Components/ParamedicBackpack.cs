@@ -14,7 +14,6 @@ public class ParamedicBackpack : MonoBehaviour
 
     private void Effect()
     {
-        float currentHealth = stats.GetStat(Stat.HEALTH);
-        stats.SetStat(Stat.HEALTH, currentHealth + 5);
+        stats.ChangeStat(Stat.HEALTH, 5);
     }
 }

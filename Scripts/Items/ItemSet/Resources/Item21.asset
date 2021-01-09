@@ -24,3 +24,6 @@ MonoBehaviour:
   - stat: 3
     operation: 2
     amount: 2
+  - stat: 4
+    operation: 0
+    amount: 0.2

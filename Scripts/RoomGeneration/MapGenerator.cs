@@ -133,6 +133,7 @@ public class MapGenerator
         AddSpecialRoom(RoomType.SPAWN);
         AddSpecialRoom(RoomType.BOSS);
         AddSpecialRoom(RoomType.TREASURE);
+        AddSpecialRoom(RoomType.TREASURE);
 
         return new Dictionary<Vector3, MapRoom>(generatedRooms);
     }

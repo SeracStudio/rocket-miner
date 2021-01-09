@@ -6,9 +6,9 @@ public class NetworkBehaviour : MonoBehaviour
     public bool isMine;
     public bool isOnMaster;
 
-    private PhotonView objectNetworkView;
+    public PhotonView objectNetworkView;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         objectNetworkView = GetComponent<PhotonView>();
 
@@ -16,18 +16,29 @@ public class NetworkBehaviour : MonoBehaviour
         isOnMaster = PhotonNetwork.IsMasterClient;
     }
 
+    private void CheckPhotonView()
+    {
+        if (objectNetworkView == null)
+        {
+            objectNetworkView.GetComponent<PhotonView>();
+        }
+    }
+
     public void TriggerRPC(string RPC)
     {
+        CheckPhotonView();
         objectNetworkView.RPC(RPC, RpcTarget.All);
     }
 
     public void TriggerRPC(string RPC, RpcTarget target)
     {
+        CheckPhotonView();
         objectNetworkView.RPC(RPC, target);
     }
 
     public void TriggerRPC(string RPC, RpcTarget target, params object[] args)
     {
+        CheckPhotonView();
         objectNetworkView.RPC(RPC, target, args);
     }
 

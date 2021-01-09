@@ -11,6 +11,7 @@ public class ItemTriggerer : MonoBehaviour
     {
         if (IsTargetValid(other.gameObject))
         {
+            MapController.RUNNING.currentRoom.cleared = true;
             item.Use(other.gameObject);
             PhotonNetwork.Destroy(gameObject);
         }

@@ -13,9 +13,12 @@ public class MapItemFiller : MonoBehaviour
     {
         foreach (MapRoom room in map.Values)
         {
-            if (room.type == RoomType.SPAWN)
-                room.item = specificItems[floor];
-                //room.item = itemPool[Random.Range(0, itemPool.Count)];
+            if (room.type == RoomType.TREASURE)
+            {
+                //room.item = specificItems[floor];
+                room.item = itemPool[Random.Range(0, itemPool.Count)];
+                itemPool.Remove(room.item);
+            }
         }
         floor++;
     }

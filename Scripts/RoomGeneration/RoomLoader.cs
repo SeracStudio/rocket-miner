@@ -10,20 +10,21 @@ public class RoomLoader : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (!PhotonNetwork.IsMasterClient) return;
+        if (!PhotonNetwork.IsMasterClient) return;
         if (!other.CompareTag("GIRL") && !other.CompareTag("ROBOT")) return;
 
-        PlayerInstantiater instantiater = FindObjectOfType<PlayerInstantiater>();
-
-        instantiater.PlaceLocalPlayerAt(other.CompareTag("GIRL") ? girlSpawn.position : robotSpawn.position);
-        instantiater.PlacePlayerAt(other.CompareTag("ROBOT") ? girlSpawn.position : robotSpawn.position);
-
-        TriggerRPC("LoadRoomOnMaster", RpcTarget.MasterClient);
+        TriggerRPC("LoadRoom", RpcTarget.AllBuffered);
     }
 
     [PunRPC]
-    public void LoadRoomOnMaster()
+    public void LoadRoom()
     {
-        MapController.RUNNING.LoadRoom(direction);
+        FindObjectOfType<Girl>().transform.position = girlSpawn.position;
+        FindObjectOfType<Robot>().transform.position = robotSpawn.position;
+
+        BlackScreenFader.INSTANCE.FadeTransition(0.25f);
+
+        if (isOnMaster)
+            MapController.RUNNING.LoadRoom(direction);
     }
 }

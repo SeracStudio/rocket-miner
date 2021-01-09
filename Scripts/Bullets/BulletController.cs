@@ -67,6 +67,12 @@ public class BulletController : MonoBehaviour
         aux.playerShoot = stats.GetStat(Stat.IS_PLAYER);
         aux.effects = bulletEffects;
         aux.transform.localScale *= stats.GetStat(Stat.SHOT_SIZE);
+
+        if(aux.playerShoot == 1)
+        {
+            aux.magnetGun = false;
+        }
+
         if (stats.GetStat(Stat.IS_PLAYER) == 0)
         {
             Vector3 dir = dirCalculate(pos);

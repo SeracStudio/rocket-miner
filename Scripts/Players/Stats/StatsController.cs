@@ -33,18 +33,13 @@ public class StatsController : MonoBehaviour
 
     public void SetStat(Stat stat, float value)
     {
-        /*
-        if (stat == Stat.HEALTH && statsDict[stat] + value > 100)
+        //Levantar evento (UI, controlador...)
+        statsDict[stat] = value;
+
+        if(CompareTag("GIRL") && stat == Stat.HEALTH && value > 100)
         {
             statsDict[stat] = 100;
         }
-        else
-        {
-            statsDict[stat] = value;
-        }*/
-
-        //Levantar evento (UI, controlador...)
-        statsDict[stat] = value;
 
         OnStatChanged?.Invoke(stat, value);
         foreach(StatPair listStat in stats)

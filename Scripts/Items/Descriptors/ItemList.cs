@@ -52,7 +52,7 @@ public static class ItemFunc
                 break;
             case ItemList.TELENERGY:
                 //target.AddComponent<Telenergy>();
-                PhotonNetwork.Instantiate("TelenergyShield", target.transform.position, Quaternion.identity).transform.parent = target.transform;
+                PhotonNetwork.Instantiate("TelenergyShield", target.transform.position, Quaternion.identity);
                 break;
             case ItemList.DAMAGED_OILER:
                 target.AddComponent<DamagedOiler>();
