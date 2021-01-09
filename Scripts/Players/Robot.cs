@@ -17,6 +17,8 @@ public class Robot : Player
     public Action OnShield;
     public Action<GameObject> OnEnemyPunched;
 
+    public Animator anim;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -53,6 +55,7 @@ public class Robot : Player
         {
             //Shield()
             shield = true;
+            anim.SetBool("defense", true);
             TriggerRPC("Shield", RpcTarget.MasterClient);
         }
 
@@ -60,6 +63,7 @@ public class Robot : Player
         {
             //ReleaseShield();
             shield = false;
+            anim.SetBool("defense", false);
             TriggerRPC("ReleaseShield", RpcTarget.MasterClient);
         }
 
