@@ -1,7 +1,6 @@
 # rocket-miner
  
-https://user-images.githubusercontent.com/72404272/104124530-aa53b100-5351-11eb-900b-87ca43032de1.png
- 
+![image--000](https://user-images.githubusercontent.com/72404272/104124842-52b64500-5353-11eb-9684-ecf5478ac1a8.png)
 
  
 
@@ -55,7 +54,7 @@ https://user-images.githubusercontent.com/72404272/104124530-aa53b100-5351-11eb-
 
  
 
-- Introducción 
+### - Introducción 
 
 - Concepto de juego 
 
@@ -67,7 +66,7 @@ https://user-images.githubusercontent.com/72404272/104124530-aa53b100-5351-11eb-
 
 - Plataformas 
 
-- Mecánicas 
+### - Mecánicas 
 
 - Jugabilidad 
 
@@ -75,9 +74,9 @@ https://user-images.githubusercontent.com/72404272/104124530-aa53b100-5351-11eb-
 
 - Personajes 
 
-- Chica 
+      - Chica 
 
-- Robot 
+      - Robot 
 
 - Enemigos 
 
@@ -85,19 +84,19 @@ https://user-images.githubusercontent.com/72404272/104124530-aa53b100-5351-11eb-
 
 - Controles 
 
-- Narrativa 
+### - Narrativa 
 
 - Trasfondo 
 
 - Personajes 
 
-- Chica 
+      - Chica 
 
-- Robot 
+      - Robot 
 
-- Nomed 
+      - Nomed 
 
-- Arte 
+### - Arte 
 
 - Diagrama de flujo 
 
@@ -107,13 +106,13 @@ https://user-images.githubusercontent.com/72404272/104124530-aa53b100-5351-11eb-
 
 - Arte 3D 
 
-- Música 
+### - Música 
 
 - Sonido ambiente y música 
 
 - Efectos de sonido 
 
-- Monetización 
+### - Monetización 
 
 - Equipo humano 
 
@@ -166,9 +165,10 @@ Otras características que tenemos, pero que son menos relevantes a la hora de p
 #### 1.3 Género 
 
 GuildMasters’ Heritage se podría definir de forma burda como la unión de tres juegos: la forma de cooperación que se usa en A Way Out, la temática de Pokémon Mundo Misterioso y los elementos básicos de The Binding of Isaac. 
-https://user-images.githubusercontent.com/72404272/104124714-8cd31700-5352-11eb-8c3f-c55b4bb8263b.jpg
- https://user-images.githubusercontent.com/72404272/104124716-8e044400-5352-11eb-9e23-e1826bebbd11.jpg
- https://user-images.githubusercontent.com/72404272/104124722-8f357100-5352-11eb-8b11-f4795a8b0b3c.jpg
+![image--001](https://user-images.githubusercontent.com/72404272/104124843-52b64500-5353-11eb-9e21-b7eb0e984e9b.jpg)
+![image--002](https://user-images.githubusercontent.com/72404272/104124844-534edb80-5353-11eb-8cde-0ca49b483a43.jpg)
+![image--003](https://user-images.githubusercontent.com/72404272/104124841-521dae80-5353-11eb-8c65-3e79cf9b011c.jpg)
+
 *Principales referencias de GuildMasters’ Heritage* 
 
 Los elementos que toma a nivel mecánico son: 
@@ -259,7 +259,7 @@ Habilidades base del robot:
 
 Todos los valores de estas habilidades o de los stats se irán mejorando (o empeorando) a través de los distintos tesoros que hay en el juego. 
 
- https://user-images.githubusercontent.com/72404272/104124808-0cf97c80-5353-11eb-8f9c-b547e59526b0.jpg
+![image--004](https://user-images.githubusercontent.com/72404272/104124808-0cf97c80-5353-11eb-8f9c-b547e59526b0.jpg)
 
 *Concept arts de Arcelia y S.O.R.A.* 
 
@@ -275,433 +275,431 @@ Si la planta 1 tiene un factor de peligrosidad de entre 4 y 6, los enemigos que 
 
 Son arañas que suele haber en las minas. 
 
-Tipo de ataque: lanza veneno en forma de proyectil. Su disparo se para poniéndose delante. 
+- Tipo de ataque: lanza veneno en forma de proyectil. Su disparo se para poniéndose delante. 
 
-Cadencia de disparo: 2. 
+- Cadencia de disparo: 2. 
 
-Vida: 15 
+- Vida: 15 
 
-Daño de ataque: 2 
+- Daño de ataque: 2 
 
-Velocidad: 5 
+- Velocidad: 5 
 
-Peligrosidad: 1 
+- Peligrosidad: 1 
 
-Planta: 1 
+- Planta: 1 
 
 2.3.2. Robot lanzaláser 
 
 Robots que se rompieron durante expediciones de otros mineros. 
 
-Tipo de ataque: lanzan un ataque teledirigido a la chica. Su disparo se detiene con la hab del robot. 
+- Tipo de ataque: lanzan un ataque teledirigido a la chica. Su disparo se detiene con la hab del robot. 
 
-Cadencia de disparo: 1.5.  
+- Cadencia de disparo: 1.5.  
 
-Vida: 40 
+- Vida: 40 
 
-Daño de ataque: 10 
+- Daño de ataque: 10 
 
-Velocidad: 2 
+- Velocidad: 2 
 
-Peligrosidad: 3 
+- Peligrosidad: 3 
 
-Planta: 2, 3 y 4 
+- Planta: 2, 3 y 4 
 
 2.3.3. Minero piquero 
 
 Mineros que se han vuelto locos debido a que se extraviaron hace muchos años 
 
-Tipo de ataque: van a melee a golpear con un pico. Se detiene cuando se pega el puño. 
+- Tipo de ataque: van a melee a golpear con un pico. Se detiene cuando se pega el puño. 
 
-Velocidad de ataque: 2 golpes por segundo.  
+- Velocidad de ataque: 2 golpes por segundo.  
 
-Vida: 25 
+- Vida: 25 
 
-Daño de ataque: 7 
+- Daño de ataque: 7 
 
-Velocidad: 6 
+- Velocidad: 6 
 
-Peligrosidad: 2 
+- Peligrosidad: 2 
 
-Planta: 1 y 2 
+- Planta: 1 y 2 
 
 2.3.4. Escarabajo minero 
 
 Escarabajo pelotero mecanizado que empuja una bomba 
 
-Tipo de ataque: cuando ven al jugador van hacia él y explotan 4 segundos después de haber comenzado a moverse (se muere al explotar, no suelta vida). Su explosión se detiene con la hab del robot. 
+- Tipo de ataque: cuando ven al jugador van hacia él y explotan 4 segundos después de haber comenzado a moverse (se muere al explotar, no suelta vida). Su explosión se detiene con la hab del robot. 
 
-Radio de explosión: 5 m. 
+- Radio de explosión: 5 m. 
 
-Vida: 15 
+- Vida: 15 
 
-Daño de ataque: 15 
+- Daño de ataque: 15 
 
-Velocidad: 8 
+- Velocidad: 8 
 
-Peligrosidad: 2 
+- Peligrosidad: 2 
 
-Planta: 2 y 3 
+- Planta: 2 y 3 
 
 2.3.5. Slime 
 
 Monstruo de slime que se divide cuando se derrota. Se divide de 1 a 2 y de 2 a 4. 
 
-Tipo de ataque: huye del jugador y cuando es derrotado se divide. 
+- Tipo de ataque: huye del jugador y cuando es derrotado se divide. 
 
-Vida: 20, 10 y 10 y 5, 5, 5 y 5. 
+- Vida: 20, 10 y 10 y 5, 5, 5 y 5. 
 
-Daño de ataque: 0 
+- Daño de ataque: 0 
 
-Velocidad: 4 
+- Velocidad: 4 
 
-Peligrosidad: 1 
+- Peligrosidad: 1 
 
-Planta: todas 
+- Planta: todas 
 
 2.3.6. Planta escupidora 
 
 Planta que sale del suelo y lanza veneno desde el óvulo de la planta 
 
-Tipo de ataque: Está estática y dispara un veneno que te ralentiza. 
+- Tipo de ataque: Está estática y dispara un veneno que te ralentiza. 
 
-Cadencia de disparo: 1.5. 
+- Cadencia de disparo: 1.5. 
 
-Vida: 30 
+- Vida: 30 
 
-Daño de ataque: 0 
+- Daño de ataque: 0 
 
-Velocidad: 0 
+- Velocidad: 0 
 
-Peligrosidad: 1 
+- Peligrosidad: 1 
 
-Planta: todas 
+- Planta: todas 
 
 2.3.7. Golem de piedra 
 
 Guerrero de forma humanoide conformado por piedra 
 
-Tipo de ataque: Camina de forma aleatoria y se detiene para provocar avalanchas del cielo. 
+- Tipo de ataque: Camina de forma aleatoria y se detiene para provocar avalanchas del cielo. 
 
-Enfriamiento habilidad avalancha: 1 vez cada 2 segundos. 
+- Enfriamiento habilidad avalancha: 1 vez cada 2 segundos. 
 
-Número de rocas por ataque: 3 rocas en cada avalancha. 
+- Número de rocas por ataque: 3 rocas en cada avalancha. 
 
-Duración de lluvia: Una vez caen las 3 rocas, acaba la habilidad hasta pasar el enfriamiento de la misma. 
+- Duración de lluvia: Una vez caen las 3 rocas, acaba la habilidad hasta pasar el enfriamiento de la misma. 
 
-Vida: 60 
+- Vida: 60 
 
-Daño de ataque: 20 
+- Daño de ataque: 20 
 
-Velocidad: 6 
+- Velocidad: 6 
 
-Peligrosidad: 4 
+- Peligrosidad: 4 
 
-Planta: 3 y 4 
+- Planta: 3 y 4 
 
 2.3.8. Topo 
 
 Topo con nariz estrellada y largas garras 
 
-Tipo de ataque: se mete debajo de tierra y le lanza un zarpazo cuando sale. Si el robot usa su hab en el agujero de salida vuelve al sitio original. 
+- Tipo de ataque: se mete debajo de tierra y le lanza un zarpazo cuando sale. Si el robot usa su hab en el agujero de salida vuelve al sitio original. 
 
-Enfriamiento habilidad: Puede crear un agujero a los 2 segundos tras haber usado la habilidad. 
+- Enfriamiento habilidad: Puede crear un agujero a los 2 segundos tras haber usado la habilidad. 
 
-Vida: 25 
+- Vida: 25 
 
-Daño de ataque: 8 
+- Daño de ataque: 8 
 
-Velocidad: 9 
+- Velocidad: 9 
 
-Peligrosidad: 2 
+- Peligrosidad: 2 
 
-Planta: 1 y 2 
+- Planta: 1 y 2 
 
 2.3.9. Ojo Centinela 
 
 Ojo gigante y morado sobre una columna de piedra 
 
-Tipo de ataque: Está estático en el centro de la sala y gira 360º disparando un láser continuo. Se para con la hab del robot. Tiene un escudo inicial que hace que los disparos no le quiten vida. El escudo se quita con el puño del robot. 
+- Tipo de ataque: Está estático en el centro de la sala y gira 360º disparando un láser continuo. Se para con la hab del robot. Tiene un escudo inicial que hace que los disparos no le quiten vida. El escudo se quita con el puño del robot. 
 
-Vida: 30 
+- Vida: 30 
 
-Daño de ataque: 8 
+- Daño de ataque: 8 
 
-Velocidad: 0 
+- Velocidad: 0 
 
-Peligrosidad: 4 
+- Peligrosidad: 4 
 
-Planta: 2, 3 y 4 
+- Planta: 2, 3 y 4 
 
 2.3.10. Robot extractor abandonado 
 
 Androide minero con ciertos fallos internos 
 
-Tipo de ataque: huye de ti y te dispara carbón. Su disparo se para poniéndose delante. 
+- Tipo de ataque: huye de ti y te dispara carbón. Su disparo se para poniéndose delante. 
 
-Cadencia de disparo: 1.75. 
+- Cadencia de disparo: 1.75. 
 
-Vida: 20 
+- Vida: 20 
 
-Daño de ataque: 10 
+- Daño de ataque: 10 
 
-Velocidad: 6 
+- Velocidad: 6 
 
-Peligrosidad: 2 
+- Peligrosidad: 2 
 
-Planta: 1 y 2 
+- Planta: 1 y 2 
 
 2.3.11. Murciélago 
 
 Murciélago común. 
 
-Tipo de ataque: se acerca a ti aleteando rápidamente y te muerde. Se detiene usando el puño del robot. 
+- Tipo de ataque: se acerca a ti aleteando rápidamente y te muerde. Se detiene usando el puño del robot. 
 
-Velocidad de ataque: 1 vez por segundo. 
+- Velocidad de ataque: 1 vez por segundo. 
 
-Vida: 15 
+- Vida: 15 
 
-Daño de ataque: 6 
+- Daño de ataque: 6 
 
-Velocidad: 12 
+- Velocidad: 12 
 
-Peligrosidad: 1 
+- Peligrosidad: 1 
 
-Planta: 1 y 2 
+- Planta: 1 y 2 
 
 2.3.12. Espectro 
 
 Fantasma de mineros fallecidos en su labor en la vida 
 
-Tipo de ataque: se hace invisible y se acerca al robot para stunearlo. Cuando lo stunea, se hace visible y targeteable 2s y después se vuelve invisible de nuevo. 
+- Tipo de ataque: se hace invisible y se acerca al robot para stunearlo. Cuando lo stunea, se hace visible y targeteable 2s y después se vuelve invisible de nuevo. 
 
-Duración del stuneo: 0.5 seg. 
+- Duración del stuneo: 0.5 seg. 
 
-Vida: 35 
+- Vida: 35 
 
-Daño de ataque: 0 
+- Daño de ataque: 0 
 
-Velocidad: 8 
+- Velocidad: 8 
 
-Peligrosidad: 1 
+- Peligrosidad: 1 
 
-Planta: 1, 2 y 3 
+- Planta: 1, 2 y 3 
 
  
 
-Comportamiento mejorado:  
+##### Comportamiento mejorado:  
 
 2.3.13. Slime de lava 
 
 Monstruo de slime que se divide cuando se derrota. Se divide de 1 a 2 y de 2 a 4. 
 
-Tipo de ataque: huye del jugador y cuando es derrotado se divide (de 1 a 2 y de 2 a 4) pero si el jugador se acerca le hace daño. 
+- Tipo de ataque: huye del jugador y cuando es derrotado se divide (de 1 a 2 y de 2 a 4) pero si el jugador se acerca le hace daño. 
 
-Velocidad de ataque: 1 vez cada 2 segundos. 
+- Velocidad de ataque: 1 vez cada 2 segundos. 
 
-Vida: 40, 25 y 25 y 15, 15, 15 y 15 
+- Vida: 40, 25 y 25 y 15, 15, 15 y 15 
 
-Daño de ataque: 5 
+- Daño de ataque: 5 
 
-Velocidad: 5 
+- Velocidad: 5 
 
-Peligrosidad: 2 
+- Peligrosidad: 2 
 
-Planta: 4 y 5 
+- Planta: 4 y 5 
 
 2.3.14. Planta enredadera 
 
 Evolución de la planta original cuyas raíces están por fuera de la tierra. 
 
-Tipo de ataque: Está estática y dispara un veneno que te quita vida. Si te acercas en un radio determinado, te ralentiza 
+- Tipo de ataque: Está estática y dispara un veneno que te quita vida. Si te acercas en un radio determinado, te ralentiza 
 
-Radio para ralentizar: 2 m. 
+- Radio para ralentizar: 2 m. 
 
-Duración ralentización: 2 seg. 
+- Duración ralentización: 2 seg. 
 
-Cadencia de disparo: 1.7. 
+- Cadencia de disparo: 1.7. 
 
-Vida: 40 
+- Vida: 40 
 
-Daño de ataque: 15 
+- Daño de ataque: 15 
 
-Velocidad: 0 
+- Velocidad: 0 
 
-Peligrosidad: 3 
+- Peligrosidad: 3 
 
-Planta: 4 y 5 
+- Planta: 4 y 5 
 
 2.3.15. Robot extractor abandonado mejorado 
 
 Androide minero moderno con ciertos fallos internos y que fue dejado en la mina 
 
-Tipo de ataque: huye de ti y te dispara carbón ardiendo que si impacta hace daño residual por tiempo (15 durante 1s). Su disparo se para poniéndose delante. 
+- Tipo de ataque: huye de ti y te dispara carbón ardiendo que si impacta hace daño residual por tiempo (15 durante 1s). Su disparo se para poniéndose delante. 
 
-Cadencia de disparo: 1.5. 
+- Cadencia de disparo: 1.5. 
 
-Vida: 30 
+- Vida: 30 
 
-Daño de ataque: 15 
+- Daño de ataque: 15 
 
-Velocidad: 5 
+- Velocidad: 5 
 
-Peligrosidad: 4 
+- Peligrosidad: 4 
 
-Planta: 3, 4 y 5 
+- Planta: 3, 4 y 5 
 
 2.3.16. Abejorro 
 
 Gran abeja que vive bajo tierra y tiene tonos marrones y las antenas más alargadas a lo común 
 
-Tipo de ataque: va hacia ti, tiene un escudo y te pica. El escudo se quita con puño. 
+- Tipo de ataque: va hacia ti, tiene un escudo y te pica. El escudo se quita con puño. 
 
-Velocidad de ataque: Pica 1 vez cada 2 segundos. 
+- Velocidad de ataque: Pica 1 vez cada 2 segundos. 
 
-Vida: 30 
+- Vida: 30 
 
-Daño de ataque: 15 
+- Daño de ataque: 15 
 
-Velocidad: 8 
+- Velocidad: 8 
 
-Peligrosidad: 3 
+- Peligrosidad: 3 
 
-Planta: 3 y 4 
+- Planta: 3 y 4 
 
 2.3.17. Escarabajo Rinoceronte Explosivo 
 
 Gran escarabajo rinoceronte que, a dos patas, empuja una gran bomba con el resto de sus patas 
 
-Tipo de ataque: su dura piel actúa de escudo y va hacia ti y explota a los 2 s (si explota se muere y no sueltan vida). El escudo se quita con puño. Su explosión se detiene con la hab del robot. 
+- Tipo de ataque: su dura piel actúa de escudo y va hacia ti y explota a los 2 s (si explota se muere y no sueltan vida). El escudo se quita con puño. Su explosión se detiene con la hab del robot. 
 
-Radio de explosión: 6 m. 
+- Radio de explosión: 6 m. 
 
-Vida: 45 
+- Vida: 45 
 
-Daño de ataque: 25 
+- Daño de ataque: 25 
 
-Velocidad: 10 
+- Velocidad: 10 
 
-Peligrosidad: 4 
+- Peligrosidad: 4 
 
-Planta: 4 y 5 
-
- 
-
-Bosses:  
+- Planta: 4 y 5 
 
 2.3.18. Murciélago Mecanizado 
 
 Subespecie de murciélago que ha adaptado cierta tecnología a raíz de los robots abandonados. 
 
-Tipo de ataque: su parte mecánica actúa de escudo y va hacia ti a gran velocidad y te muerde. El escudo se quita con puño. Si muerde al robot lo stunea. 
+- Tipo de ataque: su parte mecánica actúa de escudo y va hacia ti a gran velocidad y te muerde. El escudo se quita con puño. Si muerde al robot lo stunea. 
 
-Duración de stunt: 2 seg. 
+- Duración de stunt: 2 seg. 
 
-Vida: 35 
+- Vida: 35 
 
-Daño de ataque: 12 
+- Daño de ataque: 12 
 
-Velocidad: 20 
+- Velocidad: 20 
 
-Peligrosidad: 3 
+- Peligrosidad: 3 
 
-Planta: 4 y 5 
+- Planta: 4 y 5 
 
+##### Bosses:  
 2.3.19. Araña Gigante 
 
 Araña gigante que habita en las minas 
 
-Tipo de ataque: invoca arañas genéricas. 
+- Tipo de ataque: invoca arañas genéricas. 
 
-Cd invocación: Puede invocar arañas cada 7 segundos. 
+- Cd invocación: Puede invocar arañas cada 7 segundos. 
 
-Número de arañas: 4 arañas por invocación. 
+- Número de arañas: 4 arañas por invocación. 
 
-Tipo de ataque 2: lanza redes que ralentizan al jugador 
+- Tipo de ataque 2: lanza redes que ralentizan al jugador 
 
-Vida: 100 
+- Vida: 100 
 
-Daño de ataque: 7 
+- Daño de ataque: 7 
 
-Velocidad: 10 
+- Velocidad: 10 
 
-Planta: 1 
+- Planta: 1 
 
 2.3.20. Topo Gigante 
 
 Topo gigante que habita en las minas 
 
-Tipo de ataque: se acerca a la chica y le lanza un zarpazo 
+- Tipo de ataque: se acerca a la chica y le lanza un zarpazo 
 
-Tipo de ataque 2: provoca un terremoto que hace que caigan piedras del techo 
+- Tipo de ataque 2: provoca un terremoto que hace que caigan piedras del techo 
 
-Vida: 80 
+- Vida: 80 
 
-Daño de ataque: 10 
+- Daño de ataque: 10 
 
-Velocidad: 12 
+- Velocidad: 12 
 
-Planta: 2 
+- Planta: 2 
 
 2.3.21. Gusano Gigante 
 
 Gusano gigante de piedras que habita en las minas 
 
-Tipo de ataque: hace agujeros en el suelo y si te caes es GAME OVER 
+- Tipo de ataque: hace agujeros en el suelo y si te caes es GAME OVER 
 
-Cd habilidad de agujeros: Agujero se crea cada 5 segundos y desaparece a los 10 segundos. 
+- Cd habilidad de agujeros: Agujero se crea cada 5 segundos y desaparece a los 10 segundos. 
 
-Tipo de ataque 2: lanza piedras que rellenan los agujeros del suelo 
+- Tipo de ataque 2: lanza piedras que rellenan los agujeros del suelo 
 
-Vida: 150 
+- Vida: 150 
 
-Daño de ataque: 7 
+- Daño de ataque: 7 
 
-Velocidad: 10 
+- Velocidad: 10 
 
-Planta: 3 
+- Planta: 3 
 
 2.3.22. Abeja reina Gigante 
 
 Abeja reina gigante adaptada a las minas 
 
-Tipo de ataque: lanza abejas como si fueran proyectiles. Se para con la hab del robot. 
+- Tipo de ataque: lanza abejas como si fueran proyectiles. Se para con la hab del robot. 
 
-Cadencia de disparo: 1.70. 
+- Cadencia de disparo: 1.70. 
 
-Tipo de ataque 2: aletea rápidamente las alas empujando a ambos. Se para con la hab del robot. 
+- Tipo de ataque 2: aletea rápidamente las alas empujando a ambos. Se para con la hab del robot. 
 
-Enfriamiento habilidad: 10 segundos tras usarlo. 
+- Enfriamiento habilidad: 10 segundos tras usarlo. 
 
-Mecánica: hay dos colmenas a los lados, hay que destruir esas colmenas (puño + disparo) para poder quitar el primer escudo a la abeja. Después con puño quitamos el segundo y ya se puede matar. 
+- Mecánica: hay dos colmenas a los lados, hay que destruir esas colmenas (puño + disparo) para poder quitar el primer escudo a la abeja. Después con puño quitamos el segundo y ya se puede matar. 
 
-Vida: 100 
+- Vida: 100 
 
-Daño de ataque: 8 
+- Daño de ataque: 8 
 
-Velocidad: 0 
+- Velocidad: 0 
 
-Planta: 4 
+- Planta: 4 
 
 2.3.23. Nomed 
 
 Demonio que vive en el fondo de las minas y custodia grandes tesoros 
 
-Tipo de ataque: invoca otros enemigos (en base a su peligrosidad) que hay que derrotarlos para poder hacerle daño. La peligrosidad límite va aumentando según baja su vida. Enemigos que invoca: 1, 5, 8, 9, 11, 12, 13, 16, 17 y 18. 
+- Tipo de ataque: invoca otros enemigos (en base a su peligrosidad) que hay que derrotarlos para poder hacerle daño. La peligrosidad límite va aumentando según baja su vida. Enemigos que invoca: 1, 5, 8, 9, 11, 12, 13, 16, 17 y 18. 
 
-Comportamiento: se mueve constantemente de izq a der y viceversa y se puede stunear con el puño del robot. 
+- -Comportamiento: se mueve constantemente de izq a der y viceversa y se puede stunear con el puño del robot. 
 
-Vida: 200 
+- Vida: 200 
 
-Daño de ataque: 0 
+- Daño de ataque: 0 
 
-Velocidad: 10 
+- Velocidad: 10 
 
-Planta: 5 
+- Planta: 5 
+![image--006](https://user-images.githubusercontent.com/72404272/104125087-ce64c180-5354-11eb-9c03-39b6152b977a.jpg)
 
- 
 
-Concept arts de todos los enemigos incluyendo bosses 
+
+*Concept arts de todos los enemigos incluyendo bosses*
 
  
 
