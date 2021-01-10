@@ -703,439 +703,439 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
  
 
-2.4 Ítems 
+#### 2.4 Ítems 
 
 2.4.1. Ítem genérico 1 
 
-Nombre: Botas de explorador. 
+- Nombre: Botas de explorador. 
 
-Descripción: Botas de cuero de color marrón que resultan cómodas. 
+- Descripción: Botas de cuero de color marrón que resultan cómodas. 
 
-Efecto: aumenta la velocidad del usuario (vel_mov*1.5). 
+- Efecto: aumenta la velocidad del usuario (vel_mov*1.5). 
 
-Posibles usuarios: la chica y el robot. 
+- Posibles usuarios: la chica y el robot. 
 
-Lugar predominante: primeras plantas (60% en 1 y 30% en 2, 10% resto). 
+- Lugar predominante: primeras plantas (60% en 1 y 30% en 2, 10% resto). 
 
 2.4.2. Ítem genérico 2 
 
-Nombre: Revientarrocas. 
+- Nombre: Revientarrocas. 
 
-Descripción: artefacto antiguo que dispara aire para destruir rocas a presión. 
+- Descripción: artefacto antiguo que dispara aire para destruir rocas a presión. 
 
-Efecto: reduce la velocidad de disparo (vel_dis*0.75) y aumenta el daño (damage*3). A nivel visual supone un cambio de arma. 
+- Efecto: reduce la velocidad de disparo (vel_dis*0.75) y aumenta el daño (damage*3). A nivel visual supone un cambio de arma. 
 
-Posibles usuarios: la chica. 
+- Posibles usuarios: la chica. 
 
-Lugar predominante: plantas intermedias (30% en 3 y 25% en 4, 45% en resto). 
+- Lugar predominante: plantas intermedias (30% en 3 y 25% en 4, 45% en resto). 
 
 2.4.3. Ítem genérico 3 
 
-Nombre: Tuerca W98. 
+- Nombre: Tuerca W98. 
 
-Descripción: arreglo ancestral que se le hacían a los robots exploradores. 
+- Descripción: arreglo ancestral que se le hacían a los robots exploradores. 
 
-Efecto: reduce la velocidad de movimiento (vel_mov*0.75) y el cooldown (cooldown*0.75). Y aumenta el tiempo de stun (stun*1.5). A nivel visual el robot cambia su color a tonos marrones. 
+- Efecto: reduce la velocidad de movimiento (vel_mov*0.75) y el cooldown (cooldown*0.75). Y aumenta el tiempo de stun (stun*1.5). A nivel visual el robot cambia su color a tonos marrones. 
 
-Posibles usuarios: el robot. 
+- Posibles usuarios: el robot. 
 
-Lugar predominante: cualquier planta (20% en todas). 
+- Lugar predominante: cualquier planta (20% en todas). 
 
 2.4.4. Ítem genérico 4 
 
-Nombre: Brazalete de unión. 
+- Nombre: Brazalete de unión. 
 
-Descripción: decorativo emblemático de cualquier minero que representa la hermandad entre ambos. 
+- Descripción: decorativo emblemático de cualquier minero que representa la hermandad entre ambos. 
 
-Efecto: si ambos están cerca, el daño (damage * 1.5) y vel de disparo (vel_dis * 2) aumenta. 
+- Efecto: si ambos están cerca, el daño (damage * 1.5) y vel de disparo (vel_dis * 2) aumenta. 
 
-Posibles usuarios: la chica. 
+- Posibles usuarios: la chica. 
 
-Lugar predominante: Plantas 3 y 4. 
+- Lugar predominante: Plantas 3 y 4. 
 
 2.4.5. Ítem genérico 5 
 
-Nombre: Mazorca de maíz. 
+- Nombre: Mazorca de maíz. 
 
-Descripción: Alimento que ayuda a recuperar energía a los mineros.  
+- Descripción: Alimento que ayuda a recuperar energía a los mineros.  
 
-Efecto: restaura 10 puntos de vida.  
+- Efecto: restaura 10 puntos de vida.  
 
-Posibles usuarios: la chica y el robot.  
+- Posibles usuarios: la chica y el robot.  
 
-Lugar predominante: todas (hace spawn de forma random al matar enemigos). 
+- Lugar predominante: todas (hace spawn de forma random al matar enemigos). 
 
 2.4.6. Ítem genérico 6 
 
-Nombre: Gema de torbernita. 
+- Nombre: Gema de torbernita. 
 
-Descripción: Gema verdosa con la que se potenciaba las Everguns. 
+- Descripción: Gema verdosa con la que se potenciaba las Everguns. 
 
-Efecto: Aumenta daño (damage * 1.5). 
+- Efecto: Aumenta daño (damage * 1.5). 
 
-Posibles usuarios: la chica. 
+- Posibles usuarios: la chica. 
 
-Lugar predominante: 1 y 2. 
+- Lugar predominante: 1 y 2. 
 
 2.4.7. Ítem genérico 7 
 
-Nombre: Guantelete automático 
+- Nombre: Guantelete automático 
 
-Descripción: Guantes mecánicos que funcionan por vapor. 
+- Descripción: Guantes mecánicos que funcionan por vapor. 
 
-Efecto: Aumenta vel de disparo (vel_dis * 1.5). 
+- Efecto: Aumenta vel de disparo (vel_dis * 1.5). 
 
-Posibles usuarios: la chica. 
+- Posibles usuarios: la chica. 
 
-Lugar predominante: 1 y 2. 
+- Lugar predominante: 1 y 2. 
 
 2.4.8. Ítem genérico 8 
 
-Nombre: Reloj de bolsillo. 
+- Nombre: Reloj de bolsillo. 
 
-Descripción: Pequeño reloj que se suele llevar a la mina para no perder la noción del tiempo. 
+- Descripción: Pequeño reloj que se suele llevar a la mina para no perder la noción del tiempo. 
 
-Efecto: reduce el cooldown de las habilidades (cooldown * 0.75). 
+- Efecto: reduce el cooldown de las habilidades (cooldown * 0.75). 
 
-Posibles usuarios: la chica y el robot. 
+- Posibles usuarios: la chica y el robot. 
 
-Lugar predominante: plantas 2 y 3. 
+- Lugar predominante: plantas 2 y 3. 
 
 2.4.9. Ítem genérico 9 
 
-Nombre: Cantimplora abandonada. 
+- Nombre: Cantimplora abandonada. 
 
-Descripción: Cantimplora que contiene una bebida que ayuda a estar más activo. 
+- Descripción: Cantimplora que contiene una bebida que ayuda a estar más activo. 
 
-Efecto: Aumenta velocidad de movimiento (vel_mov * 1.20) y velocidad de disparo (vel_disp * 1.20). 
+- Efecto: Aumenta velocidad de movimiento (vel_mov * 1.20) y velocidad de disparo (vel_disp * 1.20). 
 
-Posibles usuarios: la chica. 
+- Posibles usuarios: la chica. 
 
-Lugares predominantes: Cualquier planta (20% en todas). 
+- Lugares predominantes: Cualquier planta (20% en todas). 
 
 2.4.10. Ítem genérico 10 
 
-Nombre: Refrigeración externa. 
+- Nombre: Refrigeración externa. 
 
-Descripción: Mecanismo anticuado que se usaba para enfriar máquinas mineras. 
+- Descripción: Mecanismo anticuado que se usaba para enfriar máquinas mineras. 
 
-Efecto: Aumenta duración del stun (stun_time * 1.75). 
+- Efecto: Aumenta duración del stun (stun_time * 1.75). 
 
-Posibles usuarios: el robot. 
+- Posibles usuarios: el robot. 
 
-Lugar predominante: plantas 2, 3 y 4. 
+- Lugar predominante: plantas 2, 3 y 4. 
 
 2.4.11. Ítem genérico 11 
 
-Nombre: Amuleto de la suerte. 
+- Nombre: Amuleto de la suerte. 
 
-Descripción: Cuentan las leyendas que este pequeño colgante es capaz de revivir a aquellas personas que han muerto con él puesto. 
+- Descripción: Cuentan las leyendas que este pequeño colgante es capaz de revivir a aquellas personas que han muerto con él puesto. 
 
-Efecto: Revive al morir. 
+- Efecto: Revive al morir. 
 
-Posibles usuarios: Chica (afecta a ambos). 
+- Posibles usuarios: Chica (afecta a ambos). 
 
-Lugares predominantes: Plantas 4 y 5. 
+- Lugares predominantes: Plantas 4 y 5. 
 
 2.4.12. Ítem genérico 12 
 
-Nombre: Espejo reflector. 
+- Nombre: Espejo reflector. 
 
-Descripción: Espejo blindado con la capacidad de hacer rebotar cualquier proyectil que impacte en su superficie. 
+- Descripción: Espejo blindado con la capacidad de hacer rebotar cualquier proyectil que impacte en su superficie. 
 
-Efecto: refleja el ataque con el escudo. 
+- Efecto: refleja el ataque con el escudo. 
 
-Posibles usuarios: Robot. 
+- Posibles usuarios: Robot. 
 
-Lugares Predominantes: Plantas 3, 4 y 5 
+- Lugares Predominantes: Plantas 3, 4 y 5 
 
  2.4.13. Ítem genérico 13 
 
-Nombre: Gran Taladradora de Gwein. 
+- Nombre: Gran Taladradora de Gwein. 
 
-Descripción: Arma del maestro minero Gwein usaba para cegar a sus enemigos haciendo grandes agujeros por los que entraba la luz. 
+- Descripción: Arma del maestro minero Gwein usaba para cegar a sus enemigos haciendo grandes agujeros por los que entraba la luz. 
 
-Efecto: Stun en área. 
+- Efecto: Stun en área. 
 
-Posibles usuarios: Robot. 
+- Posibles usuarios: Robot. 
 
-Lugares predominantes: Plantas 2 y 3. 
+- Lugares predominantes: Plantas 2 y 3. 
 
 2.4.14. Ítem genérico 14 
 
-Nombre: Evergun 3.0. 
+- Nombre: Evergun 3.0. 
 
-Descripción: Evergun moderna que usan los mineros de alto rango. Incorpora una actualización para extraer minerales. 
+- Descripción: Evergun moderna que usan los mineros de alto rango. Incorpora una actualización para extraer minerales. 
 
-Efecto: Disparo continuo y puede romper las piedras que se encuentre a su paso. 
+- Efecto: Disparo continuo y puede romper las piedras que se encuentre a su paso. 
 
-Posibles usuarios: Chica. 
+- Posibles usuarios: Chica. 
 
-Lugares predominantes: Plantas 3, 4 y 5. 
+- Lugares predominantes: Plantas 3, 4 y 5. 
 
 2.4.15. Ítem genérico 15 
 
-Nombre: Evergun zurda. 
+- Nombre: Evergun zurda. 
 
-Descripción: Versión poco conocida de la Evergun común que se adaptaba para la mano izquierda. 
+- Descripción: Versión poco conocida de la Evergun común que se adaptaba para la mano izquierda. 
 
-Efecto: Disparos contrarios (dispara uno para un lado y otro para el otro). 
+- Efecto: Disparos contrarios (dispara uno para un lado y otro para el otro). 
 
-Posibles usuarios: Chica. 
+- Posibles usuarios: Chica. 
 
-Lugares predominantes: Plantas 1 y 2. 
+- Lugares predominantes: Plantas 1 y 2. 
 
 2.4.16. Ítem genérico 16 
 
-Nombre: Magnetgun. 
+- Nombre: Magnetgun. 
 
-Descripción: Arma usada por los mineros de oriente. Aprovecha un proyectil imantado, para hacer que la munición vuelva tras ser disparada. 
+- Descripción: Arma usada por los mineros de oriente. Aprovecha un proyectil imantado, para hacer que la munición vuelva tras ser disparada. 
 
-Efecto: Dispara y el tiro vuelve al jugador. 
+- Efecto: Dispara y el tiro vuelve al jugador. 
 
-Posibles usuarios: Chica. 
+- Posibles usuarios: Chica. 
 
-Lugares predominantes: Plantas 2 y 3. 
+- Lugares predominantes: Plantas 2 y 3. 
 
 2.4.17. Ítem genérico 17 
 
-Nombre: Telenergía. 
+- Nombre: Telenergía. 
 
-Descripción: Mecanismo que permite a un robot centrar parte de su energía en una zona en concreto. Este necesita de un tiempo de enfriamiento. 
+- Descripción: Mecanismo que permite a un robot centrar parte de su energía en una zona en concreto. Este necesita de un tiempo de enfriamiento. 
 
-Efecto: Al principio de cada sala, pone un escudo. 
+- Efecto: Al principio de cada sala, pone un escudo. 
 
-Posibles usuarios: Robot. 
+- Posibles usuarios: Robot. 
 
-Lugares predominantes: Plantas 1, 2 y 3. 
+- Lugares predominantes: Plantas 1, 2 y 3. 
 
 2.4.18. Ítem genérico 18 
 
-Nombre: Treasure Changer. 
+- Nombre: Treasure Changer. 
 
-Descripción: Se trata de un tesoro maldito que provoca el cambio del cuerpo del minero que lo toque con cualquier ser a su alrededor. 
+- Descripción: Se trata de un tesoro maldito que provoca el cambio del cuerpo del minero que lo toque con cualquier ser a su alrededor. 
 
-Efecto: Cambia roles. 
+- Efecto: Cambia roles. 
 
-Posibles usuarios: Chica y robot. 
+- Posibles usuarios: Chica y robot. 
 
-Lugares predominantes: Cualquier planta (15% en todas). 
+- Lugares predominantes: Cualquier planta (15% en todas). 
 
 2.4.19. Ítem genérico 19 
 
-Nombre: Oiler dañado. 
+- Nombre: Oiler dañado. 
 
-Descripción: Herramienta con la que se rellena el tanque de aceite a un robot. 
+- Descripción: Herramienta con la que se rellena el tanque de aceite a un robot. 
 
-Efecto: El robot suelta aceite que provoca daño residual (constante). 
+- Efecto: El robot suelta aceite que provoca daño residual (constante). 
 
-Posibles usuarios: Robot. 
+- Posibles usuarios: Robot. 
 
-Lugares predominantes: Plantas 1, 2 y 3. 
+- Lugares predominantes: Plantas 1, 2 y 3. 
 
 2.4.20. Ítem genérico 20 
 
-Nombre: Runas ininteligibles. 
+- Nombre: Runas ininteligibles. 
 
-Descripción: Trozo de piedra donde se encuentran una serie de inscripciones en un idioma desconocido. 
+- Descripción: Trozo de piedra donde se encuentran una serie de inscripciones en un idioma desconocido. 
 
-Efecto: Teletransporta a los dos a una sala aleatorio de la planta. 
+- Efecto: Teletransporta a los dos a una sala aleatorio de la planta. 
 
-Posibles usuarios: Chica y Robot. 
+- Posibles usuarios: Chica y Robot. 
 
-Lugares predominantes: Plantas 4 y 5. 
+- Lugares predominantes: Plantas 4 y 5. 
 
 2.4.21. Ítem genérico 21 
 
-Nombre: Almacenador energético. 
+- Nombre: Almacenador energético. 
 
-Descripción: Dispositivo capaz de almacenar energía de los músculos y luego soltarla en un solo golpe (vel_dis * 0.5 y damage * 2). 
+- Descripción: Dispositivo capaz de almacenar energía de los músculos y luego soltarla en un solo golpe (vel_dis * 0.5 y damage * 2). 
 
-Efecto: Puedes cargar el ataque haciendo más daño. 
+- Efecto: Puedes cargar el ataque haciendo más daño. 
 
-Posibles usuarios: Chica. 
+- Posibles usuarios: Chica. 
 
-Lugares predominantes: Plantas 3, 4 y 5. 
+- Lugares predominantes: Plantas 3, 4 y 5. 
 
 2.4.22. Ítem genérico 22 
 
-Nombre: Restos radioactivos. 
+- Nombre: Restos radioactivos. 
 
-Descripción: Restos de material radiactivo que puede ayudar a los robots a ser más rápidos. 
+- Descripción: Restos de material radiactivo que puede ayudar a los robots a ser más rápidos. 
 
-Efecto: Aumenta la velocidad de movimiento del robot (vel_mov * 1.5) y reduce el cd de las habilidades (cooldown * 0.75). 
+- Efecto: Aumenta la velocidad de movimiento del robot (vel_mov * 1.5) y reduce el cd de las habilidades (cooldown * 0.75). 
 
-Posibles usuarios: Robot. 
+- Posibles usuarios: Robot. 
 
-Lugares predominantes: Plantas 3 y 4. 
+- Lugares predominantes: Plantas 3 y 4. 
 
 2.4.23. Ítem genérico 23 
 
-Nombre: Tornillo suelto. 
+- Nombre: Tornillo suelto. 
 
-Descripción: Tornillo común. ¿Quizá se le ha caído a alguien? 
+- Descripción: Tornillo común. ¿Quizá se le ha caído a alguien? 
 
-Efecto: una vez se entra en una sala, hay una probabilidad (1 de 6) de que se inviertan los controles de movimiento. 
+- Efecto: una vez se entra en una sala, hay una probabilidad (1 de 6) de que se inviertan los controles de movimiento. 
 
-Posibles usuarios: el robot. 
+- Posibles usuarios: el robot. 
 
-Lugar predominante: 2 y 4 
+- Lugar predominante: 2 y 4 
 
 2.4.24. Ítem genérico 24 
 
-Nombre: Batería 235. 
+- Nombre: Batería 235. 
 
-Descripción: pequeño cilindro fluorescente con gran capacidad energética 
+- Descripción: pequeño cilindro fluorescente con gran capacidad energética 
 
-Efecto: se potencian todos tus stats (*1.25) pero te hace daño cada vez que cambies de sala. 
+- Efecto: se potencian todos tus stats (*1.25) pero te hace daño cada vez que cambies de sala. 
 
-Posibles usuarios: ambos. 
+- Posibles usuarios: ambos. 
 
-Lugar predominante: 3, 4 y 5. 
+- Lugar predominante: 3, 4 y 5. 
 
 2.4.25. Ítem genérico 25 
 
-Nombre: Refuerzo cromado. 
+- Nombre: Refuerzo cromado. 
 
-Descripción: cubierta metálica que se incorpora en maquinaria pesada para aumentar su potencia. 
+- Descripción: cubierta metálica que se incorpora en maquinaria pesada para aumentar su potencia. 
 
-Efecto: al usar el puño del robot, se empuja al enemigo hasta otro enemigo o una pared stuneándolo (si choca contra un enemigo stunea a ambos). 
+- Efecto: al usar el puño del robot, se empuja al enemigo hasta otro enemigo o una pared stuneándolo (si choca contra un enemigo stunea a ambos). 
 
-Posibles usuarios: el robot. 
+- Posibles usuarios: el robot. 
 
-Lugares predominantes: 4 y 5 
+- Lugares predominantes: 4 y 5 
 
 2.4.26. Ítem genérico 26 
 
-Nombre: "La maldición de Era" (Libro desgastado). 
+- Nombre: "La maldición de Era" (Libro desgastado). 
 
-Descripción: Libro de cubierta morada y hojas verdes que cuenta la leyenda de Era. 
+- Descripción: Libro de cubierta morada y hojas verdes que cuenta la leyenda de Era. 
 
-Efecto: Al matar a un enemigo, hay una posibilidad de controlarlo hasta que se muera. 
+- Efecto: Al matar a un enemigo, hay una posibilidad de controlarlo hasta que se muera. 
 
-Posibles usuarios: Chica y robot. 
+- Posibles usuarios: Chica y robot. 
 
-Lugar predominante: Planta 3. 
+- Lugar predominante: Planta 3. 
 
 2.4.27. Ítem genérico 27 
 
-Nombre: Pedernal potenciador. 
+- Nombre: Pedernal potenciador. 
 
-Descripción: Pequeño mineral oscuro que permite aumentar el tamaño de la zona donde se produce el disparo del arma. 
+- Descripción: Pequeño mineral oscuro que permite aumentar el tamaño de la zona donde se produce el disparo del arma. 
 
-Efecto: dispara en cono (en una gran área). 
+- Efecto: dispara en cono (en una gran área). 
 
-Posibles usuarios: Chica. 
+- Posibles usuarios: Chica. 
 
-Lugares predominantes: Plantas 3 y 4. 
+- Lugares predominantes: Plantas 3 y 4. 
 
 2.4.28. Ítem genérico 28 
 
-Nombre: Thermic One. 
+- Nombre: Thermic One. 
 
-Descripción: Tubo relleno de lava, cuya energía interna se aumenta la fuerza de los robots. Requiere de un tiempo para volver a usarse.  
+- Descripción: Tubo relleno de lava, cuya energía interna se aumenta la fuerza de los robots. Requiere de un tiempo para volver a usarse.  
 
-Efecto: Mata con el primer puño (no contra jefes).  
+- Efecto: Mata con el primer puño (no contra jefes).  
 
-Posibles usuarios: Robot. 
+- Posibles usuarios: Robot. 
 
-Lugares predominantes: Plantas 2, 3, 4 y 5. 
+- Lugares predominantes: Plantas 2, 3, 4 y 5. 
 
 2.4.29. Ítem genérico 29 
 
-Nombre: Collar de Nomed. 
+- Nombre: Collar de Nomed. 
 
-Descripción: Collar del mismo demonio, y en él albergan distintas maldiciones. 
+- Descripción: Collar del mismo demonio, y en él albergan distintas maldiciones. 
 
-Efecto: Te teletransporta al jefe de la planta. 
+- Efecto: Te teletransporta al jefe de la planta. 
 
-Posibles usuarios: Chica y robot. 
+- Posibles usuarios: Chica y robot. 
 
-Lugares predominantes: Todas las plantas 
+- Lugares predominantes: Todas las plantas 
 
 2.4.30. Ítem genérico 30 
 
-Nombre: Buscarrutas. 
+- Nombre: Buscarrutas. 
 
-Descripción: Avanzado hardware que muestra los túneles de una mina. 
+- Descripción: Avanzado hardware que muestra los túneles de una mina. 
 
-Efecto: revela el mapa. 
+- Efecto: revela el mapa. 
 
-Posibles usuarios: ambos. 
+- Posibles usuarios: ambos. 
 
-Lugar predominante: 3 y 4. 
+- Lugar predominante: 3 y 4. 
 
 2.4.31. Ítem genérico 31 
 
-Nombre: Pico dorado del gran Monteg. 
+- Nombre: Pico dorado del gran Monteg. 
 
-Descripción: Se dice que es el pico más valioso y con el que se han encontrado los mejores tesoros, pero nadie lo ha visto en uso. 
+- Descripción: Se dice que es el pico más valioso y con el que se han encontrado los mejores tesoros, pero nadie lo ha visto en uso. 
 
-Efecto: no hace nada. 
+- Efecto: no hace nada. 
 
-Posibles usuarios: ambos. 
+- Posibles usuarios: ambos. 
 
-Lugar predominante: todos. 
+- Lugar predominante: todos. 
 
 2.4.32. Ítem genérico 32 
 
-Nombre: Moneda Onis. 
+- Nombre: Moneda Onis. 
 
-Descripción: Moneda de bronce en la que por una parte está Nomed y por la otra hay un túnel. Se dice que atrae la suerte. 
+- Descripción: Moneda de bronce en la que por una parte está Nomed y por la otra hay un túnel. Se dice que atrae la suerte. 
 
-Efecto: aleatoriamente aumenta o disminuye una stat (multiplicándolo por 1.5 o 0.5) cada vez que se entre en una sala. 
+- Efecto: aleatoriamente aumenta o disminuye una stat (multiplicándolo por 1.5 o 0.5) cada vez que se entre en una sala. 
 
-Posibles usuarios: ambos. 
+- Posibles usuarios: ambos. 
 
-Lugar predominante: 2, 3 y 4. 
+- Lugar predominante: 2, 3 y 4. 
 
 2.4.33. Ítem genérico 33 
 
-Nombre: Cofreto. 
+- Nombre: Cofreto. 
 
-Descripción: Gran caja de mármol que permite ascender espiritualmente a los mineros si dan todos sus bienes materiales. 
+- Descripción: Gran caja de mármol que permite ascender espiritualmente a los mineros si dan todos sus bienes materiales. 
 
-Efecto: Cambia aleatoriamente todos los objetos que tengan los personajes una sola vez. 
+- Efecto: Cambia aleatoriamente todos los objetos que tengan los personajes una sola vez. 
 
-Posibles usuarios: Chica y robot. 
+- Posibles usuarios: Chica y robot. 
 
-Lugares predominantes: Todas las salas. 
+- Lugares predominantes: Todas las salas. 
 
 2.4.34. Ítem genérico 34 
 
-Nombre: Mochila paramédica. 
+- Nombre: Mochila paramédica. 
 
-Descripción: Mochila que se utiliza para los primeros auxilios. 
+- Descripción: Mochila que se utiliza para los primeros auxilios. 
 
-Efecto: Cura vida (5 puntos) al entrar en la sala. 
+- Efecto: Cura vida (5 puntos) al entrar en la sala. 
 
-Posibles usuarios: Chica. 
+- Posibles usuarios: Chica. 
 
-Lugares predominantes: 2 y 3. 
+- Lugares predominantes: 2 y 3. 
 
 2.4.35. Ítem genérico 35 
 
-Nombre: Alarma antiderrumbamientos. 
+- Nombre: Alarma antiderrumbamientos. 
 
-Descripción: Aparato que brilla en un color rojizo que suena un fuerte pitido en el caso de que ocurra un derrumbamiento. La llevan los mineros en su espalda. 
+- Descripción: Aparato que brilla en un color rojizo que suena un fuerte pitido en el caso de que ocurra un derrumbamiento. La llevan los mineros en su espalda. 
 
-Efecto: Atrae a los enemigos cuando activa el puño. 
+- Efecto: Atrae a los enemigos cuando activa el puño. 
 
-Posibles usuarios: Robot. 
+- Posibles usuarios: Robot. 
 
-Lugares predominantes: 3, 4 y 5. 
+- Lugares predominantes: 3, 4 y 5. 
 
-2.5 Controles 
+#### 2.5 Controles 
 
 Los controles son muy simples y podemos dividirlos según la plataforma en la que se juegue. En navegadores de ordenador, los controles para moverse son W, A, S y D y para lanzar las habilidades serán ESPACIO y SHIFT. En ESPACIO se pondrá la habilidad ofensiva (el disparo en el caso de la chica y el puñetazo en el caso del robot) y en SHIFT se pondrá la ‘defensiva’ (el dash y el escudo) 
 
- 
+ ![image--008](https://user-images.githubusercontent.com/72404272/104125272-f0ab0f00-5355-11eb-88bd-b94220c8e02a.jpg)
 
 Por otro lado, los controles en los navegadores de móviles y tablets serán un joystick para controlar el movimiento y dos botones para cada una de las habilidades. Los botones se colocarán uno abajo a la izquierda y otro arriba a la derecha, como muestra la imagen de abajo. La habilidad ofensiva estará en el inferior y la defensiva en el superior. 
 
- 
+ ![image--010](https://user-images.githubusercontent.com/72404272/104125271-f0127880-5355-11eb-8377-ccb2dc6f7c95.png)
 
-Narrativa 
+### 3. Narrativa 
 
 En un mundo donde los gremios de exploradores son los organismos más respetados en la búsqueda de tesoros, minerales y piedras preciosas existe un humilde gremio llamado ‘Crystal GuildMasters’, cuyos miembros son una pareja algo peculiar y los protagonistas de este videojuego: Arcelia y S.O.R.A.  
 
@@ -1151,61 +1151,61 @@ El enemigo final será una criatura llamada Nomed. Poco se sabe acerca de él, n
 
 Para saber más acerca de este personaje, véase el documento Ficha de personaje Nomed en la carpeta de narrativa. 
 
-Arte 
+### 4. Arte 
 
-4.1 Diagrama de flujo 
+#### 4.1 Diagrama de flujo 
 
 La siguiente imagen muestra los diferentes menús o pantallas a las que se puede acceder en el juego. Si se acaba la partida, se volvería al menú principal. En el siguiente punto (4.2) se muestra cada una de ellas individualmente. 
 
  
-
+![image--012](https://user-images.githubusercontent.com/72404272/104125279-ff91c180-5355-11eb-9f02-0d0b82c2e18c.png)
  
 
-4.2 Interfaces 
+#### 4.2 Interfaces 
 
 Esta primera imagen muestra el menú inicial con las siguientes opciones: 
 
-Jugar: te lleva a la pantalla de Crear partida/Buscar partida 
+- Jugar: te lleva a la pantalla de Crear partida/Buscar partida 
 
-Opciones: te permite configurar de cierta manera el juego 
+- Opciones: te permite configurar de cierta manera el juego 
 
-Controles: se te muestran los controles en los dispositivos disponibles 
+- Controles: se te muestran los controles en los dispositivos disponibles 
 
-Donaciones: te muestra una pantalla donde se muestran las instrucciones de cómo se puede aportar 
+- Donaciones: te muestra una pantalla donde se muestran las instrucciones de cómo se puede aportar 
 
- 
+ ![image--013](https://user-images.githubusercontent.com/72404272/104125282-0ae4ed00-5356-11eb-8261-9db120860771.png)
 
 Esta imagen muestra la pantalla de Opciones donde se permite configurar el volumen, el idioma del juego y el brillo de la pantalla. Se accede a través del botón de ‘Opciones’ del menú principal. 
 
- 
+ ![image--014](https://user-images.githubusercontent.com/72404272/104125286-10423780-5356-11eb-824b-d3cf1be76aba.png)
 
 La siguiente imagen muestra los Controles tanto en dispositivos móviles como en PC. Las siglas H. D. significa Habilidad Defensiva y H. O. significa Habilidad Ofensiva. Se accede a través del botón de ‘Controles’ del menú principal. 
 
- 
+ ![image--015](https://user-images.githubusercontent.com/72404272/104125290-146e5500-5356-11eb-9c75-272ff40d09f1.png)
 
 En el menú de Créditos se muestra los desarrolladores del título. Se accede a través del botón de ‘Créditos’ del menú principal. 
 
- 
+ ![image--016](https://user-images.githubusercontent.com/72404272/104125320-3b2c8b80-5356-11eb-91b5-fb02faa85845.png)
 
 La pantalla de Donaciones muestra la información necesaria para poder dar algún beneficio al estudio. Se accede a través del botón de ‘Donaciones’ del menú principal. 
 
- 
+ ![image--017](https://user-images.githubusercontent.com/72404272/104125330-4c759800-5356-11eb-9397-a19e25e8c20a.png)
 
 Se accede a través del botón de ‘Jugar’ del menú principal. En este menú se podrá crear una partida introduciendo un nombre y pulsando ‘Crear Partida’, accediendo así a la siguiente imagen; o entrar en alguna de las salas ya creada y esperando a que se introduzca un segundo miembro. 
 
- 
+ ![image--018](https://user-images.githubusercontent.com/72404272/104125334-50a1b580-5356-11eb-83ab-9de412e8fff9.png)
 
 Una vez se click en el botón de ‘Crear Partida’ se accederá a esta pantalla. Aquí se podrá elegir el personaje con el que se jugará, dejando a la persona que crea la partida que elija el personaje que desee dejando a la persona que se una el personaje faltante. 
 
- 
+ ![image--019](https://user-images.githubusercontent.com/72404272/104125338-54cdd300-5356-11eb-8d80-64d991720e40.png)
 
 Tras elegir el personaje, se creará un código y se mantendrá en espera hasta que se una el compañero. 
 
- 
+ ![image--020](https://user-images.githubusercontent.com/72404272/104125341-5c8d7780-5356-11eb-97d0-c70141970fd1.png)
 
 Si en el menú de jugar se entra en una sala ya creada, se asignará el personaje restante y se comenzará la partida tras confirmar. 
 
- 
+ ![image--021](https://user-images.githubusercontent.com/72404272/104125345-61522b80-5356-11eb-9989-723eafbc60ee.png)
 
 4.3 Arte 2D 
 
