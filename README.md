@@ -1,23 +1,15 @@
 # rocket-miner
  
-
+https://user-images.githubusercontent.com/72404272/104124530-aa53b100-5351-11eb-900b-87ca43032de1.png
  
 
  
 
  
 
-Documento de Diseño de Juego 
+# Documento de Diseño de Juego 
 
-GuildMasters’ Heritage 
-
- 
-
- 
-
- 
-
- 
+## GuildMasters’ Heritage 
 
  
 
@@ -51,84 +43,6 @@ GuildMasters’ Heritage
 
  
 
-Índice 
-
- 
-
-Introducción 
-
-Concepto de juego 
-
-Características principales (mecánicas, historia y estilo visual) 
-
-Género 
-
-Público objetivo 
-
-Plataformas 
-
-Mecánicas 
-
-Jugabilidad 
-
-Multijugador (servidor) 
-
-Personajes 
-
-Chica 
-
-Robot 
-
-Enemigos 
-
-Ítems 
-
-Controles 
-
-Narrativa 
-
-Trasfondo 
-
-Personajes 
-
-Chica 
-
-Robot 
-
-Nomed 
-
-Arte 
-
-Diagrama de flujo 
-
-Interfaces (de menú principal, tutorial, créditos, menú de juego)  
-
-Arte 2D 
-
-Arte 3D 
-
-Música 
-
-Sonido ambiente y música 
-
-Efectos de sonido 
-
-Monetización 
-
-Equipo humano 
-
-Modelo de negocio y monetización 
-
-Hitos del desarrollo 
-
-Business Model Canvas 
-
-Futuro 
-
-Salida oficial 
-
-Expansiones 
-
  
 
  
@@ -137,83 +51,147 @@ Expansiones
 
  
 
-Introducción 
+## Índice 
+
+ 
+
+- Introducción 
+
+- Concepto de juego 
+
+- Características principales (mecánicas, historia y estilo visual) 
+
+- Género 
+
+- Público objetivo 
+
+- Plataformas 
+
+- Mecánicas 
+
+- Jugabilidad 
+
+- Multijugador (servidor) 
+
+- Personajes 
+
+- Chica 
+
+- Robot 
+
+- Enemigos 
+
+- Ítems 
+
+- Controles 
+
+- Narrativa 
+
+- Trasfondo 
+
+- Personajes 
+
+- Chica 
+
+- Robot 
+
+- Nomed 
+
+- Arte 
+
+- Diagrama de flujo 
+
+- Interfaces (de menú principal, tutorial, créditos, menú de juego)  
+
+- Arte 2D 
+
+- Arte 3D 
+
+- Música 
+
+- Sonido ambiente y música 
+
+- Efectos de sonido 
+
+- Monetización 
+
+- Equipo humano 
+
+- Modelo de negocio y monetización 
+
+- Hitos del desarrollo 
+
+- Business Model Canvas 
+
+- Futuro 
+
+- Salida oficial 
+
+- Expansiones 
+
+ 
+
+ 
+
+ 
+
+ 
+
+### Introducción 
 
 Este es el documento de diseño de GuildMasters’ Heritage. Sirva este documento como principal esclarecedor de todos los elementos principales que conforman el juego y que actúe como presentación del proyecto a personas ajenas al desarrollo del mismo. 
 
-1.1 Concepto de juego 
+#### 1.1 Concepto de juego 
 
 GuildMasters’ Heritage es un videojuego roguelike cooperativo en línea en el que dos jugadores deberán controlar a cada uno de los personajes, una chica llamada Arcelia y un robot apodado S.O.R.A. Estos personajes tienen un gremio minero que se encarga de explorar yacimientos en busca de tesoros a medida que luchan contra los enemigos que se encuentran. 
 
-1.2 Características principales 
+#### 1.2 Características principales 
 
 El juego tiene tres pilares fundamentales para su diseño: 
 
-Cooperación entre jugadores: el factor fundamental del juego se basa en la cooperación entre ambos jugadores, en el trabajo en equipo para poder completar los niveles. Por ello, se le ha dado a cada personaje unas características propias que, aun haciéndolos autónomos, requieren del otro jugador para poder completar cualquier sala. 
+- **Cooperación entre jugadores**: el factor fundamental del juego se basa en la cooperación entre ambos jugadores, en el trabajo en equipo para poder completar los niveles. Por ello, se le ha dado a cada personaje unas características propias que, aun haciéndolos autónomos, requieren del otro jugador para poder completar cualquier sala. 
 
-Rejugabilidad: la rejugabilidad es algo intrínseco a los juegos roguelike y esto es algo que buscamos mantener e incluso reforzar con distintos tipos de enemigos y objetos que no tienen por qué aparecer todos en una misma run. 
+- **Rejugabilidad**: la rejugabilidad es algo intrínseco a los juegos roguelike y esto es algo que buscamos mantener e incluso reforzar con distintos tipos de enemigos y objetos que no tienen por qué aparecer todos en una misma run. 
 
-Partidas frenéticas: habrá mucho movimiento en las partidas, partiendo desde una base más tranquila en las primeras salas, y aumentando la dificultad, cantidad de enemigos, fuerza de los mismos, etc.; haciendo que los jugadores estén concentrados y tensos (en el buen sentido) durante la partida. 
+- **Partidas frenéticas**: habrá mucho movimiento en las partidas, partiendo desde una base más tranquila en las primeras salas, y aumentando la dificultad, cantidad de enemigos, fuerza de los mismos, etc.; haciendo que los jugadores estén concentrados y tensos (en el buen sentido) durante la partida. 
 
 Otras características que tenemos, pero que son menos relevantes a la hora de plantear el desarrollo son: 
 
-Narrativa sencilla: la historia servirá más como excusa para justificar la temática y el inicio del juego que como una narración profunda. Se hablará de temas como la constante repetición, pero desde un punto de vista simple. También habrá toques humorísticos que harán al juego y a los personajes más simpáticos. 
+- **Narrativa sencilla**: la historia servirá más como excusa para justificar la temática y el inicio del juego que como una narración profunda. Se hablará de temas como la constante repetición, pero desde un punto de vista simple. También habrá toques humorísticos que harán al juego y a los personajes más simpáticos. 
 
-Personajes carismáticos: se va a hacer que los personajes resulten lo más carismáticos posibles y que, tanto su puesta en escena como su propia personalidad, los hagan destacables y reconocibles. 
+- **Personajes carismáticos**: se va a hacer que los personajes resulten lo más carismáticos posibles y que, tanto su puesta en escena como su propia personalidad, los hagan destacables y reconocibles. 
 
-3D lowpoly: visualmente el juego va a ser tridimensional con una cámara ortogonal o topdown y con modelos lowpoly. 
+- **3D lowpoly**: visualmente el juego va a ser tridimensional con una cámara ortogonal o topdown y con modelos lowpoly. 
 
-1.3 Género 
+#### 1.3 Género 
 
 GuildMasters’ Heritage se podría definir de forma burda como la unión de tres juegos: la forma de cooperación que se usa en A Way Out, la temática de Pokémon Mundo Misterioso y los elementos básicos de The Binding of Isaac. 
-
- 
-
-Principales referencias de GuildMasters’ Heritage 
+https://user-images.githubusercontent.com/72404272/104124714-8cd31700-5352-11eb-8c3f-c55b4bb8263b.jpg
+ https://user-images.githubusercontent.com/72404272/104124716-8e044400-5352-11eb-9e23-e1826bebbd11.jpg
+ https://user-images.githubusercontent.com/72404272/104124722-8f357100-5352-11eb-8b11-f4795a8b0b3c.jpg
+*Principales referencias de GuildMasters’ Heritage* 
 
 Los elementos que toma a nivel mecánico son: 
 
-Roguelike: al igual que The Binding of Isaac, la generación de los pisos es aleatoria, para pasar a la siguiente sala será necesario haber acabado con todos los enemigos de la actual, habrá una gran cantidad de objetos que darán la personalización que se quiere. Estos elementos son comunes a los roguelike (como pasa con Hades o el mismo Pokémon Mundo Misterioso) pero se menciona a The Binding of Isaac por ser la punta de lanza del género. 
+- **Roguelike**: al igual que The Binding of Isaac, la generación de los pisos es aleatoria, para pasar a la siguiente sala será necesario haber acabado con todos los enemigos de la actual, habrá una gran cantidad de objetos que darán la personalización que se quiere. Estos elementos son comunes a los roguelike (como pasa con Hades o el mismo Pokémon Mundo Misterioso) pero se menciona a The Binding of Isaac por ser la punta de lanza del género. 
 
-Cooperación: al igual que en A Way Out, la cooperación entre ambos jugadores es fundamental para poder conseguir pasar el nivel. Se complementan tanto a nivel mecánico como a nivel narrativo y la muerte de uno (en este caso la chica es la única que puede ser derrotada) conlleva la pérdida para ambos. 
+- **Cooperación**: al igual que en A Way Out, la cooperación entre ambos jugadores es fundamental para poder conseguir pasar el nivel. Se complementan tanto a nivel mecánico como a nivel narrativo y la muerte de uno (en este caso la chica es la única que puede ser derrotada) conlleva la pérdida para ambos. 
 
-1.4 Público Objetivo 
+#### 1.4 Público Objetivo 
 
 Debido a su planteamiento multijugador cooperativo, el juego está pensado para personas que suelen tener disponible algún amigo o familiar con el que jugar. El tono que va a tener el juego va a hacer que sea simpático, pero no infantil, ya que va a haber ciertas bromas o comentarios que solo un público algo más adulto entienda, pero no impide o dificulta el disfrute a los más pequeños. También, debido a que no va a suponer un cambio radical con respecto al género, los fans de los roguelike también se van a sentir muy cómodos jugando a GuildMasters’ Heritage. Es por esto, que nuestro público preferente son estos aficionados al género de una edad de entre 12 a 16 años, que es donde más se suele jugar con amigos. 
 
-1.5 Plataformas 
+#### 1.5 Plataformas 
 
 La plataforma principal es el navegador. Sin embargo, se va a hacer que sea responsive para que se pueda jugar de igual forma en navegadores de otros dispositivos como móviles o tablets. 
 
  
 
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-Mecánicas 
+### 2. Mecánicas 
 
 En este apartado del documento se explicará la parte jugable del videojuego, desde las stats de los personajes y sus habilidades básicas hasta los objetos y enemigos. Además, se adentrará en la arquitectura que se va a utilizar para el servidor y se describirá como sería una partida típica. 
 
-2.1 Jugabilidad 
+#### 2.1 Jugabilidad 
 
 Al iniciar una partida, ambos jugadores deberán decidir qué avatar quieren: si la chica, que es más ofensiva y rápida; o el robot, que es más defensivo y resistente. Una vez hayan elegido personaje, iniciará la partida mostrando una cinemática donde, de forma rápida, se haga una puesta en escena de la situación, la historia que hay detrás y ‘la excusa’ para que los personajes tengan que bajar por una mina. Tras la cinemática inicial, comenzará el juego. 
 
@@ -221,43 +199,43 @@ Cada partida de GuildMasters’ Heritage contará con 5 plantas y una sala con e
 
 La distribución de una sala será aleatoria, aunque se elegirá entre ‘sala de enemigos’ y ‘sala de tesoros’. 
 
-Sala de enemigos: en estas salas habrá dos elementos: enemigos y rocas, estalagmitas o algún otro elemento similar que sirva como limitante del movimiento. El número de enemigos que haya en cada sala estará aleatorizado, pero siempre con una lógica detrás, es decir, si es un enemigo relativamente débil va a haber más que si es un enemigo poderoso. El orden y posición de las rocas en cada sala será aleatorio también, pero siempre que no corte ningún camino al jugador. Se busca que al jugador le cueste más moverse y si se encierra sea porque un enemigo le corta el paso (esto es igual a decir que es porque el jugador ha guiado al enemigo a que le encierre).  
+- **Sala de enemigos**: en estas salas habrá dos elementos: enemigos y rocas, estalagmitas o algún otro elemento similar que sirva como limitante del movimiento. El número de enemigos que haya en cada sala estará aleatorizado, pero siempre con una lógica detrás, es decir, si es un enemigo relativamente débil va a haber más que si es un enemigo poderoso. El orden y posición de las rocas en cada sala será aleatorio también, pero siempre que no corte ningún camino al jugador. Se busca que al jugador le cueste más moverse y si se encierra sea porque un enemigo le corta el paso (esto es igual a decir que es porque el jugador ha guiado al enemigo a que le encierre).  
 
-Sala de tesoros: estas salas pueden ser simplemente un tesoro que encontramos y podemos continuar a otra sala o un cofre cerrado que se abrirá una vez hayamos derrotado a todos los enemigos de la sala. El cofre actuará a modo de limitante de movimiento como ocurre con las rocas, que también estarán presentes en este tipo de sala. 
+- **Sala de tesoros**: estas salas pueden ser simplemente un tesoro que encontramos y podemos continuar a otra sala o un cofre cerrado que se abrirá una vez hayamos derrotado a todos los enemigos de la sala. El cofre actuará a modo de limitante de movimiento como ocurre con las rocas, que también estarán presentes en este tipo de sala. 
 
 La dificultad del título irá aumentando según se vaya bajando en las plantas, pero como cada sala tiene el componente de la aleatoriedad puede ser que haya salas más fáciles en plantas más profundas. En la dificultad entra también el tema de los objetos, cuya disposición es aleatoria (aunque se hará que los ítems más poderosos sean más probables de encontrar en las plantas más difíciles), de forma que la progresión del jugador depende en gran medida del factor random, algo normal en los juegos de este género. 
 
-2.1.1 Multijugador 
+##### 2.1.1 Multijugador 
 
 Como ya se ha dicho en la introducción, la cooperación entre ambos jugadores es vital para completar los niveles. El juego está pensado por y para un gameplay conjunto donde las dos personas que jueguen se ayuden mutuamente para poder superar todas las plantas. Esto se explicará mejor más adelante, en las habilidades de los personajes, los ítems y los enemigos. Sin embargo, ahora se pasará a explicar la arquitectura y cómo se va a hacer el sistema multijugador. 
 
 [GERMÁN AQUÍ ESCRIBES LO DEL SERVIDOR: CÓMO LO HACES Y TAL] 
 
-2.2 Personajes 
+#### 2.2 Personajes 
 
 En los personajes podemos distinguir entre los personajes protagonistas (la chica y el robot) cuyas historias y elementos narrativos, así como aspecto definido se describirá en el apartado de Narrativa; y los enemigos, que tendrán menos personalidad y son más herramientas mecánicas para poner un desafío al jugador a personajes con cierto trasfondo. Sin embargo, los 5 bosses que hay sí van a tener cierta profundidad y mecánicas propias. 
 
-2.2.1 La chica - Arcelia 
+##### 2.2.1 La chica - Arcelia 
 
 Es la que se podría considerar como la verdadera protagonista del juego e hija de los fundadores del gremio que dirige. A pesar de su corta edad, 11 ó 12 años, ya tiene mucha experiencia en el campo de la exploración y en las minas por lo que se desenvuelve bien en situaciones de riesgo. Tiene una mentalidad positiva y piensa que cada día que exploren una cueva, los tesoros que van a encontrar serán mejores que los de la vez anterior. 
 
 Stats base de la chica: 
 
-Velocidad de movimiento: 6 
+- Velocidad de movimiento: 6 
 
-Velocidad de disparo: 3 balas por segundo 
+- Velocidad de disparo: 3 balas por segundo 
 
-Daño de disparo: 2 puntos 
+- Daño de disparo: 2 puntos 
 
-Salud: 100 
+- Salud: 100 
 
-Cooldown de habilidades: depende de la habilidad. En el caso del disparo su cd dependerá de su velocidad de disparo; la chica cuenta con dos dashes, teniendo el primero un cooldown de 0.75s y al usar el segundo, de 3s.  
+- Cooldown de habilidades: depende de la habilidad. En el caso del disparo su cd dependerá de su velocidad de disparo; la chica cuenta con dos dashes, teniendo el primero un cooldown de 0.75s y al usar el segundo, de 3s.  
 
 Habilidades base de la chica: 
 
-Disparo: a través de un arma realizará un disparo hacia donde esté mirando el personaje. 
+- Disparo: a través de un arma realizará un disparo hacia donde esté mirando el personaje. 
 
-Dash: tendrá dos pequeños dashes que le permitirá moverse rápidamente a una posición cercana. El cooldown del primer dash será muy pequeño, pero si se gastan los dos, habrá un cooldown significativamente mayor. 
+- Dash: tendrá dos pequeños dashes que le permitirá moverse rápidamente a una posición cercana. El cooldown del primer dash será muy pequeño, pero si se gastan los dos, habrá un cooldown significativamente mayor. 
 
 Todos los valores de estas habilidades o de los stats se irán mejorando (o empeorando) a través de los distintos tesoros que hay en el juego. 
 
@@ -267,23 +245,23 @@ Es la acompañante de la chica desde sus primeras expediciones. Siempre se compo
 
 Stats base del robot: 
 
-Velocidad de movimiento: 6 
+- Velocidad de movimiento: 6 
 
-Duración del stun: 1s. Si el enemigo tuviera escudo no hay stun. 
+- Duración del stun: 1s. Si el enemigo tuviera escudo no hay stun. 
 
-Cooldown de habilidades: depende de la habilidad. En el caso del puñetazo será de 2s mientras que el del escudo será de 1s. 
+- Cooldown de habilidades: depende de la habilidad. En el caso del puñetazo será de 2s mientras que el del escudo será de 1s. 
 
-Habilidades base de la chica: 
+Habilidades base del robot: 
 
-Puñetazo: si un enemigo está a una distancia cercana podrá golpearlo y stunearlo durante un tiempo o, si el enemigo lleva un escudo, desarmarle de ese escudo para que la chica pueda dispararle. 
+- Puñetazo: si un enemigo está a una distancia cercana podrá golpearlo y stunearlo durante un tiempo o, si el enemigo lleva un escudo, desarmarle de ese escudo para que la chica pueda dispararle. 
 
-Escudo: se mantiene presionado el botón y el robot hará una barrera con su cuerpo que protegerá de cualquier ataque. En este estado, el robot no puede moverse. 
+- Escudo: se mantiene presionado el botón y el robot hará una barrera con su cuerpo que protegerá de cualquier ataque. En este estado, el robot no puede moverse. 
 
 Todos los valores de estas habilidades o de los stats se irán mejorando (o empeorando) a través de los distintos tesoros que hay en el juego. 
 
- 
+ https://user-images.githubusercontent.com/72404272/104124808-0cf97c80-5353-11eb-8f9c-b547e59526b0.jpg
 
-Concept arts de Arcelia y S.O.R.A. 
+*Concept arts de Arcelia y S.O.R.A.* 
 
  
 
