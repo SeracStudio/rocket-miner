@@ -4,6 +4,7 @@ using Photon.Pun;
 
 public class Room : MonoBehaviour
 {
+    public SpawnObject northWest, northEast, southWest, southEast;
     public SpawnObject north, west, east, south;
     public List<EnemySpawnStats> spawnedEnemies;
 
@@ -11,6 +12,15 @@ public class Room : MonoBehaviour
     {
         spawnedEnemies = new List<EnemySpawnStats>();
         spawnedEnemies.Clear();
+    }
+
+    [PunRPC]
+    public void SpawnCornerWalls(List<int> cornerWallsID)
+    {
+        northWest.TriggerRPC("SetAndSpawn", RpcTarget.AllBuffered, cornerWallsID[0]);
+        northEast.TriggerRPC("SetAndSpawn", RpcTarget.AllBuffered, cornerWallsID[1]);
+        southWest.TriggerRPC("SetAndSpawn", RpcTarget.AllBuffered, cornerWallsID[2]);
+        southEast.TriggerRPC("SetAndSpawn", RpcTarget.AllBuffered, cornerWallsID[3]);
     }
 
     private SpawnObject GetWallPosition(Direction direction)

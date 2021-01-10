@@ -18,12 +18,12 @@ public class MapController : MonoBehaviour
     public int currentFloor;
     public Dictionary<Vector3, MapRoom> currentMap;
     private Dictionary<Vector3, MapRoom>[] fullMap;
-    private int enemiesLeft;
+    public int enemiesLeft;
 
     private MapGenerator mapGenerator;
     private MapEnemyFiller mapEnemyFiller;
     private MapItemFiller mapItemFiller;
-    private MapRenderer mapRenderer;
+    public MapRenderer mapRenderer;
 
     private void Awake()
     {
@@ -55,9 +55,14 @@ public class MapController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            currentFloor++;
-            LoadMap(fullMap[currentFloor]);
+            LoadNextMap();
         }
+    }
+
+    public void LoadNextMap()
+    {
+        currentFloor++;
+        LoadMap(fullMap[currentFloor]);
     }
 
     public void LoadMap(Dictionary<Vector3, MapRoom> map)

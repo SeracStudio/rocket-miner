@@ -10,8 +10,11 @@ public class AnimationTriggerer : MonoBehaviour
 
     private void Start()
     {
-        if (!GetComponent<PhotonView>().IsMine)
-            Destroy(this);
+        if (TryGetComponent(out PhotonView view))
+        {
+            if (!view.IsMine)
+                Destroy(this);
+        }
     }
 
     private void Update()

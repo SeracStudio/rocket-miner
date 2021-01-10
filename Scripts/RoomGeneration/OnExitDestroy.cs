@@ -7,6 +7,8 @@ public class OnExitDestroy : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("GIRL") || other.CompareTag("ROBOT")) return;
+
         other.GetComponent<NetworkBehaviour>().TriggerRPC("Destroy");
     }
 }

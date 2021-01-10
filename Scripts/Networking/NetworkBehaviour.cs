@@ -11,6 +11,7 @@ public class NetworkBehaviour : MonoBehaviour
     protected virtual void Awake()
     {
         objectNetworkView = GetComponent<PhotonView>();
+        if (objectNetworkView == null) return;
 
         isMine = objectNetworkView.IsMine;
         isOnMaster = PhotonNetwork.IsMasterClient;

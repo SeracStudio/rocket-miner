@@ -74,8 +74,14 @@ public class Bullet : NetworkBehaviour
                 {
                     other.GetComponent<Slime>().NextSlime();
                 }
+
+                if (other.GetComponent<Enemy>().boss)
+                {
+                    MapController.RUNNING.mapRenderer.rendered.Add(PhotonNetwork.Instantiate("Rooms/FloorStairs", new Vector3(0, 0.01f, 0), Quaternion.identity));
+                }
+
                 MapController.RUNNING.EnemyEliminated();
-                PhotonNetwork.Destroy(other.gameObject);
+                PhotonNetwork.Destroy(other.gameObject);          
             }
             PhotonNetwork.Destroy(this.gameObject);
         }

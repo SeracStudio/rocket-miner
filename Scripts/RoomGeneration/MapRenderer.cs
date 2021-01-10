@@ -9,7 +9,7 @@ public class MapRenderer : MonoBehaviour
     public Room loadedRoom;
     public int roomSize;
 
-    private readonly List<GameObject> rendered = new List<GameObject>();
+    public readonly List<GameObject> rendered = new List<GameObject>();
 
     public void Render(MapRoom mapRoom)
     {
@@ -17,12 +17,13 @@ public class MapRenderer : MonoBehaviour
 
         transform.position = Vector3.zero;
         loadedRoom = PhotonNetwork.Instantiate("Rooms/" + room.name, transform.position, Quaternion.identity).GetComponent<Room>();
+        loadedRoom.SpawnCornerWalls(mapRoom.cornerWallsID);
         rendered.Add(loadedRoom.gameObject);
 
         PhotonView roomView = loadedRoom.GetComponent<PhotonView>();
         foreach (Direction opening in mapRoom.connections.Keys)
         {
-            if (mapRoom.type == RoomType.NORMAL && !mapRoom.cleared)
+            if ((mapRoom.type == RoomType.NORMAL || mapRoom.type == RoomType.BOSS) && !mapRoom.cleared)
             {
                 roomView.RPC("CloseDoor", RpcTarget.AllBuffered, opening);
             }
@@ -32,7 +33,7 @@ public class MapRenderer : MonoBehaviour
             }
         }
 
-        if (!mapRoom.cleared)
+        if (mapRoom.type == RoomType.NORMAL && !mapRoom.cleared)
         {
             foreach (EnemySpawnStats enemy in mapRoom.enemies)
             {
@@ -46,11 +47,24 @@ public class MapRenderer : MonoBehaviour
             }
         }
 
+        if(mapRoom.type == RoomType.BOSS && !mapRoom.cleared)
+        {
+            EnemySpawnStats enemySpawned = PhotonNetwork.Instantiate("Enemies/EnemySet/" + mapRoom.enemies[0].name,
+                    new Vector3(0, 0, 0), Quaternion.identity).GetComponent<EnemySpawnStats>();
+            loadedRoom.spawnedEnemies.Add(enemySpawned);
+            rendered.Add(enemySpawned.gameObject);
+        }
+
         if(mapRoom.type == RoomType.TREASURE && !mapRoom.cleared)
         {
             GameObject item = PhotonNetwork.Instantiate("Item", new Vector3(0, 1, 0), Quaternion.identity);
             item.GetComponent<PhotonView>().RPC("LoadItem", RpcTarget.AllBuffered, mapRoom.item.name);
             rendered.Add(item);
+        }
+
+        if(mapRoom.type == RoomType.BOSS && mapRoom.cleared)
+        {
+            rendered.Add(PhotonNetwork.Instantiate("Rooms/FloorStairs", new Vector3(0, 0.01f, 0), Quaternion.identity));
         }
     }
 

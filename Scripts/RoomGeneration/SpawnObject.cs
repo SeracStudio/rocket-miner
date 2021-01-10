@@ -2,35 +2,33 @@
 using UnityEngine;
 using Photon.Pun;
 
-public class SpawnObject : MonoBehaviour
+public class SpawnObject : NetworkBehaviour
 {
+    public bool onAwake = true;
     public List<GameObject> spawnables;
-    public bool randomize;
     public Vector3 rotation;
 
     public GameObject spawned;
+    private int spawnableIndex = 0;
 
-    public PhotonView photonView;
-
-    private void Awake()
+    protected override void Awake()
     {
-        photonView = GetComponent<PhotonView>();
+        base.Awake();
+        if (onAwake)
+            Spawn();
+    }
+
+    [PunRPC]
+    public void SetAndSpawn(int index)
+    {
+        spawnableIndex = index;
         Spawn();
     }
 
     public void Spawn()
     {
         if (spawnables.Count == 0) return;
-
-        if (randomize)
-        {
-            spawned = Instantiate(spawnables[Random.Range(0, spawnables.Count)], transform.position, Quaternion.Euler(rotation));
-        }
-        else
-        {
-            spawned = Instantiate(spawnables[0], transform.position, Quaternion.Euler(rotation));
-        }
-
+        spawned = Instantiate(spawnables[spawnableIndex], transform.position, Quaternion.Euler(rotation));
         spawned.transform.parent = transform;
     }
 

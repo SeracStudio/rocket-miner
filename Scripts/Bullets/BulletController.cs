@@ -51,7 +51,7 @@ public class BulletController : MonoBehaviour
         {
             if (hit.collider.tag.Equals("Floor") || hit.collider.tag.Equals("Enemy") || hit.collider.tag.Equals("Wall")) ;
             {
-                target = hit.point - transform.position;
+                target = hit.point - pos;
                 return target.normalized;
             }
         }

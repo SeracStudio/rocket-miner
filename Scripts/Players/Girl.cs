@@ -29,6 +29,7 @@ public class Girl : Player
 
     private BulletController pbc;
 
+    public Transform shotSpawnPoint;
     public override void Start()
     {
         base.Start();
@@ -143,7 +144,7 @@ public class Girl : Player
             if (ofTime > 1f/stats.GetStat(Stat.SHOTS_P_SECOND))
             {
                 ofTime = 0;
-                pbc.Shoot(transform.position, getLookingDirection());
+                pbc.Shoot(shotSpawnPoint.position, getLookingDirection());
             }
         }
     }
