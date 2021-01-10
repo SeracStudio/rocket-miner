@@ -29,7 +29,7 @@ public class MapRenderer : MonoBehaviour
             }
             else
             {
-                roomView.RPC("OpenDoor", RpcTarget.AllBuffered, opening);
+                roomView.RPC("HideDoor", RpcTarget.AllBuffered, opening);
             }
         }
 
@@ -51,6 +51,7 @@ public class MapRenderer : MonoBehaviour
         {
             EnemySpawnStats enemySpawned = PhotonNetwork.Instantiate("Enemies/EnemySet/" + mapRoom.enemies[0].name,
                     new Vector3(0, 0, 0), Quaternion.identity).GetComponent<EnemySpawnStats>();
+            enemySpawned.transform.Rotate(new Vector3(0, 180, 0));
             loadedRoom.spawnedEnemies.Add(enemySpawned);
             rendered.Add(enemySpawned.gameObject);
         }

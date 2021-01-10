@@ -75,6 +75,12 @@ public class Enemy : NetworkBehaviour
         {
             pbc = GetComponent<BulletController>();
         }
+
+        if (!isOnMaster)
+        {
+            Destroy(GetComponent<Rigidbody>());
+            Destroy(GetComponent<Collider>());
+        }
     }
 
     private void Rotation()
@@ -119,7 +125,7 @@ public class Enemy : NetworkBehaviour
             shootTime += Time.deltaTime;
             if (shootTime > stats.GetStat(Stat.OFFENSIVE_CD))
             {
-                pbc.Shoot(transform.position, getPlayerDirection().normalized);
+                pbc.Shoot(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), getPlayerDirection().normalized);
                 //stunned = true;
                 canMove = false;
                 shootTime = 0;

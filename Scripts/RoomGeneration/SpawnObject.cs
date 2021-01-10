@@ -32,7 +32,7 @@ public class SpawnObject : NetworkBehaviour
         spawned.transform.parent = transform;
     }
 
-    public void Destroy()
+    public void DestroySpawned()
     {
         PhotonNetwork.Destroy(spawned);
     }

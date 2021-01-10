@@ -11,6 +11,7 @@ public class ItemTriggerer : MonoBehaviour
     {
         if (IsTargetValid(other.gameObject))
         {
+            InGameUIManager.RUNNING.TriggerRPC("LaunchPopUp", RpcTarget.AllBuffered, item.itemName, item.itemDescription);
             MapController.RUNNING.currentRoom.cleared = true;
             item.Use(other.gameObject);
             PhotonNetwork.Destroy(gameObject);

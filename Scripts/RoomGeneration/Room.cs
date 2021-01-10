@@ -41,17 +41,25 @@ public class Room : MonoBehaviour
 
     public void RemoveWall(Direction direction)
     {
-        GetWallPosition(direction).Destroy();
+        GetWallPosition(direction).DestroySpawned();
     }
 
     [PunRPC]
     public void CloseDoor(Direction direction)
     {
-        GetWallPosition(direction).Show();
+        //GetWallPosition(direction).Show();
+        GetWallPosition(direction).spawned.GetComponent<DoorOpener>().CloseDoor();
     }
 
     [PunRPC]
     public void OpenDoor(Direction direction)
+    {
+        //GetWallPosition(direction).Hide();
+        GetWallPosition(direction).spawned.GetComponent<DoorOpener>().OpenDoor();
+    }
+
+    [PunRPC]
+    public void HideDoor(Direction direction)
     {
         GetWallPosition(direction).Hide();
     }

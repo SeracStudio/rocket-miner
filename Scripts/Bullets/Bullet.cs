@@ -52,7 +52,7 @@ public class Bullet : NetworkBehaviour
             PhotonNetwork.Destroy(gameObject);
         }
 
-        if (rain && other.tag == "Floor")
+        if (other.tag == "Floor")
         {
             PhotonNetwork.Destroy(gameObject);
         }
