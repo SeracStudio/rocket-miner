@@ -1207,7 +1207,7 @@ Si en el menú de jugar se entra en una sala ya creada, se asignará el personaj
 
  ![image--021](https://user-images.githubusercontent.com/72404272/104125345-61522b80-5356-11eb-9989-723eafbc60ee.png)
 
-4.3 Arte 2D 
+#### 4.3 Arte 2D 
 
 A pesar de ser un juego en 3D, ciertos assets se han hecho en pixel art en 2D. Estos son los sprites de los objetos, que una vez cogidos pasan a formar parte de la interfaz ingame, apareciendo a la derecha de la barra de vida. El resto de interfaz ingame, es decir, la barra de vida, las barras de cooldown y los botones y joystick del modo en móvil también son elementos en 2D que se han hecho por nuestro equipo creativo. 
 
@@ -1217,101 +1217,36 @@ Para acabar, se han hecho en 2D los concepts de los personajes y enemigos que se
 
  
 
-4.4 Arte 3D 
+#### 4.4 Arte 3D 
 
 En cuanto al apartado 3D, como ya se ha comentado en el epígrafe anterior, se han hecho todo lo que es jugable. Los personajes que se pueden controlar, los escenarios, los enemigos y los ataques de los mismos. 
 
 Tanto personajes como enemigos tienen animaciones con las que se mueven y atacan, mientras que los escenarios tienen una iluminación local en las antorchas que hay en los propios modelos. El efecto de iluminación es el mismo en todas las antorchas, mientras que las animaciones son personalizadas, cada personaje, como es lógico, tiene una animación propia para moverse y otra para atacar. Para acabar, en el menú principal hay una animación de movimiento de cámara que se utiliza para mover el menú a lo largo de todas las paredes de la mina. 
 
-Música 
+### 5.0 Música 
 
-5.1 Sonido ambiente y música 
+#### 5.1 Sonido ambiente y música 
 
 Tanto la música ambiente, como la música de combate han sido cogidas a partir bibliotecas y obras de terceros, pero libres de copyright. En el juego hay 3 canciones: una utilizada en el menú principal a modo de ambientación, otra es una energética usada para las fases de combate y la última es algo más calmada que intenta evocar el sentimiento de exploración y misterio que se tiene cuando se está en la mina. 
 
-5.2 Efectos de sonido 
+#### 5.2 Efectos de sonido 
 
 Los efectos de sonido, al igual que la música, se han sacado de bibliotecas externas libres de uso. Se han utilizado en distintas secciones como a la hora de pulsar un botón, cuando se recibe un golpe, cuando se cura algo de vida, cuando se golpea, cuando se dispara, etc. 
 
-Monetización 
+### 6.0 Monetización 
 
-6.1 Costes asociados 
+#### 6.1 Costes asociados 
 
 Los costes asociados al desarrollo serían únicamente los sueldos de los trabajadores y las posibles licencias que se adquirieran. Debido a que trabajamos de forma remota, costes indirectos como oficina, luz o internet no son aplicables, por lo que nos quedarían estos costes directos: 
 
  
 
-Pablo 
 
-Germán 
-
-Alejandro 
-
-Enrique 
-
-Darío 
-
-Dilan 
-
-Sueldo Bruto anual (14 pagas) 
-
-18.000 
-
- 
-
-20.000 
-
-17.000 
-
-20.000 
-
- 
-
-17.500 
-
- 
-
-20.700 
-
-Sueldo neto mensual 
-
-1.189,71[5] 
-
- 
-
-1.321,9 [1] 
-
-1.123,62[2] 
-
-1.321,9 [1] 
-
- 
-
-1.156,67[3] 
-
- 
-
-1.368,17[4] 
-
-Sueldo neto hora 
-
-8,61 
-
- 
-
-9,56 
-
-8,13 
-
-9,56 
-
- 
-
-8,37 
-
-9,9 
-
- 
+| Tipo de sueldo \ Miembro| Pablo | Germán | Alejandro | Enrique | Darío | Dilan |
+| -------------  | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  |
+| Sueldo Bruto anual(14 pagas)  | 18.000 | 20.000 | 17.000 | 20.000 | 17.500 | 20.700 |
+| Sueldo neto mensual | 1.189,71[5] | 1.321,9 [1] | 1.123,62[2] | 1.321,9 [1] | 1.156,67[3] | 1.368,17[4] |
+| Sueldo neto hora | 8,61 | 9,56 | 8,13 | 9,56 | 8,37 | 9,9 |
 
 [1] https://es.indeed.com/career/programador-junior/salaries?hl=es 
 
@@ -1327,7 +1262,7 @@ Sueldo neto hora
 
 Por lo tanto, a raíz de estos gastos asociados podemos sacar el dinero necesario para que el videojuego sea sostenible durante los dos años de vida útil que se espera que tenga el juego. Calculando el sueldo neto anual y duplicándolo podemos calcular que el dinero mínimo que tenemos que conseguir es 226.400 euros. 
 
-6.2 Modelo de negocio y monetización 
+#### 6.2 Modelo de negocio y monetización 
 
 Para conseguir este dinero, se va a optar por seguir un modelo de negocio freemium. La versión inicial del juego, que es la que se va a lanzar para navegadores, actuará a modo de versión gratuita o beta del mismo y se utilizará para fidelizar un público. Tras un periodo de unos meses donde corrijamos errores de balanceo, de servidores y demás que sean detectados tanto por nosotros como por la comunidad, se sacará una versión 1.0 del juego en tiendas digitales como Steam, Epic o Play Store. 
 
@@ -1351,121 +1286,23 @@ Cabe explicar el botón de ‘Donaciones’ que hay en el menú principal. Este 
 
 La compañía, para empezar 2021 y como método de financiación de la empresa, ha abierto una sección para vender complementos con la marca de Serac Studio. Actualmente solo hay camisetas, sudaderas, pin y mascarillas; pero se espera ampliarla paulatinamente durante todo 2021. Se espera que esta tienda valga para fidelizar y establecer la marca Serac Studio en el imaginario colectivo siendo un sistema de marketing. Para comprar, simplemente hay que enviar un mail a la compañía diciendo el producto, la talla y la cantidad. 
 
- 
+ ![image--022](https://user-images.githubusercontent.com/72404272/104135922-24585a00-5393-11eb-93c0-701b92e93d91.jpg)
 
-6.3 Hitos del desarrollo 
+#### 6.3 Hitos del desarrollo 
 
 A continuación, se pasa a mostrar una tabla con las principales tareas, su fecha de finalización y las personas que se han encargado de completarlas. 
 
-Tarea 
-
-Fecha de inicio 
-
-Fecha de fin 
-
-Participantes 
-
-Terminado 
-
-GDD 1 página 
-
-15/12 
-
-16/12 
-
-Todos 
-
-Sí 
-
-GDD 
-
-16/12 
-
-13/01 
-
-Todos 
-
- 
-
-Apartado visual 
-
- 
-
- 
-
- 
-
- 
-
-Fichas de personajes 
-
-18/12 
-
-22/12 
-
-Pablo 
-
-Sí 
-
-Diseño de personajes 1 
-
-14/12 
-
-20/12 
-
-Alejandro 
-
-Sí 
-
-Diseño de personajes 2 
-
-21/12 
-
-27/12 
-
-Alejandro 
-
- 
-
-Diseño de ítems 
-
-28/12 
-
-3/01 
-
-Alejandro 
-
-Sí 
-
-Diseño de interfaz 
-
-4/01 
-
-10/01 
-
-Alejandro 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-Modelado de personajes 
-
-15/12 
-
-29/12 
-
-Darío 
-
-Sí 
+| Tarea | Fecha de inicio | Fecha de fin | Participantes | Terminado |
+| -------------  | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  |
+| GDD 1 página | 15/12 | 16/12 | Todos | Sí |
+| GDD | 16/12 | 13/01 | Todos |
+| Apartado Visual  |   |   |   |   |   |
+| Fichas de personajes | 18/12 | 22/12 | Pablo | Sí |
+| Diseño de personajes 1 | 14/12 | 20/12 | Alejandro | Sí |
+| Diseño de personajes 2 | 21/12 | 27/12 | Alejandro | Sí | 
+| Diseño de ítems  | 28/12 | 3/01 | Alejandro | Sí |
+| Diseño de interfaz | 4/01 | 10/01 | Alejandro | Sí | 
+| Modelado de personajes | 15/12 | 29/12 | Darío | Sí | 
 
 Modelado de escenario 
 
@@ -1649,27 +1486,27 @@ Germán y Enrique
 
  
 
-6.4 Business Model Canvas 
+#### 6.4 Business Model Canvas 
 
  
 
 Por último, se pasa a mostrar el Business Model Canvas del videojuego: 
 
- 
+ ![image--023](https://user-images.githubusercontent.com/72404272/104125899-ea1e9680-5359-11eb-98ee-327c2bec5a87.png)
 
  
 
-Futuro del proyecto 
+### 7.0 Futuro del proyecto 
 
 En este último apartado se hablará en profundidad del futuro del proyecto y cómo pensamos que se va a mantener rentable durante los siguientes dos años. 
 
-7.1 Salida oficial 
+#### 7.1 Salida oficial 
 
 El primer lanzamiento del juego será el 13 de enero de 2021, pero esto solo será en navegadores de dispositivos ya sean portátiles, es decir, móviles y tablets; u ordenadores. Sin embargo, este lanzamiento, donde estarían las mecánicas principales en base a las que gira el diseño del proyecto y los primeros enemigos, objetos y bosses; actuaría a modo de beta abierta o lanzamiento anticipado gratuito que nos serviría para conseguir una base de comunidad, tomar nota de los errores que haya (ya sea que notemos nosotros o que nos diga esta misma comunidad) y a modo de ‘aprendizaje’ para la que sería la salida oficial del juego. 
 
 Tras unos meses, aproximadamente 3, donde hayamos podido hacer algo de publicidad al título a través de prensa especializada o de streamers y youtubers, ya que creemos que es un juego que funcionaría bien en directos por su cooperativo; y hayamos podido resolver diferentes bugs, errores de balanceo y añadir nuevo contenido (más variedad de enemigos, objetos y bosses y aleatoriedad de aparición de estos últimos) saldría la versión 1.0 del juego. Esta versión saldría para tiendas digitales como Steam y Play Store, siendo un juego descargable e instalable. De esta manera, podríamos cobrar por su compra (lo mencionado en el apartado anterior) generando así un ingreso seguro por jugarse y no dependiendo de elementos ‘externos al juego’ como son las donaciones o la venta de merchandising de la web. 
 
-7.2 Expansiones 
+#### 7.2 Expansiones 
 
 Tras la salida de la versión de pago del juego, que sería aproximadamente en abril, se tiene pensado sacar 4 expansiones donde se profundice en la historia y, nuevamente se añadan enemigos, bosses y objetos. Estas expansiones se desarrollarían cada 5 o 6 meses cada una, ya que el contenido que se añada cada vez va a ser mayor y no queremos caer en repeticiones o mecánicas similares a las que ya tengamos, por lo que queremos tener tiempo suficiente como para pensar estos nuevos elementos y balancearlos sin uso de betas abiertas o ‘probando con nuestra comunidad’. La primera expansión coincide con 2 eventos importantes de videojuegos como son la PAX y la MGW (Madrid Games Week) en los que intentaríamos estar para publicitar tanto el juego en sí como la primera expansión. 
 
