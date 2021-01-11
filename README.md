@@ -1,10 +1,6 @@
-# rocket-miner
  
 ![image--000](https://user-images.githubusercontent.com/72404272/104124842-52b64500-5353-11eb-9684-ecf5478ac1a8.png)
 
- 
-
- 
 
 # Documento de Diseño de Juego 
 
