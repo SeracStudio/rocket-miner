@@ -166,7 +166,9 @@ La dificultad del título irá aumentando según se vaya bajando en las plantas,
 
 Como ya se ha dicho en la introducción, la cooperación entre ambos jugadores es vital para completar los niveles. El juego está pensado por y para un gameplay conjunto donde las dos personas que jueguen se ayuden mutuamente para poder superar todas las plantas. Esto se explicará mejor más adelante, en las habilidades de los personajes, los ítems y los enemigos. Sin embargo, ahora se pasará a explicar la arquitectura y cómo se va a hacer el sistema multijugador. 
 
-[GERMÁN AQUÍ ESCRIBES LO DEL SERVIDOR: CÓMO LO HACES Y TAL] 
+Para implementar este modo en el juego, utilizamos el framework Photon en Unity. Actualmente estamos usando la versión gratuita que dispone de un máximo de 20 jugadores. El método de creación de partidas lo hacemos a través de salas, siendo un jugador el que crea la partida y otro el que se une. 
+
+En el momento en el que se reciba ingresos y la masa de jugadores vaya aumentando, el plan se cambiará a uno de pago, ofreciendo Photon 4 tipos: de 500, 1000, 2000 y 50000 jugadores. En base al capital recibido y la cantidad de jugadores que haya se optará por un plan u otro.  
 
 #### 2.2 Personajes 
 
