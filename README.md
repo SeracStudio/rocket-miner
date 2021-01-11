@@ -10,46 +10,6 @@
 
 ## GuildMasters’ Heritage 
 
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
 ## Índice 
 
  
@@ -1296,7 +1256,7 @@ A continuación, se pasa a mostrar una tabla con las principales tareas, su fech
 | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  |
 | GDD 1 página | 15/12 | 16/12 | Todos | Sí |
 | GDD | 16/12 | 13/01 | Todos |
-| Apartado Visual  | -------------  | ------------- | ------------- | ------------- | ------------- |
+| Apartado Visual  | a  | a | a | a | a |
 | Fichas de personajes | 18/12 | 22/12 | Pablo | Sí |
 | Diseño de personajes 1 | 14/12 | 20/12 | Alejandro | Sí |
 | Diseño de personajes 2 | 21/12 | 27/12 | Alejandro | Sí | 
@@ -1305,7 +1265,7 @@ A continuación, se pasa a mostrar una tabla con las principales tareas, su fech
 | Modelado de personajes | 15/12 | 29/12 | Darío | Sí | 
 | Modelado de escenario | 30/12 | 5/01 | Darío | Sí |
 | Animación de personajes | 6/01 | 12/01 | Darío | Sí |
-| Diseño y misc. | -------------  | ------------- | ------------- | ------------- | ------------- |
+| Diseño y misc. | a  | a | a | a | a |
 | Brainstorming | 13/12 | 21/12 | Pablo y Dilan | Sí |
 | Establecer mecánicas | 11/12 | 21/12 | Todos | Sí |
 | Equilibrar mecánicas | 21/12 | 28/12 | Pablo y Dilan | Sí |
@@ -1313,7 +1273,7 @@ A continuación, se pasa a mostrar una tabla con las principales tareas, su fech
 | Beta Testing | 25/12 | 12/01 | Pablo, Dilan, Darío y Alejandro | Sí |
 | Realización del tráiler | 11/01 | 13/01 | Pablo y Dilan | Sí |
 | Management de redes sociales | 15/12 | 13/01 | Dilan | Sí |
-| Programación | -------------  | ------------- | ------------- | ------------- | ------------- |
+| Programación | a  | a | a | a | a |
 | Algoritmo de generación de terreno | 17/12 | 24/12 | Germán | Sí |
 | Componentes de los personajes | 25/12 | 29/12 | Enrique | Sí |
 | Sistema de objetos | 25/12 | 31/12 | Enrique y Germán | Sí |
