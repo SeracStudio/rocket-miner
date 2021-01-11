@@ -1248,36 +1248,8 @@ La compañía, para empezar 2021 y como método de financiación de la empresa, 
 
 A continuación, se pasa a mostrar una tabla con las principales tareas, su fecha de finalización y las personas que se han encargado de completarlas. 
 
-| Tarea | Fecha de inicio | Fecha de fin | Participantes | Terminado |
-| -------------  | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  |
-| GDD 1 página | 15/12 | 16/12 | Todos | Sí |
-| GDD | 16/12 | 13/01 | Todos |
-| Apartado Visual  | a  | a | a | a | a |
-| Fichas de personajes | 18/12 | 22/12 | Pablo | Sí |
-| Diseño de personajes 1 | 14/12 | 20/12 | Alejandro | Sí |
-| Diseño de personajes 2 | 21/12 | 27/12 | Alejandro | Sí | 
-| Diseño de ítems  | 28/12 | 3/01 | Alejandro | Sí |
-| Diseño de interfaz | 4/01 | 10/01 | Alejandro | Sí | 
-| Modelado de personajes | 15/12 | 29/12 | Darío | Sí | 
-| Modelado de escenario | 30/12 | 5/01 | Darío | Sí |
-| Animación de personajes | 6/01 | 12/01 | Darío | Sí |
-| Diseño y misc. | a  | a | a | a | a |
-| Brainstorming | 13/12 | 21/12 | Pablo y Dilan | Sí |
-| Establecer mecánicas | 11/12 | 21/12 | Todos | Sí |
-| Equilibrar mecánicas | 21/12 | 28/12 | Pablo y Dilan | Sí |
-| Planteamiento de narrativa | 11/12 | 14/12 | Pablo | Sí |
-| Beta Testing | 25/12 | 12/01 | Pablo, Dilan, Darío y Alejandro | Sí |
-| Realización del tráiler | 11/01 | 13/01 | Pablo y Dilan | Sí |
-| Management de redes sociales | 15/12 | 13/01 | Dilan | Sí |
-| Programación | a  | a | a | a | a |
-| Algoritmo de generación de terreno | 17/12 | 24/12 | Germán | Sí |
-| Componentes de los personajes | 25/12 | 29/12 | Enrique | Sí |
-| Sistema de objetos | 25/12 | 31/12 | Enrique y Germán | Sí |
-| Componentes de enemigos | 18/12 | 25/12 | Enrique | Sí |
-| Interfaz (PC y móvil) | 30/12 | 31/12 | Pablo | Sí |
-| Cliente – Servidor | 1/01 | 7/01 | Germán y Enrique | Sí |
-| Corrección de bugs | 08/12 | 13/01 | Germán y Enrique | Sí |
- 
+![tabla](https://user-images.githubusercontent.com/72404272/104174442-cd8c6800-5406-11eb-8129-959aeb120283.PNG)
+
 
 #### 6.4 Business Model Canvas 
 
