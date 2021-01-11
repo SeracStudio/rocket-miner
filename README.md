@@ -136,7 +136,7 @@
 
  
 
-### Introducción 
+### 1. Introducción 
 
 Este es el documento de diseño de GuildMasters’ Heritage. Sirva este documento como principal esclarecedor de todos los elementos principales que conforman el juego y que actúe como presentación del proyecto a personas ajenas al desarrollo del mismo. 
 
@@ -239,7 +239,7 @@ Habilidades base de la chica:
 
 Todos los valores de estas habilidades o de los stats se irán mejorando (o empeorando) a través de los distintos tesoros que hay en el juego. 
 
-2.2.2 El robot - S.O.R.A. 
+##### 2.2.2 El robot - S.O.R.A. 
 
 Es la acompañante de la chica desde sus primeras expediciones. Siempre se comportó de manera correcta cuando estaban sus padres, pero desde que fallecieron, su personalidad cambió. Seguía haciendo caso a la chica, pero cada vez pensaba que era más absurdo seguir con las exploraciones y estar en un ciclo constante de búsqueda y venta. 
 
@@ -265,13 +265,13 @@ Todos los valores de estas habilidades o de los stats se irán mejorando (o empe
 
  
 
-2.3 Enemigos 
+#### 2.3 Enemigos 
 
 Habrá un total de 20 enemigos, 4 nuevos por cada planta, aunque esto no impide que salgan de enemigos de plantas anteriores. A los enemigos de salas se le asigna un valor de peligrosidad que se va a explicar con un ejemplo: 
 
 Si la planta 1 tiene un factor de peligrosidad de entre 4 y 6, los enemigos que aparezcan en una sala (pongamos que el de esa sala es 5) serán, de forma aleatoria, una combinación cuya suma de sus Peligrosidades sea 5 (por ejemplo 3 Arañas y 1 Minero loco). Según se vayan avanzando en la run, el abanico de la sala se hará mayor (de la planta 2 iría de 5 a 8, siguiendo con el ejemplo).   
 
-2.3.1. Araña 
+##### 2.3.1. Araña 
 
 Son arañas que suele haber en las minas. 
 
@@ -289,7 +289,7 @@ Son arañas que suele haber en las minas.
 
 - Planta: 1 
 
-2.3.2. Robot lanzaláser 
+##### 2.3.2. Robot lanzaláser 
 
 Robots que se rompieron durante expediciones de otros mineros. 
 
@@ -307,7 +307,7 @@ Robots que se rompieron durante expediciones de otros mineros.
 
 - Planta: 2, 3 y 4 
 
-2.3.3. Minero piquero 
+##### 2.3.3. Minero piquero 
 
 Mineros que se han vuelto locos debido a que se extraviaron hace muchos años 
 
@@ -325,7 +325,7 @@ Mineros que se han vuelto locos debido a que se extraviaron hace muchos años
 
 - Planta: 1 y 2 
 
-2.3.4. Escarabajo minero 
+##### 2.3.4. Escarabajo minero 
 
 Escarabajo pelotero mecanizado que empuja una bomba 
 
@@ -343,7 +343,7 @@ Escarabajo pelotero mecanizado que empuja una bomba
 
 - Planta: 2 y 3 
 
-2.3.5. Slime 
+##### 2.3.5. Slime 
 
 Monstruo de slime que se divide cuando se derrota. Se divide de 1 a 2 y de 2 a 4. 
 
@@ -359,7 +359,7 @@ Monstruo de slime que se divide cuando se derrota. Se divide de 1 a 2 y de 2 a 4
 
 - Planta: todas 
 
-2.3.6. Planta escupidora 
+##### 2.3.6. Planta escupidora 
 
 Planta que sale del suelo y lanza veneno desde el óvulo de la planta 
 
@@ -377,7 +377,7 @@ Planta que sale del suelo y lanza veneno desde el óvulo de la planta
 
 - Planta: todas 
 
-2.3.7. Golem de piedra 
+##### 2.3.7. Golem de piedra 
 
 Guerrero de forma humanoide conformado por piedra 
 
@@ -399,7 +399,7 @@ Guerrero de forma humanoide conformado por piedra
 
 - Planta: 3 y 4 
 
-2.3.8. Topo 
+##### 2.3.8. Topo 
 
 Topo con nariz estrellada y largas garras 
 
@@ -417,7 +417,7 @@ Topo con nariz estrellada y largas garras
 
 - Planta: 1 y 2 
 
-2.3.9. Ojo Centinela 
+##### 2.3.9. Ojo Centinela 
 
 Ojo gigante y morado sobre una columna de piedra 
 
@@ -433,7 +433,7 @@ Ojo gigante y morado sobre una columna de piedra
 
 - Planta: 2, 3 y 4 
 
-2.3.10. Robot extractor abandonado 
+##### 2.3.10. Robot extractor abandonado 
 
 Androide minero con ciertos fallos internos 
 
@@ -451,7 +451,7 @@ Androide minero con ciertos fallos internos
 
 - Planta: 1 y 2 
 
-2.3.11. Murciélago 
+##### 2.3.11. Murciélago 
 
 Murciélago común. 
 
@@ -469,7 +469,7 @@ Murciélago común.
 
 - Planta: 1 y 2 
 
-2.3.12. Espectro 
+##### 2.3.12. Espectro 
 
 Fantasma de mineros fallecidos en su labor en la vida 
 
@@ -489,9 +489,9 @@ Fantasma de mineros fallecidos en su labor en la vida
 
  
 
-##### Comportamiento mejorado:  
+#### Comportamiento mejorado:  
 
-2.3.13. Slime de lava 
+##### 2.3.13. Slime de lava 
 
 Monstruo de slime que se divide cuando se derrota. Se divide de 1 a 2 y de 2 a 4. 
 
@@ -509,7 +509,7 @@ Monstruo de slime que se divide cuando se derrota. Se divide de 1 a 2 y de 2 a 4
 
 - Planta: 4 y 5 
 
-2.3.14. Planta enredadera 
+##### 2.3.14. Planta enredadera 
 
 Evolución de la planta original cuyas raíces están por fuera de la tierra. 
 
@@ -531,7 +531,7 @@ Evolución de la planta original cuyas raíces están por fuera de la tierra.
 
 - Planta: 4 y 5 
 
-2.3.15. Robot extractor abandonado mejorado 
+##### 2.3.15. Robot extractor abandonado mejorado 
 
 Androide minero moderno con ciertos fallos internos y que fue dejado en la mina 
 
@@ -549,7 +549,7 @@ Androide minero moderno con ciertos fallos internos y que fue dejado en la mina
 
 - Planta: 3, 4 y 5 
 
-2.3.16. Abejorro 
+##### 2.3.16. Abejorro 
 
 Gran abeja que vive bajo tierra y tiene tonos marrones y las antenas más alargadas a lo común 
 
@@ -567,7 +567,7 @@ Gran abeja que vive bajo tierra y tiene tonos marrones y las antenas más alarga
 
 - Planta: 3 y 4 
 
-2.3.17. Escarabajo Rinoceronte Explosivo 
+##### 2.3.17. Escarabajo Rinoceronte Explosivo 
 
 Gran escarabajo rinoceronte que, a dos patas, empuja una gran bomba con el resto de sus patas 
 
@@ -585,7 +585,7 @@ Gran escarabajo rinoceronte que, a dos patas, empuja una gran bomba con el resto
 
 - Planta: 4 y 5 
 
-2.3.18. Murciélago Mecanizado 
+##### 2.3.18. Murciélago Mecanizado 
 
 Subespecie de murciélago que ha adaptado cierta tecnología a raíz de los robots abandonados. 
 
@@ -603,8 +603,8 @@ Subespecie de murciélago que ha adaptado cierta tecnología a raíz de los robo
 
 - Planta: 4 y 5 
 
-##### Bosses:  
-2.3.19. Araña Gigante 
+#### Bosses:  
+##### 2.3.19. Araña Gigante 
 
 Araña gigante que habita en las minas 
 
@@ -624,7 +624,7 @@ Araña gigante que habita en las minas
 
 - Planta: 1 
 
-2.3.20. Topo Gigante 
+##### 2.3.20. Topo Gigante 
 
 Topo gigante que habita en las minas 
 
@@ -640,7 +640,7 @@ Topo gigante que habita en las minas
 
 - Planta: 2 
 
-2.3.21. Gusano Gigante 
+##### 2.3.21. Gusano Gigante 
 
 Gusano gigante de piedras que habita en las minas 
 
@@ -658,7 +658,7 @@ Gusano gigante de piedras que habita en las minas
 
 - Planta: 3 
 
-2.3.22. Abeja reina Gigante 
+##### 2.3.22. Abeja reina Gigante 
 
 Abeja reina gigante adaptada a las minas 
 
@@ -680,7 +680,7 @@ Abeja reina gigante adaptada a las minas
 
 - Planta: 4 
 
-2.3.23. Nomed 
+##### 2.3.23. Nomed 
 
 Demonio que vive en el fondo de las minas y custodia grandes tesoros 
 
@@ -705,7 +705,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 #### 2.4 Ítems 
 
-2.4.1. Ítem genérico 1 
+##### 2.4.1. Ítem genérico 1 
 
 - Nombre: Botas de explorador. 
 
@@ -717,7 +717,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugar predominante: primeras plantas (60% en 1 y 30% en 2, 10% resto). 
 
-2.4.2. Ítem genérico 2 
+##### 2.4.2. Ítem genérico 2 
 
 - Nombre: Revientarrocas. 
 
@@ -729,7 +729,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugar predominante: plantas intermedias (30% en 3 y 25% en 4, 45% en resto). 
 
-2.4.3. Ítem genérico 3 
+##### 2.4.3. Ítem genérico 3 
 
 - Nombre: Tuerca W98. 
 
@@ -741,7 +741,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugar predominante: cualquier planta (20% en todas). 
 
-2.4.4. Ítem genérico 4 
+##### 2.4.4. Ítem genérico 4 
 
 - Nombre: Brazalete de unión. 
 
@@ -753,7 +753,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugar predominante: Plantas 3 y 4. 
 
-2.4.5. Ítem genérico 5 
+##### 2.4.5. Ítem genérico 5 
 
 - Nombre: Mazorca de maíz. 
 
@@ -765,7 +765,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugar predominante: todas (hace spawn de forma random al matar enemigos). 
 
-2.4.6. Ítem genérico 6 
+##### 2.4.6. Ítem genérico 6 
 
 - Nombre: Gema de torbernita. 
 
@@ -777,7 +777,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugar predominante: 1 y 2. 
 
-2.4.7. Ítem genérico 7 
+##### 2.4.7. Ítem genérico 7 
 
 - Nombre: Guantelete automático 
 
@@ -789,7 +789,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugar predominante: 1 y 2. 
 
-2.4.8. Ítem genérico 8 
+##### 2.4.8. Ítem genérico 8 
 
 - Nombre: Reloj de bolsillo. 
 
@@ -801,7 +801,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugar predominante: plantas 2 y 3. 
 
-2.4.9. Ítem genérico 9 
+##### 2.4.9. Ítem genérico 9 
 
 - Nombre: Cantimplora abandonada. 
 
@@ -813,7 +813,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Cualquier planta (20% en todas). 
 
-2.4.10. Ítem genérico 10 
+##### 2.4.10. Ítem genérico 10 
 
 - Nombre: Refrigeración externa. 
 
@@ -825,7 +825,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugar predominante: plantas 2, 3 y 4. 
 
-2.4.11. Ítem genérico 11 
+##### 2.4.11. Ítem genérico 11 
 
 - Nombre: Amuleto de la suerte. 
 
@@ -837,7 +837,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Plantas 4 y 5. 
 
-2.4.12. Ítem genérico 12 
+##### 2.4.12. Ítem genérico 12 
 
 - Nombre: Espejo reflector. 
 
@@ -849,7 +849,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares Predominantes: Plantas 3, 4 y 5 
 
- 2.4.13. Ítem genérico 13 
+##### 2.4.13. Ítem genérico 13 
 
 - Nombre: Gran Taladradora de Gwein. 
 
@@ -861,7 +861,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Plantas 2 y 3. 
 
-2.4.14. Ítem genérico 14 
+##### 2.4.14. Ítem genérico 14 
 
 - Nombre: Evergun 3.0. 
 
@@ -873,7 +873,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Plantas 3, 4 y 5. 
 
-2.4.15. Ítem genérico 15 
+##### 2.4.15. Ítem genérico 15 
 
 - Nombre: Evergun zurda. 
 
@@ -885,7 +885,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Plantas 1 y 2. 
 
-2.4.16. Ítem genérico 16 
+##### 2.4.16. Ítem genérico 16 
 
 - Nombre: Magnetgun. 
 
@@ -897,7 +897,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Plantas 2 y 3. 
 
-2.4.17. Ítem genérico 17 
+##### 2.4.17. Ítem genérico 17 
 
 - Nombre: Telenergía. 
 
@@ -909,7 +909,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Plantas 1, 2 y 3. 
 
-2.4.18. Ítem genérico 18 
+##### 2.4.18. Ítem genérico 18 
 
 - Nombre: Treasure Changer. 
 
@@ -921,7 +921,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Cualquier planta (15% en todas). 
 
-2.4.19. Ítem genérico 19 
+##### 2.4.19. Ítem genérico 19 
 
 - Nombre: Oiler dañado. 
 
@@ -933,7 +933,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Plantas 1, 2 y 3. 
 
-2.4.20. Ítem genérico 20 
+##### 2.4.20. Ítem genérico 20 
 
 - Nombre: Runas ininteligibles. 
 
@@ -945,7 +945,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Plantas 4 y 5. 
 
-2.4.21. Ítem genérico 21 
+##### 2.4.21. Ítem genérico 21 
 
 - Nombre: Almacenador energético. 
 
@@ -957,7 +957,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Plantas 3, 4 y 5. 
 
-2.4.22. Ítem genérico 22 
+##### 2.4.22. Ítem genérico 22 
 
 - Nombre: Restos radioactivos. 
 
@@ -969,7 +969,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Plantas 3 y 4. 
 
-2.4.23. Ítem genérico 23 
+##### 2.4.23. Ítem genérico 23 
 
 - Nombre: Tornillo suelto. 
 
@@ -981,7 +981,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugar predominante: 2 y 4 
 
-2.4.24. Ítem genérico 24 
+##### 2.4.24. Ítem genérico 24 
 
 - Nombre: Batería 235. 
 
@@ -993,7 +993,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugar predominante: 3, 4 y 5. 
 
-2.4.25. Ítem genérico 25 
+##### 2.4.25. Ítem genérico 25 
 
 - Nombre: Refuerzo cromado. 
 
@@ -1005,7 +1005,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: 4 y 5 
 
-2.4.26. Ítem genérico 26 
+##### 2.4.26. Ítem genérico 26 
 
 - Nombre: "La maldición de Era" (Libro desgastado). 
 
@@ -1017,7 +1017,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugar predominante: Planta 3. 
 
-2.4.27. Ítem genérico 27 
+##### 2.4.27. Ítem genérico 27 
 
 - Nombre: Pedernal potenciador. 
 
@@ -1029,7 +1029,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Plantas 3 y 4. 
 
-2.4.28. Ítem genérico 28 
+##### 2.4.28. Ítem genérico 28 
 
 - Nombre: Thermic One. 
 
@@ -1041,7 +1041,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Plantas 2, 3, 4 y 5. 
 
-2.4.29. Ítem genérico 29 
+##### 2.4.29. Ítem genérico 29 
 
 - Nombre: Collar de Nomed. 
 
@@ -1053,7 +1053,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Todas las plantas 
 
-2.4.30. Ítem genérico 30 
+##### 2.4.30. Ítem genérico 30 
 
 - Nombre: Buscarrutas. 
 
@@ -1065,7 +1065,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugar predominante: 3 y 4. 
 
-2.4.31. Ítem genérico 31 
+##### 2.4.31. Ítem genérico 31 
 
 - Nombre: Pico dorado del gran Monteg. 
 
@@ -1077,7 +1077,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugar predominante: todos. 
 
-2.4.32. Ítem genérico 32 
+##### 2.4.32. Ítem genérico 32 
 
 - Nombre: Moneda Onis. 
 
@@ -1089,7 +1089,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugar predominante: 2, 3 y 4. 
 
-2.4.33. Ítem genérico 33 
+##### 2.4.33. Ítem genérico 33 
 
 - Nombre: Cofreto. 
 
@@ -1101,7 +1101,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: Todas las salas. 
 
-2.4.34. Ítem genérico 34 
+##### 2.4.34. Ítem genérico 34 
 
 - Nombre: Mochila paramédica. 
 
@@ -1113,7 +1113,7 @@ Demonio que vive en el fondo de las minas y custodia grandes tesoros
 
 - Lugares predominantes: 2 y 3. 
 
-2.4.35. Ítem genérico 35 
+##### 2.4.35. Ítem genérico 35 
 
 - Nombre: Alarma antiderrumbamientos. 
 
@@ -1223,7 +1223,7 @@ En cuanto al apartado 3D, como ya se ha comentado en el epígrafe anterior, se h
 
 Tanto personajes como enemigos tienen animaciones con las que se mueven y atacan, mientras que los escenarios tienen una iluminación local en las antorchas que hay en los propios modelos. El efecto de iluminación es el mismo en todas las antorchas, mientras que las animaciones son personalizadas, cada personaje, como es lógico, tiene una animación propia para moverse y otra para atacar. Para acabar, en el menú principal hay una animación de movimiento de cámara que se utiliza para mover el menú a lo largo de todas las paredes de la mina. 
 
-### 5.0 Música 
+### 5. Música 
 
 #### 5.1 Sonido ambiente y música 
 
@@ -1233,7 +1233,7 @@ Tanto la música ambiente, como la música de combate han sido cogidas a partir 
 
 Los efectos de sonido, al igual que la música, se han sacado de bibliotecas externas libres de uso. Se han utilizado en distintas secciones como a la hora de pulsar un botón, cuando se recibe un golpe, cuando se cura algo de vida, cuando se golpea, cuando se dispara, etc. 
 
-### 6.0 Monetización 
+### 6. Monetización 
 
 #### 6.1 Costes asociados 
 
@@ -1245,7 +1245,7 @@ Los costes asociados al desarrollo serían únicamente los sueldos de los trabaj
 | Tipo de sueldo \ Miembro| Pablo | Germán | Alejandro | Enrique | Darío | Dilan |
 | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  |
 | Sueldo Bruto anual(14 pagas)  | 18.000 | 20.000 | 17.000 | 20.000 | 17.500 | 20.700 |
-| Sueldo neto mensual | 1.189,71[5] | 1.321,9 [1] | 1.123,62[2] | 1.321,9 [1] | 1.156,67[3] | 1.368,17[4] |
+| Sueldo neto mensual | 1.189,71 [5] | 1.321,9 [1] | 1.123,62[2] | 1.321,9 [1] | 1.156,67 [3] | 1.368,17 [4] |
 | Sueldo neto hora | 8,61 | 9,56 | 8,13 | 9,56 | 8,37 | 9,9 |
 
 [1] https://es.indeed.com/career/programador-junior/salaries?hl=es 
@@ -1276,7 +1276,7 @@ Una última posibilidad que se había pensado es negociar el incluir el juego en
 
 Para acabar tenemos pensado que en la versión de navegador salga un pequeño mensaje tras completar una run (o varias, dependiendo de la dificultad que establezcamos), donde se sugiera al jugador que puede donar y comprar nuestro merchandising. Estas donaciones se cerrarían una vez se publicara la versión 1.0 y lo que se sugeriría en ese mensaje es que se compre la versión de pago correspondiente a la plataforma en la que se juegue. 
 
-[1]https://steamspy.com/tag/Rogue-like 
+[1] https://steamspy.com/tag/Rogue-like 
 
 [2] https://west.paxsite.com 
 
@@ -1296,194 +1296,31 @@ A continuación, se pasa a mostrar una tabla con las principales tareas, su fech
 | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  |
 | GDD 1 página | 15/12 | 16/12 | Todos | Sí |
 | GDD | 16/12 | 13/01 | Todos |
-| Apartado Visual  |   |   |   |   |   |
+| Apartado Visual  | -------------  | ------------- | ------------- | ------------- | ------------- |
 | Fichas de personajes | 18/12 | 22/12 | Pablo | Sí |
 | Diseño de personajes 1 | 14/12 | 20/12 | Alejandro | Sí |
 | Diseño de personajes 2 | 21/12 | 27/12 | Alejandro | Sí | 
 | Diseño de ítems  | 28/12 | 3/01 | Alejandro | Sí |
 | Diseño de interfaz | 4/01 | 10/01 | Alejandro | Sí | 
 | Modelado de personajes | 15/12 | 29/12 | Darío | Sí | 
-
-Modelado de escenario 
-
-30/12 
-
-5/01 
-
-Darío 
-
- 
-
-Animación de personajes  
-
-6/01 
-
-12/01 
-
-Darío 
-
- 
-
-Diseño y misc. 
-
- 
-
- 
-
- 
-
- 
-
-Brainstorming 
-
-13/12 
-
-21/12 
-
-Pablo y Dilan 
-
-Sí 
-
-Establecer mecánicas 
-
-11/12 
-
-21/12 
-
-Todos 
-
-Sí 
-
-Equilibrar mecánicas 
-
-21/12 
-
-28/12 
-
-Pablo y Dilan 
-
-Sí 
-
-Planteamiento de narrativa 
-
-11/12 
-
-14/12 
-
-Pablo 
-
-Sí 
-
-Beta Testing 
-
-25/12 
-
-12/01 
-
-Pablo, Dilan, Darío y Alejandro 
-
- 
-
-Realización del tráiler 
-
-11/01 
-
-13/01 
-
-Pablo y Dilan 
-
- 
-
-Management de redes sociales 
-
-15/12 
-
-13/01 
-
-Dilan 
-
- 
-
-Programación 
-
- 
-
- 
-
- 
-
- 
-
-Algoritmo de generación de terreno 
-
-17/12 
-
-24/12 
-
-Germán 
-
-Sí 
-
-Componentes de los personajes 
-
-25/12 
-
-29/12 
-
-Enrique 
-
-Sí 
-
-Sistema de objetos 
-
-25/12 
-
-31/12 
-
-Enrique y Germán 
-
-Sí 
-
-Componentes de enemigos 
-
-18/12 
-
-25/12 
-
-Enrique 
-
- 
-
-Interfaz (PC y móvil) 
-
-30/12 
-
-31/12 
-
-Pablo 
-
-Sí 
-
-Cliente – Servidor 
-
-1/01 
-
-7/01 
-
-Germán y Enrique 
-
-Sí 
-
-Corrección de bugs 
-
-08/12 
-
-13/01 
-
-Germán y Enrique 
-
- 
-
+| Modelado de escenario | 30/12 | 5/01 | Darío | Sí |
+| Animación de personajes | 6/01 | 12/01 | Darío | Sí |
+| Diseño y misc. | -------------  | ------------- | ------------- | ------------- | ------------- |
+| Brainstorming | 13/12 | 21/12 | Pablo y Dilan | Sí |
+| Establecer mecánicas | 11/12 | 21/12 | Todos | Sí |
+| Equilibrar mecánicas | 21/12 | 28/12 | Pablo y Dilan | Sí |
+| Planteamiento de narrativa | 11/12 | 14/12 | Pablo | Sí |
+| Beta Testing | 25/12 | 12/01 | Pablo, Dilan, Darío y Alejandro | Sí |
+| Realización del tráiler | 11/01 | 13/01 | Pablo y Dilan | Sí |
+| Management de redes sociales | 15/12 | 13/01 | Dilan | Sí |
+| Programación | -------------  | ------------- | ------------- | ------------- | ------------- |
+| Algoritmo de generación de terreno | 17/12 | 24/12 | Germán | Sí |
+| Componentes de los personajes | 25/12 | 29/12 | Enrique | Sí |
+| Sistema de objetos | 25/12 | 31/12 | Enrique y Germán | Sí |
+| Componentes de enemigos | 18/12 | 25/12 | Enrique | Sí |
+| Interfaz (PC y móvil) | 30/12 | 31/12 | Pablo | Sí |
+| Cliente – Servidor | 1/01 | 7/01 | Germán y Enrique | Sí |
+| Corrección de bugs | 08/12 | 13/01 | Germán y Enrique | Sí |
  
 
 #### 6.4 Business Model Canvas 
@@ -1496,7 +1333,7 @@ Por último, se pasa a mostrar el Business Model Canvas del videojuego:
 
  
 
-### 7.0 Futuro del proyecto 
+### 7. Futuro del proyecto 
 
 En este último apartado se hablará en profundidad del futuro del proyecto y cómo pensamos que se va a mantener rentable durante los siguientes dos años. 
 
