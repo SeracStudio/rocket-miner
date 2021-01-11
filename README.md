@@ -84,6 +84,7 @@
 
 - Expansiones 
 
+### Licencias
  
 
  
@@ -1276,3 +1277,38 @@ Tras unos meses, aproximadamente 3, donde hayamos podido hacer algo de publicida
 Tras la salida de la versión de pago del juego, que sería aproximadamente en abril, se tiene pensado sacar 4 expansiones donde se profundice en la historia y, nuevamente se añadan enemigos, bosses y objetos. Estas expansiones se desarrollarían cada 5 o 6 meses cada una, ya que el contenido que se añada cada vez va a ser mayor y no queremos caer en repeticiones o mecánicas similares a las que ya tengamos, por lo que queremos tener tiempo suficiente como para pensar estos nuevos elementos y balancearlos sin uso de betas abiertas o ‘probando con nuestra comunidad’. La primera expansión coincide con 2 eventos importantes de videojuegos como son la PAX y la MGW (Madrid Games Week) en los que intentaríamos estar para publicitar tanto el juego en sí como la primera expansión. 
 
 Para terminar, el último elemento que incluiríamos sería nuevos personajes. La historia da la flexibilidad suficiente como para introducir nuevos personajes y que siga habiendo una coherencia narrativa y visual. Por otro lado, introducir estos personajes a nivel mecánico sería lo más laborioso ya que se debe mantener la línea de la colaboración entre jugadores, pero sin opacar los personajes que ya hay. Por ello, este último elemento es una idea que no se sabe si se va a realizar y que depende mucho de la evolución y progesión del proyecto. 
+
+### 8. Licencias
+#### Comunicación: 
+
+- WhatsApp y Discord: para intercambios de mensajes de menor importancia o en los que se busca una respuesta rápida 
+
+- Microsoft Teams: para hacer las reuniones 
+
+#### Almacenamiento: 
+
+- Google Drive: versión gratuita de 15 GB 
+
+- Microsoft Teams: se guardan todos los documentos que se consideren relevantes para el proyecto 
+
+- GitHub: se utiliza de manera similar a Microsoft Teams 
+
+#### Arte: 
+
+- Adobe Photoshop CC 2018: se ha utilizado la versión de myApps.  
+
+- Adobe After Effects CC 2018: se ha utilizado la versión de myApps. Se ha usado para la elaboración de la intro del estudio. 
+
+- Adobe Premiere CC 2018: se ha usado una versión alquilada del mismo. Se ha usado para la elaboración de la intro del estudio. 
+
+- Blender: software opensource. Se ha usado para la elaboración de los modelos 3D, su texturizado y sus animaciones. 
+
+#### Narrativa: 
+
+- Word Online: se ha usado para escribir la historia y las fichas de personajes. 
+
+#### Programación: 
+
+- Unity 2020.1.15: se ha utilizado para la programación de la parte del cliente 
+
+- Photon Pun2: se ha utilizado para la parte de servidor 
