@@ -1,0 +1,549 @@
+Stats:
+
+ -Chica: velocidad de mov, vel de disparo, daño, vida, cd de habilidades
+ -Robot: velocidad de mov, cd de habilidades, duración del stun
+
+
+      <div class="col-xl-6 shuffle-item">
+        <div class="position-relative rounded hover-wrapper">
+          <img src="{{ site.baseurl }}/{{ item.image }}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+
+Objetos:
+
+ - 1. Botas de explorador (Puesto)
+
+	Descripción: Botas de cuero de color marrón que resultan cómodas 
+	Efecto: aumenta la velocidad del usuario (vel_mov * 1.5) 
+	Posibles usuarios: la chica y el robot 
+	Lugar predominante: primeras plantas (60% en 1 y 30% en 2, 10% resto) 
+	Prioridad: 10
+
+ - 2. Mazorca de maíz
+
+	Descripción: Alimento que ayuda a recuperar energía a los mineros 
+	Efecto: restaura 10 puntos de vida 
+	Posibles usuarios: la chica y el robot 
+	Lugar predominante: todas (hace spawn de forma random al matar enemigos)
+	Prioridad: 10
+
+ - 3. Gema de torbenita
+
+	Descripción: Gema verdosa con la que se potenciaba las Everguns 
+	Efecto: Aumenta daño (damage * 1.5)
+	Posibles usuarios: la chica
+	Lugar predominante: 1 y 2
+	Prioridad: 10 
+
+ - 4. Guantele automático: 
+
+	Descripción: Guantes mecánicos que funcionan por vapor.
+	Efecto: Aumenta vel de disparo (vel_dis * 1.5)
+	Posibles usuarios: la chica
+	Lugar predominante: 1 y 2
+	Prioridad: 10
+
+ - 5. Reloj de bolsillo
+
+	Descripción: Pequeño reloj que se suele llevar a la mina para no perder la noción del tiempo
+	Efecto: reduce el cd de los habilidades (cd * 0.75)
+	Posibles usuarios: la chica y el robot 
+	Lugar predominante: plantas 2 y 3
+	Prioridad: 10
+
+ - 6. Refrigeración externa
+
+	Descripción: Mecanismo anticuado que se usaba para enfriar máquinas mineras
+	Efecto: Aumenta duración del stun (stun_time * 1.75)
+	Posibles usuarios: el robot 
+	Lugar predominante: plantas 2, 3 y 4
+	Prioridad: 10 
+
+- 7. Cantimplora abandonada: 
+
+   	 Descripción: Cantimplora que contiene una bebida que ayuda a estar más acctivo
+    	 Efecto: Aumenta velocidad de movimiento (vel_mov * 1.20) y velocidad de disparo (vel_disp * 1.20)
+    	 Posibles usuarios: la chica
+    	 Lugares predominantes: Cualquier planta (20% en todas).
+     	 Prioridad: 10.
+
+- 19. Restos radioactivos: 
+
+    	 Descripción: Restos de material radioactivo que puede ayudar a los robots a ser más rápidos.
+    	 Efecto: Aumenta la velocidad de movimiento del robot (vel_mov * 1.5) y aumenta el de cd de las habilidades (cooldown * 0.75).
+    	 Posibles usuarios: Robot.
+    	 Lugares predominantes: Plantas 3 y 4.
+    	 Prioridad: 10.
+
+- 20. Tuerca W98 (Puesto)
+
+	Descripción: arreglo ancestral que se le hacían a los robots exploradores 
+	Efecto: reduce la velocidad de movimiento (vel_mov * 0.75) y el cooldown (cooldown * 0.75). Y aumenta el tiempo de stun (stun * 1.5). A nivel visual el robot cambia su color a tonos marrones. 
+	Posibles usuarios: el robot 
+	Lugar predominante: cualquier planta (20% en todas) 
+	Prioridad: 9
+
+ - 22. Batería 235: 
+
+	Descripción: pequeño cilindro fluorescente con gran capacidad energética
+	Efecto: se potencian todos tus stats (*1.25) pero te hace daño cada vez que cambies de sala
+	Posibles usuarios: ambos
+	Lugar predominante: 3, 4 y 5
+	Prioridad: 9
+
+ - 30. Moneda Onis:	
+
+	Descripción: Moneda de bronce en la que por una parte está Nomed y por la otra hay un tunel. Se dice que atrae la suerte.
+	Efecto: aleatoriamente aumenta o disminuye una stat (multiplicándolo por 1.5 o 0.5) cada vez que se entre en una sala
+	Posibles usuarios: ambos
+	Lugar predominante: 2, 3 y 4
+	Prioridad: 9
+
+ - 32. Mochila paramédica: 
+
+    	 Descripción: Mochila que se utiliza para los primeros primeros auxilios
+    	 Efecto: Cura vida (10 puntos) al entrar en la sala.
+    	 Posibles usuarios: Chica.
+    	 Lugares predominantes: 2 y 3.
+    	 Prioridad: 9.
+
+ - 34. Brazalete de unión
+
+	Descripción: decorativo emblemático de cualquier minero que representa la hermandad entre ambos
+	Efecto: si ambos están cerca, el daño (damage * 1.5) y vel de disparo (vel_dis * 2) aumenta
+	Posibles usuarios: la chica
+	Lugar predominante: plantas 3 y 4
+	Prioridad: 9
+  
+
+ - 35. Revientarrocas (Puesto)
+
+	Descripción: artefacto antiguo que dispara aire para destruir rocas a presión 
+	Efecto: reduce la velocidad de disparo (vel_dis * 0.75) y aumenta el daño (damage * 3). A nivel visual supone un cambio de arma 
+	Posibles usuarios: la chica 
+	Lugar predominante: plantas intermedias (30% en 3 y 25% en 4, 45% en resto) 
+	Prioridad: 8
+
+- 18. Almacenador energético: 
+
+    	 Descripción: Dispositivo capaz de almacenar energía de los músculos y luego soltarla en un solo golpe.
+    	 Efecto: Puedes cargar el ataque haciendo más daño (vel_dis * 0.5 y damage * 2)
+    	 Posibles usuarios: Chica.
+    	 Lugares predominantes: Plantas 3, 4 y 5.
+    	 Prioridad: 8
+
+
+
+
+
+
+- 8. Amuleto de la suerte: 
+    
+	 Descripción: Cuentan las leyendas que este pequeño colgante  es capaz de revivir a aquellas personas que han muerto con él puesto.
+    	 Efecto: Revive al morir
+    	 Posibles usuarios: Chica (afecta a ambos)
+    	 Lugares predominantes: Plantas 4 y 5.
+    	 Prioridad: 6.
+
+ - 9. Espejo reflector: 
+
+     	 Descripción: Espejo blindado con la capacidad de hacer rebotar cualquier proyectil que impacte en su superficie.
+     	 Efecto: refleja el ataque con el escudo.
+     	 Posibles usuarios: Robot.
+     	 Lugares Predominantes: Plantas 3, 4 y 5
+     	 Prioridad: 7. 
+
+ - 10. Gran Taladradora de Gwein:
+    
+	 Descripción: Arma del maestro minero Gwein usaba para cegar a sus enemigos haciendo grandes agujeros por los que entraba la luz
+    	 Efecto: Stun en área. 
+    	 Posibles usuarios: Robot.
+    	 Lugares predominantes: Plantas 2 y 3.
+    	 Prioridad: 8.
+
+ - 11. Evergun 3.0: 
+
+    	 Descripción: Evergun moderna que usan los mineros de alto rango. Incorpora una actualización para extraer minerales.
+    	 Efecto: Disparo continuo y puede romper las piedras que se encuentre a su paso.
+    	 Posibles usuarios: Chica.
+    	 Lugares predominantes: Plantas 3, 4 y 5.
+    	 Prioridad: 9.
+
+- 12. Evergun zurda: 
+    
+	 Descripción: Versión poco conocida de la evergun común que se adaptaba para la mano izquierda
+    	 Efecto: Diparos contrarios (dispara uno para un lado y otro para el otro).
+    	 Posibles usuarios: Chica.
+     	 Lugares predominantes: Plantas 1 y 2.
+    	 Prioridad: 9.
+
+ - 13. Magnetgun: 
+
+    	 Descripción: Arma usada por los mineros de oriente. Aprovecha un proyectil imantado, para hacer que la munición vuelva tras ser disparada.
+    	 Efecto: Dispara y el tiro vuelve al jugador.
+    	 Posibles usuarios: Chica.
+    	 Lugares predominantes: Plantas 2 y 3.
+    	 Prioridad: 9.
+
+ - 14. Telenergía: 
+
+    	 Descripción: Mecanismo que permite a un robot centrar parte de su energía en una zona en concreto. Este necesita de un tiempo de enfriamiento.
+    	 Efecto: Al principio de cada sala, pone un escudo.
+    	 Posibles usuarios: Robot.
+    	 Lugares predominantes: Plantas 1, 2 y 3.
+    	 Priorida: 8.
+
+- 15. Treasure Changer: 
+
+    	 Descripción: Se trata de un tesoro maldito que provoca el cambio del cuerpo del minero que lo toque con cualquier ser a su alrededor.
+    	 Efecto: Cambia roles.
+    	 Posibles usuarios: Chica y robot.
+    	 Lugares predominantes: Cualquier planta (15% en todas).
+    	 Prioridad: 7.
+
+ - 16. Oiler dañado: 
+
+    	 Descripción: Herramienta con la que se rellena el tanque de aceite a un robot
+    	 Efecto: El robot suelta aceite que provoca daño residual (constante).
+    	 Posibles usuarios: Robot.
+    	 Lugares predominantes: Plantas 1, 2 y 3.
+    	 Prioridad: 7.
+
+ - 17. Runas ininteligibles: 
+
+    	 Descripción: Trozo de piedra donde se encuentran una serie de inscripciones en un idioma desconocido.
+    	 Efecto: Telestransporta a los dos a una sala aleatorio de la planta.
+    	 Posibles usuarios: Chica y Robot.
+    	 Lugares predomianntes: Plantas 4 y 5.
+    	 Prioridad: 5.
+
+ - 21. Tornillo suelto:
+
+	Descripción: tornillo común. ¿Quizá se le ha caído a alguien? 
+	Efecto: una vez se entra en una sala, hay una probabilidad (1 de 6) de que se inviertan los controles de movimiento
+	Posibles usuarios: el robot 
+	Lugar predominante: 2 y 4 
+	Prioridad: 8
+
+ - 23. Refuerzo cromado
+
+	Descripción: cubierta metálica que se incorpora en maquinaria pesada para aumentar su potencia 
+	Efecto: al usar el puño del robot, se empuja al enemigo hasta otro enemigo o una pared stuneándolo (si choca contra un enemigo stunea a ambos) 
+	Posibles usuarios: el robot 
+	Lugar predominante: 4 y 5 
+	Prioridad: 7
+
+- 24. "La maldición de Era" (Libro desgastado):
+
+    	 Descripción: Libro de cubierta morada y hojas verdes que cuenta la leyenda de Era.
+    	 Efecto: Al matar a un enemigo, hay una posibildad de controlarlo hasta que se muera.
+    	 Posibles usuarios: Chica y robot.
+    	 Lugar predominante: Planta 3.
+    	 Prioridad: 6.
+
+ - 25. Pedernal potenciador: 
+
+    	 Descripción: Pequeño mineral oscuro que permite aumentar el tamaño de la zona donde se produce el disparo del arma.
+    	 Efecto: dispara en cono (en un gran área).
+    	 Posibles usuarios: Chica.
+    	 Lugares predominantes: Plantas 3 y 4.
+    	 Prioridad: 8.
+
+ - 26. Thermic One: 
+
+    	 Descripción: Tubo relleno de lava, cuya energía interna se aumenta la fuerza de los robots. Requiere de un tiempo para volver a usarse.
+    	 Efecto: Mata con el primer puño (no contra jefes).
+    	 Posibles usuarios: Robot.
+    	 Lugares predominantes: Plantas 2, 3, 4 y 5.
+    	 Prioridad: 7.
+
+ - 27. Collar de Nomed: 
+
+    	 Descripción: Collar del mismo demonio, y en él albergan distintas maldiciones.
+    	 Efecto: Te teletransporta al jefe de la planta.
+    	 Posibles usuarios: Chica y robot.
+    	 Lugares predominantes: Todas las plantas
+      	 Prioridad: 8
+
+ - 28. Buscarrutas
+
+	Descripción: Avanzado hardware que muestra los túneles de una mina
+	Efecto: revela el mapa
+	Posibles usuarios: ambos
+	Lugar predominante: 3 y 4
+	Prioridad: 10
+
+ 
+ - 29. Pico dorado del gran Monteg
+
+	Descripción: Se dice que es el pico más valioso y con el que se han encontrado los mejores tesoros, pero nadie lo ha visto en uso
+	Efecto: no hace nada
+	Posibles usuarios: ambos
+	Lugar predominante: todos
+	Prioridad: 5
+
+ - 31. Cofreto: 
+
+    	 Descripción: Gran caja de marmol que permite ascender espiritualmente a los mineros si dan todos sus bienes materiales.
+    	 Efecto: Cambia aleatoriamente todos los objetos que tengan los personajes una sola vez.
+    	 Posibles usuarios: Chica y robot.
+    	 Lugares predominantes: Todas las salas.
+    	 Prioridad: 7
+
+- 33. Alarma antiderrumbamientos: 
+    	
+	 Descripción: Aparato que brilla en un color rojizo que suena un fuerte pitido en el caso de que ocurra un derrumbamiento. La llevan los mineros en su espalda.
+    	 Efectos: Atrae a los enemigos cuando activa el puño.
+    	 Posibles usuarios: Robot.
+    	 Lugares predominantes: 3, 4 y 5.
+    	 Prioridad: 9.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Enemigos (12 enemigos y 6 mejorados):
+
+Básicos:
+ - 1. Araña (mejora es el boss): 
+
+	Tipo de ataque: lanza veneno en forma de proyectil. Su disparo se para poniéndose delante.
+	Vida: 15 
+	Daño de ataque: 4 
+	Velocidad: 5
+	Peligrosidad: 1 
+	Planta: 1
+	Prioridad: 10
+
+ - 2. Robot lanzalaser: 
+
+	Tipo de ataque: lanzan un ataque teledirigido a la chica. Su disparo se detiene con la hab del robot. 
+	Vida: 40 
+	Daño de ataque: 10 
+	Velocidad: 2
+	Peligrosidad: 3
+	Planta: 2, 3 y 4
+	Prioridad: 8
+
+ - 3. Minero melee: 
+
+	Tipo de ataque: van a melee a golpear con un pico. Se detiene cuando se pega el puño.  
+	Vida: 25 
+	Daño de ataque: 7 
+	Velocidad: 6
+	Peligrosidad: 2
+	Planta: 1 y 2
+	Prioridad: 9
+
+ - 4. Escarabajo minero (mejorado): 
+
+	Tipo de ataque: cuando ven al jugador van hacia él y explotan 4 segundos después de haber empezado a caminar (se muere al explotar, no suelta vida). Su explosión se detiene con la hab del robot.
+	Vida: 15 
+	Daño de ataque: 15
+	Velocidad: 8
+	Peligrosidad: 2
+	Planta: 2 y 3
+	Prioridad: 7
+
+ - 5. Slime (mejorado): 
+
+	Tipo de ataque: huye del jugador y cuando es derrotado se divide (de 1 a 2 y de 2 a 4)  
+	Vida: 20, 10 y 10 y 5, 5, 5 y 5.
+	Daño de ataque: 0
+	Velocidad: 4
+	Peligrosidad: 0
+	Planta: todas
+	Prioridad: 10
+
+ - 6. Planta (mejorado): 
+
+	Tipo de ataque: Está estática y dispara un veneno que te ralentiza
+	Vida: 30
+	Daño de ataque: 0
+	Velocidad: 0
+	Peligrosidad: 1
+	Planta: todas
+	Prioridad: 8
+
+ - 7. Golem de piedra: 
+
+	Tipo de ataque: Camina de forma aleatoria y se detiene para provocar avalanchas del cielo
+	Vida: 60
+	Daño de ataque: 20
+	Velocidad: 6
+	Peligrosidad: 4
+	Planta: 3 y 4
+	Prioridad: 8
+
+ - 8. Topo (mejora es el boss): 
+
+	Tipo de ataque: se mete debajo de tierra y le lanza un zarpazo cuando sale. Si el robot usa su hab en el agujero de salida vuelve al sitio original.
+	Vida: 25
+	Daño de ataque: 8
+	Velocidad: 9
+	Peligrosidad: 2
+	Planta: 1 y 2
+	Prioridad: 9
+
+ - 9. Ojo Centinela: 
+
+	Tipo de ataque: Está estático en el centro de la sala y gira 360º disparando un laser continuo. Se para con la hab del robot.
+	Vida: 30. Tiene un escudo inicial que hace que los disparos no le quiten vida. El escudo se quita con el puño del robot.
+	Daño de ataque: 8
+	Velocidad: 0
+	Peligrosidad: 4. Están solos o con las plantas.
+	Planta: 2, 3 y 4
+	Prioridad: 9
+
+ - 10. Robot extractor abandonado (mejorado): 
+
+	Tipo de ataque: huye de ti y te dispara carbón. Su disparo se para poniéndose delante.
+	Vida: 20
+	Daño de ataque: 10
+	Velocidad: 6
+	Peligrosidad: 2
+	Planta: 1 y 2
+	Prioridad: 8
+
+ - 11. Murciélago: 
+
+	Tipo de ataque: se acerca a ti aleteando rápidamente y te muerde. Se detiene usando el puño del robot. 
+	Vida: 15
+	Daño de ataque: 6
+	Velocidad: 12
+	Peligrosidad: 1
+	Planta: 1 y 2
+	Prioridad: 8
+
+ - 12. [CAMBIAR] Espectro de minero vengativo que quiere joder a otros mineros (pero ataca al robot, porque así jode al minero) porque es vengativo y se ve porque va a joder al minero (porque es vengativo): 
+
+	Tipo de ataque: se hace invisible y se acerca al robot para stunearlo. Cuando lo stunea, se hace visible y targeteable 2s y después se vuelve invisible de nuevo.
+	Vida: 35
+	Daño de ataque: 0
+	Velocidad: 8
+	Peligrosidad: 1
+	Planta: 1, 2 y 3
+	Prioridad: 7
+
+
+
+
+Complejos: 
+
+ - 13. Slime de lava: 
+
+	Tipo de ataque: huye del jugador y cuando es derrotado se divide (de 1 a 2 y de 2 a 4) pero si el jugador se acerca le hace daño
+	Vida: 40, 25 y 25 y 15, 15, 15 y 15.
+	Daño de ataque: 5
+	Velocidad: 5
+	Peligrosidad: 2
+	Planta: 4 y 5
+	Prioridad: 8
+
+ - 14. Planta enredadera: 
+
+	Tipo de ataque: Está estática y dispara un veneno que te quita vida. Si te acercas en un radio determinado, te ralentiza
+	Vida: 40
+	Daño de ataque: 15
+	Velocidad: 0
+	Peligrosidad: 3
+	Planta: 4 y 5
+	Prioridad: 6
+
+ - 15. Robot extractor abandonado mejorado: 
+
+	Tipo de ataque: huye de ti y te dispara carbón ardiendo que si impacta hace daño residual por tiempo (15 durante 1s). Su disparo se para poniéndose delante.
+	Vida: 30
+	Daño de ataque: 15
+	Velocidad: 5
+	Peligrosidad: 4
+	Planta: 3, 4 y 5
+	Prioridad: 7
+
+ - 16. Abejorro:
+
+	Tipo de ataque: va hacia ti, tiene un escudo y te pica. El escudo se quita con puño.
+	Vida: 30
+	Daño de ataque: 15
+	Velocidad: 8
+	Peligrosidad: 3
+	Planta: 3 y 4
+	Prioridad: 8
+
+ - 17. Escarabajo Rinoceronte Explosivo:
+
+	Tipo de ataque: su dura piel actúa de escudo y va hacia ti y explota a los 2 seg (si explota se muere y no sueltan vida). El escudo se quita con puño. Su explosión se detiene con la hab del robot.
+	Vida: 45
+	Daño de ataque: 25
+	Velocidad: 10
+	Peligrosidad: 4
+	Planta: 4 y 5
+	Prioridad: 7
+
+ - 18. Murciélago Mecanizado:
+
+	Tipo de ataque: su parte mecánica actúa de escudo y va hacia ti a gran velocidad y te muerde. El escudo se quita con puño. Si muerde al robot lo stunea.
+	Vida: 35
+	Daño de ataque: 12
+	Velocidad: 20
+	Peligrosidad: 3
+	Planta: 4 y 5
+	Prioridad: 7
+
+
+
+
+Bosses (5):
+
+ - 1. Araña gigante:
+
+	Tipo de ataque: invoca arañas genéricas 
+	[No se incluye] Tipo de ataque 2: dispara lo mismo de la araña anterior 
+	Tipo de ataque 3: lanza telaraña que ralentizan al jugador 
+	Vida: 100 
+	Daño de ataque: 7 
+	Velocidad: 10 
+	Planta: 1 
+
+ - 2. Topo gigante:
+
+	Tipo de ataque: se mete debajo de tierra y le lanza un zarpazo cuando sale
+	[No se incluye] Tipo de ataque 2: dispara hedor venenoso desde una punta de la sala hasta la otra 
+	Tipo de ataque 3: provoca un terremoto que hace que caigan piedras del techo 
+	Vida: 80 
+	Daño de ataque: 10
+	Velocidad: 12
+	Planta: 2
+
+ - 3. Gusano:
+
+	Tipo de ataque: hace agujeros en el suelo y si te caes es GAME OVER
+	[No se incluye] Tipo de ataque 2: tira tierra ralentizando e inutilizando habilidades 
+	Tipo de ataque 3: lanza piedras que rellenan los agujeros del suelo 
+	Vida: 150
+	Daño de ataque: 7
+	Velocidad: 10
+	Planta: 3
+
+ - 4. Abeja queer: 
+
+	Tipo de ataque: lanza abejas como si fueran proyectiles. Se para con la hab del robot
+	Tipo de ataque 2: aletea rápidamente las alas empujando a ambos. Se para con la hab del robot.
+	Mecánica: hay dos colmenas a los lados, hay que destruir esas colmenas (puño + disparo) para poder quitar el primer escudo a la abeja. Después con puño quitamos el segundo y ya se puede matar.
+	Vida: 100
+	Daño de ataque: 8
+	Velocidad: 0
+	Planta: 4 
+
+ - 5. Nomed:
+
+	Tipo de ataque: invoca otros enemigos (en base a su peligrosidad) que hay que derrotarlos para poder hacerle daño. La peligrosad límite va aumentando según baja su vida. Enemigos que invoca: 1, 5, 8, 9, 11, 12, 13, 16, 17 y 18.
+	Comportamiento: se mueve constantemente de izq a der y viceversa y se puede stunear con el puño del robot.
+	Vida: 200
+	Daño de ataque: 0
+	Velocidad: 10
+	Planta: 5
+
+
+
+
+¿Invencible en el dash? Sí
+¿Invencible cuando atacan?
+
