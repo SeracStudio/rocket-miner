@@ -59,8 +59,8 @@ public class BulletController : MonoBehaviour
         return target.normalized;
     }
 
-    public void Shoot(Vector3 pos, Vector3 dirA)
-    {     
+    public void Shoot(Vector3 pos, Vector3 dirA, bool overrideRain = false)
+    {
         Bullet aux = PhotonNetwork.Instantiate("Bullets/" + bullet.name, pos, transform.rotation).GetComponent<Bullet>();
         aux.shootSpeed = stats.GetStat(Stat.SHOT_SPEED);
         aux.damage = stats.GetStat(Stat.SHOT_DMG);
@@ -108,12 +108,13 @@ public class BulletController : MonoBehaviour
             if (this.TryGetComponent(out RockRain r))
             {
                 aux.rain = true;
+                if (overrideRain)
+                    aux.rain = false;
             }
             else
             {
                 aux.rain = false;
-            }
-
+            }         
         }
     }
 }

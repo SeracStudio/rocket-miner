@@ -9,6 +9,8 @@ public class ItemTriggerer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("GIRL") && !other.CompareTag("ROBOT")) return;
+
         if (IsTargetValid(other.gameObject))
         {
             InGameUIManager.RUNNING.TriggerRPC("LaunchPopUp", RpcTarget.AllBuffered, item.itemName, item.itemDescription);

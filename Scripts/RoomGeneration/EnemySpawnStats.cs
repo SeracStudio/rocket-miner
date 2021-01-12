@@ -9,4 +9,5 @@ public class EnemySpawnStats : MonoBehaviour
     public Vector2 floors;
     public Action OnDeath;
     public bool isSlime;
+    public bool isGuardEye;
 }

@@ -125,7 +125,7 @@ public class Enemy : NetworkBehaviour
             shootTime += Time.deltaTime;
             if (shootTime > stats.GetStat(Stat.OFFENSIVE_CD))
             {
-                pbc.Shoot(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), getPlayerDirection().normalized);
+                pbc.Shoot(new Vector3(transform.position.x, tgt.transform.position.y + 1, transform.position.z), getPlayerDirection().normalized, true);
                 //stunned = true;
                 canMove = false;
                 shootTime = 0;
@@ -135,7 +135,9 @@ public class Enemy : NetworkBehaviour
 
     public Vector3 getPlayerDirection()
     {
-        return (tgt.transform.position - this.transform.position);
+        Vector3 playerDirection = tgt.transform.position - this.transform.position;
+        return new Vector3(playerDirection.x, 0, playerDirection.z);
+        //return (tgt.transform.position - this.transform.position);
     }
 
     public void Stunned()

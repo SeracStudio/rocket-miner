@@ -31,8 +31,8 @@ public class MapEnemyFiller : MonoBehaviour
         foreach (MapRoom room in map.Values)
         {
             if (room.type == RoomType.NORMAL)
-                room.enemies = SpecificEnemyPool(specificEnemy, 1);
-                //room.enemies = RandomEnemyPool((floor + 1) * 3, floor);
+                //room.enemies = SpecificEnemyPool(specificEnemy, 1);
+                room.enemies = RandomEnemyPool((floor + 1) * 3, floor);
 
             if (room.type == RoomType.BOSS)
                 room.enemies.Add(bossPool[floor]);

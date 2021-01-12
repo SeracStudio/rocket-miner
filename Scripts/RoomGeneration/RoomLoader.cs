@@ -12,6 +12,7 @@ public class RoomLoader : NetworkBehaviour
     {
         if (!PhotonNetwork.IsMasterClient) return;
         if (!other.CompareTag("GIRL") && !other.CompareTag("ROBOT")) return;
+        if (!MapController.RUNNING.currentRoom.cleared) return;
 
         TriggerRPC("LoadRoom", RpcTarget.AllBuffered);
     }

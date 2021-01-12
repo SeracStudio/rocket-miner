@@ -18,6 +18,7 @@ public class Robot : Player
     public Action<GameObject> OnEnemyPunched;
 
     public Animator anim;
+    public GameObject shieldSphere;
 
     // Start is called before the first frame update
     public override void Start()
@@ -92,13 +93,21 @@ public class Robot : Player
     [PunRPC]
     public void Shield()
     {
+        TriggerRPC(nameof(SetActiveShield), RpcTarget.AllBuffered, true);
         shield = true;
         OnShield?.Invoke();
     }
 
     [PunRPC]
+    public void SetActiveShield(bool state)
+    {
+        shieldSphere.SetActive(state);
+    }
+
+    [PunRPC]
     public void ReleaseShield()
     {
+        TriggerRPC(nameof(SetActiveShield), RpcTarget.AllBuffered, false);
         shield = false;
         canUseShield = false;
         shieldTime = 0.01f;
@@ -180,6 +189,32 @@ public class Robot : Player
         else
         {
             if(shield)
+                bullet.TriggerRPC("Destroy");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        //if (!PlayerInstantiater.RUNNING.IsGirl()) return;
+        if (!isOnMaster) return;
+
+        if (!other.TryGetComponent(out Bullet bullet)) return;
+        if (bullet.playerShoot == 0) return;
+
+        if (!bullet.effects.Contains(new BulletEffect { effect = BEffects.SPECIAL }))
+        {
+            if (TryGetComponent(out ReflectingMirror reflector) && shield)
+            {
+                reflector.Effect(other.gameObject);
+            }
+            else
+            {
+                bullet.TriggerRPC("Destroy");
+            }
+        }
+        else
+        {
+            if (shield)
                 bullet.TriggerRPC("Destroy");
         }
     }

@@ -13,6 +13,9 @@ public class ChromedReinforcement : MonoBehaviour
 
     private void Effect(GameObject target)
     {
+        if (target.GetComponent<Enemy>().boss) return;
+        if (target.GetComponent<EnemySpawnStats>().isGuardEye) return;
+
         StartCoroutine("PunchInaction", target.GetComponent<Enemy>());
         Rigidbody rb = target.GetComponent<Rigidbody>();
         //Vector3 pushDirection = -rb.velocity;

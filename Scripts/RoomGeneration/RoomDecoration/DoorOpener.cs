@@ -9,7 +9,7 @@ public class DoorOpener : MonoBehaviour
     public void CloseDoor()
     {
         transform.position = new Vector3(transform.position.x, -3, transform.position.z);
-        StartCoroutine(LerpToTarget(new Vector3(transform.position.x, 1, transform.position.z), 0.25f));
+        StartCoroutine(LerpToTarget(new Vector3(transform.position.x, 1, transform.position.z), 0.5f));
     }
 
     public void OpenDoor()

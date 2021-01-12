@@ -33,19 +33,7 @@ public class MapRenderer : MonoBehaviour
             }
         }
 
-        if (mapRoom.type == RoomType.NORMAL && !mapRoom.cleared)
-        {
-            foreach (EnemySpawnStats enemy in mapRoom.enemies)
-            {
-                float randomX = Random.Range(-9, 9);
-                float randomY = Random.Range(-9, 9);
-
-                EnemySpawnStats enemySpawned = PhotonNetwork.Instantiate("Enemies/EnemySet/" + enemy.name,
-                    new Vector3(randomX, 0, randomY), Quaternion.identity).GetComponent<EnemySpawnStats>();
-                loadedRoom.spawnedEnemies.Add(enemySpawned);
-                rendered.Add(enemySpawned.gameObject);
-            }
-        }
+        StartCoroutine(SpawnEnemiesAfterDelay(mapRoom, 1f));
 
         if(mapRoom.type == RoomType.BOSS && !mapRoom.cleared)
         {
@@ -94,5 +82,23 @@ public class MapRenderer : MonoBehaviour
                 PhotonNetwork.Destroy(render.gameObject);
         }
         rendered.Clear();
+    }
+
+    IEnumerator SpawnEnemiesAfterDelay(MapRoom mapRoom, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (mapRoom.type == RoomType.NORMAL && !mapRoom.cleared)
+        {
+            foreach (EnemySpawnStats enemy in mapRoom.enemies)
+            {
+                float randomX = Random.Range(-4, 4);
+                float randomY = Random.Range(-4, 4);
+
+                EnemySpawnStats enemySpawned = PhotonNetwork.Instantiate("Enemies/EnemySet/" + enemy.name,
+                    new Vector3(randomX, 0, randomY), Quaternion.identity).GetComponent<EnemySpawnStats>();
+                loadedRoom.spawnedEnemies.Add(enemySpawned);
+                rendered.Add(enemySpawned.gameObject);
+            }
+        }
     }
 }
