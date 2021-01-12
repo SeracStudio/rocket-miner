@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,8 +22,9 @@ public class GiantQueenBee : MonoBehaviour
         enemy = GetComponent<Enemy>();
         girl = FindObjectOfType<Girl>();
         robot = FindObjectOfType<Robot>();
-        Instantiate(colmena, new Vector3(-8, 0.5f, 0), Quaternion.identity);
-        Instantiate(colmena, new Vector3(8, 0.5f, 0), Quaternion.identity);
+        PhotonNetwork.Instantiate("Enemies/EnemySet/" + colmena.name, new Vector3(-10, 0f, 3), Quaternion.identity);
+        PhotonNetwork.Instantiate("Enemies/EnemySet/" + colmena.name, new Vector3(10, 0f, 3), Quaternion.identity);
+        MapController.RUNNING.enemiesLeft += 2;
     }
 
     // Update is called once per frame
@@ -30,7 +32,6 @@ public class GiantQueenBee : MonoBehaviour
     {
         checkColmenas();
         checkAleteo();
-        
     }
 
     private void checkAleteo()
@@ -42,7 +43,7 @@ public class GiantQueenBee : MonoBehaviour
             if (!robot.shield)
             {
                 Aleteo();
-            }           
+            }
         }
     }
 
@@ -64,13 +65,13 @@ public class GiantQueenBee : MonoBehaviour
                 enemy.NoColmena = true;
                 check = false;
             }
-        }      
+        }
     }
 
     private void Aleteo()
     {
-        Vector3 girlDirection = -girl.rigidBody.velocity;
-        Vector3 robotDirection = -robot.rigidBody.velocity;
+        Vector3 girlDirection = girl.transform.position -transform.position;//-girl.rigidBody.velocity;
+        Vector3 robotDirection = robot.transform.position - transform.position;//-robot.rigidBody.velocity;
         girl.knock = true;
         girl.rigidBody.velocity = Vector3.zero;
         robot.knock = true;

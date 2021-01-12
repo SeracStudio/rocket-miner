@@ -100,6 +100,11 @@ public class MapGenerator
         currentPos = lastRoom.position + DirectionFunc.GetVector(lastDirection);
         SpawnRoom();
         lastRoom.type = roomType;
+
+        if(lastRoom.type == RoomType.SPAWN)
+        {
+            lastRoom.cleared = true;
+        }
     }
 
     public void UpdateConfiguration(int pathWidth, int pathDepth, int lateralRatio, int branchingRatio)

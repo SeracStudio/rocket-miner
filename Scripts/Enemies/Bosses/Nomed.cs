@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -56,28 +57,32 @@ public class Nomed : MonoBehaviour
         switch (wave)
         {
             case 1:
-                Instantiate(araña, new Vector3(Random.Range(-7, 7), 0.5f, Random.Range(-7, 7)), Quaternion.identity);
-                Instantiate(slime, new Vector3(Random.Range(-7, 7), 0.5f, Random.Range(-7, 7)), Quaternion.identity);
-                Instantiate(murcielago, new Vector3(Random.Range(-7, 7), 0.5f, Random.Range(-7, 7)), Quaternion.identity);
+                PhotonNetwork.Instantiate("Enemies/EnemySet/"+ araña.name, new Vector3(Random.Range(-7, 7),0f, Random.Range(-7, 7)), Quaternion.identity);
+                PhotonNetwork.Instantiate("Enemies/EnemySet/" + slime.name, new Vector3(Random.Range(-7, 7), 0f, Random.Range(-7, 7)), Quaternion.identity);
+                PhotonNetwork.Instantiate("Enemies/EnemySet/" + murcielago.name, new Vector3(Random.Range(-7, 7), 0f, Random.Range(-7, 7)), Quaternion.identity);
                 Debug.Log(stats.GetStat(Stat.HEALTH));
+                MapController.RUNNING.enemiesLeft += 3;
                 break;
             case 2:
-                Instantiate(slimeLava, new Vector3(Random.Range(-7, 7), 0.5f, Random.Range(-7, 7)), Quaternion.identity);
-                Instantiate(murcielago, new Vector3(Random.Range(-7, 7), 0.5f, Random.Range(-7, 7)), Quaternion.identity);
+                PhotonNetwork.Instantiate("Enemies/EnemySet/" + slimeLava.name, new Vector3(Random.Range(-7, 7), 0f, Random.Range(-7, 7)), Quaternion.identity);
+                PhotonNetwork.Instantiate("Enemies/EnemySet/" + murcielago.name, new Vector3(Random.Range(-7, 7), 0f, Random.Range(-7, 7)), Quaternion.identity);
                 stats.SetStat(Stat.HEALTH, stats.GetStat(Stat.HEALTH) - 50);
                 Debug.Log(stats.GetStat(Stat.HEALTH));
+                MapController.RUNNING.enemiesLeft += 2;
                 break;
             case 3:
-                Instantiate(abejorro, new Vector3(Random.Range(-7, 7), 0.5f, Random.Range(-7, 7)), Quaternion.identity);
-                Instantiate(murcielagoMecanizado, new Vector3(Random.Range(-7, 7), 0.5f, Random.Range(-7, 7)), Quaternion.identity);
+                PhotonNetwork.Instantiate("Enemies/EnemySet/" + abejorro.name, new Vector3(Random.Range(-7, 7), 0f, Random.Range(-7, 7)), Quaternion.identity);
+                PhotonNetwork.Instantiate("Enemies/EnemySet/" + murcielagoMecanizado.name, new Vector3(Random.Range(-7, 7), 0f, Random.Range(-7, 7)), Quaternion.identity);
                 stats.SetStat(Stat.HEALTH, stats.GetStat(Stat.HEALTH) - 50);
                 Debug.Log(stats.GetStat(Stat.HEALTH));
+                MapController.RUNNING.enemiesLeft += 2;
                 break;
             case 4:
-                Instantiate(escarabajoExplosivo, new Vector3(Random.Range(-7, 7), 0.5f, Random.Range(-7, 7)), Quaternion.identity);
-                Instantiate(ojoCentinela, new Vector3(Random.Range(-7, 7), 0.5f, Random.Range(-7, 7)), Quaternion.identity);
+                PhotonNetwork.Instantiate("Enemies/EnemySet/" + escarabajoExplosivo.name, new Vector3(Random.Range(-7, 7), 0f, Random.Range(-7, 7)), Quaternion.identity);
+                PhotonNetwork.Instantiate("Enemies/EnemySet/" + ojoCentinela.name, new Vector3(Random.Range(-7, 7), 0f, Random.Range(-7, 7)), Quaternion.identity);
                 stats.SetStat(Stat.HEALTH, stats.GetStat(Stat.HEALTH) - 50);
                 Debug.Log(stats.GetStat(Stat.HEALTH));
+                MapController.RUNNING.enemiesLeft += 2;
                 break;
             case 5:
                 stats.SetStat(Stat.HEALTH, stats.GetStat(Stat.HEALTH) - 50);

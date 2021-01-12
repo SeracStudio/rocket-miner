@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,6 +40,11 @@ public class StatsController : MonoBehaviour
         if(CompareTag("GIRL") && stat == Stat.HEALTH && value > 100)
         {
             statsDict[stat] = 100;
+        }
+
+        if(stat == Stat.ENEMY_SHIELD && value == 0)
+        {
+            GetComponentInChildren<EnemyShield>().TriggerRPC("SetActiveState", RpcTarget.AllBuffered, false);
         }
 
         OnStatChanged?.Invoke(stat, value);

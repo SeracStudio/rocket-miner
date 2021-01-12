@@ -5,6 +5,7 @@ using UnityEngine;
 public class MapEnemyFiller : MonoBehaviour
 {
     public List<EnemySpawnStats> enemyPool;
+    public List<EnemySpawnStats> bossPool;
     public EnemySpawnStats specificEnemy;
 
     private List<EnemySpawnStats>[] floorsPool;
@@ -30,8 +31,11 @@ public class MapEnemyFiller : MonoBehaviour
         foreach (MapRoom room in map.Values)
         {
             if (room.type == RoomType.NORMAL)
-                room.enemies = SpecificEnemyPool(specificEnemy, 1);
-                //room.enemies = RandomEnemyPool((floor + 1) * 4, floor);
+                //room.enemies = SpecificEnemyPool(specificEnemy, 1);
+                room.enemies = RandomEnemyPool((floor + 1) * 3, floor);
+
+            if (room.type == RoomType.BOSS)
+                room.enemies.Add(bossPool[floor]);
         }
     }
 
@@ -52,7 +56,7 @@ public class MapEnemyFiller : MonoBehaviour
     {
         List<EnemySpawnStats> specificEnemy = new List<EnemySpawnStats>(quantity);
 
-        for(int i = 0; i < quantity; i++)
+        for (int i = 0; i < quantity; i++)
         {
             specificEnemy.Add(enemy);
         }

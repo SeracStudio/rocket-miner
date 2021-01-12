@@ -53,8 +53,9 @@ public class Hole : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
-            //Delete();
-            PhotonNetwork.Destroy(gameObject);
+            if (other.GetComponent<Bullet>().playerShoot == 1)
+                //Delete();
+                PhotonNetwork.Destroy(gameObject);
         }
 
         if (other.gameObject.tag == "ROBOT")

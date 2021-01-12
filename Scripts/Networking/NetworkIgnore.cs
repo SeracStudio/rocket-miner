@@ -7,8 +7,9 @@ public class NetworkIgnore : NetworkBehaviour
 {
     public MonoBehaviour[] behavioursToIgnore;
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         if (isOnMaster) return;
 
         foreach(var behaviour in behavioursToIgnore)

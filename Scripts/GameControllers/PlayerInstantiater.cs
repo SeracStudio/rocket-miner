@@ -14,7 +14,7 @@ public class PlayerInstantiater : NetworkBehaviour
 
         if (PhotonNetwork.IsMasterClient)
         {
-            localPlayer = PhotonNetwork.Instantiate("Players/Girl", new Vector3(3, 0.5f, 0), Quaternion.identity);
+            localPlayer = PhotonNetwork.Instantiate("Players/Girl", new Vector3(3, 0, 0), Quaternion.identity);
         }
         else
         {
