@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,9 @@ public enum ItemList
     BATTERY_235,
     CHROMED_REINFORCEMENT,
     THERMIC_ONE,
-    ONIS_COIN
+    ONIS_COIN,
+    EMPOWERING_FLINT,
+    UNION_BRACELET
 }
 
 public static class ItemFunc
@@ -42,13 +45,14 @@ public static class ItemFunc
                 //target.AddComponent<Disparador>();
                 break;
             case ItemList.EVERGUN_LEFT:
-                //target.AddComponent<Disparador>();
+                target.AddComponent<EvergunLeft>();
                 break;
             case ItemList.MAGNETGUN:
-                //target.AddComponent<Disparador>();
+                target.AddComponent<Magnetgun>();
                 break;
             case ItemList.TELENERGY:
-                target.AddComponent<Telenergy>();
+                //target.AddComponent<Telenergy>();
+                PhotonNetwork.Instantiate("TelenergyShield", target.transform.position, Quaternion.identity);
                 break;
             case ItemList.DAMAGED_OILER:
                 target.AddComponent<DamagedOiler>();
@@ -67,6 +71,12 @@ public static class ItemFunc
                 break;
             case ItemList.ONIS_COIN:
                 target.AddComponent<OnisCoin>();
+                break;
+            case ItemList.EMPOWERING_FLINT:
+                target.AddComponent<EmpoweringFlint>();
+                break;
+            case ItemList.UNION_BRACELET:
+                target.AddComponent<UnionBracelet>();
                 break;
         }
     }

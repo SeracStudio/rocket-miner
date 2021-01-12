@@ -1,3 +1,4 @@
 *.prefab
 *.meta
+*.asset
 Scenes/

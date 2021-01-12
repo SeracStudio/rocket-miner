@@ -100,6 +100,11 @@ public class MapGenerator
         currentPos = lastRoom.position + DirectionFunc.GetVector(lastDirection);
         SpawnRoom();
         lastRoom.type = roomType;
+
+        if(lastRoom.type == RoomType.SPAWN)
+        {
+            lastRoom.cleared = true;
+        }
     }
 
     public void UpdateConfiguration(int pathWidth, int pathDepth, int lateralRatio, int branchingRatio)
@@ -133,7 +138,8 @@ public class MapGenerator
         AddSpecialRoom(RoomType.SPAWN);
         AddSpecialRoom(RoomType.BOSS);
         AddSpecialRoom(RoomType.TREASURE);
+        AddSpecialRoom(RoomType.TREASURE);
 
-        return generatedRooms;
+        return new Dictionary<Vector3, MapRoom>(generatedRooms);
     }
 }

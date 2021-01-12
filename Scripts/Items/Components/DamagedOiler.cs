@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,18 +7,12 @@ public class DamagedOiler : MonoBehaviour
 {
     private readonly float timePerSplash = 1f;
     private float timeSinceLastSplash;
-    private GameObject oilSplash;
 
-
-    private void Awake()
-    {
-        oilSplash = Resources.Load("OilSplash") as GameObject;      
-    }
     private void Update()
     {
         if(timeSinceLastSplash <= 0)
         {
-            Instantiate(oilSplash, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
+            PhotonNetwork.Instantiate("OilSplash", new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
             timeSinceLastSplash = timePerSplash;
         }
         else

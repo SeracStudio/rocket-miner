@@ -11,14 +11,14 @@ public class MeleeAttack : MonoBehaviour
 
     private float canAttackCd=2f;
     private float canAttackTime=0;
-    private bool canAttack = true;
+    public bool canAttack = true;
 
     public List<BulletEffect> attackType;
 
     private StatsController stats;
 
     private targetAttack target;
-    private Player tgt;
+    public Player tgt;
 
     public float distance;
 
@@ -94,6 +94,9 @@ public class MeleeAttack : MonoBehaviour
                         break;
                     case (BEffects.SLOWNESS):
                         tgt.Slowness(stats.GetStat(Stat.SHOT_DMG), effect.durationTime);
+                        break;
+                    case (BEffects.STUN):
+                        tgt.Stunned(stats.GetStat(Stat.SHOT_DMG), effect.durationTime);
                         break;
                 }
             }

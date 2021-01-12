@@ -50,11 +50,6 @@ namespace Photon.Pun
         [NonSerialized]
         private int ownerActorNr; // TODO maybe changing this should trigger "Was Transferred"!?
 
-        public void RPC(string v, object all)
-        {
-            throw new NotImplementedException();
-        }
-
         [FormerlySerializedAs("group")]
         public byte Group = 0;
 

@@ -1,4 +1,4 @@
-﻿using Photon.Pun;
+using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
@@ -47,6 +47,4 @@ public class NetworkController : MonoBehaviourPunCallbacks
         Debug.Log("Disconnected from server for " + cause.ToString());       
 
     }
-
-
 }

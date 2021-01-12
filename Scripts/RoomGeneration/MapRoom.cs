@@ -14,11 +14,24 @@ public class MapRoom
     public Vector3 position;
     public Dictionary<Direction, MapRoom> connections;
 
+    public List<EnemySpawnStats> enemies;
+    public BaseItem item;
+    public bool cleared;
+
+    public List<int> cornerWallsID;
+
     public MapRoom(Vector3 position)
     {
         this.type = RoomType.NORMAL;
         this.position = position;
         connections = new Dictionary<Direction, MapRoom>();
+        enemies = new List<EnemySpawnStats>();
+
+        cornerWallsID = new List<int>(4);
+        for(int i = 0; i < 4; i++)
+        {
+            cornerWallsID.Add(Random.Range(0, 4));
+        }
     }
 
     public void Connect(Direction direction, MapRoom room)

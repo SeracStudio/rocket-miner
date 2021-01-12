@@ -1,11 +1,11 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AreaEffect : MonoBehaviour
+public class AreaEffect : NetworkBehaviour
 {
     // Start is called before the first frame update
-
     public float areaRadius=3;
     public float cd=0;
     public float duration=99999;
@@ -73,14 +73,14 @@ public class AreaEffect : MonoBehaviour
             Collider[] colliders = Physics.OverlapSphere(transform.position, areaRadius);
             foreach (Collider collider in colliders)
             {
-                if (collider.tag == "Attack")
+                if (collider.tag == "GIRL")
                 {
                     attackInRange = true;
                 }
             }
             foreach (Collider collider in colliders)
             {
-                if(collider.gameObject.tag=="Attack"|| collider.gameObject.tag == "ROBOT")
+                if(collider.gameObject.tag=="GIRL"|| collider.gameObject.tag == "ROBOT")
                 {
                     switch (effect.effect)
                     {
@@ -111,11 +111,13 @@ public class AreaEffect : MonoBehaviour
             }
             if (effect.effect == BEffects.EXPLOSION)
             {
-                Destroy(this.gameObject);
+                GetComponent<EnemySpawnStats>().OnDeath?.Invoke();
+                //Destroy(this.gameObject);
                 if(!robotProtected && attackInRange)
                 {
                     girl.Attacked(stats.GetStat(Stat.SHOT_DMG));
-                }  
+                }
+                PhotonNetwork.Destroy(gameObject);
             }
         }
     }

@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : NetworkBehaviour
 {
 
     public Vector3 dir;
@@ -16,14 +17,20 @@ public class Bullet : MonoBehaviour
     public List<BulletEffect> effects;
 
     private Girl girl;
+    private Robot robot;
     private bool tele=false;
     private bool dontDestroy = false;
+
+    public bool magnetGun = false;
+    private float magnetGunTime = 0;
+    private float magnetGunCd = 0.75f;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         girl = FindObjectOfType<Girl>();
+        robot = FindObjectOfType<Robot>();
         foreach (BulletEffect item in effects)
         {
             if (item.effect == BEffects.TELE)
@@ -32,36 +39,54 @@ public class Bullet : MonoBehaviour
                 break;
             }
         }
+        magnetGun = girl.magnetGun;
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!isOnMaster) return;
+
         if (other.tag == "Wall")
         {
-            Destroy(this.gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
 
-        if (rain && other.tag == "Floor")
+        if (other.tag == "Floor")
         {
-            Destroy(this.gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
 
-        if (other.tag =="Enemy" && playerShoot==0 && other.gameObject.GetComponent<StatsController>().GetStat(Stat.ENEMY_SHIELD)==0)
+        if (other.tag =="Enemy" && playerShoot==0)
         {
+
+            if(other.gameObject.GetComponent<StatsController>().GetStat(Stat.ENEMY_SHIELD) == 1)
+            {
+                PhotonNetwork.Destroy(gameObject);
+                return;
+            }
+
             other.gameObject.GetComponent<StatsController>().SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT,other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH), damage));
+
             if (other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH) <= 0)
             {
                 if(other.TryGetComponent(out Slime slime))
                 {
                     other.GetComponent<Slime>().NextSlime();
                 }
-                Destroy(other.gameObject);
+
+                if (other.GetComponent<Enemy>().boss)
+                {
+                    MapController.RUNNING.mapRenderer.rendered.Add(PhotonNetwork.Instantiate("Rooms/FloorStairs", new Vector3(0, 0.01f, 0), Quaternion.identity));
+                }
+
+                MapController.RUNNING.EnemyEliminated();
+                PhotonNetwork.Destroy(other.gameObject);          
             }
-            Destroy(this.gameObject);
+            PhotonNetwork.Destroy(this.gameObject);
         }
 
-        if((other.tag=="Attack" || other.tag=="ROBOT") && playerShoot == 1)
+        if((other.tag=="GIRL") && playerShoot == 1)
         {
             foreach (BulletEffect effect in effects)
             {
@@ -76,6 +101,7 @@ public class Bullet : MonoBehaviour
                     case (BEffects.SLOWNESS):
                         other.gameObject.GetComponent<Player>().Slowness(damage, effect.durationTime);
                         break;
+                        /*
                     case (BEffects.SPECIAL):
                         if (other.tag == "ROBOT")
                         {
@@ -89,12 +115,10 @@ public class Bullet : MonoBehaviour
                             other.gameObject.GetComponent<Player>().Attacked(damage);
                         }
                         break;
+                        */
                 }
             }
-            if (!dontDestroy)
-            {
-                Destroy(this.gameObject);
-            }         
+            TriggerRPC("Destroy");
         }
     }
 
@@ -117,6 +141,26 @@ public class Bullet : MonoBehaviour
             Vector3 dirT = (girl.transform.position - this.transform.position).normalized;
             rigidBody.velocity = new Vector3(dirT.x * shootSpeed, 0, dirT.z * shootSpeed);
         }
+        checkMagnetGun();
+    }
 
+    private void checkMagnetGun()
+    {
+        if (playerShoot == 1) return;
+
+        if (magnetGun)
+        {
+            magnetGunTime += Time.deltaTime;
+            if (magnetGunTime > magnetGunCd)
+            {
+                Vector3 dirToGirl = girl.transform.position - transform.position;
+                dirToGirl.Normalize();
+
+                transform.forward = dirToGirl;
+                dir.x = dirToGirl.x;
+                dir.z = dirToGirl.z;
+                magnetGun = false;
+            }
+        }
     }
 }

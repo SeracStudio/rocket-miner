@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,15 +34,30 @@ public class StatsController : MonoBehaviour
 
     public void SetStat(Stat stat, float value)
     {
+        //Levantar evento (UI, controlador...)
         statsDict[stat] = value;
 
-        //Levantar evento (UI, controlador...)
+        if(CompareTag("GIRL") && stat == Stat.HEALTH && value > 100)
+        {
+            statsDict[stat] = 100;
+        }
+
+        if(stat == Stat.ENEMY_SHIELD && value == 0)
+        {
+            GetComponentInChildren<EnemyShield>().TriggerRPC("SetActiveState", RpcTarget.AllBuffered, false);
+        }
+
         OnStatChanged?.Invoke(stat, value);
         foreach(StatPair listStat in stats)
         {
             if (listStat.stat == stat)
                 listStat.value = value;
         }
+    }
+
+    public void ChangeStat(Stat stat, float amount)
+    {
+        SetStat(stat, GetStat(stat) + amount);
     }
 
     public Dictionary<Stat, float> GetAll()

@@ -1,3 +1,4 @@
+
 ﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,8 +11,6 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     public GameObject MenuToActivate;
     public Camera camera;
     public Vector3 target;
-
-
     public float speed = 1.0f;
 
     private float startTime;
@@ -25,7 +24,6 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
         startTime = Time.time;
         initialPos = camera.transform.position;
         distance = Vector3.Distance(target, initialPos);
-        
     }
 
     // Update is called once per frame
@@ -66,7 +64,4 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
         }
         return null;
     }
-
-
-   
 }

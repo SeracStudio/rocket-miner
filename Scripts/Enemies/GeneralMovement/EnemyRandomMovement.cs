@@ -6,17 +6,11 @@ public class EnemyRandomMovement : Enemy
 {
     private float directionTime = 0;
     public float directionCd = 1f;
-    // Start is called before the first frame update
-    public override void Start()
-    {
-        base.Start();
-    }
 
-    // Update is called once per frame
     public override void Update()
     {
         base.Update();
-        if (!stunned)
+        if (!stunned && canMove)
         {
             directionTime += Time.deltaTime;
             if (directionTime > directionCd)
@@ -31,7 +25,8 @@ public class EnemyRandomMovement : Enemy
         }
         else
         {
-            rigidbody.velocity = new Vector3(0, 0, 0);
+            if (!isPushed)
+                rigidbody.velocity = new Vector3(0, 0, 0);
         }
 
     }

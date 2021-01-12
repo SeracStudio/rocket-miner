@@ -14,6 +14,9 @@ public class OnisCoin : MonoBehaviour
     {
         statsController = GetComponent<StatsController>();
         stats = statsController.GetAll().Keys.ToList();
+        stats.Remove(Stat.HEALTH);
+        stats.Remove(Stat.N_DASH);
+        stats.Remove(Stat.IS_PLAYER);
 
         MapController.RUNNING.OnRoomLoaded += Effect;
     }

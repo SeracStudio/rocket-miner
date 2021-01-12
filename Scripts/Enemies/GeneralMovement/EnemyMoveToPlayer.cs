@@ -17,7 +17,7 @@ public class EnemyMoveToPlayer : Enemy
     public override void Update()
     {
         base.Update();
-        if (!stunned)
+        if (!stunned && canMove)
         {
             playerDirection = getPlayerDirection().normalized;
             directionTime += Time.deltaTime;
@@ -29,7 +29,8 @@ public class EnemyMoveToPlayer : Enemy
         }
         else
         {
-            rigidbody.velocity = new Vector3(0,0,0);
+            if (!isPushed)
+                rigidbody.velocity = new Vector3(0,0,0);
         }
         
     }

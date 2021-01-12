@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class Girl : Player
 
     private float cd=0.75f;
 
+    public bool magnetGun = false;
+
     private bool canBeAttacked = true;
     private float attackedTime = 0;
     private float attackedCd = 1f;
@@ -26,6 +29,7 @@ public class Girl : Player
 
     private BulletController pbc;
 
+    public Transform shotSpawnPoint;
     public override void Start()
     {
         base.Start();
@@ -34,6 +38,8 @@ public class Girl : Player
 
     public override void Update()
     {
+        if (!isMine) return;
+
         base.Update();
 
         InputsG();
@@ -48,17 +54,31 @@ public class Girl : Player
         if (canBeAttacked || poison)
         {
             base.Attacked(damageAmount);
-            Debug.Log("Attacked");
-            stats.SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT, stats.GetStat(Stat.HEALTH), damageAmount));
+            Debug.Log("Attacked " + damageAmount);
+            //stats.SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT, stats.GetStat(Stat.HEALTH), damageAmount));
+            stats.ChangeStat(Stat.HEALTH, -damageAmount);
             //Invencibilidad visible de algun modo
             attackedTime += 0.01f;
             canBeAttacked = false;
             if (stats.GetStat(Stat.HEALTH) <= 0)
             {
+                if(TryGetComponent(out LuckyTrinket trinket))
+                {
+                    trinket.Effect();
+                }
+                else
+                {
+                    PhotonNetwork.Destroy(gameObject);
+                }
                 //Acabar el juego
-                Destroy(this.gameObject);
             }
         }
+    }
+
+    public override void Stunned(float amount, float duration)
+    {
+        Attacked(amount);
+        base.Stunned(amount, duration);
     }
 
     public override void Poisoned(float amount)
@@ -68,8 +88,9 @@ public class Girl : Player
             base.Poisoned(amount);
             poisonCd = 1f;
             poison = true;
-            poisonDamage = 1 / 15;
-            Attacked(amount);          
+            poisonDamage = 1f;
+            poisonEffectCd = 1f / 15f;
+            poisonEffectTime = poisonEffectCd;
         }
     }
 
@@ -88,15 +109,16 @@ public class Girl : Player
         {
             poisonTime += Time.deltaTime;
             poisonEffectTime += Time.deltaTime;
-            if (poisonEffectTime > poisonEffectCd)
+            if (poisonEffectTime >= poisonEffectCd)
             {
                 poisonEffectTime = 0;
                 Attacked(poisonDamage);
             }
-            if (poisonTime > poisonCd)
+            if (poisonTime >= poisonCd)
             {
                 poison = false;
                 poisonTime = 0;
+                poisonEffectTime = 0;
             }
         }
     }
@@ -122,7 +144,7 @@ public class Girl : Player
             if (ofTime > 1f/stats.GetStat(Stat.SHOTS_P_SECOND))
             {
                 ofTime = 0;
-                pbc.Shoot(transform.position, getLookingDirection());
+                pbc.Shoot(shotSpawnPoint.position, getLookingDirection());
             }
         }
     }

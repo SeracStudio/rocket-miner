@@ -172,8 +172,6 @@ public class RoomJoiner : MonoBehaviourPunCallbacks
         PhotonNetwork.CurrentRoom.IsOpen = true;
         PhotonNetwork.CurrentRoom.IsVisible = true;
     }
-
-   
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         Debug.Log("Error joining room.");

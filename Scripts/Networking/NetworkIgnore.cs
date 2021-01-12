@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
@@ -7,11 +7,12 @@ public class NetworkIgnore : NetworkBehaviour
 {
     public MonoBehaviour[] behavioursToIgnore;
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         if (isOnMaster) return;
 
-        foreach (var behaviour in behavioursToIgnore)
+        foreach(var behaviour in behavioursToIgnore)
         {
             Destroy(behaviour);
         }

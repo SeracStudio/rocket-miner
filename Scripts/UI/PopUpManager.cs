@@ -80,7 +80,6 @@ public class PopUpManager : MonoBehaviour
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(timeGiven);
         Destroy(gameInstance.gameObject);
-
     }
 
 }

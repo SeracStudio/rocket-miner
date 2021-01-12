@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : NetworkBehaviour
 {
     public StatsController stats;
     public Rigidbody rigidBody;
@@ -21,14 +22,20 @@ public class Player : MonoBehaviour
 
     public bool inversed;
 
+    public bool stunned = false;
+    public float stunCd = 2f;
+    public float stunTime = 0;
 
-   
+    public bool knock = false;
+    private float knockTime = 0;
+    private float knockCd = 1f;
 
     // Start is called before the first frame update
     public virtual void Start()
     {
         rigidBody = this.GetComponent<Rigidbody>();
-        stats = this.GetComponent<StatsController>();       
+        stats = this.GetComponent<StatsController>();
+        stats.GetStat(Stat.MOV_SPEED);
     }
 
     // Update is called once per frame
@@ -37,6 +44,21 @@ public class Player : MonoBehaviour
         Inputs();
         Rotation();
         checkSlowness();
+        checkStunned();
+        checkKnock();
+    }
+
+    private void checkKnock()
+    {
+        if (knock)
+        {
+            knockTime += Time.deltaTime;
+            if (knockTime >= knockCd)
+            {
+                knockTime = 0;
+                knock = false;
+            }
+        }
     }
 
     private void checkSlowness()
@@ -49,6 +71,19 @@ public class Player : MonoBehaviour
                 slowness = false;
                 slownessF = 1;
                 slownessTime = 0;
+            }
+        }
+    }
+
+    private void checkStunned()
+    {
+        if (stunned)
+        {
+            stunTime += Time.deltaTime;
+            if (stunTime >= stunCd)
+            {
+                stunTime = 0;
+                stunned = false;
             }
         }
     }
@@ -73,6 +108,15 @@ public class Player : MonoBehaviour
         slownessF = 2;
         slownessCd = duration;
         slowness = true;
+    }
+
+    public virtual void Stunned(float amount,float duration)
+    {
+        if (!stunned)
+        {
+            stunCd = duration;
+            stunned = true;
+        } 
     }
 
     private void Rotation()
@@ -100,9 +144,12 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        if (!dash)
+        if (!dash && !stunned && !knock)
         {
             rigidBody.velocity = new Vector3(direction.x * (stats.GetStat(Stat.MOV_SPEED)/slownessF), 0, direction.y * (stats.GetStat(Stat.MOV_SPEED)/slownessF));
+        }else if (stunned && !knock)
+        {
+            rigidBody.velocity = Vector3.zero;
         }
     }
 
@@ -129,5 +176,9 @@ public class Player : MonoBehaviour
         return lastDirection;
     }
 
-   
+    [PunRPC]
+    public void SetInversedMovement(bool state)
+    {
+        inversed = state;
+    }
 }

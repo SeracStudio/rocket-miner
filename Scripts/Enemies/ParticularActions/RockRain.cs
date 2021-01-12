@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class RockRain : MonoBehaviour
     // Start is called before the first frame update
 
     private BulletController pbc;
+    private Enemy enemy;
 
     public float rainCd;
     private float rainTime;
@@ -24,6 +26,7 @@ public class RockRain : MonoBehaviour
     {
         rainDurationCd = rainDuration / nRocks;
         pbc=this.GetComponent<BulletController>();
+        enemy = GetComponent<Enemy>();
     }
 
     // Update is called once per frame
@@ -71,6 +74,7 @@ public class RockRain : MonoBehaviour
     {
         float x = Random.Range(-8.5f, 8.5f);
         float z = Random.Range(-8.5f, 8.5f);
+        PhotonNetwork.Instantiate("Bullets/RockRainMark", new Vector3(x, 0.01f, z), Quaternion.identity);
         pbc.Shoot(new Vector3(x, 10, z), new Vector3(0, -1, 0));
     }
 }
