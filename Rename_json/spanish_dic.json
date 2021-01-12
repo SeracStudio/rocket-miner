@@ -1,0 +1,55 @@
+{
+  "Idioma":[
+  {
+    "id": "play_button",
+    "content": "Jugar"
+  },
+  
+  {
+    "id": "credits_button",
+    "content": "Créditos"
+  },
+  
+  {
+    "id": "options_button",
+    "content": "Opciones"
+  },
+   
+  {
+    "id": "controls_button",
+    "content": "Controles"
+  }, 
+  
+  {
+    "id": "donate_button",
+    "content": "Donar"
+  },
+  
+  {
+    "id": "exit_button",
+    "content": "Salir"
+  },
+  
+  {
+    "id": "volume_text",
+    "content": "Volumen"
+  },
+   {
+    "id": "sfx_text",
+    "content": "Efectos de sonido"
+  },
+  {
+    "id": "language_text",
+    "content": "Idioma"
+  }
+  ,
+   {
+    "id": "spanish_text",
+    "content": "Español"
+  },
+  {
+    "id": "english_text",
+    "content": "Inglés"
+  }
+  ]
+}

@@ -1,3 +1,4 @@
+
 using Photon.Pun;
 using UnityEngine;
 
@@ -12,7 +13,6 @@ public class NetworkBehaviour : MonoBehaviour
     {
         objectNetworkView = GetComponent<PhotonView>();
         if (objectNetworkView == null) return;
-
         isMine = objectNetworkView.IsMine;
         isOnMaster = PhotonNetwork.IsMasterClient;
     }

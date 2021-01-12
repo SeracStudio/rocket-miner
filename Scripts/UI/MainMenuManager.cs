@@ -1,15 +1,17 @@
-﻿using System.Collections;
+
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenuManager : MonoBehaviour
+public class MainMenuManager : MonoBehaviourPunCallbacks
 {
 
     public GameObject MainMenu;
     public GameObject MenuToActivate;
     public Camera camera;
     public Vector3 target;
-    private float speed;
+    public float speed = 1.0f;
 
     private float startTime;
     private Vector3 initialPos;
@@ -18,10 +20,10 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        camera = Camera.main;
         startTime = Time.time;
         initialPos = camera.transform.position;
         distance = Vector3.Distance(target, initialPos);
-        speed = 1.0f;
     }
 
     // Update is called once per frame
@@ -34,9 +36,32 @@ public class MainMenuManager : MonoBehaviour
     {
         MainMenu.SetActive(!MainMenu.activeSelf);
         CameraMover.RUNNING.MoveCameraTo(target);
-        CameraMover.RUNNING.SetMenu(MenuToActivate, true, 1.0f);
+        CameraMover.RUNNING.SetMenu(MenuToActivate, true, speed);
         //MenuToActivate.SetActive(!MenuToActivate.activeSelf);
     }
 
-  
+    public void RemoveMainMenuPrefab()
+    {
+        MainMenu = GameObject.Find("Play_Empty");
+        MenuToActivate = FindInActiveObjectByName("Waiting_Room_Empty");
+
+        MainMenu.SetActive(!MainMenu.activeSelf);
+        MenuToActivate.SetActive(!MenuToActivate.activeSelf);
+    }
+
+    private GameObject FindInActiveObjectByName(string name)
+    {
+        Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
+        for (int i = 0; i < objs.Length; i++)
+        {
+            if (objs[i].hideFlags == HideFlags.None)
+            {
+                if (objs[i].name == name)
+                {
+                    return objs[i].gameObject;
+                }
+            }
+        }
+        return null;
+    }
 }
