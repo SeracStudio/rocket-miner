@@ -100,5 +100,12 @@ public class MapRenderer : MonoBehaviour
                 rendered.Add(enemySpawned.gameObject);
             }
         }
+
+        foreach (EnemySpawnStats enemy in loadedRoom.spawnedEnemies)
+        {
+            Debug.Log("ASDASD");
+            if (enemy.isSlime) MapController.RUNNING.enemiesLeft += 6;
+            enemy.GetComponent<EnemySpawnStats>().OnDeath += MapController.RUNNING.EnemyEliminated;
+        }
     }
 }
