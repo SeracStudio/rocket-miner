@@ -93,11 +93,7 @@ public class MapController : MonoBehaviour
         //room.cleared = true;
         currentRoom = room;
         enemiesLeft = room.enemies.Count;
-        foreach (EnemySpawnStats enemy in mapRenderer.loadedRoom.spawnedEnemies)
-        {
-            if (enemy.isSlime) enemiesLeft += 6;
-            enemy.GetComponent<EnemySpawnStats>().OnDeath += EnemyEliminated;
-        }
+
         OnRoomLoaded?.Invoke();
     }
 
