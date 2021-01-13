@@ -58,13 +58,14 @@ public class Bullet : NetworkBehaviour
         }
 
         if (other.tag =="Enemy" && playerShoot==0)
-        {
-
-            if(other.gameObject.GetComponent<StatsController>().GetStat(Stat.ENEMY_SHIELD) == 1)
+        {         
+            if (other.gameObject.GetComponent<StatsController>().GetStat(Stat.ENEMY_SHIELD) == 1)
             {
                 PhotonNetwork.Destroy(gameObject);
                 return;
             }
+
+            other.GetComponent<MaterialFlickerer>().TriggerRPC("FlickerMat", RpcTarget.AllBuffered);
 
             other.gameObject.GetComponent<StatsController>().SetStat(Stat.HEALTH, OperationFunc.FloatSolve(Operation.SUBTRACT,other.gameObject.GetComponent<StatsController>().GetStat(Stat.HEALTH), damage));
 
@@ -77,7 +78,7 @@ public class Bullet : NetworkBehaviour
                     {
                         if(Random.Range(0, 7) == 0)
                         {
-                            PhotonNetwork.Instantiate("CornItem", new Vector3(transform.position.x, 1, transform.position.y), Quaternion.identity);
+                            PhotonNetwork.Instantiate("CornItem", new Vector3(transform.position.x, 1, transform.position.z), Quaternion.identity);
                         }
                     }
                 }
@@ -99,6 +100,7 @@ public class Bullet : NetworkBehaviour
                 }
 
                 MapController.RUNNING.EnemyEliminated();
+                PhotonNetwork.Instantiate("Effects/EnemyDeathEffect", new Vector3(other.transform.position.x, 0, other.transform.position.z), Quaternion.identity);
                 PhotonNetwork.Destroy(other.gameObject);          
             }
             PhotonNetwork.Destroy(this.gameObject);

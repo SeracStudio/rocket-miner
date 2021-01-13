@@ -42,10 +42,9 @@ public class DisconnectManager : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(5);
 
+        SceneManager.LoadScene("UI_Scene");
         Destroy(GameObject.Find("TestConnect_Empty"));
         Destroy(GameObject.Find("RoomManagerPrefab"));
-        PhotonNetwork.LeaveRoom();
-        SceneManager.LoadScene("UI_Scene");
     }
 
     [PunRPC]

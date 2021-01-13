@@ -138,6 +138,8 @@ public class Girl : Player
         }
     }
 
+    private Vector3 shotDir;
+
     private void checkShoot()
     {
         if (canShoot)
@@ -146,7 +148,7 @@ public class Girl : Player
             if (ofTime > 1f / stats.GetStat(Stat.SHOTS_P_SECOND))
             {
                 ofTime = 0;
-                pbc.Shoot(shotSpawnPoint.position, getLookingDirection());
+                pbc.Shoot(shotSpawnPoint.position, shotDir);
             }
         }
     }
@@ -190,7 +192,7 @@ public class Girl : Player
             if (Input.GetKey(KeyCode.Space))
             {
                 //canShoot = true;
-                TriggerRPC("ShootTrue", RpcTarget.MasterClient, Input.mousePosition);
+                TriggerRPC("ShootTrue", RpcTarget.MasterClient, getMouse());
             }
 
             if (Input.GetKeyUp(KeyCode.Space))
@@ -205,7 +207,7 @@ public class Girl : Player
             if (spinJoystick.Vertical != 0.0f && spinJoystick.Horizontal != 0.0f)
             {
                 //canShoot = true;
-                TriggerRPC(nameof(ShootTrue), RpcTarget.MasterClient);
+                TriggerRPC(nameof(ShootTrue), RpcTarget.MasterClient, new Vector3(spinJoystick.Horizontal, 0, spinJoystick.Vertical));
             }
             else
             {
@@ -221,8 +223,7 @@ public class Girl : Player
     [PunRPC]
     public void ShootTrue(Vector3 mousePos)
     {
-        Debug.Log(mousePos);
-        pbc.mousePos = mousePos;
+        shotDir = mousePos; ;
 
         canShoot = true;
     }

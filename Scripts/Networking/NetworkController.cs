@@ -11,6 +11,11 @@ public class NetworkController : MonoBehaviourPunCallbacks
 
     void Awake()
     {
+        if (PhotonNetwork.CurrentRoom != null)
+        {
+            PhotonNetwork.LeaveRoom();
+        }
+
         DontDestroyOnLoad(gameObject);
         Debug.Log("connecting to server");
         PhotonNetwork.ConnectUsingSettings();

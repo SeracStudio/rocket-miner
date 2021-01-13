@@ -37,7 +37,7 @@ public class StatsController : MonoBehaviour
         //Levantar evento (UI, controlador...)
         statsDict[stat] = value;
 
-        if(CompareTag("GIRL") && stat == Stat.HEALTH && value > 100)
+        if(CompareTag("GIRL") && stat == Stat.HEALTH && statsDict[stat] > 100)
         {
             statsDict[stat] = 100;
         }

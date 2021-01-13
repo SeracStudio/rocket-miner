@@ -33,21 +33,13 @@ public class Player : NetworkBehaviour
     protected FloatingJoystick movementJoystick;
     protected FloatingJoystick spinJoystick;
 
+    protected Vector3 mouse;
+
     // Start is called before the first frame update
     public virtual void Start()
     {
         movementJoystick = GameObject.Find("MovementJoystick").GetComponent<FloatingJoystick>();
         spinJoystick = GameObject.Find("DirJoystick").GetComponent<FloatingJoystick>();
-
-        
-        if (!Application.isMobilePlatform)
-        {
-            //Instantiate(GameObject.CreatePrimitive(PrimitiveType.Cube), new Vector3(0, 2, 0), Quaternion.identity);
-            //if (movementJoystick != null)
-                //Destroy(movementJoystick.gameObject);
-            //if (spinJoystick != null)
-                //Destroy(spinJoystick.gameObject);
-        }
 
         rigidBody = this.GetComponent<Rigidbody>();
         stats = this.GetComponent<StatsController>();
@@ -140,8 +132,6 @@ public class Player : NetworkBehaviour
     {
         if (!isMine) return;
 
-        Vector3 mouse;
-
         if (!Application.isMobilePlatform)
         {
             mouse = Vector3.RotateTowards(transform.forward, getMouse(), Time.deltaTime * 10, 0.0f);
@@ -154,10 +144,11 @@ public class Player : NetworkBehaviour
             mouse = Vector3.RotateTowards(transform.forward, new Vector3(dirX, 0, dirZ), Time.deltaTime * 10, 0.0f);
             mouse.y = 0;
         }
+
         transform.rotation = Quaternion.LookRotation(mouse);
     }
 
-    private Vector3 getMouse()
+    protected Vector3 getMouse()
     {
         Vector3 target = new Vector3(0, 0, 0);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -168,6 +159,22 @@ public class Player : NetworkBehaviour
             {
                 target = hit.point - transform.position;
                 return target.normalized;
+            }
+        }
+        return new Vector3(0, 0, 0);
+    }
+
+    protected Vector3 getMouse2()
+    {
+        Vector3 target = new Vector3(0, 0, 0);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Default")))
+        {
+            if (hit.collider.tag.Equals("Floor"))
+            {
+                target = hit.point - transform.position;
+                return hit.point;
             }
         }
         return new Vector3(0, 0, 0);

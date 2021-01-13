@@ -60,12 +60,15 @@ public class Hole : MonoBehaviour
 
         if (other.gameObject.tag == "ROBOT")
         {
-            //Acabar juego 
+            LeanTween.moveY(other.gameObject, -5, 1f);
+            DisconnectManager.INSTANCE.GetComponent<PhotonView>().RPC("EndGame", RpcTarget.AllBuffered);
         }
 
         if (other.gameObject.tag == "GIRL" && !other.GetComponent<Player>().dash)
         {
             //Acabar juego
+            LeanTween.moveY(other.gameObject, -5, 1f);
+            DisconnectManager.INSTANCE.GetComponent<PhotonView>().RPC("EndGame", RpcTarget.AllBuffered);
         }
     }
 }

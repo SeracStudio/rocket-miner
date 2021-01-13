@@ -50,6 +50,312 @@
   {
     "id": "english_text",
     "content": "English"
+  },
+  {
+    "id": "thanks_text",
+    "content": "THANKS FOR PLAYING!"
+  },
+  {
+    "id": "donation_text",
+    "content": "IF YOU LIKED PLAYING OUR GAME, FEEL FREE TO GIVE US A DONATION"
+  },
+  {
+    "id": "donation_text_2",
+    "content": "ARCELIA AND S.O.R.A. WILL THANK YOU AND IT WILL HELP US TO KEEP DOING WHAT WE LOVE."
+  },
+  {
+    "id": "rooms_created_text",
+    "content": "Rooms created"
+  }
+  ,
+  {
+    "id": "create_room",
+    "content": "Create room"
+  }
+  ,
+  {
+    "id": "pick_arcelia",
+    "content": "Pick Arcelia"
+  }
+  ,
+  {
+    "id": "pick_sora",
+    "content": "Pick S.O.R.A."
+  }
+  ,
+  {
+    "id": "item_1_name",
+    "content": "Range's boots"
+  }
+  ,
+  {
+    "id": "item_1_description",
+    "content": "Brown leather boots that are comfortable."
+  },
+  {
+    "id": "item_2_name",
+    "content": "Stonebreaker"
+  }
+  ,
+  {
+    "id": "item_2_description",
+    "content": "Ancient artifact that shoots air to destroy rocks with its pressure."
+  }
+  ,
+  {
+    "id": "item_3_name",
+    "content": "W98 Nut"
+  }
+  ,
+  {
+    "id": "item_3_description",
+    "content": "Ancestral arrangement made to robot rangers."
+  }
+  ,
+  {
+    "id": "item_4_name",
+    "content": "Binding bracelet"
+  }
+  ,
+  {
+    "id": "item_4_description",
+    "content": "Emblematic decor possesed by any guild member representing the guild's brotherhood"
+  }
+  ,
+  {
+    "id": "item_5_name",
+    "content": "Corn"
+  }
+  ,
+  {
+    "id": "item_5_description",
+    "content": "Food that helps miners regain energy."
+  }
+  ,
+  {
+    "id": "item_6_name",
+    "content": "Torbernite gem"
+  }
+  ,
+  {
+    "id": "item_6_description",
+    "content": "Greenish gem with which the Everguns were enhanced."
+  },
+  {
+    "id": "item_7_name",
+    "content": "Automatic gauntlet"
+  }
+  ,
+  {
+    "id": "item_7_description",
+    "content": "Mechanical gloves that work by steam."
+  }
+  ,
+  {
+    "id": "item_8_name",
+    "content": "Pocket Watch"
+  }
+  ,
+  {
+    "id": "item_8_description",
+    "content": "Small watch that is usually carried to the mine in order to not to lose track of time."
+  },
+  {
+    "id": "item_9_name",
+    "content": "Abandoned canteen"
+  }
+  ,
+  {
+    "id": "item_9_description",
+    "content": "Canteen containing a drink that helps you be more active."
+  },
+  {
+    "id": "item_10_name",
+    "content": "External cooling"
+  }
+  ,
+  {
+    "id": "item_10_description",
+    "content": "Old fashioned mechanism used to cool mining machines."
+  }
+  , {
+    "id": "item_11_name",
+    "content": "Lucky charm"
+  }
+  ,
+  {
+    "id": "item_11_description",
+    "content": "Legends say that this small pendant is capable of reviving those people who have died with it on."
+  }, {
+    "id": "item_12_name",
+    "content": "Reflective mirror"
+  }
+  ,
+  {
+    "id": "item_12_description",
+    "content": "Armored mirror with the ability to bounce any projectile that hits its surface."
+  }, {
+    "id": "item_13_name",
+    "content": "Gwein's Big Drill"
+  }
+  ,
+  {
+    "id": "item_13_description",
+    "content": "Master miner's weapon Gwein used to blind his enemies by making large holes through which light entered."
+  }, {
+    "id": "item_14_name",
+    "content": "Evergun 3.0"
+  }
+  ,
+  {
+    "id": "item_14_description",
+    "content": "Modern evergun used by high-ranking miners. It incorporates an update to extract minerals."
+  }, {
+    "id": "item_15_name",
+    "content": "Left-handed evergun"
+  }
+  ,
+  {
+    "id": "item_15_description",
+    "content": "Little known version of the common Evergun that was adapted for the left hand."
+  }
+  , {
+    "id": "item_16_name",
+    "content": "Magnetgun"
+  }
+  ,
+  {
+    "id": "item_16_description",
+    "content": "Weapon used by miners from the east. Take advantage of a magnetized projectile to make the ammunition return after being fired."
+  }, {
+    "id": "item_17_name",
+    "content": "Telenergy"
+  }
+  ,
+  {
+    "id": "item_17_description",
+    "content": "Mechanism that allows a robot to focus part of its energy in a specific area. This needs a cooling time."
+  }, {
+    "id": "item_19_name",
+    "content": "Damaged oiler"
+  }
+  ,
+  {
+    "id": "item_19_description",
+    "content": "Tool used to fill the oil tank to a robot."
+  }, {
+    "id": "item_20_name",
+    "content": "Unintelligible runes"
+  }
+  ,
+  {
+    "id": "item_20_description",
+    "content": "Piece of stone where a series of inscriptions in an unknown language are found."
+  }, {
+    "id": "item_21_name",
+    "content": "Energy storage"
+  }
+  ,
+  {
+    "id": "item_21_description",
+    "content": "Device capable of storing muscle energy and then releasing it in a single blow."
+  }, {
+    "id": "item_22_name",
+    "content": "Radioactive remains"
+  }
+  ,
+  {
+    "id": "item_22_description",
+    "content": "Remnants of radioactive material that can help robots to be faster."
+  }, {
+    "id": "item_23_name",
+    "content": "Loose screw"
+  }
+  ,
+  {
+    "id": "item_23_description",
+    "content": "Common screw. Maybe someone has dropped it?"
+  }, {
+    "id": "item_24_name",
+    "content": "Battery 235"
+  }
+  ,
+  {
+    "id": "item_24_description",
+    "content": "Small fluorescent cylinder with great energy capacity."
+  }, {
+    "id": "item_25_name",
+    "content": "Chrome reinforcement"
+  }
+  ,
+  {
+    "id": "item_25_description",
+    "content": "Metal cover that is incorporated into heavy machinery to increase its power."
+  }, {
+    "id": "item_26_name",
+    "content": "'The Curse of Era' (Worn Book)"
+  }
+  ,
+  {
+    "id": "item_26_description",
+    "content": "Book with a purple cover and green leaves that tells the legend of Era."
+  }, {
+    "id": "item_27_name",
+    "content": "Booster flint"
+  }
+  ,
+  {
+    "id": "item_27_description",
+    "content": "Small dark mineral that increases the size of the area where the weapon is fired."
+  }, {
+    "id": "item_28_name",
+    "content": "La térmica"
+  }
+  ,
+  {
+    "id": "item_28_description",
+    "content": "Tube filled with lava, whose internal energy increases the strength of the robots. It takes a while to be used again."
+  }, {
+    "id": "item_29_name",
+    "content": "Nomed Necklace"
+  }
+  ,
+  {
+    "id": "item_29_description",
+    "content": "Necklace of the same demon, and in it they harbor different curses."
+  }, {
+    "id": "item_31_name",
+    "content": "Golden pickaxe of the Great Monteg"
+  }
+  ,
+  {
+    "id": "item_31_description",
+    "content": "This is the most valuable pickaxe and the best treasure that has been found, but no one has seen it in action"
+  }, {
+    "id": "item_32_name",
+    "content": "Onsey coin"
+  }
+  ,
+  {
+    "id": "item_32_description",
+    "content": "Bronze coin in which Nomed is on one side and a tunnel on the other. It is said that it draw in luck."
+  }, {
+    "id": "item_34_name",
+    "content": "Paramedic Backpack"
+  }
+  ,
+  {
+    "id": "item_34_description",
+    "content": "Backpack used for first aid.."
+  }, {
+    "id": "item_35_name",
+    "content": "Anti-collapse alarm"
+  }
+  ,
+  {
+    "id": "item_35_description",
+    "content": "A machine that brights red and makes a loud beep when a collapse occur.  The miners carry it on their back."
   }
   ]
 }
+

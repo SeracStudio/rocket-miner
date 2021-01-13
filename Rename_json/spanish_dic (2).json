@@ -1,0 +1,108 @@
+{
+  "Idioma":[
+  {
+    "id": "play_button",
+    "content": "Jugar"
+  },
+  
+  {
+    "id": "credits_button",
+    "content": "Créditos"
+  },
+  
+  {
+    "id": "options_button",
+    "content": "Opciones"
+  },
+   
+  {
+    "id": "controls_button",
+    "content": "Controles"
+  }, 
+  
+  {
+    "id": "donate_button",
+    "content": "Donar"
+  },
+  
+  {
+    "id": "exit_button",
+    "content": "Salir"
+  },
+  
+  {
+    "id": "volume_text",
+    "content": "Volumen"
+  },
+   {
+    "id": "sfx_text",
+    "content": "Efectos de sonido"
+  },
+  {
+    "id": "language_text",
+    "content": "Idioma"
+  }
+  ,
+   {
+    "id": "spanish_text",
+    "content": "Español"
+  },
+  {
+    "id": "english_text",
+    "content": "Inglés"
+  },
+  {
+    "id": "japanese_text",
+    "content": "Japonés"
+  },
+  {
+    "id": "thanks_text",
+    "content": "¡GRACIAS POR JUGAR!"
+  },
+  {
+    "id": "donation_text",
+    "content": "SI TE HA GUSTADO NUESTRO VIDEOJUEGO, SIÉNTETE LIBRE DE DEJARNOS UNA DONACIÓN."
+  },
+  {
+    "id": "donation_text_2",
+    "content": "ARCELIA Y S.O.R.A. TE LO AGRADECERÁN Y NOS AYUDARÍA BASTANTE A SEGUIR HACIENDO LO QUE NOS GUSTA."
+  },
+  {
+    "id": "rooms_created_text",
+    "content": "Salas creadas"
+  },
+  {
+    "id": "create_room",
+    "content": "Crear sala"
+  } ,
+  {
+    "id": "pick_arcelia",
+    "content": "Elegir a Arcelia"
+  }
+  ,
+  {
+    "id": "pick_sora",
+    "content": "Elegir a S.O.R.A."
+  }  ,
+  {
+    "id": "pick_sora",
+    "content": "Pick S.O.R.A."
+  } ,{
+    "id": "name_room_text",
+    "content": "Nombre de sala"
+  },
+  {
+    "id": "waiting_text",
+    "content": "Ya has escogido personaje, espera hasta que se una otro jugador..."
+  },
+  {
+    "id": "joined_text",
+    "content": "La sala está completa. Espera a que el líder empiece la partida."
+    
+  },
+  {
+    "id": "start_game_text",
+    "content": "Empezar partida"
+  }
+  ]
+}

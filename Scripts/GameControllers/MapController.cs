@@ -8,6 +8,7 @@ public class MapController : MonoBehaviour
     public static MapController RUNNING;
 
     public Action OnRoomLoaded;
+    public Action OnRoomCleared;
 
     public int pathWidth, pathDepth, lateralRatio;
     [Range(0, 100)]
@@ -112,6 +113,9 @@ public class MapController : MonoBehaviour
                 //mapRenderer.loadedRoom.OpenDoor(opening);
                 mapRenderer.loadedRoom.GetComponent<PhotonView>().RPC("OpenDoor", RpcTarget.AllBuffered, opening);
                 currentRoom.cleared = true;
+
+                BGAudioController.INSTANCE.TriggerRPC("ChangeBGMusic", RpcTarget.AllBuffered, 0);
+                OnRoomCleared?.Invoke();
 
                 foreach(GameObject gObj in GameObject.FindGameObjectsWithTag("DestroyOnRoomClear"))
                 {

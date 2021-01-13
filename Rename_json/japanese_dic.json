@@ -1,0 +1,93 @@
+{
+  "Idioma":[
+    {
+      "id": "play_button",
+      "content": "ゲームを始める"
+    }
+    ,
+    {
+      "id": "credits_button",
+      "content": "クレジット"
+    }
+    ,
+    {
+      "id": "options_button",
+      "content": "設定"
+    }
+    ,
+    {
+      "id": "controls_button",
+      "content": "操作"
+    }
+    ,
+    {
+      "id": "donate_button",
+      "content": "寄付する"
+    }
+    ,
+    {
+      "id": "exit_button",
+      "content": "出る"
+    }
+    ,
+    {
+      "id": "volume_text",
+      "content": "ボリューム"
+    }
+    ,
+    {
+      "id": "sfx_text",
+      "content": "音響効果"
+    }
+    ,
+    {
+      "id": "language_text",
+      "content": "言語"
+    }
+    ,
+    {
+      "id": "spanish_text",
+      "content": "スペイン語"
+    }
+    ,
+    {
+      "id": "english_text",
+      "content": "英語"
+    }
+    ,
+    {
+      "id": "thanks_text",
+      "content": "プレイしてくれてありがとう！"
+    }
+    ,
+    {
+      "id": "donation_text",
+      "content": "ゲームが楽しかったのなら、良かったら寄付して貰えば幸いです"
+    }
+    ,
+    {
+      "id": "donation_text_2",
+      "content": "アルゼリアとS.O.R.Aの感謝を！これで好きなゲームを作ることが続けます！"
+    }
+    ,
+    {
+      "id": "rooms_created_text",
+      "content": "ルームの作成を完了しました"
+    }
+    ,
+    {
+      "id": "create_room",
+      "content": "ルームを作る"
+    }
+    ,
+    {
+      "id": "pick_arcelia",
+      "content": "アルゼリアを選択"
+    }
+    ,
+    {
+      "id": "pick_sora",
+      "content": "S.O.R.A.を選択"
+    } 
+  ]
+}

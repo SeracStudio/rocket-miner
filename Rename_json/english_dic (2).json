@@ -1,0 +1,109 @@
+{
+  "Idioma":[
+  {
+    "id": "play_button",
+    "content": "Play"
+  },
+  
+  {
+    "id": "credits_button",
+    "content": "Credits"
+  },
+  
+  {
+    "id": "options_button",
+    "content": "Options"
+  },
+   
+  {
+    "id": "controls_button",
+    "content": "Controls"
+  }, 
+  
+  {
+    "id": "donate_button",
+    "content": "Donate"
+  },
+  
+  {
+    "id": "exit_button",
+    "content": "Exit"
+  },
+  
+  {
+    "id": "volume_text",
+    "content": "Volume"
+  },
+   {
+    "id": "sfx_text",
+    "content": "Sound Effects"
+  },
+  {
+    "id": "language_text",
+    "content": "Language"
+  }
+  ,
+   {
+    "id": "spanish_text",
+    "content": "Spanish"
+  },
+  
+  {
+    "id": "english_text",
+    "content": "English"
+  },
+  {
+    "id": "japanese_text",
+    "content": "Japanese"
+  },
+  {
+    "id": "thanks_text",
+    "content": "THANKS FOR PLAYING!"
+  },
+  {
+    "id": "donation_text",
+    "content": "IF YOU LIKED PLAYING OUR GAME, FEEL FREE TO GIVE US A DONATION"
+  },
+  {
+    "id": "donation_text_2",
+    "content": "ARCELIA AND S.O.R.A. WILL THANK YOU AND IT WILL HELP US TO KEEP DOING WHAT WE LOVE."
+  },
+  {
+    "id": "rooms_created_text",
+    "content": "Rooms created"
+  }
+  ,
+  {
+    "id": "create_room",
+    "content": "Create room"
+  }
+  ,
+  {
+    "id": "pick_arcelia",
+    "content": "Pick Arcelia"
+  }
+  ,
+  {
+    "id": "pick_sora",
+    "content": "Pick S.O.R.A."
+  },
+  {
+    "id": "name_room_text",
+    "content": "Room's name"
+  },
+  {
+    "id": "waiting_text",
+    "content": "You have chosen a character, wait until another player joins..."
+  },
+  {
+    "id": "joined_text",
+    "content": "The room is full. Wait until the master begins the game."
+  },
+  {
+    "id": "start_game_text",
+    "content": "Start game"
+  }
+ 
+  ]
+}
+

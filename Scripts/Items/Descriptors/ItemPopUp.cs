@@ -10,7 +10,13 @@ public class ItemPopUp : MonoBehaviour
 
     private void Awake()
     {
-        MapController.RUNNING.OnRoomLoaded += () => { PhotonNetwork.Destroy(gameObject); };
+        MapController.RUNNING.OnRoomLoaded += DestroyItem;
+    }
+
+    private void DestroyItem()
+    {
+        MapController.RUNNING.OnRoomLoaded -= DestroyItem;
+        PhotonNetwork.Destroy(gameObject);
     }
 
     public void SetAndLaunch(string name, string desc)

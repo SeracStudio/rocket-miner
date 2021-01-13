@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MapItemFiller : MonoBehaviour
 {
-    public List<BaseItem> itemPool;
+    public List<BaseItem> itemPool, engItemPool, jpItemPool;
     public List<BaseItem> specificItems;
 
     private int floor = 0;

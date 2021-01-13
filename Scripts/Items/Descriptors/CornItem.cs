@@ -7,7 +7,13 @@ public class CornItem : MonoBehaviour
 {
     private void Awake()
     {
-        MapController.RUNNING.OnRoomLoaded += () => { PhotonNetwork.Destroy(gameObject); };
+        MapController.RUNNING.OnRoomLoaded += SelfDestroy;
+    }
+
+    public void SelfDestroy()
+    {
+        MapController.RUNNING.OnRoomLoaded -= SelfDestroy;
+        PhotonNetwork.Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)

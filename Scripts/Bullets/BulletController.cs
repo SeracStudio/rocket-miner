@@ -80,15 +80,16 @@ public class BulletController : MonoBehaviour
 
         if (stats.GetStat(Stat.IS_PLAYER) == 0)
         {
-            Vector3 dir = dirA;
+            Vector3 dir = dirA.normalized;
 
             if (!Application.isMobilePlatform)
             {
-                dir = dirCalculate(pos, mousePos);
+                //dir = dirCalculate(pos, mousePos);
+                //dir = (dirA - pos).normalized;
             }
             else
             {
-                dir = new Vector3(spinJoystick.Horizontal, 0, spinJoystick.Vertical);
+                //dir = new Vector3(spinJoystick.Horizontal, 0, spinJoystick.Vertical);
             }
 
             if (dir.x != 0 ||/*&& dir.y != 0 &&*/ dir.z != 0)

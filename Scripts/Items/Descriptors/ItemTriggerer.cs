@@ -6,6 +6,7 @@ using UnityEngine;
 public class ItemTriggerer : MonoBehaviour
 {
     public BaseItem item;
+    public SpriteRenderer rendererSprite;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,7 +33,8 @@ public class ItemTriggerer : MonoBehaviour
     [PunRPC]
     public void LoadItem(string itemName)
     {
-        item = Resources.Load(itemName) as BaseItem;
+        item = Resources.Load("Spanish/" + itemName) as BaseItem;
         GetComponentInChildren<SpriteRenderer>().sprite = item.sprite;
+        //rendererSprite.sprite = item.sprite;
     }
 }

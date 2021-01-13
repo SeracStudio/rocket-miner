@@ -103,6 +103,8 @@ public class Enemy : NetworkBehaviour
                 stunnedTime = 0;
             }
         }
+
+        GetComponentInChildren<StunEffect>().TriggerRPC("SetActiveState", RpcTarget.AllBuffered, stunned);
     }
 
     private void checkCanMove()

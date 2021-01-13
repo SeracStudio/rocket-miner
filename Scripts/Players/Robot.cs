@@ -71,6 +71,7 @@ public class Robot : Player
         if (Input.GetKeyDown(KeyCode.Space) && canUsePunch)
         {
             //Punch();
+            anim.SetTrigger("punch");
             TriggerRPC("Punch", RpcTarget.MasterClient);
         }
     }
@@ -255,6 +256,7 @@ public class Robot : Player
 
     public void PunchActionPhone()
     {
+        anim.SetTrigger("punch");
         TriggerRPC("Punch", RpcTarget.MasterClient);
     }
 }
