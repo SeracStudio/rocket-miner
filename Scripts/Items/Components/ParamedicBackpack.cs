@@ -14,6 +14,8 @@ public class ParamedicBackpack : MonoBehaviour
 
     private void Effect()
     {
+        if (MapController.RUNNING.currentRoom.cleared) return;
+
         stats.ChangeStat(Stat.HEALTH, 5);
     }
 }

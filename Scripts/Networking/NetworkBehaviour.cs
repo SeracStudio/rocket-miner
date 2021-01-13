@@ -2,7 +2,7 @@
 using Photon.Pun;
 using UnityEngine;
 
-public class NetworkBehaviour : MonoBehaviour
+public class NetworkBehaviour : MonoBehaviourPunCallbacks
 {
     public bool isMine;
     public bool isOnMaster;

@@ -16,7 +16,7 @@ public class RoomJoiner : MonoBehaviourPunCallbacks
     public Text messageWait;
     private string messageStart;
     private string messageEnd;
-    private string avatarChosen;
+    public string avatarChosen;
     //private ExitGames.Client.Photon.Hashtable customPropertiesMaster = new ExitGames.Client.Photon.Hashtable();
 
     public Image otherPlayer;
@@ -26,6 +26,7 @@ public class RoomJoiner : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+        DontDestroyOnLoad(this);
         PhotonNetwork.AutomaticallySyncScene = true;
         /*otherPlayer = FindInActiveObjectByName("Other_Player_Character_Image").GetComponent<Image>();
         playerImage = FindInActiveObjectByName("Character_Selected_image").GetComponent<Image>();
@@ -44,7 +45,7 @@ public class RoomJoiner : MonoBehaviourPunCallbacks
         }
 
 
-        if(roomName.text == "" || ConsistsOfWhiteSpace(roomName.text))
+        if (roomName.text == "" || ConsistsOfWhiteSpace(roomName.text))
         {
             PhotonNetwork.CreateRoom("Defecto", new Photon.Realtime.RoomOptions() { MaxPlayers = neededPlayers, EmptyRoomTtl = 0 });
         }
@@ -101,7 +102,7 @@ public class RoomJoiner : MonoBehaviourPunCallbacks
         avatarChosen = avatar;
         loadImageWaitingRoom();
     }
-   
+
     public void loadImageWaitingRoom()
     {
         if (avatarChosen == "sora")
@@ -135,20 +136,22 @@ public class RoomJoiner : MonoBehaviourPunCallbacks
         otherPlayer.color = new Color(otherPlayer.color.r, otherPlayer.color.g, otherPlayer.color.b, 1.0f);
         Debug.Log("RPC Cargar avatar");
     }
-    
+
     public void changeMessageEnd()
     {
         messageWait.text = messageEnd;
     }
-    
+
     public void changeMessageStart()
     {
-        messageWait.text = messageStart;
+        if (messageWait != null)
+            messageWait.text = messageStart;
     }
 
     public override void OnJoinedRoom()
     {
-        if (PhotonNetwork.CurrentRoom.PlayerCount == 2) { 
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
+        {
             base.photonView.RPC("loadAvatar", RpcTarget.AllBuffered);
             PhotonNetwork.CurrentRoom.IsOpen = false;
             PhotonNetwork.CurrentRoom.IsVisible = false;
@@ -159,7 +162,7 @@ public class RoomJoiner : MonoBehaviourPunCallbacks
 
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
     {
-        base.photonView.RPC("rpcAvatar", RpcTarget.OthersBuffered, avatarChosen == "sora" ? "arcelia": "sora");
+        base.photonView.RPC("rpcAvatar", RpcTarget.OthersBuffered, avatarChosen == "sora" ? "arcelia" : "sora");
         loadImageWaitingRoom();
         changeMessageEnd();
     }
@@ -167,7 +170,8 @@ public class RoomJoiner : MonoBehaviourPunCallbacks
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayerGM)
     {
         Debug.Log("Se sale");
-        otherPlayer.color = new Color(otherPlayer.color.r, otherPlayer.color.g, otherPlayer.color.b, 0.0f);
+        if (otherPlayer != null)
+            otherPlayer.color = new Color(otherPlayer.color.r, otherPlayer.color.g, otherPlayer.color.b, 0.0f);
         changeMessageStart();
         PhotonNetwork.CurrentRoom.IsOpen = true;
         PhotonNetwork.CurrentRoom.IsVisible = true;

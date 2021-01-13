@@ -10,14 +10,6 @@ public class MovementsManager : MonoBehaviour
     public float time = 1.0f;
     private bool usedMov;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(key) && usedMov == false)
@@ -33,6 +25,16 @@ public class MovementsManager : MonoBehaviour
             {
                 usedMov = false;
             }
+        }
+    }
+
+
+    public void Pushed()
+    {
+        if (usedMov == false)
+        {
+            cooldown.fillAmount = 0;
+            usedMov = true;
         }
     }
 }

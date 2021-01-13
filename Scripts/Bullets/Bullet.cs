@@ -73,11 +73,29 @@ public class Bullet : NetworkBehaviour
                 if(other.TryGetComponent(out Slime slime))
                 {
                     other.GetComponent<Slime>().NextSlime();
+                    if(other.GetComponent<Slime>().level == 3)
+                    {
+                        if(Random.Range(0, 7) == 0)
+                        {
+                            PhotonNetwork.Instantiate("CornItem", new Vector3(transform.position.x, 1, transform.position.y), Quaternion.identity);
+                        }
+                    }
                 }
 
                 if (other.GetComponent<Enemy>().boss)
                 {
-                    MapController.RUNNING.mapRenderer.rendered.Add(PhotonNetwork.Instantiate("Rooms/FloorStairs", new Vector3(0, 0.01f, 0), Quaternion.identity));
+                    foreach (GameObject gObj in GameObject.FindGameObjectsWithTag("Enemy"))
+                    {
+                        PhotonNetwork.Destroy(gObj);
+                        MapController.RUNNING.EnemyEliminated();
+                    }
+
+                    MapController.RUNNING.mapRenderer.SpawnStairsAfterDelay(2);
+                }
+
+                if(other.name == "Nomed(Clone)")
+                {
+                    DisconnectManager.INSTANCE.GetComponent<PhotonView>().RPC("VictoryEndGame", RpcTarget.AllBuffered);
                 }
 
                 MapController.RUNNING.EnemyEliminated();

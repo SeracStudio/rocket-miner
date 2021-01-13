@@ -45,7 +45,16 @@ public class MapEnemyFiller : MonoBehaviour
         while (totalDanger > 0)
         {
             EnemySpawnStats enemy = floorsPool[floor][Random.Range(0, floorsPool[floor].Count)];
+
+            bool containsGuardEye = false;
+            foreach(EnemySpawnStats spawnedEnemy in randomEnemies)
+            {
+                if (spawnedEnemy.isGuardEye) containsGuardEye = true;
+            }
+
+            if (enemy.isGuardEye && containsGuardEye) continue;
             if (totalDanger - enemy.danger < 0) continue;
+
             totalDanger -= enemy.danger;
             randomEnemies.Add(enemy);
         }

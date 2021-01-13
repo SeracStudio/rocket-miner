@@ -112,6 +112,11 @@ public class MapController : MonoBehaviour
                 //mapRenderer.loadedRoom.OpenDoor(opening);
                 mapRenderer.loadedRoom.GetComponent<PhotonView>().RPC("OpenDoor", RpcTarget.AllBuffered, opening);
                 currentRoom.cleared = true;
+
+                foreach(GameObject gObj in GameObject.FindGameObjectsWithTag("DestroyOnRoomClear"))
+                {
+                    PhotonNetwork.Destroy(gObj);
+                }
             }
         }
     }

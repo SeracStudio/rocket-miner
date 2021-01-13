@@ -13,7 +13,7 @@ public class Player : NetworkBehaviour
     private float dirY;
     private Vector2 lastDirection;
 
-    public bool dash=false;
+    public bool dash = false;
 
     private float slownessTime = 0;
     private float slownessCd;
@@ -30,9 +30,25 @@ public class Player : NetworkBehaviour
     private float knockTime = 0;
     private float knockCd = 1f;
 
+    protected FloatingJoystick movementJoystick;
+    protected FloatingJoystick spinJoystick;
+
     // Start is called before the first frame update
     public virtual void Start()
     {
+        movementJoystick = GameObject.Find("MovementJoystick").GetComponent<FloatingJoystick>();
+        spinJoystick = GameObject.Find("DirJoystick").GetComponent<FloatingJoystick>();
+
+        
+        if (!Application.isMobilePlatform)
+        {
+            //Instantiate(GameObject.CreatePrimitive(PrimitiveType.Cube), new Vector3(0, 2, 0), Quaternion.identity);
+            //if (movementJoystick != null)
+                //Destroy(movementJoystick.gameObject);
+            //if (spinJoystick != null)
+                //Destroy(spinJoystick.gameObject);
+        }
+
         rigidBody = this.GetComponent<Rigidbody>();
         stats = this.GetComponent<StatsController>();
         stats.GetStat(Stat.MOV_SPEED);
@@ -94,8 +110,9 @@ public class Player : NetworkBehaviour
         Move();
     }
 
-    public virtual void Attacked(float amount) { 
-        
+    public virtual void Attacked(float amount)
+    {
+
     }
 
     public virtual void Poisoned(float amount)
@@ -110,19 +127,33 @@ public class Player : NetworkBehaviour
         slowness = true;
     }
 
-    public virtual void Stunned(float amount,float duration)
+    public virtual void Stunned(float amount, float duration)
     {
         if (!stunned)
         {
             stunCd = duration;
             stunned = true;
-        } 
+        }
     }
 
     private void Rotation()
     {
-        Vector3 mouse = Vector3.RotateTowards(transform.forward, getMouse(), Time.deltaTime * 10, 0.0f);
-        mouse.y = 0;
+        if (!isMine) return;
+
+        Vector3 mouse;
+
+        if (!Application.isMobilePlatform)
+        {
+            mouse = Vector3.RotateTowards(transform.forward, getMouse(), Time.deltaTime * 10, 0.0f);
+            mouse.y = 0;
+        }
+        else
+        {
+            float dirX = spinJoystick.Horizontal;
+            float dirZ = spinJoystick.Vertical;
+            mouse = Vector3.RotateTowards(transform.forward, new Vector3(dirX, 0, dirZ), Time.deltaTime * 10, 0.0f);
+            mouse.y = 0;
+        }
         transform.rotation = Quaternion.LookRotation(mouse);
     }
 
@@ -146,8 +177,9 @@ public class Player : NetworkBehaviour
     {
         if (!dash && !stunned && !knock)
         {
-            rigidBody.velocity = new Vector3(direction.x * (stats.GetStat(Stat.MOV_SPEED)/slownessF), 0, direction.y * (stats.GetStat(Stat.MOV_SPEED)/slownessF));
-        }else if (stunned && !knock)
+            rigidBody.velocity = new Vector3(direction.x * (stats.GetStat(Stat.MOV_SPEED) / slownessF), 0, direction.y * (stats.GetStat(Stat.MOV_SPEED) / slownessF));
+        }
+        else if (stunned && !knock)
         {
             rigidBody.velocity = Vector3.zero;
         }
@@ -155,8 +187,19 @@ public class Player : NetworkBehaviour
 
     void Inputs()
     {
-        dirX = Input.GetAxisRaw("Vertical");
-        dirY = Input.GetAxisRaw("Horizontal");
+        if (!isMine) return;
+
+        if (!Application.isMobilePlatform)
+        {
+            dirX = Input.GetAxisRaw("Vertical");
+            dirY = Input.GetAxisRaw("Horizontal");
+        }
+        else
+        {
+            dirX = movementJoystick.Vertical;
+            dirY = movementJoystick.Horizontal;
+        }
+
 
         if (inversed)
         {
@@ -165,7 +208,8 @@ public class Player : NetworkBehaviour
         }
 
         direction = new Vector2(dirY, dirX);
-        if(direction.x!=0.0f || direction.y != 0.0f)
+        direction.Normalize();
+        if (direction.x != 0.0f || direction.y != 0.0f)
         {
             lastDirection = direction;
         }

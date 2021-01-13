@@ -21,6 +21,8 @@ public class Battery235 : MonoBehaviour
 
     private void Effect()
     {
+        if (MapController.RUNNING.currentRoom.cleared) return;
+
         //float currentHealth = stats.GetStat(Stat.HEALTH);
         //stats.SetStat(Stat.HEALTH, currentHealth - 5);
         stats.ChangeStat(Stat.HEALTH, -5);

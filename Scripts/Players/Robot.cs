@@ -174,7 +174,7 @@ public class Robot : Player
 
         if (!other.TryGetComponent(out Bullet bullet)) return;
         if (bullet.playerShoot == 0) return;
-
+        /*
         if (!bullet.effects.Contains(new BulletEffect { effect = BEffects.SPECIAL }))
         {
             if (TryGetComponent(out ReflectingMirror reflector) && shield)
@@ -190,6 +190,16 @@ public class Robot : Player
         {
             if(shield)
                 bullet.TriggerRPC("Destroy");
+        }*/
+
+        if (TryGetComponent(out ReflectingMirror reflector) && shield)
+        {
+            reflector.Effect(other.gameObject);
+        }
+        else
+        {
+            if (shield)
+                bullet.TriggerRPC("Destroy");
         }
     }
 
@@ -201,6 +211,7 @@ public class Robot : Player
         if (!other.TryGetComponent(out Bullet bullet)) return;
         if (bullet.playerShoot == 0) return;
 
+        /*
         if (!bullet.effects.Contains(new BulletEffect { effect = BEffects.SPECIAL }))
         {
             if (TryGetComponent(out ReflectingMirror reflector) && shield)
@@ -216,6 +227,34 @@ public class Robot : Player
         {
             if (shield)
                 bullet.TriggerRPC("Destroy");
+        }*/
+        if (TryGetComponent(out ReflectingMirror reflector) && shield)
+        {
+            reflector.Effect(other.gameObject);
         }
+        else
+        {
+            if (shield)
+                bullet.TriggerRPC("Destroy");
+        }
+    }
+
+    public void OnShieldActionPhone()
+    {
+        shield = true;
+        anim.SetBool("defense", true);
+        TriggerRPC("Shield", RpcTarget.MasterClient);
+    }
+
+    public void OffShieldActionPhone()
+    {
+        shield = false;
+        anim.SetBool("defense", false);
+        TriggerRPC("ReleaseShield", RpcTarget.MasterClient);
+    }
+
+    public void PunchActionPhone()
+    {
+        TriggerRPC("Punch", RpcTarget.MasterClient);
     }
 }
