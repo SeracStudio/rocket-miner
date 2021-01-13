@@ -33,7 +33,7 @@ public class Enemy : NetworkBehaviour
 
     public bool boss = false;
 
-    public bool canMove=true;
+    public bool canMove = true;
 
     public bool colmena = false;
     public bool NoColmena = true;
@@ -43,6 +43,8 @@ public class Enemy : NetworkBehaviour
     public virtual void Update()
     {
         if (!isOnMaster) return;
+
+        if (tgt == null) Destroy(this);
 
         checkStun();
         checkShoot();
@@ -148,7 +150,7 @@ public class Enemy : NetworkBehaviour
             if (NoColmena)
             {
                 shieldOff();
-            }  
+            }
         }
         else
         {
@@ -171,7 +173,7 @@ public class Enemy : NetworkBehaviour
                 tgt.Attacked(stats.GetStat(Stat.SHOT_DMG) / 2);
 
         {      */
-        if (collision.gameObject.tag=="GIRL" && !boss)
+        if (collision.gameObject.tag == "GIRL" && !boss)
         {
             rigidbody.isKinematic = true;
             collision.gameObject.GetComponent<Player>().Attacked(stats.GetStat(Stat.SHOT_DMG));
@@ -196,7 +198,7 @@ public class Enemy : NetworkBehaviour
         }*/
         if (collision.gameObject.tag == "GIRL" && !boss)
         {
-            rigidbody.isKinematic = false;         
+            rigidbody.isKinematic = false;
         }
 
 

@@ -11,11 +11,12 @@ public class CameraMover : MonoBehaviour
 
     private float startTime;
 
-
+    public Texture2D cursor;
     // Start is called before the first frame update
     void Awake()
     {
         RUNNING = this;
+        Cursor.SetCursor(cursor, new Vector2(cursor.width / 2, cursor.height / 2), CursorMode.Auto);
     }
 
     // Update is called once per frame

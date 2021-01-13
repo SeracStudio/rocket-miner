@@ -94,6 +94,12 @@ public class MapRenderer : MonoBehaviour
                 float randomX = Random.Range(-4, 4);
                 float randomY = Random.Range(-4, 4);
 
+                if (enemy.isGuardEye)
+                {
+                    randomX = 0;
+                    randomY = 0;
+                }
+
                 EnemySpawnStats enemySpawned = PhotonNetwork.Instantiate("Enemies/EnemySet/" + enemy.name,
                     new Vector3(randomX, 0, randomY), Quaternion.identity).GetComponent<EnemySpawnStats>();
                 loadedRoom.spawnedEnemies.Add(enemySpawned);
@@ -107,5 +113,16 @@ public class MapRenderer : MonoBehaviour
             if (enemy.isSlime) MapController.RUNNING.enemiesLeft += 6;
             enemy.GetComponent<EnemySpawnStats>().OnDeath += MapController.RUNNING.EnemyEliminated;
         }
+    }
+
+    public void SpawnStairsAfterDelay(float delay)
+    {
+        StartCoroutine(SpawnStairsAfterDelayCoroutine(delay));
+    }
+
+    IEnumerator SpawnStairsAfterDelayCoroutine(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        rendered.Add(PhotonNetwork.Instantiate("Rooms/FloorStairs", new Vector3(0, 0.01f, 0), Quaternion.identity));
     }
 }

@@ -37,15 +37,20 @@ public class BulletController : MonoBehaviour
     public List<BulletEffect> bulletEffects;
     public Action<Bullet, Vector3, Vector3, List<BulletEffect>> OnBulletShot;
 
+    private FloatingJoystick spinJoystick;
+
+    public Vector3 mousePos;
+
     void Start()
     {
+        spinJoystick = GameObject.Find("DirJoystick").GetComponent<FloatingJoystick>();
         stats = this.GetComponent<StatsController>();
     }
 
-    public Vector3 dirCalculate(Vector3 pos)
+    public Vector3 dirCalculate(Vector3 pos, Vector3 mousePosition)
     {
         Vector3 target = new Vector3(0, 0, 0);
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Default")))
         {
@@ -68,16 +73,27 @@ public class BulletController : MonoBehaviour
         aux.effects = bulletEffects;
         aux.transform.localScale *= stats.GetStat(Stat.SHOT_SIZE);
 
-        if(aux.playerShoot == 1)
+        if (aux.playerShoot == 1)
         {
             aux.magnetGun = false;
         }
 
         if (stats.GetStat(Stat.IS_PLAYER) == 0)
         {
-            Vector3 dir = dirCalculate(pos);
-            if (dir.x != 0 && dir.y != 0 && dir.z != 0)
+            Vector3 dir = dirA;
+
+            if (!Application.isMobilePlatform)
             {
+                dir = dirCalculate(pos, mousePos);
+            }
+            else
+            {
+                dir = new Vector3(spinJoystick.Horizontal, 0, spinJoystick.Vertical);
+            }
+
+            if (dir.x != 0 ||/*&& dir.y != 0 &&*/ dir.z != 0)
+            {
+                dir.Normalize();
                 aux.dir = dir;
                 aux.rain = false;
                 if (evergun)
@@ -114,7 +130,7 @@ public class BulletController : MonoBehaviour
             else
             {
                 aux.rain = false;
-            }         
+            }
         }
     }
 }

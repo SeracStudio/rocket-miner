@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,11 @@ using UnityEngine.UI;
 public class ItemPopUp : MonoBehaviour
 {
     public Text itemName, itemDesc;
+
+    private void Awake()
+    {
+        MapController.RUNNING.OnRoomLoaded += () => { PhotonNetwork.Destroy(gameObject); };
+    }
 
     public void SetAndLaunch(string name, string desc)
     {

@@ -47,6 +47,11 @@ public class StatsController : MonoBehaviour
             GetComponentInChildren<EnemyShield>().TriggerRPC("SetActiveState", RpcTarget.AllBuffered, false);
         }
 
+        if (stat == Stat.HEALTH && CompareTag("GIRL"))
+        {
+            FindObjectOfType<LifeBarController>().UpdateLifeBar(Stat.HEALTH, GetStat(Stat.HEALTH));
+        }
+
         OnStatChanged?.Invoke(stat, value);
         foreach(StatPair listStat in stats)
         {

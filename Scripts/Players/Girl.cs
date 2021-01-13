@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Girl : Player
 {
@@ -10,9 +11,9 @@ public class Girl : Player
     private float defTime = 0;
 
     private float ofTime = 0;
-    private bool canShoot=false;
+    private bool canShoot = false;
 
-    private float cd=0.75f;
+    private float cd = 0.75f;
 
     public bool magnetGun = false;
 
@@ -38,7 +39,7 @@ public class Girl : Player
 
     public override void Update()
     {
-        if (!isMine) return;
+     
 
         base.Update();
 
@@ -50,7 +51,7 @@ public class Girl : Player
     }
 
     public override void Attacked(float damageAmount)
-    {    
+    {
         if (canBeAttacked || poison)
         {
             base.Attacked(damageAmount);
@@ -62,15 +63,16 @@ public class Girl : Player
             canBeAttacked = false;
             if (stats.GetStat(Stat.HEALTH) <= 0)
             {
-                if(TryGetComponent(out LuckyTrinket trinket))
+                if (TryGetComponent(out LuckyTrinket trinket))
                 {
                     trinket.Effect();
                 }
                 else
                 {
+                    DisconnectManager.INSTANCE.GetComponent<PhotonView>().RPC("EndGame", RpcTarget.AllBuffered);
+                    //TriggerRPC(nameof(EndGame), RpcTarget.AllBuffered);
                     PhotonNetwork.Destroy(gameObject);
                 }
-                //Acabar el juego
             }
         }
     }
@@ -82,7 +84,7 @@ public class Girl : Player
     }
 
     public override void Poisoned(float amount)
-    {     
+    {
         if (canBeAttacked)
         {
             base.Poisoned(amount);
@@ -141,7 +143,7 @@ public class Girl : Player
         if (canShoot)
         {
             ofTime += Time.deltaTime;
-            if (ofTime > 1f/stats.GetStat(Stat.SHOTS_P_SECOND))
+            if (ofTime > 1f / stats.GetStat(Stat.SHOTS_P_SECOND))
             {
                 ofTime = 0;
                 pbc.Shoot(shotSpawnPoint.position, getLookingDirection());
@@ -162,39 +164,81 @@ public class Girl : Player
             }
         }
 
-        if(defTime > 0)
+        if (defTime > 0)
         {
             defTime += Time.deltaTime;
             if (defTime > cd)
             {
                 defTime = 0;
-                nDash =stats.GetStat(Stat.N_DASH);
+                nDash = stats.GetStat(Stat.N_DASH);
             }
         }
     }
 
     private void InputsG()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && nDash>0)
-        {
-            nDash -= 1;
-            Dash();
-        }
+        if (!isMine) return;
 
-        if (Input.GetKey(KeyCode.Space))
+        if (!Application.isMobilePlatform)
         {
-            canShoot = true;
-        }
+            if (Input.GetKeyDown(KeyCode.LeftShift) && nDash > 0)
+            {
+                //Dash();
+                TriggerRPC("Dash", RpcTarget.AllBuffered);
+            }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
+            {
+                //canShoot = true;
+                TriggerRPC("ShootTrue", RpcTarget.MasterClient, Input.mousePosition);
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                //canShoot = false;
+                //ofTime = 0;
+                TriggerRPC("ShootFalse", RpcTarget.MasterClient);
+            }
+        }
+        else
         {
-            canShoot = false;
-            ofTime = 0;
+            if (spinJoystick.Vertical != 0.0f && spinJoystick.Horizontal != 0.0f)
+            {
+                //canShoot = true;
+                TriggerRPC(nameof(ShootTrue), RpcTarget.MasterClient);
+            }
+            else
+            {
+                /*
+                canShoot = false;
+                ofTime = 0;
+                */
+                TriggerRPC(nameof(ShootFalse), RpcTarget.MasterClient);
+            }
         }
     }
 
-    private void Dash()
+    [PunRPC]
+    public void ShootTrue(Vector3 mousePos)
     {
+        Debug.Log(mousePos);
+        pbc.mousePos = mousePos;
+
+        canShoot = true;
+    }
+
+    [PunRPC]
+    public void ShootFalse()
+    {
+        canShoot = false;
+        ofTime = 0;
+    }
+
+    [PunRPC]
+    public void Dash()
+    {
+        nDash -= 1;
+
         if (nDash == 0)
         {
             changeDashCd();
@@ -205,7 +249,7 @@ public class Girl : Player
         }
         dash = true;
         defTime += 0.01f;
-        rigidBody.velocity = new Vector3(rigidBody.velocity.x*3f,0,rigidBody.velocity.z*3f);
+        rigidBody.velocity = new Vector3(rigidBody.velocity.x * 3f, 0, rigidBody.velocity.z * 3f);
     }
 
     private void changeDashCd()
@@ -217,5 +261,17 @@ public class Girl : Player
     {
         cd = stats.GetStat(Stat.DEFENSIVE_CD);
     }
+
+    public void DashActionPhone()
+    {
+        /*
+        if (nDash > 0)
+        {
+            nDash -= 1;
+            Dash();
+        }*/
+        TriggerRPC(nameof(Dash), RpcTarget.MasterClient);
+    }
+
 
 }

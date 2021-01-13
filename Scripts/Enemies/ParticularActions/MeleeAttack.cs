@@ -39,6 +39,8 @@ public class MeleeAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (tgt == null) return;
+
         distance = Vector3.Distance(tgt.transform.position, transform.position);
         if (distance < 2)
         {
